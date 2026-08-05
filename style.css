@@ -221,3 +221,208 @@
     0 0 20px rgba(212,175,55,.18);
 
 }
+/*=========================================
+                HERO
+=========================================*/
+
+.hero{
+
+    width:92%;
+    max-width:1450px;
+
+    margin:70px auto 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:80px;
+
+    min-height:75vh;
+
+}
+
+
+/*=============================
+        LEFT SIDE
+==============================*/
+
+.hero-left{
+
+    flex:1;
+
+}
+
+.hero-tag{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.03);
+
+    color:#D4AF37;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    margin-bottom:30px;
+
+}
+
+.hero-left h1{
+
+    font-size:72px;
+
+    line-height:1.05;
+
+    font-weight:700;
+
+    color:#F5F5F5;
+
+    margin-bottom:30px;
+
+}
+
+.hero-left p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#AAB4C4;
+
+    max-width:620px;
+
+    margin-bottom:45px;
+
+}
+
+
+/*=============================
+        BUTTONS
+==============================*/
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.btn-secondary{
+
+    text-decoration:none;
+
+    color:#F5F5F5;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.03);
+
+    padding:16px 34px;
+
+    border-radius:18px;
+
+    transition:.35s;
+
+}
+
+.btn-secondary:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+
+/*=============================
+        RIGHT SIDE
+==============================*/
+
+.hero-right{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:35px;
+
+}
+
+
+/* Aluminium M Placeholder */
+
+.hero-monarch{
+
+    width:360px;
+
+    height:360px;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02));
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:
+    0 30px 60px rgba(0,0,0,.35);
+
+}
+
+
+/* Glass Card */
+
+.hero-card{
+
+    width:320px;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(25px);
+
+    text-align:center;
+
+}
+
+.hero-card h3{
+
+    color:#F5F5F5;
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+}
+
+.hero-card p{
+
+    color:#AAB4C4;
+
+    line-height:1.8;
+
+}
