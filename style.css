@@ -290,7 +290,9 @@ ul{
     width:92%;
     max-width:1450px;
 
-    margin:70px auto 0;
+    margin:100px auto 0;
+
+    min-height:calc(100vh - 140px);
 
     display:flex;
 
@@ -298,12 +300,9 @@ ul{
 
     align-items:center;
 
-    gap:80px;
-
-    min-height:75vh;
+    gap:100px;
 
 }
-
 
 /*=============================
         LEFT SIDE
@@ -339,29 +338,31 @@ ul{
 
 .hero-left h1{
 
-    font-size:72px;
+    font-size:84px;
 
-    line-height:1.05;
+    line-height:1.02;
 
     font-weight:700;
 
+    letter-spacing:-2px;
+
     color:#F5F5F5;
 
-    margin-bottom:30px;
+    margin-bottom:32px;
 
 }
 
 .hero-left p{
 
+    max-width:600px;
+
     font-size:20px;
 
-    line-height:1.8;
+    line-height:1.9;
 
-    color:#AAB4C4;
+    color:#98A4B8;
 
-    max-width:620px;
-
-    margin-bottom:45px;
+    margin-bottom:48px;
 
 }
 
@@ -411,15 +412,15 @@ ul{
 
     flex:1;
 
+    position:relative;
+
     display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
 
     justify-content:center;
 
-    gap:35px;
+    align-items:center;
+
+    min-height:650px;
 
 }
 
@@ -474,15 +475,15 @@ ul{
 
     position:absolute;
 
-    bottom:35px;
+    bottom:50px;
 
-    right:-20px;
+    right:0;
 
-    width:290px;
+    width:300px;
 
-    padding:28px;
+    padding:30px;
 
-    border-radius:28px;
+    border-radius:30px;
 
     background:rgba(255,255,255,.05);
 
@@ -491,10 +492,11 @@ ul{
     backdrop-filter:blur(30px);
 
     box-shadow:
-    0 25px 50px rgba(0,0,0,.30);
+    0 30px 60px rgba(0,0,0,.35);
+
+    z-index:2;
 
 }
-
 .hero-card h3{
 
     color:#F5F5F5;
