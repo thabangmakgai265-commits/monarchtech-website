@@ -559,3 +559,273 @@ ul{
     animation:floating 6s ease-in-out infinite;
 
 }
+/*=========================================
+            COLLECTION
+=========================================*/
+
+.collection{
+
+    width:92%;
+    max-width:1450px;
+
+    margin:180px auto;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:90px;
+
+}
+
+.section-title span{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.03);
+
+    color:#D4AF37;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.section-title h2{
+
+    font-size:60px;
+
+    color:#F5F5F5;
+
+    margin-bottom:25px;
+
+    letter-spacing:-1px;
+
+}
+
+.section-title p{
+
+    max-width:620px;
+
+    margin:auto;
+
+    color:#98A4B8;
+
+    line-height:1.9;
+
+    font-size:19px;
+
+}
+/*=========================================
+            COLLECTION GRID
+=========================================*/
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+.collection-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:34px;
+
+    backdrop-filter:blur(30px);
+
+    padding:28px;
+
+    transition:.45s ease;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.collection-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.04),
+        transparent 45%
+    );
+
+    pointer-events:none;
+
+}
+
+.collection-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:rgba(212,175,55,.25);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.35),
+    0 0 35px rgba(212,175,55,.08);
+
+}
+
+.collection-image{
+
+    height:280px;
+
+    border-radius:24px;
+
+    margin-bottom:28px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.30);
+
+}.collection-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.15),
+        transparent 30%,
+        transparent 70%,
+        rgba(0,0,0,.25)
+    );
+
+}
+
+.collection-image::after{
+
+    content:"Portfolio Preview";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:rgba(255,255,255,.80);
+
+    font-size:20px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+}
+
+.collection-card h3{
+
+    font-size:28px;
+
+    color:#F5F5F5;
+
+    margin-bottom:14px;
+
+}
+
+.collection-card p{
+
+    color:#98A4B8;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+/*=========================================
+        COLLECTION THEMES
+=========================================*/
+
+.collection-card:nth-child(1) .collection-image{
+
+    background:
+    linear-gradient(
+    145deg,
+    #4B2E83,
+    #2A1B4F);
+
+}
+
+.collection-card:nth-child(2) .collection-image{
+
+    background:
+    linear-gradient(
+    145deg,
+    #6D1A36,
+    #34111F);
+
+}
+
+.collection-card:nth-child(3) .collection-image{
+
+    background:
+    linear-gradient(
+    145deg,
+    #1B1B1B,
+    #050505);
+
+}
+/*=========================================
+        COLLECTION BUTTON
+=========================================*/
+
+.collection-card .view-theme{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:26px;
+
+    color:#D4AF37;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s ease;
+
+}
+
+.collection-card:hover .view-theme{
+
+    transform:translateX(8px);
+
+}
