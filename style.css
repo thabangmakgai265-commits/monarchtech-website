@@ -1017,3 +1017,52 @@ transparent 25%
     width:70%;
 
 }
+.mini-hero h5{
+
+    color:white;
+
+    font-size:11px;
+
+    margin-top:8px;
+
+    margin-bottom:4px;
+
+}
+
+.mini-hero span{
+
+    color:#B7C0D3;
+
+    font-size:8px;
+
+}
+
+.mini-card{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:9px;
+
+    font-weight:600;
+
+}
+
+.mini-section small{
+
+    display:block;
+
+    text-align:center;
+
+    color:#9AA5BA;
+
+    font-size:8px;
+
+    margin-top:8px;
+
+}
