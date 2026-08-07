@@ -725,29 +725,22 @@ ul{
     );
 
 }
-
 .collection-image::after{
 
-    content:"Portfolio Preview";
+content:"";
 
-    position:absolute;
+position:absolute;
 
-    top:50%;
+inset:0;
 
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    color:rgba(255,255,255,.80);
-
-    font-size:20px;
-
-    font-weight:600;
-
-    letter-spacing:1px;
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,.10),
+transparent 25%
+);
 
 }
-
 .collection-card h3{
 
     font-size:28px;
