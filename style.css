@@ -934,7 +934,7 @@ background:rgba(255,255,255,.04);
 
 }
 
-.mini-avatar{
+.collection-card:nth-child(1) .mini-avatar{
 
     width:58px;
     height:58px;
