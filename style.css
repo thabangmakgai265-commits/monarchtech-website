@@ -887,7 +887,7 @@ transparent 25%
     align-items:center;
 
     padding:0 12px;
-
+background:rgba(255,255,255,.04);
     border-bottom:1px solid rgba(255,255,255,.05);
 
 }
@@ -936,12 +936,19 @@ transparent 25%
 
 .mini-avatar{
 
-    width:55px;
-    height:55px;
+    width:58px;
+    height:58px;
 
     border-radius:50%;
 
-    background:#D4AF37;
+    background:linear-gradient(
+        145deg,
+        #A770EF,
+        #6A3CCF
+    );
+
+    box-shadow:
+        0 0 18px rgba(167,112,239,.45);
 
     margin-bottom:12px;
 
@@ -987,9 +994,23 @@ transparent 25%
 
     height:55px;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    background:#1C2331;
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:9px;
+
+    font-weight:600;
 
 }
 
@@ -1036,23 +1057,6 @@ transparent 25%
     font-size:8px;
 
 }
-
-.mini-card{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:white;
-
-    font-size:9px;
-
-    font-weight:600;
-
-}
-
 .mini-section small{
 
     display:block;
