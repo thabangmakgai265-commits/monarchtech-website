@@ -1531,7 +1531,6 @@ ul{
         min-height:auto;
 
     }
-
 }
 /*=========================================
             WHY MONARCH
@@ -1545,7 +1544,6 @@ ul{
     margin:180px auto;
 
 }
-
 
 /* Section heading */
 
@@ -1680,7 +1678,6 @@ ul{
 
 }
 
-
 /* Number */
 
 .why-icon{
@@ -1713,7 +1710,6 @@ ul{
 
 }
 
-
 /* Card title */
 
 .why-card h3{
@@ -1727,7 +1723,6 @@ ul{
     margin-bottom:16px;
 
 }
-
 
 /* Card paragraph */
 
@@ -1751,12 +1746,12 @@ ul{
 .process{
 
     width:92%;
+
     max-width:1450px;
 
     margin:180px auto;
 
 }
-
 
 /* Heading */
 
@@ -1827,7 +1822,7 @@ ul{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:25px;
 
@@ -1839,13 +1834,15 @@ ul{
 
     display:flex;
 
+    flex-direction:column;
+
     align-items:flex-start;
 
-    gap:25px;
+    gap:22px;
 
     padding:35px;
 
-    min-height:190px;
+    min-height:250px;
 
     border-radius:30px;
 
@@ -1897,7 +1894,6 @@ ul{
 
 }
 
-
 /* Step number */
 
 .process-number{
@@ -1935,7 +1931,6 @@ ul{
     letter-spacing:1px;
 
 }
-
 
 /* Process content */
 
@@ -1982,12 +1977,11 @@ ul{
 
     .process-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,1fr);
 
     }
 
 }
-
 
 @media(max-width:700px){
 
@@ -2000,7 +1994,8 @@ ul{
 
     }
 
-    .why-grid{
+    .why-grid,
+    .process-grid{
 
         grid-template-columns:1fr;
 
