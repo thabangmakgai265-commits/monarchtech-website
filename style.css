@@ -1533,3 +1533,511 @@ ul{
     }
 
 }
+/*=========================================
+            WHY MONARCH
+=========================================*/
+
+.why-monarch{
+
+    width:92%;
+    max-width:1450px;
+
+    margin:180px auto;
+
+}
+
+
+/* Section heading */
+
+.why-monarch .section-title{
+
+    text-align:center;
+
+    margin-bottom:80px;
+
+}
+
+.why-monarch .section-title span{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.03);
+
+    color:#D4AF37;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.why-monarch .section-title h2{
+
+    font-size:60px;
+
+    line-height:1.1;
+
+    color:#F5F5F5;
+
+    margin-bottom:25px;
+
+    letter-spacing:-1px;
+
+}
+
+.why-monarch .section-title p{
+
+    max-width:620px;
+
+    margin:auto;
+
+    color:#98A4B8;
+
+    line-height:1.9;
+
+    font-size:19px;
+
+}
+
+
+/*=========================================
+            WHY CARDS
+=========================================*/
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.why-card{
+
+    position:relative;
+
+    padding:35px 30px;
+
+    min-height:250px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(30px);
+
+    -webkit-backdrop-filter:blur(30px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+    transition:.4s ease;
+
+    overflow:hidden;
+
+}
+
+.why-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        transparent 55%
+    );
+
+    pointer-events:none;
+
+}
+
+.why-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(212,175,55,.22);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.35),
+    0 0 30px rgba(212,175,55,.06);
+
+}
+
+
+/* Number */
+
+.why-icon{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:15px;
+
+    margin-bottom:28px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.18);
+
+    color:#D4AF37;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+
+/* Card title */
+
+.why-card h3{
+
+    position:relative;
+
+    font-size:22px;
+
+    color:#F5F5F5;
+
+    margin-bottom:16px;
+
+}
+
+
+/* Card paragraph */
+
+.why-card p{
+
+    position:relative;
+
+    color:#98A4B8;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+
+/*=========================================
+            HOW IT WORKS
+=========================================*/
+
+.process{
+
+    width:92%;
+    max-width:1450px;
+
+    margin:180px auto;
+
+}
+
+
+/* Heading */
+
+.process .section-title{
+
+    text-align:center;
+
+    margin-bottom:80px;
+
+}
+
+.process .section-title span{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.03);
+
+    color:#D4AF37;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.process .section-title h2{
+
+    font-size:60px;
+
+    line-height:1.1;
+
+    color:#F5F5F5;
+
+    margin-bottom:25px;
+
+    letter-spacing:-1px;
+
+}
+
+.process .section-title p{
+
+    max-width:620px;
+
+    margin:auto;
+
+    color:#98A4B8;
+
+    line-height:1.9;
+
+    font-size:19px;
+
+}
+
+
+/*=========================================
+            PROCESS GRID
+=========================================*/
+
+.process-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.process-card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+    padding:35px;
+
+    min-height:190px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(30px);
+
+    -webkit-backdrop-filter:blur(30px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+    transition:.4s ease;
+
+    overflow:hidden;
+
+}
+
+.process-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        transparent 55%
+    );
+
+    pointer-events:none;
+
+}
+
+.process-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(212,175,55,.22);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.35),
+    0 0 30px rgba(212,175,55,.06);
+
+}
+
+
+/* Step number */
+
+.process-number{
+
+    position:relative;
+
+    flex-shrink:0;
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(212,175,55,.18),
+        rgba(212,175,55,.05)
+    );
+
+    border:1px solid rgba(212,175,55,.22);
+
+    color:#D4AF37;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+
+/* Process content */
+
+.process-content{
+
+    position:relative;
+
+    flex:1;
+
+}
+
+.process-content h3{
+
+    font-size:24px;
+
+    color:#F5F5F5;
+
+    margin-bottom:14px;
+
+}
+
+.process-content p{
+
+    color:#98A4B8;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+
+/*=========================================
+        RESPONSIVE - WHY & PROCESS
+=========================================*/
+
+@media(max-width:1100px){
+
+    .why-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .process-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .why-monarch,
+    .process{
+
+        width:90%;
+
+        margin:120px auto;
+
+    }
+
+    .why-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .why-monarch .section-title h2,
+    .process .section-title h2{
+
+        font-size:42px;
+
+    }
+
+    .why-monarch .section-title p,
+    .process .section-title p{
+
+        font-size:16px;
+
+    }
+
+    .why-card{
+
+        min-height:auto;
+
+    }
+
+    .process-card{
+
+        padding:28px;
+
+        gap:18px;
+
+    }
+
+    .process-content h3{
+
+        font-size:21px;
+
+    }
+
+}
