@@ -1107,3 +1107,75 @@ background:rgba(255,255,255,.04);
     margin-top:8px;
 
 }
+/*=========================================
+        PURPLE PORTFOLIO PREVIEW
+=========================================*/
+
+.collection-card:nth-child(1) .mini-logo{
+
+    background:#A770EF;
+
+}
+
+.collection-card:nth-child(1) .mini-title{
+
+    background:#E9DFFF;
+
+}
+
+.collection-card:nth-child(1) .mini-text{
+
+    background:#8066A8;
+
+}
+
+.collection-card:nth-child(1) .mini-card{
+
+    background:rgba(167,112,239,.14);
+
+    border:1px solid rgba(167,112,239,.22);
+
+}
+
+.collection-card:nth-child(1) .mini-line{
+
+    background:#5D4780;
+
+}
+
+
+/*=========================================
+        MAROON PORTFOLIO PREVIEW
+=========================================*/
+
+.collection-card:nth-child(2) .mini-logo{
+
+    background:#C56A82;
+
+}
+
+.collection-card:nth-child(2) .mini-title{
+
+    background:#F5D7DF;
+
+}
+
+.collection-card:nth-child(2) .mini-text{
+
+    background:#9A5A6D;
+
+}
+
+.collection-card:nth-child(2) .mini-card{
+
+    background:rgba(197,106,130,.14);
+
+    border:1px solid rgba(197,106,130,.22);
+
+}
+
+.collection-card:nth-child(2) .mini-line{
+
+    background:#754052;
+
+}
