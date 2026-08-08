@@ -9,25 +9,24 @@
 }
 
 html{
-
     scroll-behavior:smooth;
-
 }
 
 body{
-
     font-family:Inter, sans-serif;
 
     background:
     radial-gradient(
-    circle at top right,
-    rgba(212,175,55,.08),
-    transparent 35%),
+        circle at top right,
+        rgba(212,175,55,.08),
+        transparent 35%
+    ),
 
     radial-gradient(
-    circle at bottom left,
-    rgba(255,255,255,.03),
-    transparent 40%),
+        circle at bottom left,
+        rgba(255,255,255,.03),
+        transparent 40%
+    ),
 
     #070B13;
 
@@ -36,34 +35,27 @@ body{
     overflow-x:hidden;
 
     min-height:100vh;
-
 }
 
 img{
-
     max-width:100%;
-
     display:block;
-
 }
 
 a{
-
     text-decoration:none;
-
 }
 
 ul{
-
     list-style:none;
-
 }
+
+
 /*=========================================
             NAVIGATION
 =========================================*/
 
 .navbar{
-
     width:92%;
     max-width:1450px;
 
@@ -87,20 +79,18 @@ ul{
     border-radius:36px;
 
     box-shadow:
-    0 20px 50px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.06);
+        0 20px 50px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.06);
 
     position:relative;
 
     overflow:hidden;
-
 }
 
 
 /* Aluminium top highlight */
 
 .navbar::before{
-
     content:"";
 
     position:absolute;
@@ -112,73 +102,60 @@ ul{
     height:1px;
 
     background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.45),
-    transparent);
-
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
 }
 
 
-/*=============================
-            LOGO
-==============================*/
+/*=========================================
+                LOGO
+=========================================*/
 
 .logo{
-
     display:flex;
 
     align-items:center;
 
-    gap:16px;
-
+    gap:0;
 }
 
-.logo img{
-
-    width:52px;
-
-}
-
-.logo h2{
+.logo-main{
+    color:#F5F5F5;
 
     font-size:28px;
 
     font-weight:600;
 
     letter-spacing:1px;
-
-}
-
-.logo-main{
-
-    color:#F5F5F5;
-
 }
 
 .logo-tech{
-
     color:#D4AF37;
 
+    font-size:28px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
 }
 
 
-/*=============================
-        NAVIGATION LINKS
-==============================*/
+/*=========================================
+            NAVIGATION LINKS
+=========================================*/
 
 .nav-links{
-
     display:flex;
 
     list-style:none;
 
     gap:52px;
-
 }
 
 .nav-links a{
-
     color:#F5F5F5;
 
     text-decoration:none;
@@ -192,23 +169,17 @@ ul{
     position:relative;
 
     transition:all .35s ease;
-
 }
 
 .nav-links a:hover{
-
     color:#D4AF37;
-
 }
 
 .nav-links a.active{
-
     color:#D4AF37;
-
 }
 
 .nav-links a::after{
-
     content:"";
 
     position:absolute;
@@ -228,24 +199,19 @@ ul{
     transform:translateX(-50%);
 
     transition:.35s ease;
-
 }
 
 .nav-links a:hover::after,
-
 .nav-links a.active::after{
-
     width:100%;
-
 }
 
 
-/*=============================
-        BUTTON
-==============================*/
+/*=========================================
+                BUTTON
+=========================================*/
 
 .btn-primary{
-
     text-decoration:none;
 
     color:#111;
@@ -259,34 +225,33 @@ ul{
     border-radius:18px;
 
     background:linear-gradient(
-    180deg,
-    #E8CB74 0%,
-    #D7AE4D 45%,
-    #B88428 100%);
+        180deg,
+        #E8CB74 0%,
+        #D7AE4D 45%,
+        #B88428 100%
+    );
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.35);
+        0 10px 25px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.35);
 
     transition:all .35s ease;
-
 }
 
 .btn-primary:hover{
-
     transform:translateY(-3px);
 
     box-shadow:
-    0 16px 35px rgba(0,0,0,.35),
-    0 0 20px rgba(212,175,55,.18);
-
+        0 16px 35px rgba(0,0,0,.35),
+        0 0 20px rgba(212,175,55,.18);
 }
+
+
 /*=========================================
-                HERO
+                    HERO
 =========================================*/
 
 .hero{
-
     width:92%;
     max-width:1450px;
 
@@ -301,21 +266,18 @@ ul{
     align-items:center;
 
     gap:100px;
-
 }
 
-/*=============================
-        LEFT SIDE
-==============================*/
+
+/*=========================================
+                HERO LEFT
+=========================================*/
 
 .hero-left{
-
     flex:1;
-
 }
 
 .hero-tag{
-
     display:inline-block;
 
     padding:10px 18px;
@@ -333,11 +295,9 @@ ul{
     letter-spacing:2px;
 
     margin-bottom:30px;
-
 }
 
 .hero-left h1{
-
     font-size:84px;
 
     line-height:1.02;
@@ -349,11 +309,9 @@ ul{
     color:#F5F5F5;
 
     margin-bottom:32px;
-
 }
 
 .hero-left p{
-
     max-width:600px;
 
     font-size:20px;
@@ -363,24 +321,20 @@ ul{
     color:#98A4B8;
 
     margin-bottom:48px;
-
 }
 
 
-/*=============================
-        BUTTONS
-==============================*/
+/*=========================================
+                HERO BUTTONS
+=========================================*/
 
 .hero-buttons{
-
     display:flex;
 
     gap:20px;
-
 }
 
 .btn-secondary{
-
     text-decoration:none;
 
     color:#F5F5F5;
@@ -394,22 +348,20 @@ ul{
     border-radius:18px;
 
     transition:.35s;
-
 }
 
 .btn-secondary:hover{
-
     background:rgba(255,255,255,.08);
 
+    transform:translateY(-3px);
 }
 
 
-/*=============================
-        RIGHT SIDE
-==============================*/
+/*=========================================
+                HERO RIGHT
+=========================================*/
 
 .hero-right{
-
     flex:1;
 
     position:relative;
@@ -421,38 +373,36 @@ ul{
     align-items:center;
 
     min-height:650px;
-
 }
 
 
 /* Aluminium M Placeholder */
 
 .hero-monarch{
-
     position:relative;
 
     width:400px;
-
     height:400px;
 
     border-radius:42px;
 
     background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.08),
-    rgba(255,255,255,.02));
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.02)
+    );
 
     border:1px solid rgba(255,255,255,.08);
 
     backdrop-filter:blur(35px);
 
     box-shadow:
-    0 35px 70px rgba(0,0,0,.40);
+        0 35px 70px rgba(0,0,0,.40);
 
+    animation:floating 6s ease-in-out infinite;
 }
 
 .hero-monarch::before{
-
     content:"";
 
     position:absolute;
@@ -466,13 +416,14 @@ ul{
     );
 
     z-index:-1;
-
 }
 
-/* Glass Card */
+
+/*=========================================
+                HERO GLASS CARD
+=========================================*/
 
 .hero-card{
-
     position:absolute;
 
     bottom:50px;
@@ -492,50 +443,30 @@ ul{
     backdrop-filter:blur(30px);
 
     box-shadow:
-    0 30px 60px rgba(0,0,0,.35);
+        0 30px 60px rgba(0,0,0,.35);
 
     z-index:2;
-
-}
-.hero-card h3{
-
-    color:#F5F5F5;
-
-    font-size:22px;
-
-    margin-bottom:15px;
-
-}
-
-.hero-card p{
-
-    color:#AAB4C4;
-
-    line-height:1.8;
-
-    font-size:16px;
-
 }
 
 .hero-card h3{
-
     color:#F5F5F5;
 
     margin-bottom:18px;
 
     font-size:24px;
-
 }
 
 .hero-card p{
-
     color:#AAB4C4;
 
     line-height:1.8;
 
+    font-size:16px;
 }
+
+
 /*=========================================
-        FLOATING ANIMATION
+            FLOATING ANIMATION
 =========================================*/
 
 @keyframes floating{
@@ -551,37 +482,28 @@ ul{
     100%{
         transform:translateY(0px);
     }
-
 }
 
-.hero-monarch{
 
-    animation:floating 6s ease-in-out infinite;
-
-}
 /*=========================================
-            COLLECTION
+                COLLECTION
 =========================================*/
 
 .collection{
-
     width:92%;
+
     max-width:1450px;
 
     margin:180px auto;
-
 }
 
 .section-title{
-
     text-align:center;
 
     margin-bottom:90px;
-
 }
 
 .section-title span{
-
     display:inline-block;
 
     padding:10px 20px;
@@ -599,11 +521,9 @@ ul{
     font-size:13px;
 
     margin-bottom:22px;
-
 }
 
 .section-title h2{
-
     font-size:60px;
 
     color:#F5F5F5;
@@ -611,11 +531,9 @@ ul{
     margin-bottom:25px;
 
     letter-spacing:-1px;
-
 }
 
 .section-title p{
-
     max-width:620px;
 
     margin:auto;
@@ -625,24 +543,22 @@ ul{
     line-height:1.9;
 
     font-size:19px;
-
 }
+
+
 /*=========================================
             COLLECTION GRID
 =========================================*/
 
 .collection-grid{
-
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
 
     gap:35px;
-
 }
 
 .collection-card{
-
     background:rgba(255,255,255,.04);
 
     border:1px solid rgba(255,255,255,.08);
@@ -658,11 +574,9 @@ ul{
     overflow:hidden;
 
     position:relative;
-
 }
 
 .collection-card::before{
-
     content:"";
 
     position:absolute;
@@ -677,22 +591,31 @@ ul{
 
     pointer-events:none;
 
+    z-index:0;
+}
+
+.collection-card > *{
+    position:relative;
+
+    z-index:1;
 }
 
 .collection-card:hover{
-
     transform:translateY(-12px);
 
     border-color:rgba(212,175,55,.25);
 
     box-shadow:
-    0 30px 70px rgba(0,0,0,.35),
-    0 0 35px rgba(212,175,55,.08);
-
+        0 30px 70px rgba(0,0,0,.35),
+        0 0 35px rgba(212,175,55,.08);
 }
 
-.collection-image{
 
+/*=========================================
+            COLLECTION IMAGE
+=========================================*/
+
+.collection-image{
     height:280px;
 
     border-radius:24px;
@@ -706,10 +629,10 @@ ul{
     border:1px solid rgba(255,255,255,.08);
 
     box-shadow:
-    0 20px 45px rgba(0,0,0,.30);
+        0 20px 45px rgba(0,0,0,.30);
+}
 
-}.collection-image::before{
-
+.collection-image::before{
     content:"";
 
     position:absolute;
@@ -724,81 +647,85 @@ ul{
         rgba(0,0,0,.25)
     );
 
+    pointer-events:none;
+
+    z-index:5;
 }
+
 .collection-image::after{
+    content:"";
 
-content:"";
+    position:absolute;
 
-position:absolute;
+    inset:0;
 
-inset:0;
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.10),
+        transparent 25%
+    );
 
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.10),
-transparent 25%
-);
+    pointer-events:none;
 
+    z-index:5;
 }
-.collection-card h3{
 
+
+/*=========================================
+            COLLECTION CARD TEXT
+=========================================*/
+
+.collection-card h3{
     font-size:28px;
 
     color:#F5F5F5;
 
     margin-bottom:14px;
-
 }
 
 .collection-card p{
-
     color:#98A4B8;
 
     line-height:1.8;
 
     font-size:17px;
-
 }
+
+
 /*=========================================
-        COLLECTION THEMES
+            COLLECTION THEMES
 =========================================*/
 
 .collection-card:nth-child(1) .collection-image{
-
-    background:
-    linear-gradient(
-    145deg,
-    #4B2E83,
-    #2A1B4F);
-
+    background:linear-gradient(
+        145deg,
+        #4B2E83,
+        #2A1B4F
+    );
 }
 
 .collection-card:nth-child(2) .collection-image{
-
-    background:
-    linear-gradient(
-    145deg,
-    #6D1A36,
-    #34111F);
-
+    background:linear-gradient(
+        145deg,
+        #6D1A36,
+        #34111F
+    );
 }
 
 .collection-card:nth-child(3) .collection-image{
-
-    background:
-    linear-gradient(
-    145deg,
-    #1B1B1B,
-    #050505);
-
+    background:linear-gradient(
+        145deg,
+        #1B1B1B,
+        #050505
+    );
 }
+
+
 /*=========================================
-        COLLECTION BUTTON
+            COLLECTION BUTTON
 =========================================*/
 
 .collection-card .view-theme{
-
     display:inline-flex;
 
     align-items:center;
@@ -814,35 +741,43 @@ transparent 25%
     font-weight:600;
 
     transition:.35s ease;
-
 }
 
 .collection-card:hover .view-theme{
-
     transform:translateX(8px);
-
 }
+
+
 /*=========================================
         MINI PORTFOLIO PREVIEW
 =========================================*/
 
 .mini-browser{
-
     width:100%;
+
     height:100%;
 
     display:flex;
+
     flex-direction:column;
 
     background:#10141D;
 
+    position:relative;
 }
 
-.browser-top{
 
+/*=========================================
+            BROWSER TOP
+=========================================*/
+
+.browser-top{
     height:26px;
 
+    flex-shrink:0;
+
     display:flex;
+
     align-items:center;
 
     gap:6px;
@@ -850,18 +785,16 @@ transparent 25%
     padding:0 10px;
 
     background:#181D28;
-
 }
 
 .browser-top span{
-
     width:8px;
+
     height:8px;
 
     border-radius:50%;
 
     background:#777;
-
 }
 
 .browser-top span:nth-child(1){
@@ -876,9 +809,15 @@ transparent 25%
     background:#28C840;
 }
 
-.mini-navbar{
 
+/*=========================================
+            MINI NAVBAR
+=========================================*/
+
+.mini-navbar{
     height:38px;
+
+    flex-shrink:0;
 
     display:flex;
 
@@ -887,43 +826,44 @@ transparent 25%
     align-items:center;
 
     padding:0 12px;
-background:rgba(255,255,255,.04);
-    border-bottom:1px solid rgba(255,255,255,.05);
 
+    background:rgba(255,255,255,.04);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .mini-logo{
-
     width:60px;
+
     height:10px;
 
     border-radius:20px;
 
     background:#D4AF37;
-
 }
 
 .mini-menu{
-
     display:flex;
 
     gap:6px;
-
 }
 
 .mini-menu span{
-
     width:22px;
+
     height:5px;
 
     border-radius:20px;
 
     background:#3A4354;
-
 }
 
-.mini-hero{
 
+/*=========================================
+                MINI HERO
+=========================================*/
+
+.mini-hero{
     padding:18px;
 
     display:flex;
@@ -932,101 +872,65 @@ background:rgba(255,255,255,.04);
 
     align-items:center;
 
+    justify-content:center;
 }
 
-.collection-card:nth-child(1) .mini-avatar{
-
+.mini-avatar{
     width:58px;
+
     height:58px;
 
     border-radius:50%;
 
-    background:linear-gradient(
-        145deg,
-        #A770EF,
-        #6A3CCF
-    );
-
-    box-shadow:
-        0 0 18px rgba(167,112,239,.45);
-
     margin-bottom:12px;
 
-}
-.collection-card:nth-child(2) .mini-avatar{
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-
-    background:linear-gradient(
-        145deg,
-        #B83A5E,
-        #6D1A36
-    );
-
-    box-shadow:
-        0 0 18px rgba(184,58,94,.45);
-
-    margin-bottom:12px;
-
-}
-.collection-card:nth-child(3) .mini-avatar{
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-
-    background:linear-gradient(
-        145deg,
-        #4A4A4A,
-        #111111
-    );
-
-    box-shadow:
-        0 0 18px rgba(255,255,255,.18);
-
-    margin-bottom:12px;
-
-}
-.mini-title{
-
-    width:80px;
-    height:8px;
-
-    border-radius:20px;
-
-    background:#FFFFFF;
-
-    margin-bottom:8px;
-
+    flex-shrink:0;
 }
 
-.mini-text{
 
-    width:120px;
-    height:6px;
+/*=========================================
+            MINI HERO TEXT
+=========================================*/
 
-    border-radius:20px;
+.mini-hero h5{
+    color:white;
 
-    background:#586273;
+    font-size:11px;
 
+    margin-top:8px;
+
+    margin-bottom:4px;
 }
+
+.mini-hero span{
+    color:#B7C0D3;
+
+    font-size:8px;
+}
+
+
+/*=========================================
+            MINI SECTION
+=========================================*/
 
 .mini-section{
-
     display:flex;
 
     gap:10px;
 
     padding:15px;
-
 }
 
-.mini-card{
+.mini-section.small{
+    display:block;
+}
 
+
+/*=========================================
+                MINI CARD
+=========================================*/
+
+.mini-card{
     flex:1;
 
     height:55px;
@@ -1048,18 +952,16 @@ background:rgba(255,255,255,.04);
     font-size:9px;
 
     font-weight:600;
-
 }
 
-.mini-section.small{
 
-    display:block;
-
-}
+/*=========================================
+                MINI LINES
+=========================================*/
 
 .mini-line{
-
     width:100%;
+
     height:6px;
 
     border-radius:20px;
@@ -1067,35 +969,13 @@ background:rgba(255,255,255,.04);
     background:#3A4354;
 
     margin-bottom:10px;
-
 }
 
 .mini-line.short{
-
     width:70%;
-
-}
-.mini-hero h5{
-
-    color:white;
-
-    font-size:11px;
-
-    margin-top:8px;
-
-    margin-bottom:4px;
-
 }
 
-.mini-hero span{
-
-    color:#B7C0D3;
-
-    font-size:8px;
-
-}
 .mini-section small{
-
     display:block;
 
     text-align:center;
@@ -1105,42 +985,44 @@ background:rgba(255,255,255,.04);
     font-size:8px;
 
     margin-top:8px;
-
 }
+
+
 /*=========================================
         PURPLE PORTFOLIO PREVIEW
 =========================================*/
 
 .collection-card:nth-child(1) .mini-logo{
-
     background:#A770EF;
+}
 
+.collection-card:nth-child(1) .mini-avatar{
+    background:linear-gradient(
+        145deg,
+        #A770EF,
+        #6A3CCF
+    );
+
+    box-shadow:
+        0 0 18px rgba(167,112,239,.45);
 }
 
 .collection-card:nth-child(1) .mini-title{
-
     background:#E9DFFF;
-
 }
 
 .collection-card:nth-child(1) .mini-text{
-
     background:#8066A8;
-
 }
 
 .collection-card:nth-child(1) .mini-card{
-
     background:rgba(167,112,239,.14);
 
     border:1px solid rgba(167,112,239,.22);
-
 }
 
 .collection-card:nth-child(1) .mini-line{
-
     background:#5D4780;
-
 }
 
 
@@ -1149,68 +1031,261 @@ background:rgba(255,255,255,.04);
 =========================================*/
 
 .collection-card:nth-child(2) .mini-logo{
-
     background:#C56A82;
+}
 
+.collection-card:nth-child(2) .mini-avatar{
+    background:linear-gradient(
+        145deg,
+        #B83A5E,
+        #6D1A36
+    );
+
+    box-shadow:
+        0 0 18px rgba(184,58,94,.45);
 }
 
 .collection-card:nth-child(2) .mini-title{
-
     background:#F5D7DF;
-
 }
 
 .collection-card:nth-child(2) .mini-text{
-
     background:#9A5A6D;
-
 }
 
 .collection-card:nth-child(2) .mini-card{
-
     background:rgba(197,106,130,.14);
 
     border:1px solid rgba(197,106,130,.22);
-
 }
 
 .collection-card:nth-child(2) .mini-line{
-
     background:#754052;
-
 }
+
+
 /*=========================================
         BLACK LUXURY PORTFOLIO PREVIEW
 =========================================*/
 
 .collection-card:nth-child(3) .mini-logo{
-
     background:#D4AF37;
+}
 
+.collection-card:nth-child(3) .mini-avatar{
+    background:linear-gradient(
+        145deg,
+        #4A4A4A,
+        #111111
+    );
+
+    box-shadow:
+        0 0 18px rgba(255,255,255,.18);
 }
 
 .collection-card:nth-child(3) .mini-title{
-
     background:#F5F5F5;
-
 }
 
 .collection-card:nth-child(3) .mini-text{
-
     background:#777777;
-
 }
 
 .collection-card:nth-child(3) .mini-card{
-
     background:rgba(255,255,255,.06);
 
     border:1px solid rgba(212,175,55,.16);
-
 }
 
 .collection-card:nth-child(3) .mini-line{
-
     background:#4A4A4A;
+}
+
+
+/*=========================================
+                RESPONSIVE
+=========================================*/
+
+@media(max-width:1100px){
+
+    .navbar{
+        padding:0 28px;
+    }
+
+    .nav-links{
+        gap:25px;
+    }
+
+    .hero{
+        gap:50px;
+    }
+
+    .hero-left h1{
+        font-size:64px;
+    }
+
+    .collection-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    .navbar{
+        height:auto;
+
+        padding:22px 25px;
+
+        flex-wrap:wrap;
+
+        gap:20px;
+    }
+
+    .nav-links{
+        order:3;
+
+        width:100%;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+        gap:20px;
+    }
+
+    .hero{
+        flex-direction:column;
+
+        margin-top:70px;
+
+        text-align:center;
+
+        gap:50px;
+    }
+
+    .hero-left p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+
+        flex-wrap:wrap;
+    }
+
+    .hero-right{
+        width:100%;
+
+        min-height:500px;
+    }
+
+    .hero-monarch{
+        width:320px;
+
+        height:320px;
+    }
+
+    .hero-card{
+        right:5%;
+
+        bottom:20px;
+    }
+
+    .section-title h2{
+        font-size:48px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .navbar{
+        width:94%;
+
+        border-radius:26px;
+    }
+
+    .logo-main,
+    .logo-tech{
+        font-size:23px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .navbar > .btn-primary{
+        padding:12px 20px;
+
+        font-size:13px;
+    }
+
+    .hero{
+        width:90%;
+    }
+
+    .hero-left h1{
+        font-size:48px;
+
+        letter-spacing:-1px;
+    }
+
+    .hero-left p{
+        font-size:17px;
+    }
+
+    .hero-right{
+        min-height:430px;
+    }
+
+    .hero-monarch{
+        width:270px;
+
+        height:270px;
+    }
+
+    .hero-card{
+        width:240px;
+
+        padding:22px;
+
+        right:0;
+    }
+
+    .collection{
+        width:90%;
+
+        margin:120px auto;
+    }
+
+    .section-title{
+        margin-bottom:60px;
+    }
+
+    .section-title h2{
+        font-size:40px;
+    }
+
+    .section-title p{
+        font-size:16px;
+    }
+
+    .collection-grid{
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .collection-card{
+        padding:20px;
+    }
+
+    .collection-image{
+        height:260px;
+    }
 
 }
