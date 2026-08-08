@@ -1179,3 +1179,38 @@ background:rgba(255,255,255,.04);
     background:#754052;
 
 }
+/*=========================================
+        BLACK LUXURY PORTFOLIO PREVIEW
+=========================================*/
+
+.collection-card:nth-child(3) .mini-logo{
+
+    background:#D4AF37;
+
+}
+
+.collection-card:nth-child(3) .mini-title{
+
+    background:#F5F5F5;
+
+}
+
+.collection-card:nth-child(3) .mini-text{
+
+    background:#777777;
+
+}
+
+.collection-card:nth-child(3) .mini-card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(212,175,55,.16);
+
+}
+
+.collection-card:nth-child(3) .mini-line{
+
+    background:#4A4A4A;
+
+}
