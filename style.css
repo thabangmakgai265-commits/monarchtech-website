@@ -953,7 +953,44 @@ background:rgba(255,255,255,.04);
     margin-bottom:12px;
 
 }
+.collection-card:nth-child(2) .mini-avatar{
 
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        145deg,
+        #B83A5E,
+        #6D1A36
+    );
+
+    box-shadow:
+        0 0 18px rgba(184,58,94,.45);
+
+    margin-bottom:12px;
+
+}
+.collection-card:nth-child(3) .mini-avatar{
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        145deg,
+        #4A4A4A,
+        #111111
+    );
+
+    box-shadow:
+        0 0 18px rgba(255,255,255,.18);
+
+    margin-bottom:12px;
+
+}
 .mini-title{
 
     width:80px;
