@@ -3965,6 +3965,503 @@ ul{
 
 }
 /*=========================================
+            ABOUT MONARCHTECH
+=========================================*/
+
+.about-monarch{
+
+    width:92%;
+    max-width:1450px;
+
+    margin:180px auto;
+
+}
+
+
+/*=========================================
+        ABOUT SECTION HEADING
+=========================================*/
+
+.about-monarch .section-title{
+
+    text-align:center;
+
+    margin-bottom:85px;
+
+}
+
+.about-monarch .section-title span{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.03);
+
+    color:#D4AF37;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.about-monarch .section-title h2{
+
+    font-size:60px;
+
+    line-height:1.1;
+
+    color:#F5F5F5;
+
+    margin-bottom:25px;
+
+    letter-spacing:-1px;
+
+}
+
+.about-monarch .section-title p{
+
+    max-width:680px;
+
+    margin:auto;
+
+    color:#98A4B8;
+
+    line-height:1.9;
+
+    font-size:19px;
+
+}
+
+
+/*=========================================
+            ABOUT GRID
+=========================================*/
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:35px;
+
+}
+
+
+/*=========================================
+            BRAND STORY
+=========================================*/
+
+.about-story{
+
+    position:relative;
+
+    padding:45px;
+
+    min-height:430px;
+
+    border-radius:34px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(30px);
+
+    -webkit-backdrop-filter:blur(30px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+    overflow:hidden;
+
+}
+
+.about-story::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(212,175,55,.08),
+        transparent 45%
+    );
+
+    pointer-events:none;
+
+}
+
+.about-label{
+
+    position:relative;
+
+    display:inline-block;
+
+    color:#D4AF37;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+}
+
+.about-story h3{
+
+    position:relative;
+
+    max-width:650px;
+
+    font-size:34px;
+
+    line-height:1.25;
+
+    color:#F5F5F5;
+
+    margin-bottom:28px;
+
+}
+
+.about-story p{
+
+    position:relative;
+
+    max-width:700px;
+
+    color:#98A4B8;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+
+}
+
+
+/*=========================================
+            FOUNDER CARD
+=========================================*/
+
+.about-founder{
+
+    position:relative;
+
+    min-height:430px;
+
+    padding:40px;
+
+    border-radius:34px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(212,175,55,.10),
+        rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(212,175,55,.16);
+
+    backdrop-filter:blur(30px);
+
+    -webkit-backdrop-filter:blur(30px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.30);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    overflow:hidden;
+
+}
+
+.about-founder::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    top:-100px;
+
+    right:-100px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.14),
+        transparent 70%
+    );
+
+    pointer-events:none;
+
+}
+
+.founder-mark{
+
+    position:relative;
+
+    width:82px;
+
+    height:82px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #E8CB74,
+        #A87522
+    );
+
+    color:#111;
+
+    font-size:38px;
+
+    font-weight:800;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.40);
+
+}
+
+.founder-content{
+
+    position:relative;
+
+}
+
+.founder-content h3{
+
+    font-size:34px;
+
+    color:#F5F5F5;
+
+    margin-bottom:8px;
+
+}
+
+.founder-role{
+
+    display:block;
+
+    color:#D4AF37;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    margin-bottom:22px;
+
+}
+
+.founder-content p{
+
+    max-width:400px;
+
+    color:#98A4B8;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+
+/*=========================================
+            PHILOSOPHY
+=========================================*/
+
+.about-philosophy{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+.philosophy-item{
+
+    position:relative;
+
+    padding:32px;
+
+    min-height:220px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    transition:.4s ease;
+
+}
+
+.philosophy-item:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(212,175,55,.18);
+
+    box-shadow:
+    0 25px 55px rgba(0,0,0,.25);
+
+}
+
+.philosophy-item span{
+
+    display:block;
+
+    color:#D4AF37;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:25px;
+
+}
+
+.philosophy-item h3{
+
+    font-size:24px;
+
+    color:#F5F5F5;
+
+    margin-bottom:14px;
+
+}
+
+.philosophy-item p{
+
+    color:#98A4B8;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+
+/*=========================================
+        RESPONSIVE - ABOUT
+=========================================*/
+
+@media(max-width:1000px){
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-philosophy{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .about-monarch{
+
+        width:90%;
+
+        margin:120px auto;
+
+    }
+
+    .about-monarch .section-title h2{
+
+        font-size:42px;
+
+    }
+
+    .about-monarch .section-title p{
+
+        font-size:16px;
+
+    }
+
+    .about-story{
+
+        padding:30px;
+
+        min-height:auto;
+
+    }
+
+    .about-story h3{
+
+        font-size:28px;
+
+    }
+
+    .about-founder{
+
+        min-height:380px;
+
+        padding:30px;
+
+    }
+
+    .founder-content h3{
+
+        font-size:28px;
+
+    }
+
+    .about-philosophy{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/*=========================================
                 FOOTER
 =========================================*/
 
