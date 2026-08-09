@@ -3037,3 +3037,294 @@ ul{
     }
 
 }
+/*=========================================
+            FINAL CTA
+=========================================*/
+
+.final-cta{
+
+    width:92%;
+    max-width:1450px;
+
+    min-height:520px;
+
+    margin:180px auto 120px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    border-radius:42px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.025)
+    );
+
+    border:1px solid rgba(255,255,255,.10);
+
+    backdrop-filter:blur(35px);
+
+    -webkit-backdrop-filter:blur(35px);
+
+    box-shadow:
+    0 35px 90px rgba(0,0,0,.40),
+    inset 0 1px 0 rgba(255,255,255,.06);
+
+}
+
+
+/*=========================================
+            PREMIUM GLOW
+=========================================*/
+
+.final-cta::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(212,175,55,.14),
+        transparent 48%
+    );
+
+    pointer-events:none;
+
+}
+
+
+.final-cta::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:10%;
+
+    width:80%;
+    height:1px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(212,175,55,.45),
+        transparent
+    );
+
+}
+
+
+/*=========================================
+            CTA GLOW
+=========================================*/
+
+.final-cta-glow{
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(212,175,55,.08),
+        transparent 70%
+    );
+
+    filter:blur(10px);
+
+    pointer-events:none;
+
+}
+
+
+/*=========================================
+            CTA CONTENT
+=========================================*/
+
+.final-cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+
+    padding:70px 40px;
+
+}
+
+
+/*=========================================
+            CTA LABEL
+=========================================*/
+
+.final-cta-label{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    margin-bottom:25px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    background:rgba(212,175,55,.06);
+
+    color:#D4AF37;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:2.5px;
+
+}
+
+
+/*=========================================
+            CTA HEADING
+=========================================*/
+
+.final-cta h2{
+
+    font-size:68px;
+
+    line-height:1.05;
+
+    font-weight:700;
+
+    letter-spacing:-2px;
+
+    color:#F5F5F5;
+
+    margin-bottom:28px;
+
+}
+
+
+/*=========================================
+            CTA DESCRIPTION
+=========================================*/
+
+.final-cta p{
+
+    max-width:650px;
+
+    margin:0 auto 40px;
+
+    color:#98A4B8;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+
+/*=========================================
+            CTA ACTIONS
+=========================================*/
+
+.final-cta-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+/*=========================================
+            RESPONSIVE CTA
+=========================================*/
+
+@media(max-width:900px){
+
+    .final-cta h2{
+
+        font-size:52px;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .final-cta{
+
+        width:90%;
+
+        min-height:auto;
+
+        margin:120px auto 90px;
+
+        border-radius:32px;
+
+    }
+
+    .final-cta-content{
+
+        padding:60px 25px;
+
+    }
+
+    .final-cta h2{
+
+        font-size:40px;
+
+        letter-spacing:-1px;
+
+    }
+
+    .final-cta p{
+
+        font-size:16px;
+
+    }
+
+    .final-cta-actions{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .final-cta-actions .btn-primary,
+    .final-cta-actions .btn-secondary{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
