@@ -3328,3 +3328,226 @@ ul{
     }
 
 }
+/*=========================================
+                FOOTER
+=========================================*/
+
+.footer{
+
+    width:92%;
+    max-width:1450px;
+
+    margin:0 auto;
+
+    padding:70px 0 30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/*=========================================
+            FOOTER MAIN
+=========================================*/
+
+.footer-main{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:80px;
+
+    padding-bottom:60px;
+
+}
+
+
+/*=========================================
+            FOOTER BRAND
+=========================================*/
+
+.footer-brand{
+
+    max-width:420px;
+
+}
+
+.footer-logo{
+
+    font-size:26px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+
+}
+
+.footer-brand p{
+
+    color:#98A4B8;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    max-width:350px;
+
+}
+
+
+/*=========================================
+            FOOTER LINKS
+=========================================*/
+
+.footer-links{
+
+    display:flex;
+
+    gap:100px;
+
+}
+
+.footer-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.footer-column h4{
+
+    color:#F5F5F5;
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+    letter-spacing:.5px;
+
+}
+
+.footer-column a{
+
+    color:#7F8A9D;
+
+    font-size:14px;
+
+    transition:.3s ease;
+
+}
+
+.footer-column a:hover{
+
+    color:#D4AF37;
+
+    transform:translateX(4px);
+
+}
+
+
+/*=========================================
+            FOOTER BOTTOM
+=========================================*/
+
+.footer-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#667085;
+
+    font-size:12px;
+
+    letter-spacing:.2px;
+
+}
+
+
+/* Founder information */
+
+.footer-bottom span:last-child{
+
+    color:#8A94A6;
+
+    text-align:right;
+
+}
+
+.footer-bottom span:last-child::first-letter{
+
+    color:#D4AF37;
+
+}
+
+
+/*=========================================
+            RESPONSIVE FOOTER
+=========================================*/
+
+@media(max-width:800px){
+
+    .footer{
+
+        width:90%;
+
+        padding-top:55px;
+
+    }
+
+    .footer-main{
+
+        flex-direction:column;
+
+        gap:50px;
+
+    }
+
+    .footer-links{
+
+        gap:70px;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .footer-links{
+
+        gap:45px;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    .footer-bottom span:last-child{
+
+        text-align:left;
+
+    }
+
+}
