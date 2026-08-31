@@ -1,11 +1,11 @@
 from pathlib import Path
 
 # =========================================
-# PURPLE DEMO - CREATE INDEX.HTML
+# PURPLE DEMO - GENERATE INDEX.HTML
 # =========================================
 
-purple_folder = Path("demos/purple")
-purple_folder.mkdir(parents=True, exist_ok=True)
+purple_folder = Path(__file__).parent
+html_file = purple_folder / "index.html"
 
 html = """<!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,6 @@ html = """<!DOCTYPE html>
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Your Name | Professional Portfolio</title>
@@ -27,13 +26,11 @@ html = """<!DOCTYPE html>
 
 </head>
 
-
 <body>
 
-
-<!--=========================================
-            NAVIGATION
-=========================================-->
+<!-- =========================================
+                NAVIGATION
+========================================= -->
 
 <nav class="navbar">
 
@@ -47,47 +44,16 @@ html = """<!DOCTYPE html>
 
     </div>
 
-
     <ul class="nav-links">
 
-        <li>
-            <a href="#home">
-                Home
-            </a>
-        </li>
-
-        <li>
-            <a href="#about">
-                About
-            </a>
-        </li>
-
-        <li>
-            <a href="#skills">
-                Skills
-            </a>
-        </li>
-
-        <li>
-            <a href="#projects">
-                Projects
-            </a>
-        </li>
-
-        <li>
-            <a href="#experience">
-                Experience
-            </a>
-        </li>
-
-        <li>
-            <a href="#contact">
-                Contact
-            </a>
-        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
 
     </ul>
-
 
     <a href="#contact" class="nav-button">
         Let's Connect
@@ -96,10 +62,9 @@ html = """<!DOCTYPE html>
 </nav>
 
 
-
-<!--=========================================
-                HERO
-=========================================-->
+<!-- =========================================
+                    HERO
+========================================= -->
 
 <section class="hero" id="home">
 
@@ -109,28 +74,17 @@ html = """<!DOCTYPE html>
             PROFESSIONAL PORTFOLIO
         </span>
 
-
         <h1>
-
             Your Name
-
             <br>
-
-            <span>
-                Your Professional Title.
-            </span>
-
+            <span>Your Professional Title.</span>
         </h1>
 
-
         <p class="hero-description">
-
             A passionate professional focused on creating meaningful
             results, solving problems and continuously growing through
             innovation and experience.
-
         </p>
-
 
         <div class="hero-actions">
 
@@ -152,13 +106,8 @@ html = """<!DOCTYPE html>
         <div class="profile-card">
 
             <div class="profile-image">
-
-                <span>
-                    P
-                </span>
-
+                <span>P</span>
             </div>
-
 
             <div class="profile-info">
 
@@ -166,13 +115,9 @@ html = """<!DOCTYPE html>
                     AVAILABLE FOR OPPORTUNITIES
                 </span>
 
-                <h3>
-                    Your Name
-                </h3>
+                <h3>Your Name</h3>
 
-                <p>
-                    Your Professional Title
-                </p>
+                <p>Your Professional Title</p>
 
             </div>
 
@@ -183,18 +128,15 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                ABOUT
-=========================================-->
+<!-- =========================================
+                    ABOUT
+========================================= -->
 
 <section class="about section" id="about">
 
     <div class="section-heading">
 
-        <span>
-            ABOUT ME
-        </span>
+        <span>ABOUT ME</span>
 
         <h2>
             More Than A Resume.
@@ -244,9 +186,7 @@ html = """<!DOCTYPE html>
 
             <div class="highlight-card">
 
-                <span>
-                    01
-                </span>
+                <span>01</span>
 
                 <h4>
                     Continuous Growth
@@ -262,9 +202,7 @@ html = """<!DOCTYPE html>
 
             <div class="highlight-card">
 
-                <span>
-                    02
-                </span>
+                <span>02</span>
 
                 <h4>
                     Problem Solving
@@ -280,9 +218,7 @@ html = """<!DOCTYPE html>
 
             <div class="highlight-card">
 
-                <span>
-                    03
-                </span>
+                <span>03</span>
 
                 <h4>
                     Professional Impact
@@ -302,18 +238,15 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                SKILLS
-=========================================-->
+<!-- =========================================
+                    SKILLS
+========================================= -->
 
 <section class="skills section" id="skills">
 
     <div class="section-heading">
 
-        <span>
-            EXPERTISE
-        </span>
+        <span>EXPERTISE</span>
 
         <h2>
             Skills & Capabilities
@@ -331,21 +264,17 @@ html = """<!DOCTYPE html>
 
         <div class="skill-card">
 
-            <span class="skill-number">
-                01
-            </span>
+            <span class="skill-number">01</span>
 
             <h3>
                 Professional Skills
             </h3>
 
             <ul>
-
                 <li>Communication</li>
                 <li>Problem Solving</li>
                 <li>Team Collaboration</li>
                 <li>Leadership</li>
-
             </ul>
 
         </div>
@@ -353,21 +282,17 @@ html = """<!DOCTYPE html>
 
         <div class="skill-card">
 
-            <span class="skill-number">
-                02
-            </span>
+            <span class="skill-number">02</span>
 
             <h3>
                 Technical Skills
             </h3>
 
             <ul>
-
                 <li>Data Analysis</li>
                 <li>Microsoft Excel</li>
                 <li>Power BI</li>
                 <li>Python</li>
-
             </ul>
 
         </div>
@@ -375,21 +300,17 @@ html = """<!DOCTYPE html>
 
         <div class="skill-card">
 
-            <span class="skill-number">
-                03
-            </span>
+            <span class="skill-number">03</span>
 
             <h3>
                 Business Skills
             </h3>
 
             <ul>
-
                 <li>Strategic Thinking</li>
                 <li>Research</li>
                 <li>Project Management</li>
                 <li>Analytical Thinking</li>
-
             </ul>
 
         </div>
@@ -399,18 +320,15 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                PROJECTS
-=========================================-->
+<!-- =========================================
+                    PROJECTS
+========================================= -->
 
 <section class="projects section" id="projects">
 
     <div class="section-heading">
 
-        <span>
-            SELECTED WORK
-        </span>
+        <span>SELECTED WORK</span>
 
         <h2>
             Projects That Speak
@@ -428,16 +346,12 @@ html = """<!DOCTYPE html>
 
     <div class="projects-grid">
 
+
         <article class="project-card">
 
             <div class="project-preview">
-
-                <span>
-                    PROJECT 01
-                </span>
-
+                <span>PROJECT 01</span>
             </div>
-
 
             <div class="project-content">
 
@@ -454,7 +368,6 @@ html = """<!DOCTYPE html>
                     the problem it solved and the value it created.
                 </p>
 
-
                 <div class="project-tags">
 
                     <span>Python</span>
@@ -462,7 +375,6 @@ html = """<!DOCTYPE html>
                     <span>Analytics</span>
 
                 </div>
-
 
                 <a href="#" class="project-link">
                     View Project →
@@ -473,17 +385,11 @@ html = """<!DOCTYPE html>
         </article>
 
 
-
         <article class="project-card">
 
             <div class="project-preview">
-
-                <span>
-                    PROJECT 02
-                </span>
-
+                <span>PROJECT 02</span>
             </div>
-
 
             <div class="project-content">
 
@@ -500,7 +406,6 @@ html = """<!DOCTYPE html>
                     approach and outcome of the project.
                 </p>
 
-
                 <div class="project-tags">
 
                     <span>Research</span>
@@ -508,7 +413,6 @@ html = """<!DOCTYPE html>
                     <span>Analysis</span>
 
                 </div>
-
 
                 <a href="#" class="project-link">
                     View Project →
@@ -519,17 +423,11 @@ html = """<!DOCTYPE html>
         </article>
 
 
-
         <article class="project-card">
 
             <div class="project-preview">
-
-                <span>
-                    PROJECT 03
-                </span>
-
+                <span>PROJECT 03</span>
             </div>
-
 
             <div class="project-content">
 
@@ -546,7 +444,6 @@ html = """<!DOCTYPE html>
                     solution and results achieved.
                 </p>
 
-
                 <div class="project-tags">
 
                     <span>Innovation</span>
@@ -554,7 +451,6 @@ html = """<!DOCTYPE html>
                     <span>Strategy</span>
 
                 </div>
-
 
                 <a href="#" class="project-link">
                     View Project →
@@ -569,18 +465,15 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                EXPERIENCE
-=========================================-->
+<!-- =========================================
+                    EXPERIENCE
+========================================= -->
 
 <section class="experience section" id="experience">
 
     <div class="section-heading">
 
-        <span>
-            EXPERIENCE
-        </span>
+        <span>EXPERIENCE</span>
 
         <h2>
             Professional Journey
@@ -678,18 +571,15 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                ACHIEVEMENTS
-=========================================-->
+<!-- =========================================
+                  ACHIEVEMENTS
+========================================= -->
 
 <section class="achievements section">
 
     <div class="section-heading">
 
-        <span>
-            ACHIEVEMENTS
-        </span>
+        <span>ACHIEVEMENTS</span>
 
         <h2>
             Milestones & Recognition
@@ -749,10 +639,9 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                CONTACT
-=========================================-->
+<!-- =========================================
+                    CONTACT
+========================================= -->
 
 <section class="contact section" id="contact">
 
@@ -855,10 +744,9 @@ html = """<!DOCTYPE html>
 </section>
 
 
-
-<!--=========================================
-                FOOTER
-=========================================-->
+<!-- =========================================
+                    FOOTER
+========================================= -->
 
 <footer class="footer">
 
@@ -886,17 +774,9 @@ html = """<!DOCTYPE html>
                     Explore
                 </h4>
 
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#skills">
-                    Skills
-                </a>
-
-                <a href="#projects">
-                    Projects
-                </a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
 
             </div>
 
@@ -907,13 +787,8 @@ html = """<!DOCTYPE html>
                     Connect
                 </h4>
 
-                <a href="#experience">
-                    Experience
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
 
                 <a href="../../request.html">
                     Request Your Portfolio
@@ -940,19 +815,15 @@ html = """<!DOCTYPE html>
 
 </footer>
 
-
 </body>
-
 </html>
 """
 
 # =========================================
-# WRITE FILE
+# WRITE THE REAL HTML FILE
 # =========================================
-
-html_file = purple_folder / "index.html"
 
 html_file.write_text(html, encoding="utf-8")
 
-print("✅ Purple demo index.html created successfully!")
-print(f"📁 Location: {html_file}")
+print("✅ Purple demo index.html generated!")
+print(f"📁 {html_file}")
