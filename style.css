@@ -1898,19 +1898,23 @@ header{
 }
 
 
-/*=========================================================
-                    LIVE DEMOS
-=========================================================*/
+/*=========================================
+            LIVE DEMOS
+=========================================*/
 
 .live-demos{
 
     width:92%;
-
     max-width:1450px;
 
     margin:180px auto;
 
 }
+
+
+/*=========================================
+        LIVE DEMOS HEADING
+=========================================*/
 
 .live-demos .section-title{
 
@@ -1919,6 +1923,61 @@ header{
     margin-bottom:85px;
 
 }
+
+.live-demos .section-title span{
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.03);
+
+    color:#D4AF37;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+
+}
+
+.live-demos .section-title h2{
+
+    font-size:60px;
+
+    line-height:1.1;
+
+    color:#F5F5F5;
+
+    margin-bottom:25px;
+
+    letter-spacing:-1px;
+
+}
+
+.live-demos .section-title p{
+
+    max-width:680px;
+
+    margin:auto;
+
+    color:#98A4B8;
+
+    line-height:1.9;
+
+    font-size:19px;
+
+}
+
+
+/*=========================================
+            DEMO GRID
+=========================================*/
 
 .demo-grid{
 
@@ -1930,25 +1989,30 @@ header{
 
 }
 
+
+/*=========================================
+            DEMO CARD
+=========================================*/
+
 .demo-card{
 
     position:relative;
 
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
+    overflow:hidden;
 
     border-radius:34px;
 
-    overflow:hidden;
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
 
     backdrop-filter:blur(30px);
 
     -webkit-backdrop-filter:blur(30px);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.04);
+    0 25px 60px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.04);
 
     transition:.45s ease;
 
@@ -1956,366 +2020,212 @@ header{
 
 .demo-card:hover{
 
-    transform:translateY(-12px);
+    transform:translateY(-10px);
 
     border-color:rgba(212,175,55,.22);
 
     box-shadow:
-        0 35px 80px rgba(0,0,0,.40),
-        0 0 35px rgba(212,175,55,.07);
+    0 35px 80px rgba(0,0,0,.40),
+    0 0 35px rgba(212,175,55,.07);
 
 }
 
 
-/*=========================================================
-                    DEMO PREVIEW
-=========================================================*/
+/*=========================================
+            DEMO COLOUR PREVIEW
+=========================================*/
 
-.demo-preview{
+.demo-colour{
 
     height:330px;
 
-    padding:22px;
+    padding:30px;
 
     position:relative;
-
-    overflow:hidden;
-
-}
-
-.purple-demo{
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(167,112,239,.30),
-            transparent 55%
-        ),
-
-        linear-gradient(
-            145deg,
-            #4B2E83,
-            #1D1535
-        );
-
-}
-
-.maroon-demo{
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(197,106,130,.30),
-            transparent 55%
-        ),
-
-        linear-gradient(
-            145deg,
-            #6D1A36,
-            #24101A
-        );
-
-}
-
-.black-demo{
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(212,175,55,.12),
-            transparent 55%
-        ),
-
-        linear-gradient(
-            145deg,
-            #1B1B1B,
-            #050505
-        );
-
-}
-
-
-/*=========================================================
-                        BROWSER
-=========================================================*/
-
-.demo-browser{
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    background:#10141D;
-
-    border:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 25px 50px rgba(0,0,0,.35);
-
-}
-
-.demo-browser-top{
-
-    height:25px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:6px;
-
-    padding:0 10px;
-
-    background:#181D28;
-
-}
-
-.demo-browser-top span{
-
-    width:7px;
-
-    height:7px;
-
-    border-radius:50%;
-
-}
-
-.demo-browser-top span:nth-child(1){
-
-    background:#FF5F57;
-
-}
-
-.demo-browser-top span:nth-child(2){
-
-    background:#FEBC2E;
-
-}
-
-.demo-browser-top span:nth-child(3){
-
-    background:#28C840;
-
-}
-
-
-/*=========================================================
-                        DEMO NAVBAR
-=========================================================*/
-
-.demo-navbar{
-
-    height:42px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 15px;
-
-    background:rgba(255,255,255,.04);
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-}
-
-.demo-brand{
-
-    font-size:9px;
-
-    font-weight:700;
-
-    letter-spacing:1.5px;
-
-    color:#F5F5F5;
-
-}
-
-.demo-nav-lines{
-
-    display:flex;
-
-    gap:5px;
-
-}
-
-.demo-nav-lines span{
-
-    width:25px;
-
-    height:4px;
-
-    border-radius:20px;
-
-    background:#4A5261;
-
-}
-
-
-/*=========================================================
-                        DEMO CONTENT
-=========================================================*/
-
-.demo-content{
-
-    height:calc(100% - 67px);
 
     display:flex;
 
     flex-direction:column;
 
+    justify-content:space-between;
+
+    overflow:hidden;
+
+}
+
+
+/*=========================================
+            PURPLE
+=========================================*/
+
+.purple-demo .demo-colour{
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(167,112,239,.30),
+        transparent 55%
+    ),
+
+    linear-gradient(
+        145deg,
+        #4B2E83,
+        #1D1535
+    );
+
+}
+
+
+/*=========================================
+            MAROON
+=========================================*/
+
+.maroon-demo .demo-colour{
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(197,106,130,.30),
+        transparent 55%
+    ),
+
+    linear-gradient(
+        145deg,
+        #6D1A36,
+        #24101A
+    );
+
+}
+
+
+/*=========================================
+            BLACK
+=========================================*/
+
+.black-demo .demo-colour{
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(212,175,55,.14),
+        transparent 55%
+    ),
+
+    linear-gradient(
+        145deg,
+        #1B1B1B,
+        #050505
+    );
+
+}
+
+
+/*=========================================
+            DEMO NUMBER
+=========================================*/
+
+.demo-colour > span{
+
+    position:relative;
+
+    z-index:2;
+
+    color:rgba(255,255,255,.70);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+
+/*=========================================
+            DEMO EMBLEM
+=========================================*/
+
+.demo-emblem{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:105px;
+    height:105px;
+
+    display:flex;
+
     align-items:center;
+    justify-content:center;
 
-    padding:25px 20px;
+    border-radius:30px;
 
-}
+    font-size:54px;
 
-.demo-avatar{
+    font-weight:800;
 
-    width:55px;
+    color:#F5F5F5;
 
-    height:55px;
+    background:rgba(255,255,255,.08);
 
-    border-radius:50%;
+    border:1px solid rgba(255,255,255,.16);
 
-    margin-bottom:13px;
+    backdrop-filter:blur(15px);
 
-}
-
-.purple-demo .demo-avatar{
-
-    background:
-        linear-gradient(
-            145deg,
-            #A770EF,
-            #6A3CCF
-        );
+    -webkit-backdrop-filter:blur(15px);
 
     box-shadow:
-        0 0 20px rgba(167,112,239,.35);
+    0 25px 60px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.20);
 
 }
 
-.maroon-demo .demo-avatar{
 
-    background:
-        linear-gradient(
-            145deg,
-            #C56A82,
-            #6D1A36
-        );
+/*=========================================
+            DEMO TITLE
+=========================================*/
 
-    box-shadow:
-        0 0 20px rgba(197,106,130,.30);
+.demo-colour small{
 
-}
+    position:relative;
 
-.black-demo .demo-avatar{
+    z-index:2;
 
-    background:
-        linear-gradient(
-            145deg,
-            #D4AF37,
-            #6E5318
-        );
+    align-self:flex-start;
 
-    box-shadow:
-        0 0 18px rgba(212,175,55,.18);
-
-}
-
-.demo-heading{
-
-    width:110px;
-
-    height:9px;
+    padding:9px 14px;
 
     border-radius:20px;
 
-    background:#F5F5F5;
+    background:rgba(0,0,0,.20);
 
-    margin-bottom:9px;
+    border:1px solid rgba(255,255,255,.10);
 
-}
+    color:#F5F5F5;
 
-.demo-subheading{
+    font-size:10px;
 
-    width:145px;
+    font-weight:700;
 
-    height:6px;
-
-    border-radius:20px;
-
-    background:#596273;
-
-    margin-bottom:25px;
-
-}
-
-.demo-projects{
-
-    width:100%;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:8px;
-
-}
-
-.demo-projects div{
-
-    height:60px;
-
-    border-radius:12px;
-
-    background:rgba(255,255,255,.07);
-
-    border:1px solid rgba(255,255,255,.08);
-
-}
-
-.purple-demo .demo-projects div{
-
-    background:rgba(167,112,239,.12);
-
-    border-color:rgba(167,112,239,.18);
-
-}
-
-.maroon-demo .demo-projects div{
-
-    background:rgba(197,106,130,.12);
-
-    border-color:rgba(197,106,130,.18);
-
-}
-
-.black-demo .demo-projects div{
-
-    background:rgba(255,255,255,.05);
-
-    border-color:rgba(212,175,55,.12);
+    letter-spacing:2px;
 
 }
 
 
-/*=========================================================
-                    DEMO INFORMATION
-=========================================================*/
+/*=========================================
+            DEMO INFORMATION
+=========================================*/
 
 .demo-info{
 
-    padding:30px;
+    padding:32px;
 
 }
+
 
 .demo-category{
 
@@ -2333,6 +2243,7 @@ header{
 
 }
 
+
 .demo-info h3{
 
     font-size:28px;
@@ -2342,6 +2253,7 @@ header{
     margin-bottom:14px;
 
 }
+
 
 .demo-info p{
 
@@ -2354,6 +2266,11 @@ header{
     margin-bottom:25px;
 
 }
+
+
+/*=========================================
+            DEMO BUTTON
+=========================================*/
 
 .demo-button{
 
@@ -2373,6 +2290,7 @@ header{
 
 }
 
+
 .demo-button:hover{
 
     transform:translateX(7px);
@@ -2380,6 +2298,99 @@ header{
 }
 
 
+/*=========================================
+        DEMO NUMBER ACCENT
+=========================================*/
+
+.purple-demo .demo-colour > span{
+
+    color:#D7C5F5;
+
+}
+
+
+.maroon-demo .demo-colour > span{
+
+    color:#E8B8C5;
+
+}
+
+
+.black-demo .demo-colour > span{
+
+    color:#D4AF37;
+
+}
+
+
+/*=========================================
+        RESPONSIVE - LIVE DEMOS
+=========================================*/
+
+@media(max-width:1100px){
+
+    .demo-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .live-demos{
+
+        width:90%;
+
+        margin:120px auto;
+
+    }
+
+    .live-demos .section-title h2{
+
+        font-size:42px;
+
+    }
+
+    .live-demos .section-title p{
+
+        font-size:16px;
+
+    }
+
+    .demo-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .demo-colour{
+
+        height:300px;
+
+        padding:25px;
+
+    }
+
+    .demo-info{
+
+        padding:28px;
+
+    }
+
+    .demo-emblem{
+
+        width:90px;
+
+        height:90px;
+
+        font-size:46px;
+
+    }
+
+}
 /*=========================================================
                             FOOTER
 =========================================================*/
