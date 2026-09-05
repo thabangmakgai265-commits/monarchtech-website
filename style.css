@@ -2166,6 +2166,601 @@ p{
 
 
 /* =========================================================
+   REQUEST PAGE
+   Premium Professional Identity System
+
+   IMPORTANT:
+   Request-specific styles only.
+   Existing homepage styles remain untouched.
+========================================================= */
+
+.request{
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
+
+    margin:0 auto;
+
+    padding:
+        125px 0
+        150px;
+}
+
+
+/* =========================================================
+   REQUEST — SECTION TITLE
+========================================================= */
+
+.request .section-title{
+    width:100%;
+    max-width:900px;
+
+    margin-bottom:85px;
+
+    text-align:left;
+}
+
+.request .section-title > span{
+    display:block;
+
+    margin-bottom:24px;
+
+    color:var(--gold-soft);
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+.request .section-title h2{
+    max-width:900px;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:clamp(
+        43px,
+        5vw,
+        72px
+    );
+
+    font-weight:400;
+
+    line-height:1.05;
+    letter-spacing:-.025em;
+
+    text-align:left;
+}
+
+.request .section-title p{
+    max-width:650px;
+
+    margin-top:27px;
+
+    color:var(--text-soft);
+
+    font-size:15px;
+    line-height:1.8;
+
+    text-align:justify;
+    text-justify:inter-word;
+}
+
+
+/* =========================================================
+   REQUEST — MAIN LAYOUT
+========================================================= */
+
+.request-container{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,.82fr)
+        minmax(0,1.18fr);
+
+    gap:90px;
+
+    align-items:start;
+}
+
+
+/* =========================================================
+   REQUEST — INTRO
+========================================================= */
+
+.request-intro{
+    min-width:0;
+
+    padding-top:12px;
+}
+
+.request-label{
+    display:block;
+
+    margin-bottom:28px;
+
+    color:var(--gold-soft);
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.20em;
+    text-transform:uppercase;
+}
+
+.request-intro h3{
+    margin:0 0 25px;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:42px;
+    font-weight:400;
+
+    line-height:1.1;
+    letter-spacing:-.02em;
+
+    text-align:left;
+}
+
+.request-intro > p{
+    max-width:500px;
+
+    margin-bottom:52px;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+    line-height:1.85;
+
+    text-align:justify;
+    text-justify:inter-word;
+}
+
+
+/* =========================================================
+   REQUEST — PROCESS POINTS
+========================================================= */
+
+.request-points{
+    width:100%;
+
+    border-top:1px solid var(--border);
+}
+
+.request-point{
+    display:grid;
+
+    grid-template-columns:
+        58px
+        minmax(0,1fr);
+
+    align-items:center;
+
+    min-height:86px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.request-point > span{
+    color:var(--gold-primary);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:13px;
+
+    letter-spacing:.08em;
+}
+
+.request-point p{
+    color:#D2D0C9;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    text-align:left;
+}
+
+
+/* =========================================================
+   REQUEST — FORM CARD
+========================================================= */
+
+.request-form-card{
+    position:relative;
+
+    min-width:0;
+
+    padding:48px;
+
+    border:1px solid var(--gold-border-soft);
+
+    border-radius:0;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.038),
+            rgba(255,255,255,.012)
+        ),
+        var(--surface);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+/* Premium gold detail line */
+
+.request-form-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:-1px;
+    left:0;
+
+    width:135px;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-primary),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   REQUEST — FORM GROUP
+========================================================= */
+
+.request .form-group{
+    margin-bottom:30px;
+}
+
+.request .form-group label{
+    display:block;
+
+    margin-bottom:11px;
+
+    color:#D5D2CA;
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.16em;
+    text-transform:uppercase;
+
+    text-align:left;
+}
+
+
+/* =========================================================
+   REQUEST — INPUTS
+========================================================= */
+
+.request .form-group input,
+.request .form-group select,
+.request .form-group textarea{
+
+    width:100%;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:0;
+
+    outline:none;
+
+    background:
+        rgba(0,0,0,.18);
+
+    color:var(--text);
+
+    padding:
+        15px 16px;
+
+    font-size:13px;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.request .form-group input,
+.request .form-group select{
+    height:54px;
+}
+
+.request .form-group textarea{
+    min-height:145px;
+
+    resize:vertical;
+
+    line-height:1.7;
+}
+
+.request .form-group input::placeholder,
+.request .form-group textarea::placeholder{
+    color:#62656A;
+}
+
+
+/* =========================================================
+   REQUEST — SELECT
+========================================================= */
+
+.request .form-group select{
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #777 50%
+        ),
+        linear-gradient(
+            135deg,
+            #777 50%,
+            transparent 50%
+        );
+
+    background-position:
+        calc(100% - 19px) 23px,
+        calc(100% - 14px) 23px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat:no-repeat;
+}
+
+.request .form-group select option{
+    background:#0D1117;
+
+    color:var(--text);
+}
+
+
+/* =========================================================
+   REQUEST — FOCUS
+========================================================= */
+
+.request .form-group input:focus,
+.request .form-group select:focus,
+.request .form-group textarea:focus{
+
+    border-color:
+        rgba(199,164,91,.52);
+
+    background:
+        rgba(167,123,50,.025);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(167,123,50,.10);
+}
+
+
+/* =========================================================
+   REQUEST — SUBMIT BUTTON
+========================================================= */
+
+.request-submit{
+
+    width:100%;
+
+    min-height:58px;
+
+    margin-top:8px;
+
+    border:1px solid
+        rgba(199,164,91,.38);
+
+    color:#0A0B0D;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-soft),
+            var(--gold-primary)
+        );
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:.14em;
+    text-transform:uppercase;
+
+    transition:
+        transform .35s var(--ease),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.request-submit:hover{
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(215,189,130,.55);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.30);
+}
+
+
+/* =========================================================
+   REQUEST — FORM NOTE
+========================================================= */
+
+.request .form-note{
+
+    display:block;
+
+    margin-top:18px;
+
+    color:var(--text-muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   REQUEST — TABLET
+========================================================= */
+
+@media (max-width:1050px){
+
+    .request{
+        width:min(
+            calc(100% - 50px),
+            var(--max-width)
+        );
+
+        padding:
+            110px 0
+            125px;
+    }
+
+    .request-container{
+        grid-template-columns:1fr;
+
+        gap:70px;
+    }
+
+    .request-intro > p{
+        max-width:720px;
+    }
+
+    .request-form-card{
+        max-width:900px;
+    }
+}
+
+
+/* =========================================================
+   REQUEST — MOBILE
+========================================================= */
+
+@media (max-width:760px){
+
+    .request{
+        width:calc(100% - 36px);
+
+        padding:
+            90px 0
+            100px;
+    }
+
+    .request .section-title{
+        margin-bottom:55px;
+    }
+
+    .request .section-title h2{
+        font-size:clamp(
+            40px,
+            11vw,
+            58px
+        );
+
+        line-height:1.07;
+    }
+
+    .request .section-title p{
+        max-width:100%;
+
+        font-size:13px;
+
+        text-align:left;
+    }
+
+    .request-container{
+        gap:60px;
+    }
+
+    .request-intro h3{
+        font-size:36px;
+    }
+
+    .request-intro > p{
+        font-size:14px;
+
+        text-align:left;
+    }
+
+    .request-form-card{
+        padding:32px 22px;
+    }
+
+    .request-point{
+        grid-template-columns:
+            48px
+            minmax(0,1fr);
+    }
+
+    .request-point p{
+        font-size:11px;
+    }
+}
+
+
+/* =========================================================
+   REQUEST — SMALL MOBILE
+========================================================= */
+
+@media (max-width:420px){
+
+    .request{
+        width:calc(100% - 28px);
+    }
+
+    .request .section-title h2{
+        font-size:39px;
+    }
+
+    .request-form-card{
+        padding:28px 20px;
+    }
+
+    .request-intro h3{
+        font-size:33px;
+    }
+
+    .request-point{
+        grid-template-columns:
+            42px
+            minmax(0,1fr);
+    }
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
