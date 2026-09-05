@@ -3336,3 +3336,19 @@ textarea:focus-visible{
         animation:none !important;
     }
 }
+/* =========================================================
+   ANCHOR SCROLL OFFSET
+   Keeps sections positioned cleanly beneath the navbar
+========================================================= */
+
+#home,
+#collection,
+#standard,
+#process,
+#pricing,
+#live-experiences,
+#experiences,
+#about,
+#request {
+    scroll-margin-top: 110px;
+}
