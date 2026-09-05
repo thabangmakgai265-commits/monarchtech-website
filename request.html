@@ -181,7 +181,10 @@
         <div class="request-form-card">
 
 
-            <form>
+            <form
+                id="portfolio-request-form"
+                novalidate
+            >
 
 
                 <div class="form-group">
@@ -238,37 +241,38 @@
 
 
 
-               <div class="form-group">
+                <div class="form-group">
 
-    <label for="package">
-        Portfolio Experience
-    </label>
+                    <label for="package">
+                        Portfolio Experience
+                    </label>
 
-    <select
-        id="package"
-        name="package"
-        required
-    >
+                    <select
+                        id="package"
+                        name="package"
+                        required
+                    >
 
-        <option value="">
-            Select a portfolio experience
-        </option>
+                        <option value="">
+                            Select a portfolio experience
+                        </option>
 
-        <option value="graduate">
-            Graduate — From R1 999
-        </option>
+                        <option value="graduate">
+                            Graduate — From R1 999
+                        </option>
 
-        <option value="professional">
-            Professional — From R2 999
-        </option>
+                        <option value="professional">
+                            Professional — From R2 999
+                        </option>
 
-        <option value="executive">
-            Executive — From R3 999
-        </option>
+                        <option value="executive">
+                            Executive — From R3 999
+                        </option>
 
-    </select>
+                    </select>
 
-</div>
+                </div>
+
 
 
                 <div class="form-group">
@@ -292,9 +296,32 @@
                 <button
                     type="submit"
                     class="btn-primary request-submit"
+                    id="request-submit"
                 >
-                    Submit Portfolio Request
+
+                    <span class="submit-text">
+                        Submit Portfolio Request
+                    </span>
+
+                    <span
+                        class="submit-loading"
+                        aria-hidden="true"
+                    >
+                        Sending Request...
+                    </span>
+
                 </button>
+
+
+
+                <div
+                    class="form-feedback"
+                    id="form-feedback"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                ></div>
+
 
 
                 <small class="form-note">
