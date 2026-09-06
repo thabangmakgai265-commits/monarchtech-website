@@ -3316,8 +3316,16 @@ textarea:focus-visible{
 
         gap:18px;
     }
-}
+       .review-empty-label{
+        display:block;
+        margin-bottom:10px;
+    }
 
+    .review-empty-state p{
+        margin-top:0;
+        line-height:1.8;
+    }
+}
 
 /* =========================================================
    REDUCED MOTION
