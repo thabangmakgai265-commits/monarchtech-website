@@ -127,8 +127,7 @@ body::before{
             transparent 1px
         );
 
-    background-size:
-        90px 90px;
+    background-size:90px 90px;
 
     mask-image:
         linear-gradient(
@@ -231,9 +230,6 @@ ul{
     overflow:hidden;
 }
 
-
-/* top architectural line */
-
 .navbar::before{
 
     content:"";
@@ -332,12 +328,10 @@ ul{
 }
 
 .logo:hover .logo-mark{
-
     transform:translateY(-2px);
 }
 
 .logo:hover .logo-mark::before{
-
     transform:rotate(90deg);
 }
 
@@ -424,17 +418,14 @@ ul{
 }
 
 .nav-links a:hover{
-
     color:#F2E9E7;
 }
 
 .nav-links a:hover::before{
-
     opacity:1;
 }
 
 .nav-links a:hover::after{
-
     width:100%;
 }
 
@@ -500,7 +491,6 @@ ul{
 }
 
 .nav-button:hover::before{
-
     left:100%;
 }
 
@@ -639,7 +629,6 @@ ul{
 }
 
 .section-heading > span::before{
-
     margin-right:12px;
 }
 
@@ -706,9 +695,6 @@ ul{
 
     position:relative;
 }
-
-
-/* large background ornament */
 
 .hero::before{
 
@@ -911,7 +897,6 @@ ul{
 }
 
 .btn-primary:hover::before{
-
     left:120%;
 }
 
@@ -954,9 +939,6 @@ ul{
 
     position:relative;
 }
-
-
-/* orbital decoration */
 
 .hero-visual::before{
 
@@ -1029,9 +1011,6 @@ ul{
 
     transition:.5s ease;
 }
-
-
-/* corner brackets */
 
 .profile-card::before{
 
@@ -1122,9 +1101,6 @@ ul{
     border:1px solid var(--border-soft);
 }
 
-
-/* large diamond */
-
 .profile-image::before{
 
     content:"";
@@ -1141,9 +1117,6 @@ ul{
     box-shadow:
         0 0 60px rgba(122,32,50,.10);
 }
-
-
-/* inner diamond */
 
 .profile-image::after{
 
@@ -1359,7 +1332,9 @@ ul{
 
     border:1px solid var(--maroon-soft);
 
-    transform:translateY(-50%) rotate(45deg);
+    transform:
+        translateY(-50%)
+        rotate(45deg);
 
     opacity:.4;
 
@@ -1443,9 +1418,6 @@ ul{
 
     transition:.4s ease;
 }
-
-
-/* decorative corner */
 
 .skill-card::before{
 
@@ -1640,9 +1612,6 @@ ul{
     border-bottom:1px solid var(--border);
 }
 
-
-/* geometric diamond */
-
 .project-preview::before{
 
     content:"";
@@ -1661,9 +1630,6 @@ ul{
 
     transition:.5s ease;
 }
-
-
-/* horizontal architecture */
 
 .project-preview::after{
 
@@ -1689,7 +1655,9 @@ ul{
 
 .project-card:hover .project-preview::before{
 
-    transform:rotate(90deg) scale(1.05);
+    transform:
+        rotate(90deg)
+        scale(1.05);
 }
 
 .project-preview span{
@@ -1755,6 +1723,7 @@ ul{
 .project-tags{
 
     display:flex;
+
     flex-wrap:wrap;
 
     gap:12px;
@@ -1783,11 +1752,13 @@ ul{
 .project-link{
 
     display:inline-flex;
+
     align-items:center;
 
     color:#D29BA5;
 
     font-size:10px;
+
     font-weight:600;
 
     letter-spacing:.7px;
@@ -1816,6 +1787,9 @@ ul{
     position:relative;
 }
 
+
+/* MAIN VERTICAL LINE */
+
 .timeline::before{
 
     content:"";
@@ -1833,10 +1807,17 @@ ul{
         linear-gradient(
             to bottom,
             transparent,
-            rgba(181,83,102,.5),
+            rgba(181,83,102,.55),
+            rgba(181,83,102,.55),
             transparent
         );
+
+    box-shadow:
+        0 0 12px rgba(122,32,50,.12);
 }
+
+
+/* EACH TIMELINE ROW */
 
 .timeline-item{
 
@@ -1863,6 +1844,9 @@ ul{
     letter-spacing:1.5px;
 }
 
+
+/* CONTENT AREA */
+
 .timeline-content{
 
     position:relative;
@@ -1870,15 +1854,18 @@ ul{
     padding-bottom:5px;
 }
 
+
+/* ROTATED SQUARE — NOW CENTERED ON LINE */
+
 .timeline-content::before{
 
     content:"";
 
     position:absolute;
 
-    left:-81px;
+    left:-55px;
 
-    top:7px;
+    top:4px;
 
     width:10px;
     height:10px;
@@ -1890,8 +1877,33 @@ ul{
     transform:rotate(45deg);
 
     box-shadow:
-        0 0 0 5px rgba(122,32,50,.035);
+        0 0 0 5px rgba(122,32,50,.035),
+        0 0 18px rgba(122,32,50,.16);
+
+    z-index:2;
+
+    transition:
+        .35s ease;
 }
+
+
+/* SQUARE HOVER */
+
+.timeline-item:hover .timeline-content::before{
+
+    border-color:#E0A0AA;
+
+    transform:
+        rotate(135deg)
+        scale(1.08);
+
+    box-shadow:
+        0 0 0 5px rgba(122,32,50,.06),
+        0 0 25px rgba(122,32,50,.30);
+}
+
+
+/* TIMELINE TEXT */
 
 .timeline-content h3{
 
@@ -2138,6 +2150,7 @@ ul{
 .contact-details{
 
     display:flex;
+
     flex-direction:column;
 
     gap:8px;
@@ -2174,6 +2187,7 @@ ul{
 .contact-form{
 
     display:flex;
+
     flex-direction:column;
 
     gap:24px;
@@ -2182,6 +2196,7 @@ ul{
 .form-group{
 
     display:flex;
+
     flex-direction:column;
 }
 
@@ -2335,6 +2350,7 @@ ul{
 .footer-column{
 
     display:flex;
+
     flex-direction:column;
 
     gap:11px;
@@ -2418,28 +2434,25 @@ ul{
     }
 
     .hero-label{
-
         justify-content:center;
     }
 
     .hero h1{
-
         font-size:84px;
     }
 
     .hero-description{
 
         margin-left:auto;
+
         margin-right:auto;
     }
 
     .hero-actions{
-
         justify-content:center;
     }
 
     .hero-visual{
-
         margin-top:10px;
     }
 
@@ -2462,7 +2475,6 @@ ul{
     }
 
     .about-content::before{
-
         display:none;
     }
 
@@ -2494,6 +2506,33 @@ ul{
         grid-template-columns:1fr;
 
         gap:65px;
+    }
+}
+
+
+/* =========================================
+   TABLET TIMELINE
+========================================= */
+
+@media(max-width:900px){
+
+    .timeline{
+        max-width:760px;
+    }
+
+    .timeline::before{
+        left:145px;
+    }
+
+    .timeline-item{
+
+        grid-template-columns:120px 1fr;
+
+        gap:55px;
+    }
+
+    .timeline-content::before{
+        left:-61px;
     }
 }
 
@@ -2533,7 +2572,6 @@ ul{
     }
 
     .nav-links{
-
         display:none;
     }
 
@@ -2569,7 +2607,6 @@ ul{
     }
 
     .hero::after{
-
         display:none;
     }
 
@@ -2583,7 +2620,6 @@ ul{
     }
 
     .hero-label::before{
-
         width:25px;
     }
 
@@ -2668,12 +2704,10 @@ ul{
     }
 
     .profile-image{
-
         height:350px;
     }
 
     .profile-info{
-
         padding:20px 5px 5px;
     }
 
@@ -2732,12 +2766,10 @@ ul{
     /* ABOUT */
 
     .about-grid{
-
         gap:45px;
     }
 
     .about-content{
-
         padding-bottom:40px;
     }
 
@@ -2756,12 +2788,10 @@ ul{
     }
 
     .highlight-card{
-
         padding:23px 0;
     }
 
     .highlight-card h4{
-
         font-size:25px;
     }
 
@@ -2769,7 +2799,6 @@ ul{
     /* SKILLS */
 
     .skills-grid{
-
         grid-template-columns:1fr;
     }
 
@@ -2811,25 +2840,28 @@ ul{
     /* PROJECTS */
 
     .projects-grid{
-
         grid-template-columns:1fr;
     }
 
     .project-preview{
-
         height:230px;
     }
 
     .project-content{
-
         padding:25px;
     }
 
 
     /* EXPERIENCE */
 
-    .timeline::before{
+    .timeline{
 
+        max-width:100%;
+
+        padding-left:0;
+    }
+
+    .timeline::before{
         display:none;
     }
 
@@ -2848,22 +2880,18 @@ ul{
     }
 
     .timeline-content{
-
         padding:0;
     }
 
     .timeline-content::before{
-
         display:none;
     }
 
     .timeline-content h3{
-
         font-size:31px;
     }
 
     .timeline-content p{
-
         font-size:12px;
     }
 
@@ -2871,7 +2899,6 @@ ul{
     /* ACHIEVEMENTS */
 
     .achievement-grid{
-
         grid-template-columns:1fr;
     }
 
@@ -2966,7 +2993,6 @@ ul{
 @media(max-width:420px){
 
     .logo-name{
-
         font-size:10px;
     }
 
@@ -2978,32 +3004,26 @@ ul{
     }
 
     .hero h1{
-
         font-size:51px;
     }
 
     .profile-image{
-
         height:310px;
     }
 
     .section-heading h2{
-
         font-size:42px;
     }
 
     .about-content h3{
-
         font-size:35px;
     }
 
     .contact-content h2{
-
         font-size:43px;
     }
 
     .footer-links{
-
         gap:35px;
     }
 }
@@ -3031,7 +3051,6 @@ textarea:focus-visible{
 @media(prefers-reduced-motion:reduce){
 
     html{
-
         scroll-behavior:auto;
     }
 
