@@ -1,16 +1,16 @@
 /* =========================================================
-MONARCHAUREX — BLACK
-LUXURY EDITORIAL PORTFOLIO
+   MONARCHAUREX — BLACK
+   LUXURY EDITORIAL PORTFOLIO
+   VISUAL UPGRADE — STRUCTURE PRESERVED
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* =========================================================
-ROOT
+   ROOT
 ========================================================= */
 
 :root{
-
     --black:#050505;
     --black-soft:#0A0A09;
     --black-light:#11110F;
@@ -44,7 +44,7 @@ ROOT
 }
 
 /* =========================================================
-RESET
+   RESET
 ========================================================= */
 
 *{
@@ -64,6 +64,11 @@ body{
             circle at 80% 10%,
             rgba(200,168,91,.055),
             transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 75%,
+            rgba(255,255,255,.018),
+            transparent 30%
         ),
         var(--black);
 
@@ -94,7 +99,18 @@ body::before{
 
     background-size:100% 5px;
 
-    opacity:.12;
+    opacity:.10;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9998;
+
+    box-shadow:
+        inset 0 0 180px rgba(0,0,0,.55);
 }
 
 img{
@@ -118,7 +134,7 @@ button{
 }
 
 /* =========================================================
-GLOBAL CONTAINER
+   GLOBAL CONTAINER
 ========================================================= */
 
 .section,
@@ -134,7 +150,7 @@ GLOBAL CONTAINER
 }
 
 /* =========================================================
-NAVIGATION
+   NAVIGATION
 ========================================================= */
 
 .navbar{
@@ -155,10 +171,18 @@ NAVIGATION
 
     border-bottom:1px solid var(--line-soft);
 
-    background:rgba(5,5,5,.84);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,5,5,.94),
+            rgba(5,5,5,.80)
+        );
 
     backdrop-filter:blur(22px);
     -webkit-backdrop-filter:blur(22px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.18);
 }
 
 .logo{
@@ -182,12 +206,22 @@ NAVIGATION
     font-size:20px;
     font-weight:500;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(200,168,91,.08),
+            transparent
+        );
+
     transition:var(--transition);
 }
 
 .logo:hover .logo-mark{
     background:var(--gold);
     color:var(--black);
+
+    box-shadow:
+        0 0 25px rgba(200,168,91,.16);
 }
 
 .logo-name{
@@ -232,7 +266,12 @@ NAVIGATION
     width:0;
     height:1px;
 
-    background:var(--gold);
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
 
     transition:var(--transition);
 }
@@ -252,6 +291,13 @@ NAVIGATION
 
     color:var(--gold-light);
 
+    background:
+        linear-gradient(
+            135deg,
+            rgba(200,168,91,.045),
+            transparent
+        );
+
     font-size:9px;
     font-weight:600;
     letter-spacing:.15em;
@@ -264,10 +310,13 @@ NAVIGATION
     background:var(--gold);
     border-color:var(--gold);
     color:var(--black);
+
+    box-shadow:
+        0 8px 30px rgba(200,168,91,.12);
 }
 
 /* =========================================================
-HERO
+   HERO
 ========================================================= */
 
 .hero{
@@ -301,9 +350,39 @@ HERO
 
     border-radius:50%;
 
-    background:rgba(200,168,91,.035);
+    background:
+        radial-gradient(
+            circle,
+            rgba(200,168,91,.08),
+            transparent 68%
+        );
 
     filter:blur(70px);
+
+    pointer-events:none;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    left:-160px;
+    bottom:-100px;
+
+    width:360px;
+    height:360px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.018),
+            transparent 70%
+        );
+
+    filter:blur(60px);
 
     pointer-events:none;
 }
@@ -333,7 +412,12 @@ HERO
     width:35px;
     height:1px;
 
-    background:var(--gold);
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
 }
 
 .hero h1{
@@ -349,6 +433,9 @@ HERO
 
     line-height:.83;
     letter-spacing:-.045em;
+
+    text-shadow:
+        0 8px 35px rgba(0,0,0,.35);
 }
 
 .hero h1 span{
@@ -358,6 +445,9 @@ HERO
     font-style:italic;
 
     letter-spacing:-.02em;
+
+    text-shadow:
+        0 5px 25px rgba(200,168,91,.10);
 }
 
 .hero-description{
@@ -401,30 +491,48 @@ HERO
 }
 
 .btn-primary{
-    background:var(--gold);
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
     border:1px solid var(--gold);
 
     color:var(--black);
+
+    box-shadow:
+        0 8px 28px rgba(200,168,91,.08);
 }
 
 .btn-primary:hover{
     background:transparent;
     color:var(--gold-light);
+
+    box-shadow:
+        0 10px 35px rgba(200,168,91,.08);
 }
 
 .btn-secondary{
     border:1px solid var(--line);
 
     color:var(--ivory-soft);
+
+    background:
+        rgba(255,255,255,.012);
 }
 
 .btn-secondary:hover{
     border-color:var(--gold-line);
     color:var(--gold-light);
+
+    background:
+        rgba(200,168,91,.025);
 }
 
 /* =========================================================
-HERO PROFILE
+   HERO PROFILE
 ========================================================= */
 
 .hero-visual{
@@ -444,6 +552,9 @@ HERO PROFILE
     border:1px solid var(--line);
 
     padding:12px;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.25);
 
     transition:var(--transition);
 }
@@ -485,6 +596,9 @@ HERO PROFILE
 .profile-card:hover{
     transform:translateY(-7px);
     border-color:var(--gold-line);
+
+    box-shadow:
+        0 38px 80px rgba(0,0,0,.34);
 }
 
 .profile-image{
@@ -512,6 +626,9 @@ HERO PROFILE
     font-family:var(--serif);
     font-size:18px;
     font-style:italic;
+
+    box-shadow:
+        inset 0 0 50px rgba(0,0,0,.25);
 }
 
 .profile-info{
@@ -546,7 +663,7 @@ HERO PROFILE
 }
 
 /* =========================================================
-SECTION HEADINGS
+   SECTION HEADINGS
 ========================================================= */
 
 .section-heading{
@@ -575,7 +692,12 @@ SECTION HEADINGS
     width:28px;
     height:1px;
 
-    background:var(--gold);
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
 }
 
 .section-heading h2{
@@ -589,6 +711,9 @@ SECTION HEADINGS
 
     line-height:.92;
     letter-spacing:-.035em;
+
+    text-shadow:
+        0 10px 35px rgba(0,0,0,.28);
 }
 
 .section-heading p{
@@ -605,7 +730,7 @@ SECTION HEADINGS
 }
 
 /* =========================================================
-ABOUT
+   ABOUT
 ========================================================= */
 
 .about{
@@ -659,6 +784,13 @@ ABOUT
 
 .about-highlights{
     border-top:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.008),
+            transparent
+        );
 }
 
 .highlight-card{
@@ -672,6 +804,13 @@ ABOUT
 .highlight-card:hover{
     padding-left:12px;
     border-color:var(--gold-line);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(200,168,91,.025),
+            transparent
+        );
 }
 
 .highlight-card > span{
@@ -703,7 +842,7 @@ ABOUT
 }
 
 /* =========================================================
-SKILLS
+   SKILLS
 ========================================================= */
 
 .skills{
@@ -716,6 +855,9 @@ SKILLS
 
     border-top:1px solid var(--line);
     border-left:1px solid var(--line);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.15);
 }
 
 .skill-card{
@@ -728,12 +870,28 @@ SKILLS
 
     position:relative;
 
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.012),
+            transparent
+        );
+
     transition:var(--transition);
 }
 
 .skill-card:hover{
-    background:rgba(200,168,91,.025);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(200,168,91,.035),
+            rgba(255,255,255,.008)
+        );
+
     border-color:var(--gold-line);
+
+    box-shadow:
+        inset 0 0 45px rgba(200,168,91,.018);
 }
 
 .skill-number{
@@ -771,6 +929,8 @@ SKILLS
     color:var(--muted);
 
     font-size:11px;
+
+    transition:var(--transition);
 }
 
 .skill-card li::before{
@@ -781,8 +941,13 @@ SKILLS
     color:var(--gold);
 }
 
+.skill-card li:hover{
+    color:var(--ivory-soft);
+    padding-left:5px;
+}
+
 /* =========================================================
-PROJECTS
+   PROJECTS
 ========================================================= */
 
 .projects{
@@ -797,18 +962,29 @@ PROJECTS
 }
 
 .project-card{
-    background:var(--black-soft);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            var(--black-soft)
+        );
 
     border:1px solid var(--line);
 
     transition:var(--transition);
 
     overflow:hidden;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.18);
 }
 
 .project-card:hover{
     transform:translateY(-7px);
     border-color:var(--gold-line);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.30);
 }
 
 .project-preview{
@@ -832,6 +1008,24 @@ PROJECTS
         );
 
     border-bottom:1px solid var(--line);
+
+    position:relative;
+}
+
+.project-preview::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 45%,
+            rgba(255,255,255,.018)
+        );
+
+    pointer-events:none;
 }
 
 .project-preview span{
@@ -841,6 +1035,9 @@ PROJECTS
     font-weight:600;
 
     letter-spacing:.2em;
+
+    position:relative;
+    z-index:1;
 }
 
 .project-content{
@@ -894,9 +1091,19 @@ PROJECTS
 
     color:var(--muted);
 
+    background:
+        rgba(255,255,255,.012);
+
     font-size:7px;
     letter-spacing:.1em;
     text-transform:uppercase;
+
+    transition:var(--transition);
+}
+
+.project-tags span:hover{
+    border-color:var(--gold-line);
+    color:var(--gold-light);
 }
 
 .project-link{
@@ -917,10 +1124,11 @@ PROJECTS
 
 .project-link:hover{
     letter-spacing:.21em;
+    color:var(--ivory);
 }
 
 /* =========================================================
-EXPERIENCE
+   EXPERIENCE
 ========================================================= */
 
 .experience{
@@ -944,7 +1152,14 @@ EXPERIENCE
 
     width:1px;
 
-    background:var(--line);
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            var(--line) 8%,
+            var(--line) 92%,
+            transparent
+        );
 }
 
 .timeline-item{
@@ -978,6 +1193,9 @@ EXPERIENCE
     transform:rotate(45deg);
 
     z-index:2;
+
+    box-shadow:
+        0 0 0 5px var(--black);
 }
 
 .timeline-date{
@@ -1023,7 +1241,7 @@ EXPERIENCE
 }
 
 /* =========================================================
-ACHIEVEMENTS
+   ACHIEVEMENTS
 ========================================================= */
 
 .achievements{
@@ -1035,6 +1253,9 @@ ACHIEVEMENTS
     grid-template-columns:repeat(3,minmax(0,1fr));
 
     border-top:1px solid var(--line);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.12);
 }
 
 .achievement-card{
@@ -1044,10 +1265,30 @@ ACHIEVEMENTS
 
     border-right:1px solid var(--line);
     border-bottom:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.012),
+            transparent
+        );
+
+    transition:var(--transition);
 }
 
 .achievement-card:first-child{
     border-left:1px solid var(--line);
+}
+
+.achievement-card:hover{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(200,168,91,.03),
+            transparent
+        );
+
+    border-color:var(--gold-line);
 }
 
 .achievement-card > span{
@@ -1078,7 +1319,7 @@ ACHIEVEMENTS
 }
 
 /* =========================================================
-CONTACT
+   CONTACT
 ========================================================= */
 
 .contact{
@@ -1116,6 +1357,9 @@ CONTACT
 
     line-height:.9;
     letter-spacing:-.04em;
+
+    text-shadow:
+        0 10px 35px rgba(0,0,0,.30);
 }
 
 .contact-content > p{
@@ -1150,6 +1394,9 @@ CONTACT
 
 .contact-details a:hover{
     color:var(--ivory);
+
+    text-shadow:
+        0 0 20px rgba(200,168,91,.12);
 }
 
 .contact-details span{
@@ -1161,7 +1408,7 @@ CONTACT
 }
 
 /* =========================================================
-CONTACT FORM
+   CONTACT FORM
 ========================================================= */
 
 .contact-form{
@@ -1220,6 +1467,9 @@ CONTACT FORM
 .form-group input:focus,
 .form-group textarea:focus{
     border-color:var(--gold);
+
+    box-shadow:
+        0 5px 0 -4px rgba(200,168,91,.20);
 }
 
 .contact-form .btn-primary{
@@ -1229,7 +1479,7 @@ CONTACT FORM
 }
 
 /* =========================================================
-FOOTER
+   FOOTER
 ========================================================= */
 
 .footer{
@@ -1237,6 +1487,13 @@ FOOTER
     padding-bottom:30px;
 
     border-top:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.008),
+            transparent
+        );
 }
 
 .footer-main{
@@ -1258,6 +1515,9 @@ FOOTER
     font-family:var(--serif);
     font-size:38px;
     font-weight:500;
+
+    text-shadow:
+        0 8px 25px rgba(0,0,0,.3);
 }
 
 .footer-brand p{
@@ -1305,6 +1565,7 @@ FOOTER
 
 .footer-column a:hover{
     color:var(--ivory);
+    padding-left:3px;
 }
 
 .footer-bottom{
@@ -1323,7 +1584,7 @@ FOOTER
 }
 
 /* =========================================================
-SELECTION
+   SELECTION
 ========================================================= */
 
 ::selection{
@@ -1332,7 +1593,7 @@ SELECTION
 }
 
 /* =========================================================
-RESPONSIVE — TABLET
+   RESPONSIVE — TABLET
 ========================================================= */
 
 @media(max-width:1000px){
@@ -1397,7 +1658,7 @@ RESPONSIVE — TABLET
 }
 
 /* =========================================================
-RESPONSIVE — MOBILE
+   RESPONSIVE — MOBILE
 ========================================================= */
 
 @media(max-width:700px){
@@ -1546,7 +1807,7 @@ RESPONSIVE — MOBILE
 }
 
 /* =========================================================
-SMALL MOBILE
+   SMALL MOBILE
 ========================================================= */
 
 @media(max-width:430px){
@@ -1629,7 +1890,7 @@ SMALL MOBILE
 }
 
 /* =========================================================
-REDUCED MOTION
+   REDUCED MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
