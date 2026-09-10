@@ -1,933 +1,1122 @@
 /* =========================================================
-   MONARCHAUREX — REQUEST PAGE
-   request/request.css
-   Standalone stylesheet
-   ========================================================= */
+   MONARCHAUREX
+   REQUEST PAGE VISUAL SYSTEM
+   Built directly from the Master Visual System
+========================================================= */
 
+:root{
+    --bg:#07090D;
+    --bg-soft:#0A0D12;
+    --surface:#0D1117;
+    --surface-2:#11161E;
 
-/* =========================================================
-   1. ROOT VARIABLES
-   ========================================================= */
+    --text:#F4F2ED;
+    --text-soft:#B9B8B3;
+    --text-muted:#777A80;
 
-:root {
-    --navy: #071a33;
-    --navy-deep: #041225;
-    --navy-soft: #0b2545;
+    --gold-deep:#76531F;
+    --gold-primary:#A77B32;
+    --gold-soft:#C7A45B;
+    --gold-highlight:#D7BD82;
 
-    --gold: #c9a227;
-    --gold-dark: #a98416;
-    --gold-light: #e0c45c;
+    --border:rgba(255,255,255,.075);
+    --border-strong:rgba(255,255,255,.13);
+    --gold-border:rgba(167,123,50,.30);
+    --gold-border-soft:rgba(167,123,50,.16);
 
-    --white: #ffffff;
-    --off-white: #f7f8fa;
-    --light-gray: #eef0f3;
-    --gray: #687386;
-    --dark-gray: #2d3748;
-    --black: #101318;
+    --shadow-sm:0 10px 30px rgba(0,0,0,.22);
+    --shadow-md:0 25px 70px rgba(0,0,0,.34);
+    --shadow-lg:0 40px 120px rgba(0,0,0,.46);
 
-    --border: #dfe3e8;
-    --shadow: 0 18px 45px rgba(7, 26, 51, 0.10);
+    --max-width:1240px;
 
-    --container: 1180px;
-
-    --transition: 0.25s ease;
+    --ease:cubic-bezier(.22,.61,.36,1);
 }
 
 
 /* =========================================================
-   2. RESET
-   ========================================================= */
+   RESET
+========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
+    background:var(--bg);
 }
 
-body {
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-    background: var(--white);
-    color: var(--dark-gray);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+body{
+    margin:0;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(167,123,50,.035),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color:var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height:1.6;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+body,
+button,
+input,
+textarea,
+select{
+    font:inherit;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 button,
 input,
-select,
-textarea {
-    font: inherit;
+textarea,
+select{
+    border:0;
+    outline:none;
 }
 
-button {
-    cursor: pointer;
+button{
+    cursor:pointer;
 }
 
-
-/* =========================================================
-   3. NAVIGATION
-   ========================================================= */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    width: 100%;
-    min-height: 78px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 5%;
-
-    background: rgba(255, 255, 255, 0.97);
-    border-bottom: 1px solid rgba(7, 26, 51, 0.08);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+img{
+    max-width:100%;
+    display:block;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-}
-
-.logo-main {
-    color: var(--navy);
-}
-
-.logo-tech {
-    color: var(--gold);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-
-    list-style: none;
-}
-
-.nav-links a {
-    position: relative;
-
-    color: var(--navy);
-    font-size: 0.92rem;
-    font-weight: 600;
-
-    transition: color var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--gold-dark);
-}
-
-.nav-links a::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-
-    width: 0;
-    height: 2px;
-
-    background: var(--gold);
-
-    transition: width var(--transition);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+::selection{
+    background:rgba(167,123,50,.28);
+    color:var(--text);
 }
 
 
 /* =========================================================
-   4. PRIMARY BUTTON
-   ========================================================= */
+   PAGE
+========================================================= */
 
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+main{
+    overflow:hidden;
+}
 
-    min-height: 46px;
-    padding: 0 22px;
+.request-page{
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
 
-    border: 1px solid var(--gold);
-    border-radius: 5px;
+    margin:0 auto;
 
-    background: var(--gold);
-    color: var(--navy);
+    padding:
+        125px 0
+        150px;
+}
 
-    font-weight: 700;
-    font-size: 0.9rem;
+
+/* =========================================================
+   NAVIGATION
+   Same visual language as master
+========================================================= */
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    border-bottom:1px solid rgba(255,255,255,.055);
+
+    background:
+        rgba(7,9,13,.88);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+.navbar{
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
+
+    min-height:82px;
+
+    margin:0 auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:40px;
+}
+
+.logo{
+    flex-shrink:0;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:17px;
+    letter-spacing:.08em;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:25px;
+
+    min-width:0;
+}
+
+.nav-links a{
+    color:var(--text-muted);
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.11em;
+    text-transform:uppercase;
 
     transition:
-        background var(--transition),
-        border-color var(--transition),
-        color var(--transition),
-        transform var(--transition),
-        box-shadow var(--transition);
+        color .25s ease,
+        border-color .25s ease;
 }
 
-.btn-primary:hover {
-    background: var(--gold-dark);
-    border-color: var(--gold-dark);
+.nav-links a:hover{
+    color:var(--text);
+}
 
-    color: var(--white);
+.nav-links .btn-primary{
+    margin-left:10px;
 
-    transform: translateY(-2px);
+    padding:12px 17px;
 
-    box-shadow: 0 8px 22px rgba(201, 162, 39, 0.20);
+    color:var(--gold-soft);
+
+    border:1px solid var(--gold-border-soft);
+
+    background:rgba(167,123,50,.025);
+}
+
+.nav-links .btn-primary:hover{
+    color:var(--text);
+    border-color:var(--gold-border);
 }
 
 
 /* =========================================================
-   5. REQUEST SECTION
-   ========================================================= */
+   REQUEST INTRO
+========================================================= */
 
-.request {
-    width: 100%;
-    min-height: calc(100vh - 78px);
+.request-intro{
+    max-width:850px;
 
-    padding: 100px 5% 110px;
+    margin-bottom:80px;
+}
+
+.request-intro > span{
+    display:block;
+
+    margin-bottom:20px;
+
+    color:var(--gold-soft);
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.20em;
+    text-transform:uppercase;
+}
+
+.request-intro h1{
+    max-width:850px;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:clamp(
+        52px,
+        7vw,
+        92px
+    );
+
+    font-weight:400;
+
+    line-height:.98;
+
+    letter-spacing:-.045em;
+}
+
+.request-intro p{
+    max-width:690px;
+
+    margin-top:30px;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+    line-height:1.85;
+
+    text-align:justify;
+    text-justify:inter-word;
+}
+
+
+/* =========================================================
+   REQUEST POINTS
+========================================================= */
+
+.request-points{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    margin-top:55px;
+
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.request-point{
+    position:relative;
+
+    min-width:0;
+
+    padding:28px;
+
+    border-right:1px solid var(--border);
+}
+
+.request-point:last-child{
+    border-right:0;
+}
+
+.request-point::after{
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:0;
+
+    height:1px;
+
+    background:var(--gold-primary);
+
+    transform:scaleX(0);
+    transform-origin:left;
+
+    transition:
+        transform .4s var(--ease);
+}
+
+.request-point:hover::after{
+    transform:scaleX(1);
+}
+
+.request-point > span{
+    color:var(--gold-primary);
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.15em;
+}
+
+.request-point h3{
+    margin-top:22px;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:24px;
+    font-weight:400;
+
+    line-height:1.15;
+}
+
+.request-point p{
+    margin-top:12px;
+
+    color:var(--text-muted);
+
+    font-size:12px;
+    line-height:1.7;
+
+    text-align:justify;
+    text-justify:inter-word;
+}
+
+
+/* =========================================================
+   FORM SHELL
+========================================================= */
+
+.request-form-wrapper{
+    margin-top:90px;
+
+    padding:55px;
+
+    border:1px solid var(--border);
 
     background:
         linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #f8f9fb 100%
+            145deg,
+            rgba(255,255,255,.028),
+            rgba(255,255,255,.012)
         );
+
+    box-shadow:var(--shadow-sm);
 }
 
-.request .section-title {
-    max-width: 850px;
-    margin: 0 auto 18px;
+.request-form-header{
+    max-width:760px;
 
-    text-align: center;
+    padding-bottom:35px;
 
-    color: var(--navy);
-
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    line-height: 1.15;
-    font-weight: 800;
-    letter-spacing: -1px;
+    border-bottom:1px solid var(--border);
 }
 
-.request .section-title span {
-    color: var(--gold);
+.request-form-header > span{
+    color:var(--gold-soft);
+
+    font-size:8px;
+    font-weight:700;
+
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
 
-.request-container {
-    width: 100%;
-    max-width: var(--container);
+.request-form-header h2{
+    margin-top:16px;
 
-    margin: 0 auto;
+    color:var(--text);
 
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    gap: 65px;
+    font-size:42px;
+    font-weight:400;
 
-    align-items: start;
+    line-height:1.08;
+
+    letter-spacing:-.025em;
 }
 
+.request-form-header p{
+    max-width:650px;
 
-/* =========================================================
-   6. REQUEST INTRODUCTION
-   ========================================================= */
+    margin-top:15px;
 
-.request-intro {
-    padding-top: 15px;
-}
+    color:var(--text-muted);
 
-.request-intro > p {
-    margin-bottom: 28px;
+    font-size:13px;
+    line-height:1.8;
 
-    color: var(--gray);
-
-    font-size: 1.02rem;
-    line-height: 1.8;
-}
-
-.request-intro h3 {
-    margin-bottom: 18px;
-
-    color: var(--navy);
-
-    font-size: 1.25rem;
-    font-weight: 750;
-}
-
-.request-points {
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-
-    list-style: none;
-}
-
-.request-point {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-}
-
-.request-point::before {
-    content: "✓";
-
-    flex: 0 0 25px;
-
-    width: 25px;
-    height: 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 2px;
-
-    border-radius: 50%;
-
-    background: rgba(201, 162, 39, 0.12);
-    color: var(--gold-dark);
-
-    font-size: 0.8rem;
-    font-weight: 800;
-}
-
-.request-point p {
-    color: var(--gray);
-    font-size: 0.95rem;
-    line-height: 1.65;
-}
-
-.request-point strong {
-    color: var(--navy);
+    text-align:justify;
+    text-justify:inter-word;
 }
 
 
 /* =========================================================
-   7. REQUEST FORM CARD
-   ========================================================= */
+   FORM
+========================================================= */
 
-.request-form-card {
-    position: relative;
+#portfolio-request-form{
+    margin-top:45px;
 
-    padding: 42px;
+    display:grid;
 
-    background: var(--white);
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
 
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    box-shadow: var(--shadow);
-
-    overflow: hidden;
+    gap:28px 25px;
 }
 
-.request-form-card::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 4px;
-
-    background: linear-gradient(
-        90deg,
-        var(--navy),
-        var(--gold),
-        var(--navy)
-    );
+.form-group{
+    min-width:0;
 }
 
-.request-form-card h2 {
-    margin-bottom: 8px;
-
-    color: var(--navy);
-
-    font-size: 1.7rem;
-    line-height: 1.25;
+.form-group.full-width{
+    grid-column:1 / -1;
 }
 
-.request-form-card > p {
-    margin-bottom: 30px;
+.form-group label{
+    display:block;
 
-    color: var(--gray);
+    margin-bottom:9px;
 
-    font-size: 0.92rem;
+    color:var(--text-soft);
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:.12em;
+    text-transform:uppercase;
 }
 
-
-/* =========================================================
-   8. FORM GROUPS
-   ========================================================= */
-
-.form-group {
-    margin-bottom: 21px;
+.form-group label span{
+    color:var(--gold-soft);
 }
-
-.form-group label {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: var(--navy);
-
-    font-size: 0.88rem;
-    font-weight: 700;
-}
-
-.form-group label span {
-    color: var(--gold-dark);
-}
-
-
-/* =========================================================
-   9. INPUTS
-   ========================================================= */
 
 .form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
+.form-group textarea,
+.form-group select{
+    width:100%;
 
-    padding: 13px 14px;
+    margin-top:2px;
 
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    padding:15px 16px;
 
-    background: #ffffff;
-    color: var(--dark-gray);
+    border:1px solid var(--border);
 
-    font-size: 0.92rem;
+    border-radius:0;
 
-    outline: none;
+    background:rgba(255,255,255,.018);
+
+    color:var(--text);
+
+    font-size:12px;
 
     transition:
-        border-color var(--transition),
-        box-shadow var(--transition),
-        background var(--transition);
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
 }
 
-.form-group input,
-.form-group select {
-    min-height: 48px;
+.form-group textarea{
+    min-height:155px;
+
+    resize:vertical;
 }
 
-.form-group textarea {
-    min-height: 135px;
+.form-group select{
+    appearance:none;
 
-    resize: vertical;
+    background:
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            var(--gold-soft) 50%
+        ) calc(100% - 18px) 21px / 5px 5px no-repeat,
+        linear-gradient(
+            135deg,
+            var(--gold-soft) 50%,
+            transparent 50%
+        ) calc(100% - 14px) 21px / 5px 5px no-repeat,
+        rgba(255,255,255,.018);
+}
 
-    line-height: 1.6;
+.form-group select option{
+    background:var(--surface);
+    color:var(--text);
 }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #9aa3af;
-}
-
-.form-group input:hover,
-.form-group select:hover,
-.form-group textarea:hover {
-    border-color: #c8ced6;
+.form-group textarea::placeholder{
+    color:#55585E;
 }
 
 .form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--gold);
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:var(--gold-border);
 
-    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.10);
+    background:rgba(167,123,50,.025);
 
-    background: #fffef9;
+    box-shadow:
+        0 0 0 1px rgba(167,123,50,.04);
+}
+
+.form-group small{
+    display:block;
+
+    margin-top:8px;
+
+    color:var(--text-muted);
+
+    font-size:9px;
+    line-height:1.6;
 }
 
 
 /* =========================================================
-   10. FILE INPUTS
-   ========================================================= */
+   PACKAGE SELECT
+========================================================= */
 
-.form-group input[type="file"] {
-    padding: 10px;
-
-    background: #fafbfc;
-
-    cursor: pointer;
+.package-group{
+    position:relative;
 }
 
-.form-group input[type="file"]::file-selector-button {
-    margin-right: 12px;
+.package-note{
+    display:block;
 
-    padding: 9px 14px;
+    margin-top:9px;
 
-    border: 1px solid var(--gold);
-    border-radius: 5px;
+    color:var(--text-muted);
 
-    background: var(--gold);
-    color: var(--navy);
+    font-size:9px;
+    line-height:1.6;
+}
 
-    font-size: 0.82rem;
-    font-weight: 700;
 
-    cursor: pointer;
+/* =========================================================
+   UPLOAD NOTE
+   Used because Formspree Free does not accept native uploads
+========================================================= */
+
+.upload-note{
+    padding:22px;
+
+    border:1px solid var(--gold-border-soft);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(167,123,50,.045),
+            rgba(255,255,255,.012)
+        );
+}
+
+.upload-note strong{
+    display:block;
+
+    color:var(--gold-soft);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:18px;
+    font-weight:400;
+}
+
+.upload-note p{
+    margin-top:9px;
+
+    color:var(--text-muted);
+
+    font-size:11px;
+    line-height:1.7;
+
+    text-align:justify;
+    text-justify:inter-word;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.form-actions{
+    grid-column:1 / -1;
+
+    display:flex;
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding-top:15px;
+
+    border-top:1px solid var(--border);
+}
+
+.submit-button{
+    min-height:52px;
+
+    padding:0 25px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#0A0B0D;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-soft),
+            var(--gold-primary)
+        );
+
+    border:1px solid rgba(215,189,130,.38);
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:.14em;
+    text-transform:uppercase;
 
     transition:
-        background var(--transition),
-        color var(--transition);
+        transform .35s var(--ease),
+        box-shadow .35s ease,
+        background .35s ease;
 }
 
-.form-group input[type="file"]::file-selector-button:hover {
-    background: var(--gold-dark);
-    color: var(--white);
+.submit-button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.30);
 }
 
+.submit-button span{
+    margin-left:10px;
 
-/* =========================================================
-   11. SELECT
-   ========================================================= */
-
-.form-group select {
-    appearance: none;
-    -webkit-appearance: none;
-
-    padding-right: 42px;
-
-    background-image:
-        linear-gradient(45deg, transparent 50%, var(--gray) 50%),
-        linear-gradient(135deg, var(--gray) 50%, transparent 50%);
-
-    background-position:
-        calc(100% - 17px) 21px,
-        calc(100% - 12px) 21px;
-
-    background-size:
-        5px 5px,
-        5px 5px;
-
-    background-repeat: no-repeat;
+    font-size:14px;
 }
 
+.form-feedback{
+    flex:1;
 
-/* =========================================================
-   12. CHECKBOX / CONSENT
-   ========================================================= */
+    min-width:220px;
 
-.form-check {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    color:var(--text-muted);
 
-    margin: 5px 0 22px;
+    font-size:10px;
+    line-height:1.6;
 }
 
-.form-check input[type="checkbox"] {
-    flex: 0 0 auto;
+.form-note{
+    grid-column:1 / -1;
 
-    width: 17px;
-    height: 17px;
+    padding-top:5px;
 
-    margin-top: 3px;
+    color:#55585E;
 
-    accent-color: var(--gold);
-
-    cursor: pointer;
-}
-
-.form-check label {
-    margin: 0;
-
-    color: var(--gray);
-
-    font-size: 0.82rem;
-    line-height: 1.5;
-
-    cursor: pointer;
-}
-
-.form-check label a {
-    color: var(--gold-dark);
-    font-weight: 700;
-}
-
-.form-check label a:hover {
-    text-decoration: underline;
+    font-size:9px;
+    line-height:1.7;
 }
 
 
 /* =========================================================
-   13. FORM SUBMIT BUTTON
-   ========================================================= */
+   FOOTER
+========================================================= */
 
-.request-submit {
-    width: 100%;
+.site-footer{
+    padding:
+        80px
+        max(40px, calc((100% - var(--max-width)) / 2))
+        30px;
 
-    min-height: 52px;
+    border-top:1px solid var(--border);
 
-    border: 1px solid var(--gold);
-    border-radius: 6px;
+    background:
+        linear-gradient(
+            145deg,
+            #090B10,
+            #06080B
+        );
+}
 
-    background: var(--gold);
-    color: var(--navy);
+.footer-top{
+    width:100%;
+    max-width:var(--max-width);
 
-    font-size: 0.94rem;
-    font-weight: 800;
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr
+        .8fr
+        .8fr;
+
+    gap:70px;
+
+    padding-bottom:70px;
+}
+
+.footer-brand > span{
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:19px;
+
+    letter-spacing:.08em;
+}
+
+.footer-brand p{
+    margin-top:15px;
+
+    color:var(--text-muted);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:15px;
+
+    line-height:1.5;
+}
+
+.footer-navigation,
+.footer-contact{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+}
+
+.footer-navigation > span,
+.footer-contact > span{
+    margin-bottom:20px;
+
+    color:var(--gold-soft);
+
+    font-size:8px;
+    font-weight:700;
+
+    letter-spacing:.17em;
+}
+
+.footer-navigation a{
+    margin-bottom:10px;
+
+    color:var(--text-muted);
+
+    font-size:10px;
 
     transition:
-        background var(--transition),
-        border-color var(--transition),
-        color var(--transition),
-        transform var(--transition),
-        box-shadow var(--transition);
+        color .25s ease;
 }
 
-.request-submit:hover {
-    background: var(--gold-dark);
-    border-color: var(--gold-dark);
-
-    color: var(--white);
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 10px 25px rgba(201, 162, 39, 0.20);
+.footer-navigation a:hover{
+    color:var(--text);
 }
 
-.request-submit:active {
-    transform: translateY(0);
+.footer-contact a{
+    color:var(--text-soft);
+
+    font-size:11px;
 }
 
-.request-submit:disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
+.footer-contact a span{
+    color:var(--gold-soft);
 
-    transform: none;
-    box-shadow: none;
+    margin-left:7px;
 }
 
+.footer-bottom{
+    width:100%;
+    max-width:var(--max-width);
 
-/* =========================================================
-   14. FORM NOTE
-   ========================================================= */
+    margin:0 auto;
 
-.request-note {
-    margin-top: 15px;
+    padding-top:25px;
 
-    color: #8a93a1;
+    display:flex;
+    justify-content:space-between;
 
-    font-size: 0.78rem;
-    line-height: 1.5;
+    gap:30px;
 
-    text-align: center;
+    border-top:1px solid var(--border);
+
+    color:#55585E;
+
+    font-size:8px;
+    line-height:1.6;
+
+    letter-spacing:.05em;
 }
 
 
 /* =========================================================
-   15. FOOTER
-   ========================================================= */
-
-.footer {
-    width: 100%;
-
-    background: var(--navy-deep);
-    color: var(--white);
-}
-
-.footer-main {
-    max-width: var(--container);
-
-    margin: 0 auto;
-
-    padding: 65px 5% 45px;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    gap: 40px;
-}
-
-.footer-brand {
-    max-width: 390px;
-}
-
-.footer-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-
-    margin-bottom: 15px;
-
-    font-weight: 800;
-    font-size: 1.05rem;
-}
-
-.footer-logo .logo-main {
-    color: var(--white);
-}
-
-.footer-logo .logo-tech {
-    color: var(--gold);
-}
-
-.footer-brand p {
-    color: rgba(255, 255, 255, 0.65);
-
-    font-size: 0.86rem;
-    line-height: 1.7;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px 30px;
-
-    list-style: none;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.78);
-
-    font-size: 0.84rem;
-
-    transition: color var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--gold);
-}
-
-.footer-bottom {
-    padding: 18px 5%;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-
-    text-align: center;
-
-    color: rgba(255, 255, 255, 0.45);
-
-    font-size: 0.75rem;
-}
-
-
-/* =========================================================
-   16. TABLET
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
-    .navbar {
-        padding: 0 4%;
-    }
-
-    .nav-links {
-        gap: 20px;
-    }
-
-    .request {
-        padding: 85px 4% 95px;
-    }
-
-    .request-container {
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-
-        max-width: 820px;
-    }
-
-    .request-intro {
-        padding-top: 0;
-    }
-
-    .request-form-card {
-        padding: 36px;
-    }
-
-    .footer-main {
-        padding-left: 4%;
-        padding-right: 4%;
-    }
-}
-
-
-/* =========================================================
-   17. MOBILE
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-    .navbar {
-        min-height: 70px;
-
-        padding: 0 5%;
-    }
-
-    .nav-links {
-        gap: 14px;
-    }
-
-    .nav-links a {
-        font-size: 0.82rem;
-    }
-
-    .btn-primary {
-        min-height: 42px;
-        padding: 0 16px;
-
-        font-size: 0.8rem;
-    }
-
-    .request {
-        padding: 70px 5% 80px;
-    }
-
-    .request .section-title {
-        margin-bottom: 15px;
-
-        font-size: clamp(1.8rem, 8vw, 2.4rem);
-    }
-
-    .request-container {
-        gap: 40px;
-    }
-
-    .request-intro > p {
-        font-size: 0.94rem;
-    }
-
-    .request-form-card {
-        padding: 28px 22px;
-
-        border-radius: 10px;
-    }
-
-    .request-form-card h2 {
-        font-size: 1.45rem;
-    }
-
-    .footer-main {
-        flex-direction: column;
-
-        padding: 50px 5% 35px;
-
-        gap: 30px;
-    }
-
-    .footer-brand {
-        max-width: 100%;
-    }
-
-    .footer-links {
-        gap: 16px 22px;
-    }
-}
-
-
-/* =========================================================
-   18. SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 420px) {
-
-    .navbar {
-        padding: 0 4%;
-    }
-
-    .logo {
-        font-size: 0.9rem;
-    }
-
-    .nav-links {
-        gap: 9px;
-    }
-
-    .nav-links a {
-        font-size: 0.74rem;
-    }
-
-    .btn-primary {
-        min-height: 38px;
-        padding: 0 12px;
-
-        font-size: 0.72rem;
-    }
-
-    .request {
-        padding: 58px 4% 65px;
-    }
-
-    .request-form-card {
-        padding: 25px 17px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 0.88rem;
-    }
-
-    .footer-main {
-        padding-left: 4%;
-        padding-right: 4%;
-    }
-}
-
-
-/* =========================================================
-   19. ACCESSIBILITY
-   ========================================================= */
+   FOCUS STATES
+========================================================= */
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
+textarea:focus-visible,
+select:focus-visible{
+    outline:1px solid var(--gold-soft);
+    outline-offset:4px;
 }
 
 
 /* =========================================================
-   20. REDUCED MOTION
-   ========================================================= */
+   RESPONSIVE — TABLET
+========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width:1050px){
 
-    html {
-        scroll-behavior: auto;
+    .navbar,
+    .request-page{
+        width:min(
+            calc(100% - 50px),
+            var(--max-width)
+        );
+    }
+
+    .nav-links{
+        gap:16px;
+    }
+
+    .nav-links a{
+        font-size:8px;
+    }
+
+    .request-points{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .request-point:nth-child(2){
+        border-right:0;
+    }
+
+    .request-point:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .footer-top{
+        gap:40px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width:760px){
+
+    .navbar,
+    .request-page{
+        width:calc(100% - 36px);
+    }
+
+    .site-header{
+        position:relative;
+    }
+
+    .navbar{
+        min-height:72px;
+
+        align-items:flex-start;
+
+        padding:18px 0;
+
+        flex-direction:column;
+
+        gap:17px;
+    }
+
+    .nav-links{
+        width:100%;
+
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        padding-bottom:4px;
+
+        gap:19px;
+
+        scrollbar-width:none;
+    }
+
+    .nav-links::-webkit-scrollbar{
+        display:none;
+    }
+
+    .nav-links .btn-primary{
+        margin-left:0;
+    }
+
+    .request-page{
+        padding:
+            90px 0
+            100px;
+    }
+
+    .request-intro{
+        margin-bottom:60px;
+    }
+
+    .request-intro h1{
+        font-size:clamp(
+            48px,
+            14vw,
+            72px
+        );
+    }
+
+    .request-intro p{
+        max-width:100%;
+
+        font-size:13px;
+    }
+
+    .request-points{
+        grid-template-columns:1fr;
+    }
+
+    .request-point{
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .request-point:last-child{
+        border-bottom:0;
+    }
+
+    .request-point:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .request-form-wrapper{
+        margin-top:70px;
+
+        padding:30px 22px;
+    }
+
+    .request-form-header h2{
+        font-size:35px;
+    }
+
+    #portfolio-request-form{
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .form-group.full-width,
+    .form-actions,
+    .form-note{
+        grid-column:auto;
+    }
+
+    .form-actions{
+        align-items:stretch;
+
+        flex-direction:column;
+    }
+
+    .submit-button{
+        width:100%;
+    }
+
+    .form-feedback{
+        min-width:0;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:10px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:420px){
+
+    .navbar,
+    .request-page{
+        width:calc(100% - 28px);
+    }
+
+    .request-intro h1{
+        font-size:48px;
+    }
+
+    .request-form-wrapper{
+        padding:25px 18px;
+    }
+
+    .request-form-header h2{
+        font-size:32px;
+    }
+
+    .request-point{
+        padding:25px 22px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select{
+        padding:14px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
     }
 
     *,
     *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+    *::after{
+        transition:none !important;
+        animation:none !important;
     }
+}
+
+
+/* =========================================================
+   ANCHOR OFFSET
+========================================================= */
+
+#request{
+    scroll-margin-top:110px;
 }
