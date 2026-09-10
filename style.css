@@ -430,7 +430,6 @@ p{
     );
 
     line-height:.95;
-
     letter-spacing:-.045em;
 }
 
@@ -1194,64 +1193,7 @@ p{
     font-size:8px;
     line-height:1.65;
 }
-/* =========================================================
-   PRICING — PRIVATE OFFERS INVITATION
-========================================================= */
 
-.pricing-promo{
-    margin-top:42px;
-    padding-top:28px;
-
-    border-top:1px solid var(--border);
-
-    max-width:620px;
-}
-
-.pricing-promo > span{
-    display:block;
-
-    color:var(--gold-soft);
-
-    font-size:9px;
-    font-weight:700;
-
-    letter-spacing:.17em;
-    text-transform:uppercase;
-}
-
-.pricing-promo p{
-    max-width:560px;
-
-    margin-top:10px;
-
-    color:var(--text-muted);
-
-    font-size:12px;
-    line-height:1.7;
-}
-
-.pricing-promo .text-link{
-    margin-top:15px;
-}
-
-
-/* =========================================================
-   PRICING — PRIVATE OFFERS INVITATION
-   MOBILE
-========================================================= */
-
-@media (max-width:760px){
-
-    .pricing-promo{
-        margin-top:35px;
-        padding-top:24px;
-    }
-
-    .pricing-promo p{
-        font-size:12px;
-    }
-
-}
 
 /* =========================================================
    LIVE EXPERIENCES
@@ -1351,7 +1293,6 @@ p{
     content:"";
 
     position:absolute;
-
     inset:13px;
 
     border:1px solid rgba(199,164,91,.15);
@@ -2067,7 +2008,6 @@ p{
         serif;
 
     font-size:25px;
-
     line-height:1.45;
 
     text-align:justify;
@@ -2199,7 +2139,6 @@ p{
     );
 
     line-height:1.01;
-
     letter-spacing:-.035em;
 
     text-align:left;
@@ -2219,4 +2158,600 @@ p{
 
 .final-cta .primary-button{
     margin-top:34px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer{
+    padding:
+        80px
+        max(40px, calc((100% - var(--max-width)) / 2))
+        30px;
+
+    border-top:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            #090B10,
+            #06080B
+        );
+}
+
+.footer-top{
+    width:100%;
+    max-width:var(--max-width);
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr
+        .8fr
+        .8fr;
+
+    gap:70px;
+
+    padding-bottom:70px;
+}
+
+.footer-brand > span{
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:19px;
+
+    letter-spacing:.08em;
+}
+
+.footer-brand p{
+    margin-top:15px;
+
+    color:var(--text-muted);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:15px;
+
+    line-height:1.5;
+}
+
+.footer-navigation,
+.footer-contact{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+}
+
+.footer-navigation > span,
+.footer-contact > span{
+    margin-bottom:20px;
+
+    color:var(--gold-soft);
+
+    font-size:8px;
+    font-weight:700;
+
+    letter-spacing:.17em;
+}
+
+.footer-navigation a{
+    margin-bottom:10px;
+
+    color:var(--text-muted);
+
+    font-size:10px;
+
+    transition:
+        color .25s ease;
+}
+
+.footer-navigation a:hover{
+    color:var(--text);
+}
+
+.footer-contact a{
+    color:var(--text-soft);
+
+    font-size:11px;
+}
+
+.footer-contact a span{
+    color:var(--gold-soft);
+
+    margin-left:7px;
+}
+
+.footer-bottom{
+    width:100%;
+    max-width:var(--max-width);
+
+    margin:0 auto;
+
+    padding-top:25px;
+
+    display:flex;
+    justify-content:space-between;
+
+    gap:30px;
+
+    border-top:1px solid var(--border);
+
+    color:#55585E;
+
+    font-size:8px;
+    line-height:1.6;
+
+    letter-spacing:.05em;
+}
+
+
+/* =========================================================
+   FOCUS STATES
+========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+    outline:1px solid var(--gold-soft);
+    outline-offset:4px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width:1050px){
+
+    .navbar,
+    section{
+        width:min(
+            calc(100% - 50px),
+            var(--max-width)
+        );
+    }
+
+    .nav-links{
+        gap:16px;
+    }
+
+    .nav-links > a{
+        font-size:8px;
+    }
+
+    .hero{
+        grid-template-columns:
+            minmax(0,1fr)
+            minmax(280px,.75fr);
+
+        gap:55px;
+    }
+
+    .hero h1{
+        font-size:clamp(55px,8vw,82px);
+    }
+
+    .collection-grid,
+    .pricing-grid,
+    .demo-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .collection-card:last-child,
+    .demo-card:last-child{
+        grid-column:1 / -1;
+        max-width:calc(50% - 9px);
+    }
+
+    .standard-grid,
+    .process-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .standard-card:nth-child(2){
+        border-right:0;
+    }
+
+    .standard-card:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .process-step:nth-child(2){
+        border-right:0;
+    }
+
+    .process-step:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .about-content{
+        gap:55px;
+    }
+
+    .footer-top{
+        gap:40px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width:760px){
+
+    :root{
+        --section-space:100px;
+    }
+
+    .navbar,
+    section{
+        width:calc(100% - 36px);
+    }
+
+    .site-header{
+        position:relative;
+    }
+
+    .navbar{
+        min-height:72px;
+
+        align-items:flex-start;
+
+        padding:18px 0;
+
+        flex-direction:column;
+
+        gap:17px;
+    }
+
+    .nav-links{
+        width:100%;
+
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        padding-bottom:4px;
+
+        gap:19px;
+
+        scrollbar-width:none;
+    }
+
+    .nav-links::-webkit-scrollbar{
+        display:none;
+    }
+
+    .nav-links .nav-cta{
+        margin-left:0;
+    }
+
+    .hero{
+        min-height:auto;
+
+        display:block;
+
+        padding-top:90px;
+        padding-bottom:90px;
+    }
+
+    .hero h1{
+        font-size:clamp(
+            50px,
+            14vw,
+            72px
+        );
+    }
+
+    .hero-description{
+        max-width:100%;
+
+        font-size:14px;
+    }
+
+    .hero-actions{
+        align-items:stretch;
+
+        flex-direction:column;
+
+        max-width:330px;
+    }
+
+    .primary-button,
+    .secondary-button{
+        width:100%;
+    }
+
+    .hero-signature{
+        min-height:350px;
+
+        margin-top:80px;
+
+        padding:27px;
+
+        border-left:0;
+
+        border-top:1px solid var(--gold-border-soft);
+    }
+
+    .section-title{
+        margin-bottom:50px;
+    }
+
+    .section-title h2{
+        font-size:clamp(
+            40px,
+            11vw,
+            58px
+        );
+    }
+
+    .section-title p{
+        max-width:100%;
+
+        font-size:13px;
+    }
+
+    .collection-grid,
+    .pricing-grid,
+    .demo-grid,
+    .standard-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .collection-card:last-child,
+    .demo-card:last-child{
+        grid-column:auto;
+        max-width:none;
+    }
+
+    .collection-mark{
+        width:145px;
+        height:145px;
+
+        margin-top:48px;
+        margin-bottom:48px;
+    }
+
+    .standard-card,
+    .process-step{
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .standard-card:last-child,
+    .process-step:last-child{
+        border-bottom:0;
+    }
+
+    .standard-card:nth-child(-n+2),
+    .process-step:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .pricing-card{
+        min-height:auto;
+
+        padding:30px;
+    }
+
+    .pricing-card h3{
+        font-size:28px;
+    }
+
+    .pricing-price strong{
+        font-size:43px;
+    }
+
+    .demo-card{
+        min-height:500px;
+    }
+
+    .experience-feature{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .experience-rating-summary{
+        padding-left:0;
+
+        padding-top:40px;
+
+        border-left:0;
+
+        border-top:1px solid var(--border);
+    }
+
+    .experience-intro h3{
+        font-size:31px;
+    }
+
+    .experience-section-heading h3{
+        font-size:34px;
+    }
+
+    .share-experience{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .share-experience-copy h3{
+        font-size:35px;
+    }
+
+    .experience-button{
+        width:100%;
+    }
+
+    .review-form-wrapper{
+        padding:30px 22px;
+    }
+
+    .client-review-form{
+        grid-template-columns:1fr;
+    }
+
+    .review-rating-field,
+    .review-field:nth-last-of-type(2),
+    .review-consent,
+    .review-form-actions,
+    .review-form-status{
+        grid-column:auto;
+    }
+
+    .about-content{
+        grid-template-columns:1fr;
+
+        gap:65px;
+    }
+
+    .about-statement p{
+        font-size:22px;
+    }
+
+    .about-principle{
+        grid-template-columns:45px 1fr;
+    }
+
+    .about-principle p{
+        grid-column:2;
+    }
+
+    .final-cta{
+        padding:
+            110px
+            18px;
+    }
+
+    .final-cta h2{
+        font-size:clamp(
+            45px,
+            12vw,
+            65px
+        );
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:10px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:420px){
+
+    .navbar,
+    section{
+        width:calc(100% - 28px);
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .section-title h2{
+        font-size:39px;
+    }
+
+    .collection-card-content,
+    .demo-card-content{
+        padding-left:22px;
+        padding-right:22px;
+    }
+
+    .collection-card-top{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .pricing-card{
+        padding:25px;
+    }
+
+    .pricing-price strong{
+        font-size:39px;
+    }
+
+    .rating-selector{
+        gap:4px;
+    }
+
+    .rating-star{
+        width:39px;
+        height:39px;
+    }
+
+    .review-empty-state{
+        grid-template-columns:50px 1fr;
+
+        gap:18px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        transition:none !important;
+        animation:none !important;
+    }
+}
+
+
+/* =========================================================
+   ANCHOR SCROLL OFFSET
+   Keeps sections positioned cleanly beneath the navbar
+========================================================= */
+
+#home,
+#collection,
+#standard,
+#process,
+#pricing,
+#live-experiences,
+#experiences,
+#about,
+#request{
+    scroll-margin-top:110px;
 }
