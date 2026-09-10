@@ -185,9 +185,14 @@
                 id="portfolio-request-form"
                 action="https://formspree.io/f/xqpkdkvw"
                 method="POST"
+                enctype="multipart/form-data"
                 novalidate
             >
 
+
+                <!--=========================================
+                        BASIC INFORMATION
+                =========================================-->
 
                 <div class="form-group">
 
@@ -261,6 +266,149 @@
 
 
 
+                <!--=========================================
+                        PROFILE PHOTO
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="profile-photo">
+                        Profile Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profile-photo"
+                        name="profile_photo"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+                    <small class="form-note">
+                        Upload your main professional photo.
+                    </small>
+
+                </div>
+
+
+
+                <!--=========================================
+                        ACHIEVEMENTS & CERTIFICATIONS
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="achievements">
+                        Achievements & Certifications
+                    </label>
+
+                    <textarea
+                        id="achievements"
+                        name="achievements"
+                        rows="5"
+                        placeholder="List your qualifications, certifications, awards, academic achievements, programmes, or other accomplishments..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--=========================================
+                        WORK EXPERIENCE
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="work-experience">
+                        Work Experience
+                    </label>
+
+                    <textarea
+                        id="work-experience"
+                        name="work_experience"
+                        rows="5"
+                        placeholder="Tell us about your previous, current, internship, volunteer, freelance, or part-time experience..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--=========================================
+                        PORTFOLIO THEME
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="theme">
+                        Preferred Portfolio Theme
+                    </label>
+
+                    <select
+                        id="theme"
+                        name="theme"
+                    >
+
+                        <option value="">
+                            Select a preferred style
+                        </option>
+
+                        <option value="Black Luxury">
+                            Black Luxury
+                        </option>
+
+                        <option value="Professional Corporate">
+                            Professional & Corporate
+                        </option>
+
+                        <option value="Minimal Clean">
+                            Minimal & Clean
+                        </option>
+
+                        <option value="Modern Creative">
+                            Modern & Creative
+                        </option>
+
+                        <option value="Custom">
+                            Custom / Let MonarchAurex Recommend
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!--=========================================
+                        ADDITIONAL PHOTOS
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="additional-photos">
+                        Additional Photos
+                    </label>
+
+                    <input
+                        type="file"
+                        id="additional-photos"
+                        name="additional_photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <small class="form-note">
+                        Optional. You may upload additional professional,
+                        academic, work, or achievement-related photos.
+                    </small>
+
+                </div>
+
+
+
+                <!--=========================================
+                        PORTFOLIO MESSAGE
+                =========================================-->
+
                 <div class="form-group">
 
                     <label for="message">
@@ -278,6 +426,10 @@
                 </div>
 
 
+
+                <!--=========================================
+                        SUBMIT
+                =========================================-->
 
                 <button
                     type="submit"
