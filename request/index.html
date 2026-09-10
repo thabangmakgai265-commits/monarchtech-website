@@ -1,1 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Request Your Portfolio | MonarchAurex</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<!--=========================================
+            NAVIGATION
+=========================================-->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <span class="logo-main">MONARCH</span><span class="logo-tech">Aurex</span>
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="../index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="../index.html#collection">
+                Collection
+            </a>
+        </li>
+
+        <li>
+            <a href="../index.html#pricing">
+                Pricing
+            </a>
+        </li>
+
+        <li>
+            <a href="../index.html#live-experiences">
+                Live Demos
+            </a>
+        </li>
+
+        <li>
+            <a href="../index.html#about">
+                About
+            </a>
+        </li>
+
+    </ul>
+
+
+    <a href="index.html" class="btn-primary">
+        Request My Portfolio
+    </a>
+
+</nav>
+
+
+
+<!--=========================================
+            REQUEST PORTFOLIO
+=========================================-->
+
+<main>
+
+<section class="request" id="request">
+
+
+    <div class="section-title">
+
+        <span>
+            START YOUR JOURNEY
+        </span>
+
+        <h2>
+            Build Your Professional<br>
+            Presence With MonarchAurex.
+        </h2>
+
+        <p>
+            Tell us a little about yourself and the portfolio
+            experience you're looking for.
+        </p>
+
+    </div>
+
+
+
+    <div class="request-container">
+
+
+        <!--=========================================
+                REQUEST INTRO
+        =========================================-->
+
+        <div class="request-intro">
+
+
+            <span class="request-label">
+                REQUEST YOUR PORTFOLIO
+            </span>
+
+
+            <h3>
+                Ready to stand out?
+            </h3>
+
+
+            <p>
+                Whether you're starting your career,
+                building your professional presence or
+                creating a personal brand, we'll help you
+                create a portfolio designed around you.
+            </p>
+
+
+            <div class="request-points">
+
+
+                <div class="request-point">
+
+                    <span>
+                        01
+                    </span>
+
+                    <p>
+                        Choose your portfolio experience.
+                    </p>
+
+                </div>
+
+
+                <div class="request-point">
+
+                    <span>
+                        02
+                    </span>
+
+                    <p>
+                        Tell us about your professional journey.
+                    </p>
+
+                </div>
+
+
+                <div class="request-point">
+
+                    <span>
+                        03
+                    </span>
+
+                    <p>
+                        We'll get back to you with the next steps.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!--=========================================
+                REQUEST FORM
+        =========================================-->
+
+        <div class="request-form-card">
+
+
+            <form
+                id="portfolio-request-form"
+                action="https://formspree.io/f/xqpkdkvw"
+                method="POST"
+                enctype="multipart/form-data"
+                novalidate
+            >
+
+
+                <!--=========================================
+                        BASIC INFORMATION
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="field">
+                        Professional Field
+                    </label>
+
+                    <input
+                        type="text"
+                        id="field"
+                        name="field"
+                        placeholder="e.g. Data Analyst, HR, Finance"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="package">
+                        What Are You Interested In?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="package"
+                        name="package"
+                        placeholder="Graduate, Professional, Executive, or a Private Offer"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!--=========================================
+                        PROFILE PHOTO
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="profile-photo">
+                        Profile Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profile-photo"
+                        name="profile_photo"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+
+                    <small class="form-note">
+                        Upload your main professional photo.
+                    </small>
+
+                </div>
+
+
+
+                <!--=========================================
+                        ACHIEVEMENTS & CERTIFICATIONS
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="achievements">
+                        Achievements & Certifications
+                    </label>
+
+                    <textarea
+                        id="achievements"
+                        name="achievements"
+                        rows="5"
+                        placeholder="List your qualifications, certifications, awards, academic achievements, programmes, or other accomplishments..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--=========================================
+                        WORK EXPERIENCE
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="work-experience">
+                        Work Experience
+                    </label>
+
+                    <textarea
+                        id="work-experience"
+                        name="work_experience"
+                        rows="5"
+                        placeholder="Tell us about your previous, current, internship, volunteer, freelance, or part-time experience..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--=========================================
+                        PORTFOLIO THEME
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="theme">
+                        Preferred Portfolio Theme
+                    </label>
+
+                    <select
+                        id="theme"
+                        name="theme"
+                    >
+
+                        <option value="">
+                            Select a preferred style
+                        </option>
+
+                        <option value="Black Luxury">
+                            Black Luxury
+                        </option>
+
+                        <option value="Professional Corporate">
+                            Professional & Corporate
+                        </option>
+
+                        <option value="Minimal Clean">
+                            Minimal & Clean
+                        </option>
+
+                        <option value="Modern Creative">
+                            Modern & Creative
+                        </option>
+
+                        <option value="Custom">
+                            Custom / Let MonarchAurex Recommend
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!--=========================================
+                        ADDITIONAL PHOTOS
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="additional-photos">
+                        Additional Photos
+                    </label>
+
+                    <input
+                        type="file"
+                        id="additional-photos"
+                        name="additional_photos"
+                        accept="image/jpeg,image/png,image/webp"
+                        multiple
+                    >
+
+                    <small class="form-note">
+                        Optional. You may upload additional professional,
+                        academic, work, or achievement-related photos.
+                    </small>
+
+                </div>
+
+
+
+                <!--=========================================
+                        PORTFOLIO MESSAGE
+                =========================================-->
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Tell Us About Your Portfolio
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Tell us what you'd like your portfolio to showcase..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--=========================================
+                        SUBMIT
+                =========================================-->
+
+                <button
+                    type="submit"
+                    class="btn-primary request-submit"
+                    id="request-submit"
+                >
+
+                    <span class="submit-text">
+                        Submit Portfolio Request
+                    </span>
+
+                    <span
+                        class="submit-loading"
+                        aria-hidden="true"
+                    >
+                        Sending Request...
+                    </span>
+
+                </button>
+
+
+
+                <div
+                    class="form-feedback"
+                    id="form-feedback"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                ></div>
+
+
+
+                <small class="form-note">
+                    We'll review your request and get back to you
+                    with the next steps.
+                </small>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!--=========================================
+                FOOTER
+=========================================-->
+
+<footer class="footer">
+
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+
+                <span class="logo-main">
+                    MONARCH
+                </span><span class="logo-tech">
+                    Aurex
+                </span>
+
+            </div>
+
+
+            <p>
+                Premium portfolio experiences designed
+                to elevate your professional presence.
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+</body>
+
+</html>
