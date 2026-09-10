@@ -1,478 +1,1392 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   MONARCHAUREX
+   REQUEST PAGE
+   MASTER VISUAL SYSTEM
+========================================================= */
 
-    <title>Request Your Portfolio | MonarchAurex</title>
-    <meta name="description" content="Start your professional portfolio journey with MonarchAurex. Request a premium portfolio designed around your professional identity.">
 
-    <!-- Standalone Request Page Styles -->
-    <link rel="stylesheet" href="style.css">
-</head>
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
 
-<body>
+:root{
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
-    <header class="navbar">
-        <div class="nav-container">
+    --bg:#07090D;
+    --bg-soft:#0A0D12;
 
-            <a href="../index.html" class="logo" aria-label="MonarchAurex Home">
-                <span class="logo-main">MONARCH</span><span class="logo-tech">AUREX</span>
-            </a>
+    --surface:#0D1117;
+    --surface-2:#11161E;
 
-            <nav class="nav-links" aria-label="Main navigation">
-                <a href="../index.html">Home</a>
-                <a href="../index.html#collection">Collection</a>
-                <a href="../index.html#pricing">Pricing</a>
-                <a href="../index.html#live-experiences">Experiences</a>
-                <a href="../index.html#about">About</a>
-            </nav>
+    --text:#F4F2ED;
+    --text-soft:#B9B8B3;
+    --text-muted:#777A80;
 
-            <a href="#request" class="btn-primary">Request Now</a>
+    --gold-deep:#76531F;
+    --gold-primary:#A77B32;
+    --gold-soft:#C7A45B;
+    --gold-highlight:#D7BD82;
 
-        </div>
-    </header>
+    --border:rgba(255,255,255,.075);
+    --border-strong:rgba(255,255,255,.13);
 
+    --gold-border:rgba(167,123,50,.30);
+    --gold-border-soft:rgba(167,123,50,.16);
 
-    <!-- =========================
-         REQUEST SECTION
-    ========================== -->
-    <main>
+    --shadow-sm:0 10px 30px rgba(0,0,0,.22);
+    --shadow-md:0 25px 70px rgba(0,0,0,.34);
+    --shadow-lg:0 40px 120px rgba(0,0,0,.46);
 
-        <section class="request" id="request">
+    --max-width:1240px;
 
-            <div class="section-title">
+    --section-space:150px;
 
-                <span>START YOUR JOURNEY</span>
+    --ease:cubic-bezier(.22,.61,.36,1);
 
-                <h2>
-                    Build Your Professional<br>
-                    Presence With MonarchAurex.
-                </h2>
+}
 
-                <p>
-                    Tell us about yourself, your experience and the professional
-                    identity you want to build. We'll use your information to
-                    create a portfolio tailored to you.
-                </p>
 
-            </div>
+/* =========================================================
+   RESET
+========================================================= */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-            <div class="request-container">
+html{
+    scroll-behavior:smooth;
+}
 
-                <!-- =========================
-                     INTRODUCTION
-                ========================== -->
-                <div class="request-intro">
+body{
 
-                    <span class="request-label">
-                        YOUR PROFESSIONAL IDENTITY
-                    </span>
+    min-height:100vh;
 
-                    <h3>Ready to stand out?</h3>
+    background:
+        radial-gradient(
+            circle at 50% -15%,
+            rgba(167,123,50,.075),
+            transparent 38%
+        ),
+        var(--bg);
 
-                    <p>
-                        Your portfolio should represent more than your qualifications.
-                        It should communicate who you are, what you have achieved,
-                        and where you're going.
-                    </p>
+    color:var(--text);
 
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
-                    <div class="request-points">
+    line-height:1.7;
 
-                        <div class="request-point">
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
 
-                            <span>01</span>
+}
 
-                            <p>
-                                <strong>Tell Your Story</strong><br>
-                                Give us the information that represents your
-                                professional journey.
-                            </p>
 
-                        </div>
+/* =========================================================
+   GLOBAL ELEMENTS
+========================================================= */
 
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-                        <div class="request-point">
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
 
-                            <span>02</span>
+button{
+    cursor:pointer;
+}
 
-                            <p>
-                                <strong>Choose Your Direction</strong><br>
-                                Select a visual style that matches the identity
-                                you want to present.
-                            </p>
+::selection{
+    background:rgba(167,123,50,.30);
+    color:#fff;
+}
 
-                        </div>
 
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-                        <div class="request-point">
+.navbar{
 
-                            <span>03</span>
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-                            <p>
-                                <strong>Build Your Presence</strong><br>
-                                We'll turn your information into a polished
-                                professional portfolio.
-                            </p>
+    width:100%;
 
-                        </div>
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,9,13,.97),
+            rgba(7,9,13,.91)
+        );
 
-                    </div>
+    border-bottom:1px solid var(--border);
 
-                </div>
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
+}
 
-                <!-- =========================
-                     REQUEST FORM
-                ========================== -->
-                <div class="request-form-card">
+.nav-container{
 
-                    <h2>Portfolio Request</h2>
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
 
-                    <p>
-                        Complete the form below. The more information you provide,
-                        the better we can understand your professional identity.
-                    </p>
+    min-height:86px;
 
+    margin:0 auto;
 
-                    <form
-                        id="portfolio-request-form"
-                        action="https://formspree.io/f/xqpkdkvw"
-                        method="POST"
-                        novalidate
-                    >
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-                        <!-- =========================
-                             BASIC INFORMATION
-                        ========================== -->
+    gap:40px;
 
-                        <div class="form-group">
+}
 
-                            <label for="name">
-                                Full Name *
-                            </label>
 
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="Enter your full name"
-                                autocomplete="name"
-                                required
-                            >
+/* =========================================================
+   LOGO
+========================================================= */
 
-                        </div>
+.logo{
 
+    display:inline-flex;
+    align-items:center;
 
-                        <div class="form-group">
+    white-space:nowrap;
 
-                            <label for="email">
-                                Email Address *
-                            </label>
+    font-size:14px;
+    font-weight:700;
 
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Enter your email address"
-                                autocomplete="email"
-                                required
-                            >
+    letter-spacing:.16em;
 
-                        </div>
+}
 
+.logo-main{
+    color:var(--text);
+}
 
-                        <div class="form-group">
+.logo-tech{
+    color:var(--gold-soft);
+}
 
-                            <label for="field">
-                                Professional Field *
-                            </label>
 
-                            <input
-                                type="text"
-                                id="field"
-                                name="field"
-                                placeholder="e.g. Human Resources, Finance, IT, Data Analytics"
-                                required
-                            >
+/* =========================================================
+   NAV LINKS
+========================================================= */
 
-                        </div>
+.nav-links{
 
+    display:flex;
+    align-items:center;
 
-                      <!-- =========================================================
-     PACKAGE
-========================================================= -->
+    gap:34px;
 
-<div class="form-group">
+    margin-left:auto;
 
-    <label for="package">
-        Portfolio Package *
-    </label>
+}
 
-    <select
-        id="package"
-        name="package"
-        required
-    >
+.nav-links a{
 
-        <option value="" selected disabled>
-            Select a package
-        </option>
+    position:relative;
 
-        <option value="Graduate">
-            Graduate
-        </option>
+    color:var(--text-muted);
 
-        <option value="Professional">
-            Professional
-        </option>
+    font-size:11px;
+    font-weight:600;
 
-        <option value="Executive">
-            Executive
-        </option>
+    letter-spacing:.14em;
+    text-transform:uppercase;
 
-        <option value="Private Offer">
-            Private Offer
-        </option>
+    transition:
+        color .3s var(--ease);
 
-    </select>
+}
 
-</div>
+.nav-links a::after{
 
-                        <!-- =========================
-                             ACHIEVEMENTS
-                        ========================== -->
+    content:"";
 
-                        <div class="form-group">
+    position:absolute;
 
-                            <label for="achievements">
-                                Achievements
-                            </label>
+    left:0;
+    bottom:-9px;
 
-                            <textarea
-                                id="achievements"
-                                name="achievements"
-                                rows="5"
-                                placeholder="Tell us about your academic, professional or personal achievements."
-                            ></textarea>
+    width:0;
+    height:1px;
 
-                        </div>
+    background:var(--gold-soft);
 
+    transition:
+        width .3s var(--ease);
 
-                        <!-- =========================
-                             WORK EXPERIENCE
-                        ========================== -->
+}
 
-                        <div class="form-group">
+.nav-links a:hover{
+    color:var(--text);
+}
 
-                            <label for="work_experience">
-                                Work Experience
-                            </label>
+.nav-links a:hover::after{
+    width:100%;
+}
 
-                            <textarea
-                                id="work_experience"
-                                name="work_experience"
-                                rows="5"
-                                placeholder="Tell us about your work experience, internships, projects or relevant roles."
-                            ></textarea>
 
-                        </div>
+/* =========================================================
+   BUTTON SYSTEM
+========================================================= */
 
+.btn-primary{
 
-                        <!-- =========================
-                             PORTFOLIO STYLE
-                        ========================== -->
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-                        <div class="form-group">
+    min-height:52px;
 
-                            <label for="theme">
-                                Preferred Portfolio Style *
-                            </label>
+    padding:0 26px;
 
-                            <select
-                                id="theme"
-                                name="theme"
-                                required
-                            >
+    border:1px solid rgba(199,164,91,.45);
 
-                                <option value="" selected disabled>
-                                    Select a style
-                                </option>
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-primary),
+            var(--gold-deep)
+        );
 
-                                <option value="Black Luxury">
-                                    Black Luxury
-                                </option>
+    color:#08090B;
 
-                                <option value="Professional Corporate">
-                                    Professional Corporate
-                                </option>
+    font-size:10px;
+    font-weight:800;
 
-                                <option value="Minimal Clean">
-                                    Minimal Clean
-                                </option>
+    letter-spacing:.16em;
+    text-transform:uppercase;
 
-                                <option value="Modern Creative">
-                                    Modern Creative
-                                </option>
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.28);
 
-                                <option value="Custom">
-                                    Custom
-                                </option>
+    transition:
+        transform .3s var(--ease),
+        box-shadow .3s var(--ease),
+        border-color .3s var(--ease),
+        filter .3s var(--ease);
 
-                            </select>
+}
 
-                        </div>
+.btn-primary:hover{
 
+    transform:translateY(-2px);
 
-                        <!-- =========================
-                             SUPPORTING MATERIALS
-                        ========================== -->
+    border-color:var(--gold-highlight);
 
-                        <div class="form-group">
+    box-shadow:
+        0 18px 42px rgba(0,0,0,.40),
+        0 0 0 1px rgba(199,164,91,.08);
 
-                            <label>
-                                Profile & Supporting Photos
-                            </label>
+    filter:brightness(1.06);
 
-                            <div class="upload-note">
+}
 
-                                <strong>
-                                    Photos can be provided after submission.
-                                </strong>
 
-                                <p>
-                                    Once your portfolio request has been received,
-                                    MonarchAurex will provide instructions for
-                                    securely submitting your profile photo, project
-                                    images, certificates and other supporting files.
-                                </p>
+/* =========================================================
+   REQUEST SECTION
+========================================================= */
 
-                            </div>
+.request{
 
-                        </div>
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
 
+    margin:0 auto;
 
-                        <!-- =========================
-                             ADDITIONAL INFORMATION
-                        ========================== -->
+    padding:120px 0 150px;
 
-                        <div class="form-group">
+    scroll-margin-top:100px;
 
-                            <label for="message">
-                                Additional Information
-                            </label>
+}
 
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="6"
-                                placeholder="Anything else you'd like us to know about your portfolio?"
-                            ></textarea>
 
-                        </div>
+/* =========================================================
+   SECTION INTRO
+========================================================= */
 
+.section-title{
 
-                        <!-- =========================
-                             SUBMIT
-                        ========================== -->
+    max-width:850px;
 
-                        <button
-                            type="submit"
-                            class="btn-primary request-submit"
-                            id="request-submit"
-                        >
+    margin-bottom:85px;
 
-                            <span class="submit-text">
-                                Submit Portfolio Request
-                            </span>
+}
 
-                            <span
-                                class="submit-loading"
-                                aria-hidden="true"
-                            >
-                                Sending...
-                            </span>
+.section-title > span{
 
-                        </button>
+    display:block;
 
+    margin-bottom:20px;
 
-                        <!-- =========================
-                             FORM FEEDBACK
-                        ========================== -->
+    color:var(--gold-soft);
 
-                        <div
-                            class="form-feedback"
-                            id="form-feedback"
-                            role="status"
-                            aria-live="polite"
-                        ></div>
+    font-size:10px;
+    font-weight:700;
 
-                    </form>
+    letter-spacing:.24em;
+    text-transform:uppercase;
 
+}
 
-                    <p class="form-note">
+.section-title h2{
 
-                        By submitting this form, you confirm that the information
-                        provided is accurate and that MonarchAurex may use it to
-                        communicate with you regarding your portfolio request.
+    max-width:850px;
 
-                    </p>
+    color:var(--text);
 
-                </div>
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-            </div>
+    font-size:clamp(
+        42px,
+        5vw,
+        68px
+    );
 
-        </section>
+    font-weight:400;
 
-    </main>
+    line-height:1.08;
 
+    letter-spacing:-.025em;
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+}
 
-    <footer class="footer">
+.section-title p{
 
-        <div class="footer-main">
+    max-width:720px;
 
-            <div class="footer-brand">
+    margin-top:30px;
 
-                <a href="../index.html" class="footer-logo">
+    color:var(--text-soft);
 
-                    <span class="logo-main">MONARCH</span><span class="logo-tech">AUREX</span>
+    font-size:15px;
 
-                </a>
+    line-height:1.85;
 
-                <p>
-                    Not Just a Portfolio. A Professional Identity.
-                </p>
+}
 
-            </div>
 
-        </div>
+/* =========================================================
+   REQUEST CONTENT LAYOUT
+========================================================= */
 
+.request-container{
 
-        <div class="footer-bottom">
+    display:grid;
 
-            <p>
-                © 2026 MonarchAurex. All rights reserved.
-            </p>
+    grid-template-columns:
+        minmax(280px,.78fr)
+        minmax(520px,1.22fr);
 
-        </div>
+    gap:80px;
 
-    </footer>
+    align-items:start;
 
+}
 
-    <!--
-        JavaScript intentionally not added here.
-        The request page remains independent from the master script.js
-        until all website functionality is finalized.
-    -->
 
-</body>
-</html>
+/* =========================================================
+   LEFT INTRO
+========================================================= */
+
+.request-intro{
+
+    position:sticky;
+
+    top:120px;
+
+    padding-top:12px;
+
+}
+
+.request-label{
+
+    display:inline-block;
+
+    margin-bottom:22px;
+
+    color:var(--gold-soft);
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:.20em;
+    text-transform:uppercase;
+
+}
+
+.request-intro h3{
+
+    margin-bottom:20px;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:38px;
+
+    font-weight:400;
+
+    line-height:1.15;
+
+}
+
+.request-intro > p{
+
+    max-width:460px;
+
+    color:var(--text-soft);
+
+    font-size:14px;
+
+    line-height:1.85;
+
+}
+
+
+/* =========================================================
+   REQUEST POINTS
+========================================================= */
+
+.request-points{
+
+    margin-top:48px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.request-point{
+
+    display:grid;
+
+    grid-template-columns:48px 1fr;
+
+    gap:18px;
+
+    padding:24px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.request-point > span{
+
+    color:var(--gold-primary);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:17px;
+
+    line-height:1.5;
+
+}
+
+.request-point p{
+
+    color:var(--text-muted);
+
+    font-size:13px;
+
+    line-height:1.75;
+
+}
+
+.request-point strong{
+
+    color:var(--text-soft);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.request-form-card{
+
+    position:relative;
+
+    padding:52px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(17,22,30,.94),
+            rgba(10,13,18,.98)
+        );
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        var(--shadow-lg);
+
+    overflow:hidden;
+
+}
+
+
+/* GOLD ACCENT LINE */
+
+.request-form-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-deep),
+            var(--gold-soft),
+            transparent
+        );
+
+}
+
+
+/* SUBTLE DEPTH */
+
+.request-form-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    top:-260px;
+    right:-220px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(167,123,50,.075),
+            transparent 68%
+        );
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.request-form-card > h2{
+
+    position:relative;
+    z-index:1;
+
+    margin-bottom:12px;
+
+    color:var(--text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:34px;
+
+    font-weight:400;
+
+    line-height:1.2;
+
+}
+
+.request-form-card > p{
+
+    position:relative;
+    z-index:1;
+
+    max-width:650px;
+
+    margin-bottom:40px;
+
+    color:var(--text-muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#portfolio-request-form{
+
+    position:relative;
+    z-index:2;
+
+}
+
+.form-group{
+
+    margin-bottom:27px;
+
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--text-soft);
+
+    font-size:10px;
+    font-weight:700;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:15px 16px;
+
+    color:var(--text);
+
+    background:
+        rgba(7,9,13,.72);
+
+    border:1px solid var(--border-strong);
+
+    border-radius:0;
+
+    outline:none;
+
+    transition:
+        border-color .25s var(--ease),
+        background .25s var(--ease),
+        box-shadow .25s var(--ease);
+
+}
+
+.form-group input,
+.form-group select{
+
+    min-height:54px;
+
+}
+
+.form-group textarea{
+
+    min-height:140px;
+
+    resize:vertical;
+
+    line-height:1.7;
+
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+    color:#5F6268;
+
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.form-group select{
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    padding-right:46px;
+
+    background-image:
+
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            var(--gold-soft) 50%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--gold-soft) 50%,
+            transparent 50%
+        );
+
+    background-position:
+        calc(100% - 20px) 23px,
+        calc(100% - 15px) 23px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:
+        rgba(199,164,91,.58);
+
+    background:
+        rgba(13,17,23,.95);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(167,123,50,.08);
+
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible{
+
+    outline:
+        1px solid var(--gold-soft);
+
+    outline-offset:2px;
+
+}
+
+
+/* =========================================================
+   UPLOAD NOTE
+========================================================= */
+
+.upload-note{
+
+    padding:22px 22px 20px;
+
+    background:
+        rgba(7,9,13,.60);
+
+    border:1px solid var(--gold-border-soft);
+
+    border-left:
+        2px solid var(--gold-primary);
+
+}
+
+.upload-note strong{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--gold-highlight);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+.upload-note p{
+
+    margin:0;
+
+    color:var(--text-muted);
+
+    font-size:12px;
+
+    line-height:1.75;
+
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.request-submit{
+
+    width:100%;
+
+    min-height:58px;
+
+    margin-top:10px;
+
+    border:none;
+
+    position:relative;
+
+}
+
+.request-submit .submit-loading{
+    display:none;
+}
+
+.request-submit.is-loading .submit-text{
+    display:none;
+}
+
+.request-submit.is-loading .submit-loading{
+    display:inline;
+}
+
+
+/* =========================================================
+   FORM FEEDBACK
+========================================================= */
+
+.form-feedback{
+
+    min-height:24px;
+
+    margin-top:18px;
+
+    color:var(--text-soft);
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   FORM NOTE
+========================================================= */
+
+.form-note{
+
+    max-width:760px;
+
+    margin-top:28px !important;
+    margin-bottom:0 !important;
+
+    padding-top:22px;
+
+    border-top:1px solid var(--border);
+
+    color:#65686E !important;
+
+    font-size:11px !important;
+
+    line-height:1.7 !important;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    margin-top:0;
+
+    border-top:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--bg-soft),
+            var(--bg)
+        );
+
+}
+
+.footer-main{
+
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
+
+    margin:0 auto;
+
+    padding:70px 0 55px;
+
+}
+
+.footer-brand{
+
+    max-width:440px;
+
+}
+
+.footer-logo{
+
+    display:inline-flex;
+
+    margin-bottom:14px;
+
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:.16em;
+
+}
+
+.footer-brand p{
+
+    color:var(--text-muted);
+
+    font-size:12px;
+
+    line-height:1.7;
+
+}
+
+.footer-bottom{
+
+    width:min(
+        calc(100% - 80px),
+        var(--max-width)
+    );
+
+    margin:0 auto;
+
+    padding:22px 0 28px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.footer-bottom p{
+
+    color:#55585E;
+
+    font-size:10px;
+
+    letter-spacing:.08em;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width:1050px){
+
+    .nav-container,
+    .request,
+    .footer-main,
+    .footer-bottom{
+
+        width:min(
+            calc(100% - 56px),
+            var(--max-width)
+        );
+
+    }
+
+    .nav-links{
+
+        gap:22px;
+
+    }
+
+    .nav-links a{
+
+        font-size:10px;
+
+    }
+
+    .request-container{
+
+        grid-template-columns:
+            minmax(250px,.72fr)
+            minmax(430px,1.28fr);
+
+        gap:50px;
+
+    }
+
+    .request-form-card{
+
+        padding:42px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 900PX
+========================================================= */
+
+@media (max-width:900px){
+
+    .navbar{
+
+        position:relative;
+
+    }
+
+    .nav-container{
+
+        min-height:78px;
+
+        gap:20px;
+
+    }
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .nav-container > .btn-primary{
+
+        margin-left:auto;
+
+    }
+
+    .request{
+
+        padding-top:90px;
+
+    }
+
+    .section-title{
+
+        margin-bottom:65px;
+
+    }
+
+    .request-container{
+
+        grid-template-columns:1fr;
+
+        gap:65px;
+
+    }
+
+    .request-intro{
+
+        position:static;
+
+        max-width:720px;
+
+    }
+
+    .request-form-card{
+
+        max-width:820px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width:700px){
+
+    .nav-container,
+    .request,
+    .footer-main,
+    .footer-bottom{
+
+        width:
+            calc(100% - 36px);
+
+    }
+
+    .nav-container{
+
+        min-height:72px;
+
+    }
+
+    .logo{
+
+        font-size:12px;
+
+    }
+
+    .nav-container > .btn-primary{
+
+        min-height:44px;
+
+        padding:0 17px;
+
+        font-size:9px;
+
+    }
+
+    .request{
+
+        padding:
+            75px 0
+            90px;
+
+    }
+
+    .section-title h2{
+
+        font-size:
+            clamp(38px,10vw,52px);
+
+    }
+
+    .section-title p{
+
+        margin-top:22px;
+
+        font-size:14px;
+
+    }
+
+    .request-form-card{
+
+        padding:32px 24px;
+
+    }
+
+    .request-form-card > h2{
+
+        font-size:29px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px){
+
+    .nav-container,
+    .request,
+    .footer-main,
+    .footer-bottom{
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    .logo{
+
+        font-size:11px;
+
+        letter-spacing:.12em;
+
+    }
+
+    .nav-container > .btn-primary{
+
+        padding:0 13px;
+
+        font-size:8px;
+
+        letter-spacing:.11em;
+
+    }
+
+    .request{
+
+        padding-top:60px;
+
+    }
+
+    .section-title{
+
+        margin-bottom:52px;
+
+    }
+
+    .section-title h2{
+
+        font-size:36px;
+
+        line-height:1.12;
+
+    }
+
+    .section-title p{
+
+        font-size:13px;
+
+        line-height:1.75;
+
+    }
+
+    .request-intro h3{
+
+        font-size:32px;
+
+    }
+
+    .request-point{
+
+        grid-template-columns:40px 1fr;
+
+        gap:14px;
+
+        padding:21px 0;
+
+    }
+
+    .request-point p{
+
+        font-size:12px;
+
+    }
+
+    .request-form-card{
+
+        padding:28px 19px;
+
+    }
+
+    .request-form-card > h2{
+
+        font-size:27px;
+
+    }
+
+    .request-form-card > p{
+
+        font-size:12px;
+
+    }
+
+    .form-group{
+
+        margin-bottom:23px;
+
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select{
+
+        font-size:13px;
+
+    }
+
+    .upload-note{
+
+        padding:18px;
+
+    }
+
+    .request-submit{
+
+        min-height:56px;
+
+        font-size:9px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+
+        transition:none !important;
+        animation:none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   ANCHOR OFFSET
+========================================================= */
+
+#request{
+    scroll-margin-top:100px;
+}
