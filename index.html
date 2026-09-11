@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,7 +10,7 @@
 
     <meta
         name="description"
-        content="MONARCHAUREX creates premium professional portfolio websites and distinctive digital identities for graduates, professionals and ambitious individuals."
+        content="MONARCHAUREX creates premium digital portfolio experiences designed around professional identity, presence and distinction."
     >
 
     <meta
@@ -20,38 +18,54 @@
         content="#07090D"
     >
 
-    <title>
-        MONARCHAUREX — Not Just a Portfolio. A Professional Identity.
-    </title>
+    <title>MONARCHAUREX | Professional Identity, Reimagined</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
-
 
 <body>
 
-
 <!-- =========================================================
-     NAVIGATION
+     SITE HEADER
 ========================================================= -->
 
 <header class="site-header">
 
-    <nav class="navbar">
+    <nav
+        class="navbar"
+        aria-label="Primary navigation"
+    >
 
         <a
             href="#home"
-            class="brand"
+            class="navbar-brand"
+            aria-label="MONARCHAUREX Home"
         >
-            MONARCHAUREX
+            <span class="brand-monarch">MONARCH</span>
+            <span class="brand-aurex">AUREX</span>
         </a>
 
 
-        <div class="nav-links">
+        <button
+            class="mobile-menu-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="primary-navigation"
+        >
 
             <a href="#home">
                 Home
@@ -61,16 +75,20 @@
                 Collection
             </a>
 
+            <a href="#standard">
+                Standard
+            </a>
+
+            <a href="#process">
+                Process
+            </a>
+
             <a href="#pricing">
                 Pricing
             </a>
 
             <a href="#live-experiences">
-                Live Experiences
-            </a>
-
-            <a href="#experiences">
-                Client Experiences
+                Experiences
             </a>
 
             <a href="#about">
@@ -79,7 +97,7 @@
 
             <a
                 href="request/request.html"
-                class="nav-cta"
+                class="nav-request"
             >
                 Request Portfolio
             </a>
@@ -91,129 +109,108 @@
 </header>
 
 
-
 <main>
 
-
 <!-- =========================================================
-     01 · HERO
+     01 — HERO
 ========================================================= -->
 
 <section
-    class="hero"
+    class="hero section"
     id="home"
 >
 
     <div class="hero-content">
 
-        <span class="eyebrow">
-            PREMIUM DIGITAL IDENTITY
-        </span>
+        <div class="hero-copy">
 
-
-        <h1>
-            Your Portfolio.
-            <br>
-            Reimagined.
-        </h1>
-
-
-        <p class="hero-description">
-
-            Professional portfolio experiences designed to
-            transform your work, experience and ambition into
-            a digital identity that feels distinctly yours.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-            <a
-                href="#collection"
-                class="primary-button"
-            >
-                Explore Collection
-                <span>↗</span>
-            </a>
-
-
-            <a
-                href="#live-experiences"
-                class="secondary-button"
-            >
-                View Live Experiences
-                <span>↗</span>
-            </a>
-
-        </div>
-
-
-        <div class="hero-meta">
-
-            <span>
-                PROFESSIONAL
+            <span class="eyebrow">
+                PREMIUM DIGITAL IDENTITY
             </span>
 
-            <span>
-                DISTINCTIVE
-            </span>
+            <h1>
+                Your Portfolio.
+                <span>Reimagined.</span>
+            </h1>
 
-            <span>
-                PURPOSEFUL
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- HERO SIGNATURE CARD -->
-
-    <div class="hero-signature">
-
-        <span class="signature-label">
-            THE SIGNATURE COLLECTION
-        </span>
+            <p class="hero-description">
+                Premium portfolio websites developed for
+                students, graduates and professionals who
+                want to stand out.
+            </p>
 
 
-        <div class="signature-identities">
+            <div class="hero-actions">
 
-            <div class="identity-item">
+                <a
+                    href="#collection"
+                    class="primary-button"
+                >
+                    Explore Collection
+                    <span>↗</span>
+                </a>
 
-                <span class="identity-number">
-                    01
-                </span>
-
-                <span class="identity-name">
-                    Executive Purple
-                </span>
+                <a
+                    href="#live-experiences"
+                    class="secondary-button"
+                >
+                    View Live Experiences
+                    <span>↗</span>
+                </a>
 
             </div>
 
 
-            <div class="identity-item">
+            <div class="hero-meta">
 
-                <span class="identity-number">
-                    02
+                <span>
+                    PROFESSIONAL
                 </span>
 
-                <span class="identity-name">
-                    Executive Maroon
+                <span>
+                    DISTINCTIVE
+                </span>
+
+                <span>
+                    PURPOSEFUL
                 </span>
 
             </div>
 
+        </div>
 
-            <div class="identity-item">
 
-                <span class="identity-number">
-                    03
-                </span>
+        <!--
+            SIGNATURE EMBLEM
+            The visual treatment is intentionally
+            kept available for the new CSS architecture.
+        -->
 
-                <span class="identity-name">
-                    Black Luxury
-                </span>
+        <div class="hero-signature">
+
+            <div class="signature-frame">
+
+                <div class="signature-index">
+                    01 / 03
+                </div>
+
+                <div class="signature-emblem">
+                    M
+                </div>
+
+                <div class="signature-name">
+                    <span>THE</span>
+                    SIGNATURE
+                    <strong>COLLECTION</strong>
+                </div>
+
+                <div class="signature-line"></div>
+
+                <p>
+                    Executive digital identities
+                    designed with precision,
+                    restraint and distinction.
+                </p>
 
             </div>
 
@@ -224,36 +221,39 @@
 </section>
 
 
-
 <!-- =========================================================
-     02 · SIGNATURE COLLECTION
+     02 — SIGNATURE COLLECTION
 ========================================================= -->
 
 <section
-    class="signature-collection"
+    class="collection section"
     id="collection"
 >
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>
-            02 · SIGNATURE COLLECTION
+        <span class="section-number">
+            02
         </span>
 
+        <div>
 
-        <h2>
-            Designed to Be
-            <br>
-            Distinctive.
-        </h2>
+            <span class="eyebrow">
+                SIGNATURE COLLECTION
+            </span>
 
+            <h2>
+                Choose Your
+                <span>Identity.</span>
+            </h2>
 
-        <p>
+            <p>
+                Three distinct visual directions,
+                each designed to create a memorable
+                professional presence.
+            </p>
 
-            Three signature directions created for different
-            professional personalities, industries and ambitions.
-
-        </p>
+        </div>
 
     </div>
 
@@ -263,15 +263,15 @@
 
         <!-- PURPLE -->
 
-        <article class="collection-card">
+        <article class="collection-card collection-purple">
 
             <div class="collection-card-top">
 
-                <span>
+                <span class="collection-number">
                     01
                 </span>
 
-                <span>
+                <span class="collection-label">
                     EXECUTIVE PURPLE
                 </span>
 
@@ -283,27 +283,23 @@
             </div>
 
 
-            <div class="collection-card-content">
+            <div class="collection-content">
 
                 <h3>
                     Executive Purple
                 </h3>
 
                 <p>
-                    Confident, intelligent and expressive.
-                    Designed for professionals who want their
-                    digital presence to feel bold without losing
-                    sophistication.
+                    A confident, expressive identity
+                    combining executive presence with
+                    sophisticated colour depth.
                 </p>
-
 
                 <a
                     href="demos/purple/index.html"
-                    class="text-link"
-                    target="_blank"
-                    rel="noopener"
+                    class="collection-button"
                 >
-                    Explore Identity
+                    Explore Experience
                     <span>↗</span>
                 </a>
 
@@ -312,18 +308,17 @@
         </article>
 
 
-
         <!-- MAROON -->
 
-        <article class="collection-card">
+        <article class="collection-card collection-maroon">
 
             <div class="collection-card-top">
 
-                <span>
+                <span class="collection-number">
                     02
                 </span>
 
-                <span>
+                <span class="collection-label">
                     EXECUTIVE MAROON
                 </span>
 
@@ -335,26 +330,23 @@
             </div>
 
 
-            <div class="collection-card-content">
+            <div class="collection-content">
 
                 <h3>
                     Executive Maroon
                 </h3>
 
                 <p>
-                    Refined, authoritative and distinctive.
-                    A strong direction for professionals who
-                    want presence, depth and character.
+                    A rich, authoritative identity
+                    built around depth, confidence
+                    and professional character.
                 </p>
-
 
                 <a
                     href="demos/maroon/index.html"
-                    class="text-link"
-                    target="_blank"
-                    rel="noopener"
+                    class="collection-button"
                 >
-                    Explore Identity
+                    Explore Experience
                     <span>↗</span>
                 </a>
 
@@ -363,18 +355,17 @@
         </article>
 
 
-
         <!-- BLACK -->
 
-        <article class="collection-card">
+        <article class="collection-card collection-black">
 
             <div class="collection-card-top">
 
-                <span>
+                <span class="collection-number">
                     03
                 </span>
 
-                <span>
+                <span class="collection-label">
                     BLACK LUXURY
                 </span>
 
@@ -386,26 +377,23 @@
             </div>
 
 
-            <div class="collection-card-content">
+            <div class="collection-content">
 
                 <h3>
                     Black Luxury
                 </h3>
 
                 <p>
-                    Minimal, powerful and quietly luxurious.
-                    Created for professionals who prefer
-                    understated confidence and premium restraint.
+                    A restrained monochrome identity
+                    built around simplicity, precision
+                    and understated professional elegance.
                 </p>
-
 
                 <a
                     href="demos/black/index.html"
-                    class="text-link"
-                    target="_blank"
-                    rel="noopener"
+                    class="collection-button"
                 >
-                    Explore Identity
+                    Explore Experience
                     <span>↗</span>
                 </a>
 
@@ -418,36 +406,49 @@
 </section>
 
 
-
 <!-- =========================================================
-     03 · THE MONARCH STANDARD
+     03 — THE MONARCH STANDARD
 ========================================================= -->
 
 <section
-    class="monarch-standard"
+    class="monarch-standard section"
     id="standard"
 >
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>
-            03 · THE MONARCH STANDARD
+        <span class="section-number">
+            03
         </span>
 
+        <div>
 
-        <h2>
-            Not Just a Portfolio.
-            <br>
-            A Professional Identity.
-        </h2>
+            <span class="eyebrow">
+                THE MONARCH STANDARD
+            </span>
 
+            <h2>
+                Not Just a Portfolio.
+                <span>A Professional Identity.</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="standard-statement">
 
         <p>
+            Precision over decoration.
+        </p>
 
-            Your portfolio should do more than display information.
-            It should communicate how seriously you take your career,
-            your work and the future you are building.
+        <p>
+            Structure over noise.
+        </p>
 
+        <p>
+            Identity over templates.
         </p>
 
     </div>
@@ -455,74 +456,78 @@
 
     <div class="standard-grid">
 
+        <article class="monarch-feature">
 
-        <article class="standard-card">
-
-            <span>
+            <div class="monarch-feature-number">
                 01
-            </span>
+            </div>
 
             <h3>
                 Identity
             </h3>
 
             <p>
-                Your experience is shaped into a clear,
-                recognisable professional identity.
+                Your portfolio should reflect who
+                you are, what you do and where you
+                are going.
             </p>
 
         </article>
 
 
-        <article class="standard-card">
+        <article class="monarch-feature">
 
-            <span>
+            <div class="monarch-feature-number">
                 02
-            </span>
+            </div>
 
             <h3>
                 Presentation
             </h3>
 
             <p>
-                Projects, skills and achievements are presented
-                with structure, clarity and intention.
+                Professional experience deserves
+                a digital environment that presents
+                it with clarity and confidence.
             </p>
 
         </article>
 
 
-        <article class="standard-card">
+        <article class="monarch-feature">
 
-            <span>
+            <div class="monarch-feature-number">
                 03
-            </span>
+            </div>
 
             <h3>
                 Distinction
             </h3>
 
             <p>
-                Your digital presence is designed to feel
-                considered rather than interchangeable.
+                Thoughtful visual direction creates
+                a professional presence that feels
+                considered rather than generic.
             </p>
 
         </article>
 
 
-        <article class="standard-card">
+        <article class="monarch-feature">
 
-            <span>
+            <div class="monarch-feature-number">
                 04
-            </span>
+            </div>
 
             <h3>
-                Presence
+                Built for Growth
             </h3>
 
             <p>
-                A professional website that continues representing
-                you long after the first introduction.
+                An independent venture built for
+                long-term growth, with plans to
+                expand its portfolio services and
+                digital experiences.
             </p>
 
         </article>
@@ -532,46 +537,42 @@
 </section>
 
 
-
 <!-- =========================================================
-     04 · THE PROCESS
+     04 — THE PROCESS
 ========================================================= -->
 
 <section
-    class="process"
+    class="process section"
     id="process"
 >
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>
-            04 · THE PROCESS
+        <span class="section-number">
+            04
         </span>
 
+        <div>
 
-        <h2>
-            From Experience
-            <br>
-            to Digital Identity.
-        </h2>
+            <span class="eyebrow">
+                THE PROCESS
+            </span>
 
+            <h2>
+                From Idea to
+                <span>Professional Portfolio.</span>
+            </h2>
 
-        <p>
-
-            A structured process designed to turn your professional
-            experience into a digital presence with purpose.
-
-        </p>
+        </div>
 
     </div>
 
 
     <div class="process-grid">
 
-
         <article class="process-step">
 
-            <span>
+            <span class="process-number">
                 01
             </span>
 
@@ -580,8 +581,9 @@
             </h3>
 
             <p>
-                We understand your background, goals, experience
-                and the professional identity you want to communicate.
+                Understand your background,
+                ambitions, professional field
+                and personal direction.
             </p>
 
         </article>
@@ -589,7 +591,7 @@
 
         <article class="process-step">
 
-            <span>
+            <span class="process-number">
                 02
             </span>
 
@@ -598,8 +600,9 @@
             </h3>
 
             <p>
-                We establish the structure, visual direction and
-                content hierarchy of your professional presence.
+                Establish the visual identity,
+                structure and content direction
+                of your portfolio.
             </p>
 
         </article>
@@ -607,7 +610,7 @@
 
         <article class="process-step">
 
-            <span>
+            <span class="process-number">
                 03
             </span>
 
@@ -616,8 +619,8 @@
             </h3>
 
             <p>
-                Your portfolio is transformed into a polished,
-                responsive digital experience.
+                Build a refined digital experience
+                around your professional identity.
             </p>
 
         </article>
@@ -625,7 +628,7 @@
 
         <article class="process-step">
 
-            <span>
+            <span class="process-number">
                 04
             </span>
 
@@ -634,8 +637,9 @@
             </h3>
 
             <p>
-                Your finished identity is prepared for the world
-                with deployment and launch support.
+                Deliver a professional portfolio
+                designed to represent you with
+                confidence.
             </p>
 
         </article>
@@ -645,36 +649,38 @@
 </section>
 
 
-
 <!-- =========================================================
-     05 · PROFESSIONAL PACKAGES
+     05 — PROFESSIONAL PACKAGES
 ========================================================= -->
 
 <section
-    class="pricing"
+    class="pricing section"
     id="pricing"
 >
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>
-            05 · PROFESSIONAL PACKAGES
+        <span class="section-number">
+            05
         </span>
 
+        <div>
 
-        <h2>
-            Choose Your
-            <br>
-            Professional Presence.
-        </h2>
+            <span class="eyebrow">
+                PROFESSIONAL PACKAGES
+            </span>
 
+            <h2>
+                Choose Your
+                <span>Level of Presence.</span>
+            </h2>
 
-        <p>
+            <p>
+                Designed to meet different stages
+                of professional development.
+            </p>
 
-            Select the level of digital presence that matches
-            where you are now and where you intend to go.
-
-        </p>
+        </div>
 
     </div>
 
@@ -686,24 +692,35 @@
 
         <article class="pricing-card">
 
-            <div class="pricing-card-header">
-
-                <span>
-                    GRADUATE
-                </span>
+            <div class="pricing-card-top">
 
                 <span>
                     01
                 </span>
 
+                <small>
+                    GRADUATE
+                </small>
+
             </div>
+
+
+            <h3>
+                Graduate
+            </h3>
+
+            <p class="pricing-description">
+                A polished professional identity
+                for students and graduates entering
+                the next stage of their career.
+            </p>
 
 
             <div class="pricing-price">
 
-                <small>
-                    FROM
-                </small>
+                <span>
+                    Starting from
+                </span>
 
                 <strong>
                     R1 199
@@ -712,51 +729,22 @@
             </div>
 
 
-            <h3>
-                Establish Your
-                <br>
-                Professional Presence.
-            </h3>
-
-
-            <p>
-                A polished foundation for graduates ready
-                to present their experience professionally.
-            </p>
-
-
-            <ul>
+            <ul class="pricing-features">
 
                 <li>
-                    Professional portfolio website
+                    Professional portfolio structure
                 </li>
 
                 <li>
-                    About & professional profile
+                    Personalised visual direction
                 </li>
 
                 <li>
-                    Skills & experience
+                    Responsive design
                 </li>
 
                 <li>
-                    Projects / case studies
-                </li>
-
-                <li>
-                    Responsive / mobile design
-                </li>
-
-                <li>
-                    Basic visual customisation
-                </li>
-
-                <li>
-                    Portfolio deployment
-                </li>
-
-                <li>
-                    Launch support
+                    Professional deployment
                 </li>
 
             </ul>
@@ -766,38 +754,51 @@
                 href="request/request.html?package=graduate"
                 class="pricing-button"
             >
-                Choose Graduate
+                Explore Package
                 <span>↗</span>
             </a>
 
         </article>
 
 
-
         <!-- PROFESSIONAL -->
 
-        <article
-            class="pricing-card pricing-card-featured"
-        >
+        <article class="pricing-card pricing-card-featured">
 
-            <div class="pricing-card-header">
+            <div class="pricing-popular">
+                MOST POPULAR
+            </div>
+
+
+            <div class="pricing-card-top">
 
                 <span>
+                    02
+                </span>
+
+                <small>
                     PROFESSIONAL
-                </span>
-
-                <span>
-                    RECOMMENDED
-                </span>
+                </small>
 
             </div>
 
 
+            <h3>
+                Professional
+            </h3>
+
+            <p class="pricing-description">
+                A stronger digital presence for
+                professionals who want their experience
+                presented at a higher standard.
+            </p>
+
+
             <div class="pricing-price">
 
-                <small>
-                    FROM
-                </small>
+                <span>
+                    Starting from
+                </span>
 
                 <strong>
                     R2 999
@@ -806,55 +807,22 @@
             </div>
 
 
-            <h3>
-                Build a Stronger
-                <br>
-                Digital Identity.
-            </h3>
-
-
-            <p>
-                A more advanced professional presence designed
-                for individuals ready to stand apart.
-            </p>
-
-
-            <ul>
+            <ul class="pricing-features">
 
                 <li>
-                    Everything in Graduate
+                    Premium portfolio architecture
                 </li>
 
                 <li>
-                    Premium visual identity
+                    Advanced professional presentation
                 </li>
 
                 <li>
-                    Advanced project presentation
+                    Custom visual identity
                 </li>
 
                 <li>
-                    Interactive portfolio sections
-                </li>
-
-                <li>
-                    Custom domain
-                </li>
-
-                <li>
-                    Domain availability check
-                </li>
-
-                <li>
-                    3-year domain registration
-                </li>
-
-                <li>
-                    Ongoing Website Care
-                </li>
-
-                <li>
-                    Post-launch support
+                    Responsive deployment
                 </li>
 
             </ul>
@@ -868,42 +836,42 @@
                 <span>↗</span>
             </a>
 
-
-            <small class="pricing-note">
-
-                Custom domain registration is included for three
-                years from the date of registration. After the
-                initial three-year period, renewal is required.
-                Clients may renew or manage the domain independently.
-
-            </small>
-
         </article>
-
 
 
         <!-- EXECUTIVE -->
 
         <article class="pricing-card">
 
-            <div class="pricing-card-header">
-
-                <span>
-                    EXECUTIVE
-                </span>
+            <div class="pricing-card-top">
 
                 <span>
                     03
                 </span>
 
+                <small>
+                    EXECUTIVE
+                </small>
+
             </div>
+
+
+            <h3>
+                Executive
+            </h3>
+
+            <p class="pricing-description">
+                A high-end digital identity designed
+                for professionals who require stronger
+                presence, distinction and refinement.
+            </p>
 
 
             <div class="pricing-price">
 
-                <small>
-                    FROM
-                </small>
+                <span>
+                    Starting from
+                </span>
 
                 <strong>
                     R3 999
@@ -912,59 +880,22 @@
             </div>
 
 
-            <h3>
-                Create a Distinctive
-                <br>
-                Digital Brand.
-            </h3>
-
-
-            <p>
-                A highly customised digital identity for
-                professionals who want a stronger level of presence.
-            </p>
-
-
-            <ul>
+            <ul class="pricing-features">
 
                 <li>
-                    Everything in Professional
+                    Executive-level visual direction
                 </li>
 
                 <li>
-                    Highly customised design
+                    Bespoke portfolio experience
                 </li>
 
                 <li>
-                    Advanced interactions & animations
+                    Premium presentation system
                 </li>
 
                 <li>
-                    Luxury design refinements
-                </li>
-
-                <li>
-                    Premium personal branding
-                </li>
-
-                <li>
-                    Priority revisions
-                </li>
-
-                <li>
-                    Priority content updates
-                </li>
-
-                <li>
-                    New sections when required
-                </li>
-
-                <li>
-                    Advanced website improvements
-                </li>
-
-                <li>
-                    Priority support
+                    Priority development
                 </li>
 
             </ul>
@@ -974,59 +905,68 @@
                 href="request/request.html?package=executive"
                 class="pricing-button"
             >
-                Choose Executive
+                Explore Executive
                 <span>↗</span>
             </a>
 
         </article>
 
     </div>
-<div class="pricing-promo">
-    <span>Looking for a special opportunity?</span>
 
-    <p>
-        Explore our current MONARCHAUREX private offers and limited experiences.
-    </p>
 
-    <a href="promotions/index.html" class="text-link">
-        Explore Private Offers
-        <span>↗</span>
-    </a>
-</div>
+    <div class="pricing-private">
+
+        <span>
+            PRIVATE OFFERS
+        </span>
+
+        <p>
+            Custom portfolio experiences are available
+            for selected professional requirements.
+        </p>
+
+        <a href="request/request.html">
+            Request a Private Offer
+            <span>↗</span>
+        </a>
+
+    </div>
+
 </section>
 
 
-
 <!-- =========================================================
-     06 · LIVE EXPERIENCES
+     06 — LIVE EXPERIENCES
 ========================================================= -->
 
 <section
-    class="live-experiences"
+    class="live-experiences section"
     id="live-experiences"
 >
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>
-            06 · LIVE EXPERIENCES
+        <span class="section-number">
+            06
         </span>
 
+        <div>
 
-        <h2>
-            The Standard
-            <br>
-            Should Be Experienced.
-        </h2>
+            <span class="eyebrow">
+                LIVE EXPERIENCES
+            </span>
 
+            <h2>
+                Choose Your
+                <span>Signature Experience.</span>
+            </h2>
 
-        <p>
+            <p>
+                Explore the visual identities available
+                through the MonarchAurex Signature Collection.
+            </p>
 
-            Explore live examples of the MONARCHAUREX design
-            language and see how different professional identities
-            can be translated into digital experiences.
-
-        </p>
+        </div>
 
     </div>
 
@@ -1034,39 +974,45 @@
     <div class="demo-grid">
 
 
-        <!-- PURPLE DEMO -->
+        <!-- PURPLE -->
 
-        <article class="demo-card">
+        <article class="demo-card demo-purple">
 
-            <div class="demo-emblem">
-                M
+            <div class="demo-colour">
+
+                <span>
+                    01
+                </span>
+
+                <div class="demo-emblem">
+                    M
+                </div>
+
+                <small>
+                    EXECUTIVE PURPLE
+                </small>
+
             </div>
 
 
-            <div class="demo-card-content">
-
-                <span>
-                    EXECUTIVE PURPLE
-                </span>
+            <div class="demo-content">
 
                 <h3>
-                    Executive Presence.
+                    Executive Purple
                 </h3>
 
                 <p>
-                    A confident professional identity with
-                    expressive depth and executive character.
+                    A refined executive portfolio
+                    experience built around confidence,
+                    depth and visual distinction.
                 </p>
 
 
                 <a
                     href="demos/purple/index.html"
-                    class="text-link"
-                    target="_blank"
-                    rel="noopener"
+                    class="demo-button"
                 >
-                    View Live Demo
-                    <span>↗</span>
+                    View Full Experience →
                 </a>
 
             </div>
@@ -1074,40 +1020,45 @@
         </article>
 
 
+        <!-- MAROON -->
 
-        <!-- MAROON DEMO -->
+        <article class="demo-card demo-maroon">
 
-        <article class="demo-card">
+            <div class="demo-colour">
 
-            <div class="demo-emblem">
-                M
+                <span>
+                    02
+                </span>
+
+                <div class="demo-emblem">
+                    M
+                </div>
+
+                <small>
+                    EXECUTIVE MAROON
+                </small>
+
             </div>
 
 
-            <div class="demo-card-content">
-
-                <span>
-                    EXECUTIVE MAROON
-                </span>
+            <div class="demo-content">
 
                 <h3>
-                    Distinctive Authority.
+                    Executive Maroon
                 </h3>
 
                 <p>
-                    A refined visual direction built around
-                    depth, confidence and professional distinction.
+                    A sophisticated professional
+                    experience designed around
+                    authority and character.
                 </p>
 
 
                 <a
                     href="demos/maroon/index.html"
-                    class="text-link"
-                    target="_blank"
-                    rel="noopener"
+                    class="demo-button"
                 >
-                    View Live Demo
-                    <span>↗</span>
+                    View Full Experience →
                 </a>
 
             </div>
@@ -1115,40 +1066,45 @@
         </article>
 
 
+        <!-- BLACK -->
 
-        <!-- BLACK DEMO -->
+        <article class="demo-card demo-black">
 
-        <article class="demo-card">
+            <div class="demo-colour">
 
-            <div class="demo-emblem">
-                M
+                <span>
+                    03
+                </span>
+
+                <div class="demo-emblem">
+                    M
+                </div>
+
+                <small>
+                    BLACK LUXURY
+                </small>
+
             </div>
 
 
-            <div class="demo-card-content">
-
-                <span>
-                    BLACK LUXURY
-                </span>
+            <div class="demo-content">
 
                 <h3>
-                    Quietly Powerful.
+                    Black Luxury
                 </h3>
 
                 <p>
-                    A minimal luxury direction for professionals
-                    who prefer understated confidence.
+                    A restrained monochrome experience
+                    built around simplicity, precision
+                    and understated professional elegance.
                 </p>
 
 
                 <a
                     href="demos/black/index.html"
-                    class="text-link"
-                    target="_blank"
-                    rel="noopener"
+                    class="demo-button"
                 >
-                    View Live Demo
-                    <span>↗</span>
+                    View Full Experience →
                 </a>
 
             </div>
@@ -1160,216 +1116,90 @@
 </section>
 
 
-
 <!-- =========================================================
-     07 · CLIENT EXPERIENCES
+     07 — CLIENT EXPERIENCES
 ========================================================= -->
 
 <section
-    class="client-experiences"
+    class="client-experiences section"
     id="experiences"
 >
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>
-            07 · CLIENT EXPERIENCES
+        <span class="section-number">
+            07
         </span>
 
+        <div>
 
-        <h2>
-            The Standard
-            <br>
-            Should Be Experienced.
-        </h2>
-
-
-        <p>
-
-            A MONARCHAUREX experience is not defined only by
-            what it looks like, but by how confidently it represents
-            the person behind it.
-
-        </p>
-
-    </div>
-
-
-    <!-- EXPERIENCE INTRO -->
-
-    <div class="experience-feature">
-
-
-        <div class="experience-intro">
-
-            <span class="experience-label">
-                MONARCHAUREX EXPERIENCE RATING
+            <span class="eyebrow">
+                CLIENT EXPERIENCES
             </span>
 
-
-            <div class="experience-rating-mark">
-                6
-            </div>
-
-
-            <h3>
-                Professional experiences.
-                <br>
-                Measured by the people behind them.
-            </h3>
-
+            <h2>
+                Real Experiences.
+                <span>Genuine Perspective.</span>
+            </h2>
 
             <p>
-
-                Every published experience represents a real client
-                interaction with MONARCHAUREX. Ratings and comments
-                are reviewed before publication to preserve authenticity.
-
+                Professional experiences should speak
+                for themselves. Genuine client feedback
+                helps future clients understand the
+                MonarchAurex experience.
             </p>
 
         </div>
+    </div>
 
+    <!-- REVIEW LIST -->
 
-        <!-- OVERALL RATING -->
+    <div
+        class="review-list"
+        id="review-list"
+    >
 
-        <div class="experience-rating-summary">
-
-            <span class="experience-status-label">
-                CURRENT EXPERIENCE SCORE
-            </span>
-
-
-            <div class="rating-score">
-
-                <strong id="overall-rating">
-                    —
-                </strong>
-
-                <span>
-                    / 6
-                </span>
-
-            </div>
-
-
-            <div
-                class="rating-stars"
-                aria-label="Overall client experience rating"
-            >
-
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
-
-            </div>
-<p id="review-count">
-
-    Experiences will appear here as verified
-    client reviews become available.
-
-</p>
-        </div>
+        <!--
+            Genuine reviews can be inserted here
+            through the existing review system.
+        -->
 
     </div>
 
 
-
-    <!-- VERIFIED EXPERIENCES -->
-
-    <div class="published-experiences">
-
-        <div class="experience-section-heading">
-
-            <span>
-                VERIFIED EXPERIENCES
-            </span>
-
-
-            <h3>
-                What the Experience
-                <br>
-                Becomes.
-            </h3>
-
-        </div>
-
-
-        <div
-            class="review-list"
-            id="review-list"
-        >
-
-            <!--
-
-                APPROVED CLIENT REVIEWS WILL BE LOADED HERE.
-
-                No fabricated reviews are included.
-
-            -->
-
-
-            <div class="review-empty-state">
-
-                <span class="review-empty-number">
-                    01
-                </span>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- SHARE EXPERIENCE CTA -->
+    <!-- SHARE EXPERIENCE -->
 
     <div class="share-experience">
 
-        <div class="share-experience-copy">
+        <div>
 
-            <span>
-                YOUR EXPERIENCE
+            <span class="eyebrow">
+                SHARE YOUR EXPERIENCE
             </span>
 
-
             <h3>
-                Experienced
-                <br>
-                MONARCHAUREX?
+                Worked With MONARCHAUREX?
             </h3>
 
-
             <p>
-
-                Tell us how your professional identity experience
-                felt. Your feedback helps us maintain the standard
-                behind every MONARCHAUREX creation.
-
+                Share your genuine experience and
+                help future clients understand the
+                standard behind the work.
             </p>
 
         </div>
 
 
-        <div class="share-experience-action">
-
-            <button
-                type="button"
-                class="experience-button"
-                id="open-review-form"
-            >
-                Share Your Experience
-                <span>↗</span>
-            </button>
-
-        </div>
+        <button
+            type="button"
+            class="review-open-button"
+            id="open-review-form"
+        >
+            Share Experience
+            <span>↗</span>
+        </button>
 
     </div>
-
 
 
     <!-- REVIEW FORM -->
@@ -1380,145 +1210,16 @@
         hidden
     >
 
-        <div class="review-form-header">
-
-            <span>
-                EXPERIENCE RATING
-            </span>
-
-
-            <h3>
-                Share Your Experience.
-            </h3>
-
-
-            <p>
-
-                Rate your experience and tell us what
-                working with MONARCHAUREX was like.
-                Your review will be reviewed before publication.
-
-            </p>
-
-        </div>
-
-
         <form
-            id="client-review-form"
-            class="client-review-form"
+            class="review-form"
+            id="review-form"
         >
-
-
-            <!-- RATING -->
-
-            <div class="review-field review-rating-field">
-
-                <label>
-                    Your Rating
-                </label>
-
-
-                <p class="field-description">
-
-                    Rate your MONARCHAUREX experience from 1 to 6.
-
-                </p>
-
-
-                <div
-                    class="rating-selector"
-                    role="radiogroup"
-                    aria-label="Rate your experience"
-                >
-
-                    <button
-                        type="button"
-                        class="rating-star"
-                        data-rating="1"
-                        aria-label="1 out of 6"
-                    >
-                        ☆
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="rating-star"
-                        data-rating="2"
-                        aria-label="2 out of 6"
-                    >
-                        ☆
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="rating-star"
-                        data-rating="3"
-                        aria-label="3 out of 6"
-                    >
-                        ☆
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="rating-star"
-                        data-rating="4"
-                        aria-label="4 out of 6"
-                    >
-                        ☆
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="rating-star"
-                        data-rating="5"
-                        aria-label="5 out of 6"
-                    >
-                        ☆
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="rating-star"
-                        data-rating="6"
-                        aria-label="6 out of 6"
-                    >
-                        ☆
-                    </button>
-
-                </div>
-
-
-                <div
-                    class="selected-rating"
-                    id="selected-rating"
-                >
-                    Select a rating
-                </div>
-
-
-                <input
-                    type="hidden"
-                    name="rating"
-                    id="review-rating"
-                >
-
-            </div>
-
-
-
-            <!-- NAME -->
 
             <div class="review-field">
 
                 <label for="review-name">
-                    Name
+                    Your Name
                 </label>
-
 
                 <input
                     type="text"
@@ -1532,14 +1233,11 @@
             </div>
 
 
-            <!-- EMAIL -->
-
             <div class="review-field">
 
                 <label for="review-email">
                     Email Address
                 </label>
-
 
                 <input
                     type="email"
@@ -1550,26 +1248,19 @@
                     required
                 >
 
-
                 <span class="field-note">
-
-                    Your email is used for verification and will
-                    not be displayed publicly.
-
+                    Your email is used for verification
+                    and will not be displayed publicly.
                 </span>
 
             </div>
 
-
-
-            <!-- EXPERIENCE -->
 
             <div class="review-field">
 
                 <label for="review-comment">
                     Your Experience
                 </label>
-
 
                 <textarea
                     id="review-comment"
@@ -1581,18 +1272,12 @@
                     required
                 ></textarea>
 
-
                 <span class="field-note">
-
                     Minimum 20 characters.
-
                 </span>
 
             </div>
 
-
-
-            <!-- CONSENT -->
 
             <div class="review-consent">
 
@@ -1604,22 +1289,17 @@
                         required
                     >
 
-
                     <span>
-
-                        I confirm that this is my genuine experience
-                        and understand that my review may be published
-                        on the MONARCHAUREX website after moderation.
-
+                        I confirm that this is my genuine
+                        experience and understand that my
+                        review may be published on the
+                        MONARCHAUREX website after moderation.
                     </span>
 
                 </label>
 
             </div>
 
-
-
-            <!-- FORM ACTIONS -->
 
             <div class="review-form-actions">
 
@@ -1630,7 +1310,6 @@
                     Submit Experience
                     <span>↗</span>
                 </button>
-
 
                 <button
                     type="button"
@@ -1655,153 +1334,144 @@
     </div>
 
 
-
-    <!-- EXPERIENCE PRINCIPLE -->
-
     <div class="experience-footer-note">
 
         <span>
-            AUTHENTICITY OVER INFLUENCE
+            AUTHENTICITY
         </span>
-
-        <span>
-            ·
-        </span>
-
-        <span>
-            VERIFIED EXPERIENCES ONLY
-        </span>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     08 · ABOUT MONARCHAUREX
-========================================================= -->
-
-<section
-    class="about-monarch"
-    id="about"
->
-
-    <div class="section-title">
-
-        <span>
-            08 · ABOUT MONARCHAUREX
-        </span>
-
-
-        <h2>
-            Built for Professionals.
-            <br>
-            Designed to Be Remembered.
-        </h2>
-
 
         <p>
-
-            MONARCHAUREX exists to change the way professionals
-            present themselves online.
-
+            MONARCHAUREX does not fabricate client
+            experiences. Reviews are intended to
+            represent genuine experiences and may
+            be moderated before publication.
         </p>
 
     </div>
 
+</section>
 
-    <div class="about-content">
+
+<!-- =========================================================
+     08 — ABOUT MONARCHAUREX
+========================================================= -->
+
+<section
+    class="about section"
+    id="about"
+>
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            08
+        </span>
+
+        <div>
+
+            <span class="eyebrow">
+                ABOUT MONARCHAUREX
+            </span>
+
+            <h2>
+                Built for Professionals.
+                <span>Designed to Be Remembered.</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-grid">
 
         <div class="about-statement">
 
+            <p class="about-lead">
+                A CV tells people what you have done.
+            </p>
+
+            <p class="about-lead">
+                A portfolio shows them what you can do.
+            </p>
+
             <p>
+                MonarchAurex was created to bridge that
+                gap through carefully designed digital
+                experiences that combine professional
+                storytelling, modern technology and
+                premium visual design.
+            </p>
 
-                A professional portfolio should not feel like
-                a document placed online. It should feel like
-                an extension of the person it represents.
-
+            <p>
+                Every portfolio is designed around the
+                person, their field and the career direction
+                they want to pursue.
             </p>
 
 
-            <p>
-
-                We combine professional structure, thoughtful
-                visual design and modern web experiences to create
-                digital identities that communicate credibility,
-                ambition and individuality.
-
-            </p>
+            <div class="monarch-status">
+                Ready for Launch
+            </div>
 
         </div>
 
 
-        <div class="about-principles">
+        <div class="about-details">
 
-            <div class="about-principle">
+            <div class="about-founder">
 
                 <span>
-                    01
+                    FOUNDER
                 </span>
 
                 <strong>
-                    INTENTION
+                    Thabang Makgai
                 </strong>
 
+                <small>
+                    Founder & Creative Director
+                </small>
+
+            </div>
+
+
+            <div class="about-founder-statement">
+
+                <span>
+                    PHILOSOPHY
+                </span>
+
                 <p>
-                    Every element should have a reason to exist.
+                    Building premium digital experiences
+                    where technology, data and professional
+                    identity come together.
                 </p>
 
             </div>
 
 
-            <div class="about-principle">
+            <div class="about-principles">
 
-                <span>
-                    02
-                </span>
+                <div>
+                    <span>01</span>
+                    <strong>Precision</strong>
+                </div>
 
-                <strong>
-                    DISTINCTION
-                </strong>
+                <div>
+                    <span>02</span>
+                    <strong>Identity</strong>
+                </div>
 
-                <p>
-                    Your professional identity should not look generic.
-                </p>
+                <div>
+                    <span>03</span>
+                    <strong>Presence</strong>
+                </div>
 
-            </div>
-
-
-            <div class="about-principle">
-
-                <span>
-                    03
-                </span>
-
-                <strong>
-                    CREDIBILITY
-                </strong>
-
-                <p>
-                    Design should reinforce the quality of your work.
-                </p>
-
-            </div>
-
-
-            <div class="about-principle">
-
-                <span>
-                    04
-                </span>
-
-                <strong>
-                    LONGEVITY
-                </strong>
-
-                <p>
-                    Your digital presence should grow with your career.
-                </p>
+                <div>
+                    <span>04</span>
+                    <strong>Distinction</strong>
+                </div>
 
             </div>
 
@@ -1812,35 +1482,30 @@
 </section>
 
 
-
 <!-- =========================================================
-     09 · FINAL CTA
+     09 — FINAL CTA
 ========================================================= -->
 
 <section
-    class="final-cta"
+    class="final-cta section"
     id="request"
 >
 
-    <div class="final-cta-content">
+    <div class="final-cta-inner">
 
-        <span>
-            09 · BEGIN YOUR IDENTITY
+        <span class="eyebrow">
+            COMMISSION YOUR IDENTITY
         </span>
-
 
         <h2>
             Your Career Deserves
-            <br>
-            a Premium Presence.
+            <span>a Premium Presence.</span>
         </h2>
 
-
         <p>
-
-            Your experience already exists.
-            Now give it the digital identity it deserves.
-
+            Start building a digital portfolio that
+            represents your professional identity
+            with clarity, confidence and distinction.
         </p>
 
 
@@ -1859,76 +1524,90 @@
 </main>
 
 
-
 <!-- =========================================================
-     10 · FOOTER
+     FOOTER
 ========================================================= -->
 
-<footer class="site-footer">
+<footer class="footer">
 
-    <div class="footer-top">
+    <div class="footer-main">
+
 
         <div class="footer-brand">
 
-            <span>
-                MONARCHAUREX
-            </span>
+            <a
+                href="#home"
+                class="footer-logo"
+            >
+                <span class="logo-main">
+                    MONARCH
+                </span>
+
+                <span class="logo-tech">
+                    AUREX
+                </span>
+            </a>
 
 
             <p>
-                Not Just a Portfolio.
-                <br>
-                A Professional Identity.
+                Premium portfolio experiences designed
+                to elevate your professional presence.
             </p>
 
         </div>
 
 
-        <div class="footer-navigation">
-
-            <span>
-                NAVIGATION
-            </span>
+        <div class="footer-links">
 
 
-            <a href="#home">
-                Home
-            </a>
+            <div class="footer-column">
 
-            <a href="#collection">
-                Collection
-            </a>
+                <h4>
+                    Explore
+                </h4>
 
-            <a href="#pricing">
-                Pricing
-            </a>
+                <a href="#home">
+                    Home
+                </a>
 
-            <a href="#experiences">
-                Client Experiences
-            </a>
+                <a href="#collection">
+                    Collection
+                </a>
 
-            <a href="#about">
-                About
-            </a>
+                <a href="#standard">
+                    Standard
+                </a>
 
-            <a href="request/request.html">
-                Request Portfolio
-            </a>
+                <a href="#pricing">
+                    Pricing
+                </a>
 
-        </div>
+                <a href="#live-experiences">
+                    Experiences
+                </a>
 
-
-        <div class="footer-contact">
-
-            <span>
-                START A PROJECT
-            </span>
+            </div>
 
 
-            <a href="request/request.html">
-                Request Portfolio
-                <span>↗</span>
-            </a>
+            <div class="footer-column">
+
+                <h4>
+                    Monarch
+                </h4>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#process">
+                    Process
+                </a>
+
+                <a href="request/request.html">
+                    Request Portfolio
+                </a>
+
+            </div>
 
         </div>
 
@@ -1938,21 +1617,28 @@
     <div class="footer-bottom">
 
         <span>
-            © 2026 MONARCHAUREX. All Rights Reserved.
+            © 2026 MonarchAurex. All rights reserved.
         </span>
 
-
         <span>
-            Thabang Makgai · Founder & Director
+            Founded by Thabang Makgai · Founder & Creative Director
         </span>
 
     </div>
 
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> 
-<script src="script.js"></script> 
- 
-</body> 
- 
+
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
+
+<!-- Supabase -->
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+<script src="script.js"></script>
+
+</body>
 </html>
