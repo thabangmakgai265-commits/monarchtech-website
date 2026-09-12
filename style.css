@@ -2312,446 +2312,1070 @@ textarea:focus-visible{
 }  
   
   
-/* =========================================================  
-   RESPONSIVE — TABLET  
-========================================================= */  
-  
-@media (max-width:1050px){  
-  
-    .navbar,  
-    section{  
-        width:min(  
-            calc(100% - 50px),  
-            var(--max-width)  
-        );  
-    }  
-  
-    .nav-links{  
-        gap:16px;  
-    }  
-  
-    .nav-links > a{  
-        font-size:8px;  
-    }  
-  
-    .hero{  
-        grid-template-columns:  
-            minmax(0,1fr)  
-            minmax(280px,.75fr);  
-  
-        gap:55px;  
-    }  
-  
-    .hero h1{  
-        font-size:clamp(55px,8vw,82px);  
-    }  
-  
-    .collection-grid,  
-    .pricing-grid,  
-    .demo-grid{  
-        grid-template-columns:  
-            repeat(2,minmax(0,1fr));  
-    }  
-  
-    .collection-card:last-child,  
-    .demo-card:last-child{  
-        grid-column:1 / -1;  
-        max-width:calc(50% - 9px);  
-    }  
-  
-    .standard-grid,  
-    .process-grid{  
-        grid-template-columns:  
-            repeat(2,minmax(0,1fr));  
-    }  
-  
-    .standard-card:nth-child(2){  
-        border-right:0;  
-    }  
-  
-    .standard-card:nth-child(-n+2){  
-        border-bottom:1px solid var(--border);  
-    }  
-  
-    .process-step:nth-child(2){  
-        border-right:0;  
-    }  
-  
-    .process-step:nth-child(-n+2){  
-        border-bottom:1px solid var(--border);  
-    }  
-  
-    .about-content{  
-        gap:55px;  
-    }  
-  
-    .footer-top{  
-        gap:40px;  
-    }  
-}  
-  
-  
-/* =========================================================  
-   RESPONSIVE — MOBILE  
-========================================================= */  
-  
-@media (max-width:760px){  
-  
-    :root{  
-        --section-space:100px;  
-    }  
-  
-    .navbar,  
-    section{  
-        width:calc(100% - 36px);  
-    }  
-  
-    .site-header{  
-        position:relative;  
-    }  
-  
-    .navbar{  
-        min-height:72px;  
-  
-        align-items:flex-start;  
-  
-        padding:18px 0;  
-  
-        flex-direction:column;  
-  
-        gap:17px;  
-    }  
-  
-    .nav-links{  
-        width:100%;  
-  
-        justify-content:flex-start;  
-  
-        overflow-x:auto;  
-  
-        padding-bottom:4px;  
-  
-        gap:19px;  
-  
-        scrollbar-width:none;  
-    }  
-  
-    .nav-links::-webkit-scrollbar{  
-        display:none;  
-    }  
-  
-    .nav-links .nav-cta{  
-        margin-left:0;  
-    }  
-  
-    .hero{  
-        min-height:auto;  
-  
-        display:block;  
-  
-        padding-top:90px;  
-        padding-bottom:90px;  
-    }  
-  
-    .hero h1{  
-        font-size:clamp(  
-            50px,  
-            14vw,  
-            72px  
-        );  
-    }  
-  
-    .hero-description{  
-        max-width:100%;  
-  
-        font-size:14px;  
-    }  
-  
-    .hero-actions{  
-        align-items:stretch;  
-  
-        flex-direction:column;  
-  
-        max-width:330px;  
-    }  
-  
-    .primary-button,  
-    .secondary-button{  
-        width:100%;  
-    }  
-  
-    .hero-signature{  
-        min-height:350px;  
-  
-        margin-top:80px;  
-  
-        padding:27px;  
-  
-        border-left:0;  
-  
-        border-top:1px solid var(--gold-border-soft);  
-    }  
-  
-    .section-title{  
-        margin-bottom:50px;  
-    }  
-  
-    .section-title h2{  
-        font-size:clamp(  
-            40px,  
-            11vw,  
-            58px  
-        );  
-    }  
-  
-    .section-title p{  
-        max-width:100%;  
-  
-        font-size:13px;  
-    }  
-  
-    .collection-grid,  
-    .pricing-grid,  
-    .demo-grid,  
-    .standard-grid,  
-    .process-grid{  
-        grid-template-columns:1fr;  
-    }  
-  
-    .collection-card:last-child,  
-    .demo-card:last-child{  
-        grid-column:auto;  
-        max-width:none;  
-    }  
-  
-    .collection-mark{  
-        width:145px;  
-        height:145px;  
-  
-        margin-top:48px;  
-        margin-bottom:48px;  
-    }  
-  
-    .standard-card,  
-    .process-step{  
-        border-right:0;  
-        border-bottom:1px solid var(--border);  
-    }  
-  
-    .standard-card:last-child,  
-    .process-step:last-child{  
-        border-bottom:0;  
-    }  
-  
-    .standard-card:nth-child(-n+2),  
-    .process-step:nth-child(-n+2){  
-        border-bottom:1px solid var(--border);  
-    }  
-  
-    .pricing-card{  
-        min-height:auto;  
-  
-        padding:30px;  
-    }  
-  
-    .pricing-card h3{  
-        font-size:28px;  
-    }  
-  
-    .pricing-price strong{  
-        font-size:43px;  
-    }  
-  
-    .demo-card{  
-        min-height:500px;  
-    }  
-  
-    .experience-feature{  
-        grid-template-columns:1fr;  
-  
-        gap:45px;  
-    }  
-  
-    .experience-rating-summary{  
-        padding-left:0;  
-  
-        padding-top:40px;  
-  
-        border-left:0;  
-  
-        border-top:1px solid var(--border);  
-    }  
-  
-    .experience-intro h3{  
-        font-size:31px;  
-    }  
-  
-    .experience-section-heading h3{  
-        font-size:34px;  
-    }  
-  
-    .share-experience{  
-        grid-template-columns:1fr;  
-  
-        gap:35px;  
-    }  
-  
-    .share-experience-copy h3{  
-        font-size:35px;  
-    }  
-  
-    .experience-button{  
-        width:100%;  
-    }  
-  
-    .review-form-wrapper{  
-        padding:30px 22px;  
-    }  
-  
-    .client-review-form{  
-        grid-template-columns:1fr;  
-    }  
-  
-    .review-rating-field,  
-    .review-field:nth-last-of-type(2),  
-    .review-consent,  
-    .review-form-actions,  
-    .review-form-status{  
-        grid-column:auto;  
-    }  
-  
-    .about-content{  
-        grid-template-columns:1fr;  
-  
-        gap:65px;  
-    }  
-  
-    .about-statement p{  
-        font-size:22px;  
-    }  
-  
-    .about-principle{  
-        grid-template-columns:45px 1fr;  
-    }  
-  
-    .about-principle p{  
-        grid-column:2;  
-    }  
-  
-    .final-cta{  
-        padding:  
-            110px  
-            18px;  
-    }  
-  
-    .final-cta h2{  
-        font-size:clamp(  
-            45px,  
-            12vw,  
-            65px  
-        );  
-    }  
-  
-    .footer-top{  
-        grid-template-columns:1fr;  
-  
-        gap:45px;  
-    }  
-  
-    .footer-bottom{  
-        flex-direction:column;  
-  
-        gap:10px;  
-    }  
-}  
-  
-  
-/* =========================================================  
-   SMALL MOBILE  
-========================================================= */  
-  
-@media (max-width:420px){  
-  
-    .navbar,  
-    section{  
-        width:calc(100% - 28px);  
-    }  
-  
-    .hero h1{  
-        font-size:48px;  
-    }  
-  
-    .section-title h2{  
-        font-size:39px;  
-    }  
-  
-    .collection-card-content,  
-    .demo-card-content{  
-        padding-left:22px;  
-        padding-right:22px;  
-    }  
-  
-    .collection-card-top{  
-        padding-left:20px;  
-        padding-right:20px;  
-    }  
-  
-    .pricing-card{  
-        padding:25px;  
-    }  
-  
-    .pricing-price strong{  
-        font-size:39px;  
-    }  
-  
-    .rating-selector{  
-        gap:4px;  
-    }  
-  
-    .rating-star{  
-        width:39px;  
-        height:39px;  
-    }  
-  
-    .review-empty-state{  
-        grid-template-columns:50px 1fr;  
-  
-        gap:18px;  
-    }  
-}  
-  
-  
-/* =========================================================  
-   REDUCED MOTION  
-========================================================= */  
-  
-@media (prefers-reduced-motion:reduce){  
-  
-    html{  
-        scroll-behavior:auto;  
-    }  
-  
-    *,  
-    *::before,  
-    *::after{  
-        transition:none !important;  
-        animation:none !important;  
-    }  
-}  
-  
-/* =========================================================  
-   ANCHOR SCROLL OFFSET  
-   Keeps sections positioned cleanly beneath the navbar  
-========================================================= */  
-  
-#home,  
-#collection,  
-#standard,  
-#process,  
-#pricing,  
-#live-experiences,  
-#experiences,  
-#about,  
-#request{  
-    scroll-margin-top:110px;  
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width:1050px){
+
+    .navbar,
+    section{
+        width:min(
+            calc(100% - 50px),
+            var(--max-width)
+        );
+    }
+
+    .nav-links{
+        gap:16px;
+    }
+
+    .nav-links > a{
+        font-size:8px;
+    }
+
+    .hero{
+        grid-template-columns:
+            minmax(0,1fr)
+            minmax(280px,.75fr);
+
+        gap:55px;
+    }
+
+    .hero h1{
+        font-size:clamp(55px,8vw,82px);
+    }
+
+    .collection-grid,
+    .pricing-grid,
+    .demo-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .collection-card:last-child,
+    .demo-card:last-child{
+        grid-column:1 / -1;
+        max-width:calc(50% - 9px);
+    }
+
+    .standard-grid,
+    .process-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .standard-card:nth-child(2),
+    .process-step:nth-child(2){
+        border-right:0;
+    }
+
+    .standard-card:nth-child(-n+2),
+    .process-step:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .about-content{
+        gap:55px;
+    }
+
+    .footer-top{
+        gap:40px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width:760px){
+
+    :root{
+        --section-space:90px;
+    }
+
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+        overflow-x:hidden;
+    }
+
+    main{
+        width:100%;
+        overflow:hidden;
+    }
+
+    .navbar,
+    section{
+        width:calc(100% - 36px);
+    }
+
+
+    /* -----------------------------------------------------
+       NAVIGATION
+    ----------------------------------------------------- */
+
+    .site-header{
+        position:sticky;
+        top:0;
+    }
+
+    .navbar{
+        min-height:68px;
+
+        padding:17px 0;
+
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+
+        gap:20px;
+    }
+
+    .brand{
+        font-size:16px;
+        letter-spacing:.07em;
+    }
+
+    .nav-links{
+        width:auto;
+
+        display:flex;
+        align-items:center;
+
+        gap:0;
+
+        overflow:visible;
+    }
+
+    .nav-links > a{
+        display:none;
+    }
+
+    .nav-links .nav-cta{
+        display:inline-flex;
+
+        margin:0;
+
+        padding:10px 13px;
+
+        font-size:8px;
+        letter-spacing:.12em;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+    ----------------------------------------------------- */
+
+    .hero{
+        min-height:auto;
+
+        display:block;
+
+        padding-top:82px;
+        padding-bottom:80px;
+    }
+
+    .eyebrow{
+        margin-bottom:20px;
+
+        font-size:8px;
+        letter-spacing:.18em;
+    }
+
+    .hero h1{
+        max-width:100%;
+
+        font-size:clamp(
+            48px,
+            14vw,
+            68px
+        );
+
+        line-height:.94;
+        letter-spacing:-.04em;
+    }
+
+    .hero-description{
+        max-width:100%;
+
+        margin-top:25px;
+
+        font-size:13px;
+        line-height:1.8;
+
+        text-align:left;
+    }
+
+    .hero-actions{
+        width:100%;
+        max-width:none;
+
+        display:flex;
+        flex-direction:column;
+
+        gap:10px;
+
+        margin-top:30px;
+    }
+
+    .primary-button,
+    .secondary-button{
+        width:100%;
+
+        min-height:50px;
+    }
+
+    .hero-meta{
+        gap:16px 22px;
+
+        margin-top:42px;
+        padding-top:17px;
+    }
+
+    .hero-meta span{
+        font-size:7px;
+    }
+
+    .hero-signature{
+        min-height:auto;
+
+        margin-top:65px;
+
+        padding:25px 0;
+
+        border-left:0;
+        border-top:1px solid var(--gold-border-soft);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.018),
+                transparent 65%
+            );
+    }
+
+    .signature-label{
+        margin-bottom:18px;
+
+        font-size:8px;
+    }
+
+    .identity-item{
+        gap:14px;
+
+        padding:15px 0;
+    }
+
+
+    /* -----------------------------------------------------
+       SECTION TITLES
+    ----------------------------------------------------- */
+
+    .section-title{
+        margin-bottom:45px;
+    }
+
+    .section-title > span{
+        margin-bottom:16px;
+
+        font-size:8px;
+        letter-spacing:.17em;
+    }
+
+    .section-title h2{
+        font-size:clamp(
+            38px,
+            11vw,
+            56px
+        );
+
+        line-height:1;
+    }
+
+    .section-title p{
+        max-width:100%;
+
+        margin-top:20px;
+
+        font-size:12px;
+        line-height:1.8;
+
+        text-align:left;
+    }
+
+
+    /* -----------------------------------------------------
+       COLLECTION
+    ----------------------------------------------------- */
+
+    .signature-collection{
+        padding-top:90px;
+    }
+
+    .collection-grid{
+        grid-template-columns:1fr;
+
+        gap:16px;
+    }
+
+    .collection-card{
+        width:100%;
+    }
+
+    .collection-card:last-child{
+        grid-column:auto;
+        max-width:none;
+    }
+
+    .collection-card-top{
+        padding:18px 20px;
+    }
+
+    .collection-mark{
+        width:135px;
+        height:135px;
+
+        margin:45px auto 42px;
+
+        font-size:74px;
+    }
+
+    .collection-mark::before{
+        inset:12px;
+    }
+
+    .collection-card-content{
+        padding:0 22px 26px;
+    }
+
+    .collection-card-content h3{
+        font-size:25px;
+    }
+
+    .collection-card-content p{
+        font-size:12px;
+        line-height:1.75;
+
+        text-align:left;
+    }
+
+
+    /* -----------------------------------------------------
+       STANDARD / PROCESS
+    ----------------------------------------------------- */
+
+    .monarch-standard,
+    .process{
+        padding-top:105px;
+    }
+
+    .standard-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .standard-card,
+    .process-step{
+        padding:28px 0 32px;
+
+        border-right:0;
+        border-bottom:1px solid var(--border);
+    }
+
+    .standard-card:last-child,
+    .process-step:last-child{
+        border-bottom:0;
+    }
+
+    .standard-card:nth-child(-n+2),
+    .process-step:nth-child(-n+2){
+        border-bottom:1px solid var(--border);
+    }
+
+    .standard-card::after,
+    .process-step::after{
+        left:0;
+        right:0;
+    }
+
+    .standard-card h3,
+    .process-step h3{
+        margin-top:20px;
+
+        font-size:25px;
+    }
+
+    .standard-card p,
+    .process-step p{
+        font-size:12px;
+        line-height:1.75;
+
+        text-align:left;
+    }
+
+
+    /* -----------------------------------------------------
+       PRICING
+    ----------------------------------------------------- */
+
+    .pricing{
+        padding-top:105px;
+    }
+
+    .pricing-grid{
+        grid-template-columns:1fr;
+
+        gap:14px;
+    }
+
+    .pricing-card{
+        min-height:auto;
+
+        padding:27px 24px 25px;
+    }
+
+    .pricing-card-header{
+        padding-bottom:17px;
+    }
+
+    .pricing-price{
+        margin-top:30px;
+    }
+
+    .pricing-price strong{
+        font-size:40px;
+    }
+
+    .pricing-card h3{
+        margin-top:30px;
+
+        font-size:26px;
+    }
+
+    .pricing-card > p{
+        margin-top:14px;
+
+        font-size:12px;
+        line-height:1.75;
+
+        text-align:left;
+    }
+
+    .pricing-card ul{
+        margin-top:24px;
+    }
+
+    .pricing-card li{
+        padding:9px 0 9px 15px;
+
+        font-size:10px;
+    }
+
+    .pricing-card li::before{
+        top:17px;
+    }
+
+    .pricing-button{
+        margin-top:28px;
+
+        min-height:49px;
+    }
+
+    .pricing-note{
+        margin-top:13px;
+    }
+
+    .pricing-promo{
+        margin-top:32px;
+        padding-top:22px;
+    }
+
+    .pricing-promo p{
+        font-size:11px;
+        line-height:1.7;
+    }
+
+
+    /* -----------------------------------------------------
+       LIVE EXPERIENCES
+    ----------------------------------------------------- */
+
+    .live-experiences{
+        padding-top:105px;
+    }
+
+    .demo-grid{
+        grid-template-columns:1fr;
+
+        gap:16px;
+    }
+
+    .demo-card{
+        min-height:auto;
+    }
+
+    .demo-emblem{
+        width:130px;
+        height:130px;
+
+        margin:45px auto 45px;
+
+        font-size:70px;
+    }
+
+    .demo-card-content{
+        padding:0 22px 27px;
+    }
+
+    .demo-card-content h3{
+        font-size:25px;
+    }
+
+    .demo-card-content p{
+        font-size:12px;
+        line-height:1.75;
+
+        text-align:left;
+    }
+
+    .demo-card-content .text-link{
+        margin-top:25px;
+    }
+
+
+    /* -----------------------------------------------------
+       CLIENT EXPERIENCES
+    ----------------------------------------------------- */
+
+    .client-experiences{
+        padding-top:105px;
+    }
+
+    .experience-feature{
+        grid-template-columns:1fr;
+
+        gap:38px;
+
+        padding:40px 0;
+    }
+
+    .experience-rating-mark{
+        margin-top:23px;
+
+        font-size:90px;
+    }
+
+    .experience-intro h3{
+        margin-top:22px;
+
+        font-size:29px;
+    }
+
+    .experience-intro p{
+        font-size:12px;
+        line-height:1.8;
+
+        text-align:left;
+    }
+
+    .experience-rating-summary{
+        padding-left:0;
+        padding-top:35px;
+
+        border-left:0;
+        border-top:1px solid var(--border);
+    }
+
+    .rating-score strong{
+        font-size:56px;
+    }
+
+    .rating-stars span{
+        font-size:20px;
+    }
+
+    .published-experiences{
+        padding-top:65px;
+    }
+
+    .experience-section-heading h3{
+        font-size:32px;
+    }
+
+    .review-list{
+        margin-top:35px;
+    }
+
+    .review-empty-state{
+        grid-template-columns:45px minmax(0,1fr);
+
+        gap:18px;
+
+        padding:25px 0;
+    }
+
+    .review-empty-state p{
+        font-size:12px;
+        line-height:1.75;
+
+        text-align:left;
+    }
+
+    .share-experience{
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+        margin-top:65px;
+        padding:40px 0;
+    }
+
+    .share-experience-copy h3{
+        font-size:32px;
+    }
+
+    .share-experience-copy p{
+        font-size:12px;
+        line-height:1.8;
+
+        text-align:left;
+    }
+
+    .experience-button{
+        width:100%;
+    }
+
+
+    /* -----------------------------------------------------
+       REVIEW FORM
+    ----------------------------------------------------- */
+
+    .review-form-wrapper{
+        margin-top:35px;
+
+        padding:27px 20px;
+    }
+
+    .review-form-header h3{
+        font-size:31px;
+    }
+
+    .review-form-header p{
+        font-size:12px;
+        line-height:1.8;
+
+        text-align:left;
+    }
+
+    .client-review-form{
+        grid-template-columns:1fr;
+
+        gap:22px;
+
+        margin-top:35px;
+    }
+
+    .review-rating-field,
+    .review-field:nth-last-of-type(2),
+    .review-consent,
+    .review-form-actions,
+    .review-form-status{
+        grid-column:auto;
+    }
+
+    .rating-selector{
+        flex-wrap:wrap;
+
+        gap:6px;
+    }
+
+    .rating-star{
+        width:40px;
+        height:40px;
+    }
+
+    .review-field input,
+    .review-field textarea{
+        padding:14px;
+
+        font-size:12px;
+    }
+
+    .review-field textarea{
+        min-height:140px;
+    }
+
+    .review-form-actions{
+        flex-direction:column;
+    }
+
+    .review-submit,
+    .review-cancel{
+        width:100%;
+    }
+
+    .experience-footer-note{
+        margin-top:50px;
+
+        font-size:7px;
+        line-height:1.8;
+    }
+
+
+    /* -----------------------------------------------------
+       ABOUT
+    ----------------------------------------------------- */
+
+    .about-monarch{
+        padding-top:105px;
+    }
+
+    .about-content{
+        grid-template-columns:1fr;
+
+        gap:55px;
+    }
+
+    .about-statement p{
+        font-size:21px;
+        line-height:1.45;
+
+        text-align:left;
+    }
+
+    .about-statement p + p{
+        margin-top:27px;
+
+        font-size:12px;
+        line-height:1.85;
+
+        text-align:left;
+    }
+
+    .about-principle{
+        grid-template-columns:42px minmax(0,1fr);
+
+        gap:14px;
+
+        padding:20px 0;
+    }
+
+    .about-principle strong{
+        font-size:9px;
+    }
+
+    .about-principle p{
+        grid-column:2;
+
+        font-size:11px;
+        line-height:1.7;
+
+        text-align:left;
+    }
+
+
+    /* -----------------------------------------------------
+       FINAL CTA
+    ----------------------------------------------------- */
+
+    .final-cta{
+        padding:
+            100px
+            18px;
+    }
+
+    .final-cta-content{
+        width:100%;
+    }
+
+    .final-cta h2{
+        font-size:clamp(
+            43px,
+            12vw,
+            62px
+        );
+
+        line-height:.98;
+    }
+
+    .final-cta p{
+        max-width:100%;
+
+        margin-top:20px;
+
+        font-size:12px;
+        line-height:1.8;
+
+        text-align:left;
+    }
+
+    .final-cta .primary-button{
+        width:100%;
+
+        margin-top:28px;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+    ----------------------------------------------------- */
+
+    .site-footer{
+        padding:
+            65px
+            18px
+            25px;
+    }
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        gap:38px;
+
+        padding-bottom:50px;
+    }
+
+    .footer-brand > span{
+        font-size:18px;
+    }
+
+    .footer-brand p{
+        max-width:300px;
+
+        font-size:13px;
+    }
+
+    .footer-navigation,
+    .footer-contact{
+        align-items:flex-start;
+    }
+
+    .footer-navigation > span,
+    .footer-contact > span{
+        margin-bottom:16px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:9px;
+
+        padding-top:20px;
+
+        font-size:7px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width:420px){
+
+    .navbar,
+    section{
+        width:calc(100% - 28px);
+    }
+
+    .brand{
+        font-size:15px;
+    }
+
+    .nav-links .nav-cta{
+        padding:9px 11px;
+
+        font-size:7px;
+    }
+
+    .hero{
+        padding-top:72px;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .hero-description{
+        font-size:12px;
+    }
+
+    .hero-meta{
+        gap:13px 17px;
+    }
+
+    .section-title h2{
+        font-size:38px;
+    }
+
+    .section-title p{
+        font-size:12px;
+    }
+
+    .collection-mark{
+        width:125px;
+        height:125px;
+
+        font-size:68px;
+    }
+
+    .collection-card-content,
+    .demo-card-content{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .collection-card-top{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    .pricing-card{
+        padding:24px 20px;
+    }
+
+    .pricing-price strong{
+        font-size:37px;
+    }
+
+    .pricing-card h3{
+        font-size:24px;
+    }
+
+    .demo-emblem{
+        width:120px;
+        height:120px;
+
+        font-size:65px;
+    }
+
+    .experience-rating-mark{
+        font-size:80px;
+    }
+
+    .experience-intro h3{
+        font-size:27px;
+    }
+
+    .experience-section-heading h3{
+        font-size:29px;
+    }
+
+    .share-experience-copy h3{
+        font-size:29px;
+    }
+
+    .review-form-wrapper{
+        padding:25px 17px;
+    }
+
+    .review-form-header h3{
+        font-size:28px;
+    }
+
+    .rating-selector{
+        gap:5px;
+    }
+
+    .rating-star{
+        width:38px;
+        height:38px;
+
+        font-size:20px;
+    }
+
+    .about-statement p{
+        font-size:20px;
+    }
+
+    .final-cta{
+        padding:
+            90px
+            14px;
+    }
+
+    .final-cta h2{
+        font-size:44px;
+    }
+}
+
+
+/* =========================================================
+   ULTRA SMALL DEVICES
+========================================================= */
+
+@media (max-width:350px){
+
+    .navbar,
+    section{
+        width:calc(100% - 24px);
+    }
+
+    .brand{
+        font-size:14px;
+    }
+
+    .nav-links .nav-cta{
+        padding:8px 9px;
+
+        font-size:7px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .section-title h2{
+        font-size:35px;
+    }
+
+    .pricing-price strong{
+        font-size:34px;
+    }
+
+    .rating-star{
+        width:35px;
+        height:35px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        transition:none !important;
+        animation:none !important;
+    }
+}
+
+
+/* =========================================================
+   ANCHOR SCROLL OFFSET
+========================================================= */
+
+#home,
+#collection,
+#standard,
+#process,
+#pricing,
+#live-experiences,
+#experiences,
+#about,
+#request{
+    scroll-margin-top:90px;
 }
