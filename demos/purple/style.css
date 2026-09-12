@@ -153,7 +153,8 @@ body::before{
             transparent 1px
         );
 
-    background-size:80px 80px;
+    background-size:
+        80px 80px;
 
     mask-image:
         linear-gradient(
@@ -235,6 +236,7 @@ body::before{
     height:1px;
 
     background:
+
         linear-gradient(
             90deg,
             var(--purple-light),
@@ -255,6 +257,7 @@ body::before{
     height:1px;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -292,6 +295,7 @@ body::before{
     border:1px solid var(--border-purple);
 
     background:
+
         linear-gradient(
             145deg,
             rgba(193,154,231,.30),
@@ -327,11 +331,15 @@ body::before{
 }
 
 .logo:hover .logo-mark{
+
     transform:translateY(-2px);
+
 }
 
 .logo:hover .logo-mark::before{
+
     transform:rotate(135deg);
+
 }
 
 .logo-name{
@@ -391,11 +399,15 @@ body::before{
 }
 
 .nav-links a:hover{
+
     color:#F4EEF7;
+
 }
 
 .nav-links a:hover::after{
+
     width:100%;
+
 }
 
 
@@ -416,6 +428,7 @@ body::before{
     border:1px solid var(--border-purple);
 
     background:
+
         linear-gradient(
             135deg,
             rgba(112,67,166,.17),
@@ -432,6 +445,7 @@ body::before{
     position:relative;
 
     transition:.35s ease;
+
 }
 
 .nav-button::before{
@@ -445,6 +459,7 @@ body::before{
     border:1px solid rgba(193,154,231,.08);
 
     pointer-events:none;
+
 }
 
 .nav-button:hover{
@@ -459,6 +474,7 @@ body::before{
 
     box-shadow:
         0 12px 30px rgba(53,24,79,.30);
+
 }
 
 
@@ -474,6 +490,7 @@ body::before{
     margin:190px auto;
 
     position:relative;
+
 }
 
 .section::after{
@@ -489,6 +506,7 @@ body::before{
     height:1px;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -510,6 +528,7 @@ body::before{
     text-align:center;
 
     position:relative;
+
 }
 
 .section-heading::before{
@@ -529,6 +548,7 @@ body::before{
     border:1px solid rgba(112,67,166,.07);
 
     pointer-events:none;
+
 }
 
 .section-heading > span{
@@ -545,6 +565,7 @@ body::before{
     letter-spacing:2.8px;
 
     position:relative;
+
 }
 
 .section-heading > span::before{
@@ -561,6 +582,7 @@ body::before{
     vertical-align:middle;
 
     background:var(--purple-light);
+
 }
 
 .section-heading h2{
@@ -579,6 +601,7 @@ body::before{
     margin-bottom:25px;
 
     position:relative;
+
 }
 
 .section-heading p{
@@ -592,6 +615,7 @@ body::before{
     font-size:14px;
 
     line-height:1.9;
+
 }
 
 
@@ -619,7 +643,11 @@ body::before{
     gap:90px;
 
     position:relative;
+
 }
+
+
+/* HERO DECORATION */
 
 .hero::before{
 
@@ -644,6 +672,7 @@ body::before{
         0 0 0 90px rgba(112,67,166,.012);
 
     pointer-events:none;
+
 }
 
 .hero::after{
@@ -665,17 +694,17 @@ body::before{
     transform:rotate(45deg);
 
     pointer-events:none;
+
 }
 
 
-/* =========================================
-   HERO CONTENT
-========================================= */
+/* HERO CONTENT */
 
 .hero-content{
 
     position:relative;
     z-index:2;
+
 }
 
 .hero-label{
@@ -693,6 +722,7 @@ body::before{
     font-weight:700;
 
     letter-spacing:2.8px;
+
 }
 
 .hero-label::before{
@@ -703,11 +733,12 @@ body::before{
     height:1px;
 
     background:var(--purple-light);
+
 }
 
 .hero h1{
 
-    max-width:900px;
+    max-width:950px;
 
     color:var(--text);
 
@@ -722,7 +753,6 @@ body::before{
 
     margin-bottom:38px;
 
-    text-wrap:balance;
 }
 
 .hero h1 span{
@@ -734,7 +764,6 @@ body::before{
 
     position:relative;
 
-    white-space:nowrap;
 }
 
 .hero h1 span::after{
@@ -750,11 +779,13 @@ body::before{
     height:1px;
 
     background:
+
         linear-gradient(
             90deg,
             var(--purple-light),
             transparent
         );
+
 }
 
 .hero-description{
@@ -768,6 +799,7 @@ body::before{
     line-height:1.95;
 
     margin-bottom:42px;
+
 }
 
 
@@ -781,6 +813,7 @@ body::before{
     align-items:center;
 
     gap:14px;
+
 }
 
 .btn-primary,
@@ -800,11 +833,13 @@ body::before{
     letter-spacing:.4px;
 
     transition:.35s ease;
+
 }
 
 .btn-primary{
 
     background:
+
         linear-gradient(
             135deg,
             #8B59C2,
@@ -819,6 +854,7 @@ body::before{
         0 16px 38px rgba(53,24,79,.36);
 
     position:relative;
+
 }
 
 .btn-primary::after{
@@ -832,6 +868,7 @@ body::before{
     border:1px solid rgba(255,255,255,.08);
 
     pointer-events:none;
+
 }
 
 .btn-primary:hover{
@@ -840,6 +877,7 @@ body::before{
 
     box-shadow:
         0 22px 50px rgba(53,24,79,.52);
+
 }
 
 .btn-secondary{
@@ -849,6 +887,7 @@ body::before{
     background:rgba(255,255,255,.015);
 
     color:#C5BDCA;
+
 }
 
 .btn-secondary:hover{
@@ -858,6 +897,7 @@ body::before{
     color:#F3EDF6;
 
     transform:translateY(-3px);
+
 }
 
 
@@ -872,7 +912,11 @@ body::before{
     justify-content:center;
 
     position:relative;
+
 }
+
+
+/* Decorative orbital ring */
 
 .hero-visual::before{
 
@@ -892,6 +936,7 @@ body::before{
     transform:rotate(-18deg);
 
     pointer-events:none;
+
 }
 
 .hero-visual::after{
@@ -912,6 +957,7 @@ body::before{
     transform:rotate(28deg);
 
     pointer-events:none;
+
 }
 
 
@@ -928,6 +974,7 @@ body::before{
     border:1px solid var(--border-purple);
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.045),
@@ -941,6 +988,7 @@ body::before{
     transition:.5s ease;
 
     z-index:2;
+
 }
 
 .profile-card::before{
@@ -957,6 +1005,7 @@ body::before{
 
     border-top:1px solid var(--purple-light);
     border-left:1px solid var(--purple-light);
+
 }
 
 .profile-card::after{
@@ -973,6 +1022,7 @@ body::before{
 
     border-right:1px solid var(--purple-light);
     border-bottom:1px solid var(--purple-light);
+
 }
 
 .profile-card:hover{
@@ -984,6 +1034,7 @@ body::before{
 
     box-shadow:
         0 45px 110px rgba(0,0,0,.68);
+
 }
 
 
@@ -1025,7 +1076,11 @@ body::before{
         );
 
     border:1px solid var(--border-soft);
+
 }
+
+
+/* large decorative frame */
 
 .profile-image::before{
 
@@ -1042,7 +1097,11 @@ body::before{
 
     box-shadow:
         0 0 0 35px rgba(112,67,166,.025);
+
 }
+
+
+/* inner frame */
 
 .profile-image::after{
 
@@ -1059,6 +1118,7 @@ body::before{
 
     box-shadow:
         0 0 60px rgba(112,67,166,.13);
+
 }
 
 .profile-image span{
@@ -1075,11 +1135,13 @@ body::before{
     font-weight:500;
 
     letter-spacing:1px;
+
 }
 
 .profile-info{
 
     padding:25px 8px 7px;
+
 }
 
 .profile-status{
@@ -1090,6 +1152,7 @@ body::before{
     font-weight:700;
 
     letter-spacing:2px;
+
 }
 
 .profile-info h3{
@@ -1102,6 +1165,7 @@ body::before{
 
     font-size:30px;
     font-weight:500;
+
 }
 
 .profile-info p{
@@ -1109,6 +1173,7 @@ body::before{
     color:var(--text-muted);
 
     font-size:11px;
+
 }
 
 
@@ -1127,6 +1192,7 @@ body::before{
     gap:90px;
 
     align-items:start;
+
 }
 
 .about-content{
@@ -1136,6 +1202,7 @@ body::before{
     border-right:1px solid var(--border);
 
     position:relative;
+
 }
 
 .about-content::before{
@@ -1151,6 +1218,7 @@ body::before{
     height:80px;
 
     background:var(--purple-light);
+
 }
 
 .content-label{
@@ -1165,6 +1233,7 @@ body::before{
     letter-spacing:2.5px;
 
     margin-bottom:25px;
+
 }
 
 .about-content h3{
@@ -1179,6 +1248,7 @@ body::before{
     line-height:.98;
 
     margin-bottom:30px;
+
 }
 
 .about-content p{
@@ -1192,6 +1262,7 @@ body::before{
     line-height:1.95;
 
     margin-bottom:20px;
+
 }
 
 
@@ -1204,6 +1275,7 @@ body::before{
     display:flex;
 
     flex-direction:column;
+
 }
 
 .highlight-card{
@@ -1215,11 +1287,13 @@ body::before{
     position:relative;
 
     transition:.35s ease;
+
 }
 
 .highlight-card:first-child{
 
     border-top:1px solid var(--border);
+
 }
 
 .highlight-card::after{
@@ -1239,6 +1313,7 @@ body::before{
     transform:rotate(45deg);
 
     opacity:.45;
+
 }
 
 .highlight-card:hover{
@@ -1246,11 +1321,13 @@ body::before{
     padding-left:12px;
 
     background:
+
         linear-gradient(
             90deg,
             rgba(112,67,166,.055),
             transparent
         );
+
 }
 
 .highlight-card span{
@@ -1261,6 +1338,7 @@ body::before{
     font-weight:700;
 
     letter-spacing:2px;
+
 }
 
 .highlight-card h4{
@@ -1273,6 +1351,7 @@ body::before{
 
     font-size:28px;
     font-weight:500;
+
 }
 
 .highlight-card p{
@@ -1284,6 +1363,7 @@ body::before{
     font-size:12px;
 
     line-height:1.75;
+
 }
 
 
@@ -1301,6 +1381,7 @@ body::before{
     border-bottom:1px solid var(--border);
 
     position:relative;
+
 }
 
 .skills-grid::before{
@@ -1316,6 +1397,7 @@ body::before{
     height:1px;
 
     background:var(--purple-light);
+
 }
 
 .skill-card{
@@ -1331,6 +1413,7 @@ body::before{
     overflow:hidden;
 
     transition:.4s ease;
+
 }
 
 .skill-card::before{
@@ -1348,21 +1431,25 @@ body::before{
     border:1px solid rgba(193,154,231,.07);
 
     transform:rotate(45deg);
+
 }
 
 .skill-card:last-child{
 
     border-right:none;
+
 }
 
 .skill-card:hover{
 
     background:
+
         linear-gradient(
             145deg,
             rgba(112,67,166,.07),
             transparent
         );
+
 }
 
 .skill-number{
@@ -1373,11 +1460,10 @@ body::before{
     font-weight:700;
 
     letter-spacing:2px;
+
 }
 
 .skill-card h3{
-
-    max-width:260px;
 
     margin:28px 0 28px;
 
@@ -1389,11 +1475,13 @@ body::before{
     font-weight:500;
 
     line-height:1;
+
 }
 
 .skill-card ul{
 
     list-style:none;
+
 }
 
 .skill-card li{
@@ -1406,14 +1494,14 @@ body::before{
 
     font-size:12px;
 
-    line-height:1.5;
-
     position:relative;
+
 }
 
 .skill-card li:last-child{
 
     border-bottom:none;
+
 }
 
 .skill-card li::before{
@@ -1423,6 +1511,7 @@ body::before{
     margin-right:10px;
 
     color:var(--purple-light);
+
 }
 
 
@@ -1437,11 +1526,10 @@ body::before{
     grid-template-columns:repeat(3,1fr);
 
     gap:25px;
+
 }
 
 .project-card{
-
-    min-width:0;
 
     overflow:hidden;
 
@@ -1452,6 +1540,7 @@ body::before{
     position:relative;
 
     transition:.45s ease;
+
 }
 
 .project-card::before{
@@ -1469,6 +1558,7 @@ body::before{
     background:var(--purple-light);
 
     z-index:3;
+
 }
 
 .project-card:hover{
@@ -1478,12 +1568,11 @@ body::before{
     border-color:var(--border-purple);
 
     box-shadow:var(--shadow);
+
 }
 
 
-/* =========================================
-   PROJECT PREVIEW
-========================================= */
+/* PROJECT PREVIEW */
 
 .project-preview{
 
@@ -1498,8 +1587,6 @@ body::before{
     position:relative;
 
     overflow:hidden;
-
-    isolation:isolate;
 
     background:
 
@@ -1522,6 +1609,7 @@ body::before{
         );
 
     border-bottom:1px solid var(--border);
+
 }
 
 .project-preview::before{
@@ -1540,9 +1628,8 @@ body::before{
 
     transform:rotate(45deg);
 
-    opacity:.9;
-
     transition:.6s ease;
+
 }
 
 .project-card:hover
@@ -1551,6 +1638,7 @@ body::before{
     transform:
         rotate(135deg)
         scale(1.08);
+
 }
 
 .project-preview::after{
@@ -1574,6 +1662,7 @@ body::before{
             rgba(193,154,231,.18),
             transparent
         );
+
 }
 
 .project-preview span{
@@ -1589,12 +1678,12 @@ body::before{
 
     letter-spacing:2.5px;
 
-    text-transform:uppercase;
 }
 
 .project-content{
 
     padding:30px;
+
 }
 
 .project-category{
@@ -1605,13 +1694,10 @@ body::before{
     font-weight:700;
 
     letter-spacing:2px;
+
 }
 
 .project-content h3{
-
-    max-width:320px;
-
-    min-height:64px;
 
     margin:13px 0 12px;
 
@@ -1623,11 +1709,10 @@ body::before{
     font-weight:500;
 
     line-height:1;
+
 }
 
 .project-content p{
-
-    min-height:86px;
 
     color:var(--text-muted);
 
@@ -1636,6 +1721,7 @@ body::before{
     line-height:1.8;
 
     margin-bottom:22px;
+
 }
 
 .project-tags{
@@ -1647,6 +1733,7 @@ body::before{
     gap:12px;
 
     margin-bottom:25px;
+
 }
 
 .project-tags span{
@@ -1662,6 +1749,7 @@ body::before{
     font-size:9px;
 
     letter-spacing:.4px;
+
 }
 
 .project-tags span:not(:last-child)::after{
@@ -1671,6 +1759,7 @@ body::before{
     margin-left:12px;
 
     color:var(--purple-light);
+
 }
 
 .project-link{
@@ -1678,8 +1767,6 @@ body::before{
     display:inline-flex;
 
     align-items:center;
-
-    gap:8px;
 
     color:#C9A9E3;
 
@@ -1689,27 +1776,15 @@ body::before{
     letter-spacing:.6px;
 
     transition:.3s ease;
-}
 
-.project-link::after{
-
-    content:"↗";
-
-    font-size:13px;
-
-    transition:.3s ease;
 }
 
 .project-link:hover{
 
     color:#E8D8F4;
 
-    transform:translateX(3px);
-}
+    transform:translateX(6px);
 
-.project-link:hover::after{
-
-    transform:translate(3px,-2px);
 }
 
 
@@ -1724,6 +1799,7 @@ body::before{
     margin:auto;
 
     position:relative;
+
 }
 
 .timeline::before{
@@ -1747,6 +1823,7 @@ body::before{
             rgba(193,154,231,.40),
             transparent
         );
+
 }
 
 .timeline-item{
@@ -1760,6 +1837,7 @@ body::before{
     padding-bottom:65px;
 
     position:relative;
+
 }
 
 .timeline-date{
@@ -1772,6 +1850,7 @@ body::before{
     font-weight:700;
 
     letter-spacing:1.5px;
+
 }
 
 .timeline-content{
@@ -1779,7 +1858,14 @@ body::before{
     position:relative;
 
     padding-bottom:5px;
+
 }
+
+
+/* =========================================
+   TIMELINE MARKERS
+   CENTERED DIRECTLY ON THE LINE
+========================================= */
 
 .timeline-content::before{
 
@@ -1804,11 +1890,10 @@ body::before{
         0 0 0 5px rgba(112,67,166,.04);
 
     z-index:2;
+
 }
 
 .timeline-content h3{
-
-    max-width:620px;
 
     color:var(--text);
 
@@ -1820,11 +1905,10 @@ body::before{
     line-height:1;
 
     margin-bottom:7px;
+
 }
 
 .timeline-content h4{
-
-    max-width:520px;
 
     color:var(--purple-light);
 
@@ -1833,9 +1917,8 @@ body::before{
 
     letter-spacing:1.5px;
 
-    line-height:1.6;
-
     margin-bottom:17px;
+
 }
 
 .timeline-content p{
@@ -1847,6 +1930,7 @@ body::before{
     font-size:13px;
 
     line-height:1.85;
+
 }
 
 
@@ -1862,6 +1946,7 @@ body::before{
 
     border-top:1px solid var(--border);
     border-bottom:1px solid var(--border);
+
 }
 
 .achievement-card{
@@ -1877,6 +1962,7 @@ body::before{
     overflow:hidden;
 
     transition:.4s ease;
+
 }
 
 .achievement-card::after{
@@ -1894,17 +1980,20 @@ body::before{
     border:1px solid rgba(193,154,231,.08);
 
     transform:rotate(45deg);
+
 }
 
 .achievement-card:last-child{
 
     border-right:none;
+
 }
 
 .achievement-card:hover{
 
     background:
         rgba(112,67,166,.055);
+
 }
 
 .achievement-card > span{
@@ -1915,11 +2004,10 @@ body::before{
     font-weight:700;
 
     letter-spacing:2px;
+
 }
 
 .achievement-card h3{
-
-    max-width:310px;
 
     margin:30px 0 12px;
 
@@ -1930,7 +2018,6 @@ body::before{
     font-size:33px;
     font-weight:500;
 
-    line-height:1.05;
 }
 
 .achievement-card p{
@@ -1941,7 +2028,8 @@ body::before{
 
     font-size:12px;
 
-    line-height:1.85;
+    line-height:1.8;
+
 }
 
 
@@ -1965,6 +2053,7 @@ body::before{
     border-bottom:1px solid var(--border);
 
     position:relative;
+
 }
 
 .contact-container::before{
@@ -1986,6 +2075,7 @@ body::before{
             var(--purple-light),
             transparent
         );
+
 }
 
 .contact-container::after{
@@ -2001,6 +2091,7 @@ body::before{
     height:1px;
 
     background:var(--purple);
+
 }
 
 .contact-content > span{
@@ -2011,6 +2102,7 @@ body::before{
     font-weight:700;
 
     letter-spacing:2.5px;
+
 }
 
 .contact-content h2{
@@ -2028,18 +2120,18 @@ body::before{
 
     line-height:.95;
 
-    text-wrap:balance;
 }
 
 .contact-content > p{
 
-    max-width:570px;
+    max-width:530px;
 
     color:var(--text-soft);
 
     font-size:14px;
 
     line-height:1.9;
+
 }
 
 .contact-details{
@@ -2051,6 +2143,7 @@ body::before{
     gap:8px;
 
     margin-top:35px;
+
 }
 
 .contact-details a{
@@ -2060,11 +2153,13 @@ body::before{
     font-size:12px;
 
     transition:.3s ease;
+
 }
 
 .contact-details a:hover{
 
     color:#E9D9F5;
+
 }
 
 .contact-details span{
@@ -2072,6 +2167,7 @@ body::before{
     color:var(--text-muted);
 
     font-size:11px;
+
 }
 
 
@@ -2086,6 +2182,7 @@ body::before{
     flex-direction:column;
 
     gap:24px;
+
 }
 
 .form-group{
@@ -2093,6 +2190,7 @@ body::before{
     display:flex;
 
     flex-direction:column;
+
 }
 
 .form-group label{
@@ -2107,6 +2205,7 @@ body::before{
     letter-spacing:1px;
 
     text-transform:uppercase;
+
 }
 
 .form-group input,
@@ -2131,6 +2230,7 @@ body::before{
     border-radius:0;
 
     transition:.3s ease;
+
 }
 
 .form-group textarea{
@@ -2138,18 +2238,21 @@ body::before{
     min-height:120px;
 
     resize:vertical;
+
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder{
 
     color:#5D5662;
+
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
 
     border-bottom-color:var(--purple-light);
+
 }
 
 .contact-form .btn-primary{
@@ -2159,6 +2262,7 @@ body::before{
     margin-top:10px;
 
     min-width:170px;
+
 }
 
 
@@ -2178,6 +2282,7 @@ body::before{
     border-top:1px solid var(--border);
 
     position:relative;
+
 }
 
 .footer::before{
@@ -2193,6 +2298,7 @@ body::before{
     height:1px;
 
     background:var(--purple-light);
+
 }
 
 .footer-main{
@@ -2204,6 +2310,7 @@ body::before{
     gap:80px;
 
     padding-bottom:65px;
+
 }
 
 .footer-logo{
@@ -2214,6 +2321,7 @@ body::before{
 
     font-size:29px;
     font-weight:500;
+
 }
 
 .footer-brand p{
@@ -2227,6 +2335,7 @@ body::before{
     font-size:11px;
 
     line-height:1.8;
+
 }
 
 .footer-links{
@@ -2234,6 +2343,7 @@ body::before{
     display:flex;
 
     gap:90px;
+
 }
 
 .footer-column{
@@ -2243,6 +2353,7 @@ body::before{
     flex-direction:column;
 
     gap:11px;
+
 }
 
 .footer-column h4{
@@ -2257,6 +2368,7 @@ body::before{
     letter-spacing:1.5px;
 
     text-transform:uppercase;
+
 }
 
 .footer-column a{
@@ -2266,6 +2378,7 @@ body::before{
     font-size:11px;
 
     transition:.3s ease;
+
 }
 
 .footer-column a:hover{
@@ -2273,6 +2386,7 @@ body::before{
     color:#C5A8DF;
 
     transform:translateX(4px);
+
 }
 
 .footer-bottom{
@@ -2292,6 +2406,7 @@ body::before{
     font-size:9px;
 
     letter-spacing:.2px;
+
 }
 
 
@@ -2304,11 +2419,13 @@ body::before{
     .nav-links{
 
         gap:16px;
+
     }
 
     .nav-links a{
 
         font-size:10px;
+
     }
 
     .hero{
@@ -2322,42 +2439,38 @@ body::before{
         min-height:auto;
 
         padding-top:70px;
+
     }
 
     .hero-label{
 
         justify-content:center;
+
     }
 
     .hero h1{
 
-        max-width:820px;
-
-        margin-left:auto;
-        margin-right:auto;
-
         font-size:84px;
-    }
 
-    .hero h1 span{
-
-        white-space:normal;
     }
 
     .hero-description{
 
         margin-left:auto;
         margin-right:auto;
+
     }
 
     .hero-actions{
 
         justify-content:center;
+
     }
 
     .hero-visual{
 
         margin-top:10px;
+
     }
 
     .about-grid{
@@ -2365,6 +2478,7 @@ body::before{
         grid-template-columns:1fr;
 
         gap:60px;
+
     }
 
     .about-content{
@@ -2376,6 +2490,7 @@ body::before{
         border-right:none;
 
         border-bottom:1px solid var(--border);
+
     }
 
     .skills-grid,
@@ -2383,12 +2498,14 @@ body::before{
     .achievement-grid{
 
         grid-template-columns:repeat(2,1fr);
+
     }
 
     .skill-card:nth-child(2),
     .achievement-card:nth-child(2){
 
         border-right:none;
+
     }
 
     .skill-card:nth-child(3),
@@ -2399,16 +2516,7 @@ body::before{
         border-right:none;
 
         grid-column:1 / -1;
-    }
 
-    .project-content h3{
-
-        min-height:auto;
-    }
-
-    .project-content p{
-
-        min-height:auto;
     }
 
     .contact-container{
@@ -2416,16 +2524,21 @@ body::before{
         grid-template-columns:1fr;
 
         gap:65px;
+
     }
+
+    /* TIMELINE — TABLET ALIGNMENT */
 
     .timeline{
 
         max-width:760px;
+
     }
 
     .timeline::before{
 
         left:145px;
+
     }
 
     .timeline-item{
@@ -2433,22 +2546,15 @@ body::before{
         grid-template-columns:120px 1fr;
 
         gap:55px;
+
     }
 
     .timeline-content::before{
 
         left:-61px;
+
     }
 
-    .timeline-content h3{
-
-        max-width:100%;
-    }
-
-    .timeline-content h4{
-
-        max-width:100%;
-    }
 }
 
 
@@ -2469,6 +2575,7 @@ body::before{
         margin-top:14px;
 
         top:10px;
+
     }
 
     .logo-mark{
@@ -2477,6 +2584,7 @@ body::before{
         height:34px;
 
         font-size:20px;
+
     }
 
     .logo-name{
@@ -2484,11 +2592,13 @@ body::before{
         font-size:11px;
 
         letter-spacing:1px;
+
     }
 
     .nav-links{
 
         display:none;
+
     }
 
     .nav-button{
@@ -2498,6 +2608,7 @@ body::before{
         padding:0 12px;
 
         font-size:9px;
+
     }
 
 
@@ -2512,6 +2623,7 @@ body::before{
         padding-top:0;
 
         gap:55px;
+
     }
 
     .hero::before{
@@ -2521,6 +2633,7 @@ body::before{
 
         left:-180px;
         top:-90px;
+
     }
 
     .hero::after{
@@ -2532,6 +2645,7 @@ body::before{
         right:5%;
 
         top:5%;
+
     }
 
     .hero-label{
@@ -2541,37 +2655,35 @@ body::before{
         font-size:8px;
 
         letter-spacing:2px;
+
     }
 
     .hero-label::before{
 
         width:25px;
+
     }
 
     .hero h1{
 
-        max-width:100%;
-
-        font-size:56px;
+        font-size:59px;
 
         line-height:.9;
 
-        letter-spacing:-1.4px;
+        letter-spacing:-1.5px;
 
         margin-bottom:27px;
 
-        text-wrap:balance;
     }
 
     .hero h1 span{
-
-        white-space:normal;
 
         display:inline-block;
 
         margin-top:8px;
 
         font-size:.68em;
+
     }
 
     .hero-description{
@@ -2581,6 +2693,7 @@ body::before{
         line-height:1.85;
 
         margin-bottom:32px;
+
     }
 
     .hero-actions{
@@ -2590,12 +2703,14 @@ body::before{
         flex-direction:column;
 
         gap:10px;
+
     }
 
     .hero-actions .btn-primary,
     .hero-actions .btn-secondary{
 
         width:100%;
+
     }
 
 
@@ -2605,12 +2720,14 @@ body::before{
 
         width:360px;
         height:360px;
+
     }
 
     .hero-visual::after{
 
         width:300px;
         height:300px;
+
     }
 
     .profile-card{
@@ -2620,6 +2737,7 @@ body::before{
         max-width:350px;
 
         padding:13px;
+
     }
 
     .profile-card::before{
@@ -2629,6 +2747,7 @@ body::before{
 
         top:-11px;
         left:-11px;
+
     }
 
     .profile-card::after{
@@ -2638,16 +2757,19 @@ body::before{
 
         right:-11px;
         bottom:-11px;
+
     }
 
     .profile-image{
 
         height:350px;
+
     }
 
     .profile-info{
 
         padding:20px 5px 5px;
+
     }
 
 
@@ -2658,16 +2780,19 @@ body::before{
         width:90%;
 
         margin:125px auto;
+
     }
 
     .section::after{
 
         display:none;
+
     }
 
     .section-heading{
 
         margin-bottom:55px;
+
     }
 
     .section-heading::before{
@@ -2677,6 +2802,7 @@ body::before{
         height:110px;
 
         top:50px;
+
     }
 
     .section-heading > span{
@@ -2684,6 +2810,7 @@ body::before{
         font-size:8px;
 
         letter-spacing:2px;
+
     }
 
     .section-heading h2{
@@ -2693,6 +2820,7 @@ body::before{
         line-height:1;
 
         letter-spacing:-.8px;
+
     }
 
     .section-heading p{
@@ -2700,6 +2828,7 @@ body::before{
         font-size:12px;
 
         line-height:1.8;
+
     }
 
 
@@ -2708,11 +2837,13 @@ body::before{
     .about-grid{
 
         gap:45px;
+
     }
 
     .about-content{
 
         padding-bottom:40px;
+
     }
 
     .about-content h3{
@@ -2720,6 +2851,7 @@ body::before{
         font-size:39px;
 
         line-height:1;
+
     }
 
     .about-content p{
@@ -2727,16 +2859,19 @@ body::before{
         font-size:12px;
 
         line-height:1.85;
+
     }
 
     .highlight-card{
 
         padding:23px 0;
+
     }
 
     .highlight-card h4{
 
         font-size:25px;
+
     }
 
 
@@ -2745,6 +2880,7 @@ body::before{
     .skills-grid{
 
         grid-template-columns:1fr;
+
     }
 
     .skill-card{
@@ -2756,6 +2892,7 @@ body::before{
         border-right:none;
 
         border-bottom:1px solid var(--border);
+
     }
 
     .skill-card:last-child{
@@ -2765,6 +2902,7 @@ body::before{
         border-top:0;
 
         grid-column:auto;
+
     }
 
     .skill-card:nth-child(3){
@@ -2772,24 +2910,15 @@ body::before{
         border-top:0;
 
         grid-column:auto;
+
     }
 
     .skill-card h3{
 
-        max-width:100%;
-
         font-size:29px;
 
         margin:20px 0;
-    }
 
-    .skill-card li{
-
-        font-size:12px;
-
-        padding:11px 0;
-
-        line-height:1.5;
     }
 
 
@@ -2798,46 +2927,19 @@ body::before{
     .projects-grid{
 
         grid-template-columns:1fr;
+
     }
 
     .project-preview{
 
         height:230px;
+
     }
 
     .project-content{
 
         padding:25px;
-    }
 
-    .project-content h3{
-
-        min-height:auto;
-
-        max-width:100%;
-
-        font-size:29px;
-
-        line-height:1.05;
-    }
-
-    .project-content p{
-
-        min-height:auto;
-
-        font-size:12px;
-
-        line-height:1.8;
-    }
-
-    .project-tags{
-
-        gap:9px;
-    }
-
-    .project-tags span{
-
-        font-size:8px;
     }
 
 
@@ -2846,6 +2948,7 @@ body::before{
     .timeline::before{
 
         display:none;
+
     }
 
     .timeline-item{
@@ -2853,6 +2956,7 @@ body::before{
         display:block;
 
         padding-bottom:45px;
+
     }
 
     .timeline-date{
@@ -2860,39 +2964,31 @@ body::before{
         display:block;
 
         margin-bottom:14px;
+
     }
 
     .timeline-content{
 
         padding:0;
+
     }
 
     .timeline-content::before{
 
         display:none;
+
     }
 
     .timeline-content h3{
 
-        max-width:100%;
+        font-size:31px;
 
-        font-size:29px;
-
-        line-height:1.08;
-    }
-
-    .timeline-content h4{
-
-        max-width:100%;
-
-        font-size:8px;
-
-        line-height:1.6;
     }
 
     .timeline-content p{
 
         font-size:12px;
+
     }
 
 
@@ -2901,6 +2997,7 @@ body::before{
     .achievement-grid{
 
         grid-template-columns:1fr;
+
     }
 
     .achievement-card{
@@ -2912,6 +3009,7 @@ body::before{
         border-right:none;
 
         border-bottom:1px solid var(--border);
+
     }
 
     .achievement-card:nth-child(3){
@@ -2921,20 +3019,7 @@ body::before{
         grid-column:auto;
 
         border-bottom:none;
-    }
 
-    .achievement-card h3{
-
-        max-width:100%;
-
-        font-size:30px;
-
-        line-height:1.05;
-    }
-
-    .achievement-card p{
-
-        line-height:1.85;
     }
 
 
@@ -2945,24 +3030,23 @@ body::before{
         padding:55px 0;
 
         gap:50px;
+
     }
 
     .contact-content h2{
 
-        max-width:100%;
-
         font-size:49px;
 
         line-height:.98;
+
     }
 
     .contact-content > p{
 
-        max-width:100%;
-
         font-size:12px;
 
         line-height:1.85;
+
     }
 
     .contact-form .btn-primary{
@@ -2970,6 +3054,7 @@ body::before{
         width:100%;
 
         align-self:stretch;
+
     }
 
 
@@ -2980,6 +3065,7 @@ body::before{
         width:90%;
 
         padding-top:60px;
+
     }
 
     .footer-main{
@@ -2989,11 +3075,13 @@ body::before{
         gap:45px;
 
         padding-bottom:45px;
+
     }
 
     .footer-links{
 
         gap:55px;
+
     }
 
     .footer-bottom{
@@ -3001,7 +3089,9 @@ body::before{
         flex-direction:column;
 
         gap:8px;
+
     }
+
 }
 
 
@@ -3014,6 +3104,7 @@ body::before{
     .logo-name{
 
         font-size:10px;
+
     }
 
     .nav-button{
@@ -3021,66 +3112,59 @@ body::before{
         padding:0 9px;
 
         font-size:8px;
+
     }
 
     .hero h1{
 
-        font-size:48px;
+        font-size:51px;
 
-        line-height:.91;
     }
 
     .hero-visual::before{
 
         width:310px;
         height:310px;
+
     }
 
     .hero-visual::after{
 
         width:260px;
         height:260px;
+
     }
 
     .profile-image{
 
         height:310px;
+
     }
 
     .section-heading h2{
 
         font-size:42px;
+
     }
 
     .about-content h3{
 
         font-size:35px;
-    }
 
-    .project-content h3{
-
-        font-size:27px;
-    }
-
-    .timeline-content h3{
-
-        font-size:28px;
-    }
-
-    .achievement-card h3{
-
-        font-size:28px;
     }
 
     .contact-content h2{
 
         font-size:43px;
+
     }
 
     .footer-links{
 
         gap:35px;
+
     }
+
 }
 
 
@@ -3096,6 +3180,7 @@ textarea:focus-visible{
     outline:1px solid var(--purple-light);
 
     outline-offset:4px;
+
 }
 
 
@@ -3108,6 +3193,7 @@ textarea:focus-visible{
     html{
 
         scroll-behavior:auto;
+
     }
 
     *,
@@ -3119,5 +3205,262 @@ textarea:focus-visible{
         animation-iteration-count:1 !important;
 
         transition-duration:.01ms !important;
+
     }
+
+}
+/* =========================================================
+   MONARCHAUREX — COMPUTER SCIENCE DEMO REFINEMENT
+   Append after existing CSS
+========================================================= */
+
+
+/* =========================================================
+   CS HERO — BETTER TITLE CONTROL
+========================================================= */
+
+.hero h1{
+    max-width:900px;
+    text-wrap:balance;
+}
+
+.hero h1 span{
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   PROJECTS — SOFTWARE PORTFOLIO FEEL
+========================================================= */
+
+.project-card{
+    min-width:0;
+}
+
+.project-content h3{
+    min-height:64px;
+    max-width:320px;
+}
+
+.project-content p{
+    min-height:86px;
+}
+
+.project-link{
+    gap:8px;
+}
+
+.project-link::after{
+    content:"↗";
+    font-size:13px;
+    transition:.3s ease;
+}
+
+.project-link:hover::after{
+    transform:translate(3px,-2px);
+}
+
+
+/* =========================================================
+   PROJECT PREVIEW — MORE DIGITAL / CS CHARACTER
+========================================================= */
+
+.project-preview{
+    isolation:isolate;
+}
+
+.project-preview span{
+    text-transform:uppercase;
+}
+
+.project-preview::before{
+    opacity:.9;
+}
+
+
+/* =========================================================
+   SKILLS — TECHNICAL TERMS
+========================================================= */
+
+.skill-card li{
+    line-height:1.5;
+}
+
+.skill-card h3{
+    max-width:260px;
+}
+
+
+/* =========================================================
+   EXPERIENCE — LONG COMPUTER SCIENCE TITLES
+========================================================= */
+
+.timeline-content h3{
+    max-width:620px;
+}
+
+.timeline-content h4{
+    line-height:1.6;
+    max-width:520px;
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS — CERTIFICATION TITLES
+========================================================= */
+
+.achievement-card h3{
+    max-width:310px;
+    line-height:1.05;
+}
+
+.achievement-card p{
+    line-height:1.85;
+}
+
+
+/* =========================================================
+   CONTACT — CLEANER DEMO PROFILE
+========================================================= */
+
+.contact-content h2{
+    text-wrap:balance;
+}
+
+.contact-content > p{
+    max-width:570px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .hero h1{
+        max-width:820px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .project-content h3{
+        min-height:auto;
+    }
+
+    .project-content p{
+        min-height:auto;
+    }
+
+    .timeline-content h3{
+        max-width:100%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — CS GRADUATE
+========================================================= */
+
+@media(max-width:700px){
+
+    .hero h1{
+        max-width:100%;
+        font-size:56px;
+        line-height:.9;
+        letter-spacing:-1.4px;
+        text-wrap:balance;
+    }
+
+    .hero h1 span{
+        white-space:normal;
+    }
+
+
+    /* PROJECTS */
+
+    .project-content h3{
+        min-height:auto;
+        max-width:100%;
+        font-size:29px;
+        line-height:1.05;
+    }
+
+    .project-content p{
+        min-height:auto;
+        font-size:12px;
+        line-height:1.8;
+    }
+
+    .project-tags{
+        gap:9px;
+    }
+
+    .project-tags span{
+        font-size:8px;
+    }
+
+
+    /* SKILLS */
+
+    .skill-card li{
+        font-size:12px;
+        padding:11px 0;
+    }
+
+    .skill-card h3{
+        max-width:100%;
+    }
+
+
+    /* EXPERIENCE */
+
+    .timeline-content h3{
+        max-width:100%;
+        font-size:29px;
+        line-height:1.08;
+    }
+
+    .timeline-content h4{
+        max-width:100%;
+        font-size:8px;
+        line-height:1.6;
+    }
+
+
+    /* ACHIEVEMENTS */
+
+    .achievement-card h3{
+        max-width:100%;
+        font-size:30px;
+        line-height:1.05;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .hero h1{
+        font-size:48px;
+        line-height:.91;
+    }
+
+    .project-content h3{
+        font-size:27px;
+    }
+
+    .timeline-content h3{
+        font-size:28px;
+    }
+
+    .achievement-card h3{
+        font-size:28px;
+    }
+
 }
