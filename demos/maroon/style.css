@@ -4,6 +4,9 @@
    MONARCHAUREX — PROF. DR. NALEDI MOKOENA
    Editorial Academic Luxury — REFINED
    ========================================================= */
+body {
+    background: red !important;
+}
 
 :root {
     --bg: #080607;
