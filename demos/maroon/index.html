@@ -35,6 +35,8 @@
                 <span class="logo-name">Naledi Mokoena</span>
             </a>
 
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -106,7 +108,7 @@
                         <div class="profile-info">
 
                             <p class="profile-role">
-                                PROFESSOR OF MECHATRONICS ENGINEERING
+                                15+ YEARS IN ENGINEERING & RESEARCH
                             </p>
 
                             <h3>
@@ -147,21 +149,21 @@
                     <div class="about-content">
 
                         <p class="lead-text">
-                            A Mechatronics Engineering
+                            I am an Mechatronics Engineering
                             academic and researcher focused on the development of
                             intelligent systems that connect advanced engineering
                             with real-world human needs.
                         </p>
 
                         <p>
-                            My work brings together robotics, automation,
+                            Her work brings together robotics, automation,
                             artificial intelligence and engineering systems to
                             explore how intelligent technologies can improve
                             industrial processes and human-machine collaboration.
                         </p>
 
                         <p>
-                            Alongside my research, I am committed to postgraduate
+                            Alongside my research, i am committed to postgraduate
                             supervision, engineering education and developing the
                             next generation of engineers and researchers.
                         </p>
@@ -758,7 +760,7 @@
 
         <!-- ==================== AFFILIATIONS ==================== -->
 
-        <section class="section affiliations">
+        <section class="section affiliations" id="affiliations">
 
             <div class="section-container">
 
@@ -873,7 +875,7 @@
 
         <!-- ==================== PROFESSIONAL IDENTITY ==================== -->
 
-        <section class="section identity">
+        <section class="section identity" id="identity">
 
             <div class="section-container">
 
@@ -891,14 +893,14 @@
                         </h2>
 
                         <p>
-                            Prof. Mokoena's academic work is grounded in the
+                            My academic work is grounded in the
                             belief that intelligent engineering should not only
                             advance technology, but also improve the way people
                             interact with complex systems.
                         </p>
 
                         <p>
-                            Her interests continue to centre on robotics,
+                            My interest continues to centre on robotics,
                             intelligent automation, engineering education and
                             the responsible development of emerging technology.
                         </p>
@@ -986,6 +988,7 @@
                                 id="name"
                                 name="name"
                                 placeholder="Your name"
+                                required
                             >
                         </div>
 
@@ -997,6 +1000,7 @@
                                 id="email"
                                 name="email"
                                 placeholder="your@email.com"
+                                required
                             >
                         </div>
 
@@ -1008,6 +1012,7 @@
                                 name="message"
                                 rows="5"
                                 placeholder="Your message"
+                                required
                             ></textarea>
                         </div>
 
@@ -1110,6 +1115,15 @@
 
     </footer>
 
+    <script>
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.querySelector('.nav-links');
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.textContent = isOpen ? '✕' : '☰';
+      });
+    </script>
 
 </body>
 </html>
