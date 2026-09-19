@@ -1,1 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Payment | MonarchAurex</title>
+
+    <meta
+        name="description"
+        content="Secure payment for your MonarchAurex professional identity website."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+    <header class="payment-header">
+        <a href="../index.html" class="brand">
+            <span class="brand-mark">M</span>
+            <span class="brand-name">MONARCHAUREX</span>
+        </a>
+
+        <div class="secure-label">
+            <span class="secure-dot"></span>
+            Secure Checkout
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+    <main class="payment-page">
+
+        <section class="payment-intro">
+
+            <div class="eyebrow">
+                MONARCHAUREX
+            </div>
+
+            <h1>
+                Complete Your
+                <span>Payment</span>
+            </h1>
+
+            <p>
+                Your professional identity request has been received.
+                Review your order below and continue to secure payment.
+            </p>
+
+        </section>
+
+
+        <section class="payment-layout">
+
+            <!-- =================================
+                 ORDER SUMMARY
+            ================================== -->
+            <div class="payment-card order-card">
+
+                <div class="card-top">
+                    <div>
+                        <span class="card-label">REQUEST</span>
+                        <h2 id="request-id">Loading...</h2>
+                    </div>
+
+                    <div class="status-badge">
+                        Pending Payment
+                    </div>
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <div class="customer-section">
+
+                    <div class="detail-row">
+                        <span>Name</span>
+                        <strong id="customer-name">Loading...</strong>
+                    </div>
+
+                    <div class="detail-row">
+                        <span>Email</span>
+                        <strong id="customer-email">Loading...</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <div class="package-section">
+
+                    <span class="card-label">SELECTED PACKAGE</span>
+
+                    <div class="package-display">
+
+                        <div>
+                            <h3 id="package-name">Loading...</h3>
+
+                            <p id="payment-description">
+                                Professional digital identity website
+                            </p>
+                        </div>
+
+                        <div class="package-price">
+                            <small>ZAR</small>
+                            <strong id="package-price">R0.00</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <div class="amount-section">
+
+                    <div class="amount-row">
+                        <span>Package total</span>
+                        <strong id="summary-total">R0.00</strong>
+                    </div>
+
+                    <div class="amount-row">
+                        <span>Payment option</span>
+                        <strong id="summary-payment-option">Loading...</strong>
+                    </div>
+
+                    <div class="amount-row amount-due-row">
+                        <span>Amount due now</span>
+                        <strong id="summary-amount-due">R0.00</strong>
+                    </div>
+
+                    <div
+                        class="amount-row remaining-row"
+                        id="remaining-row"
+                    >
+                        <span>Remaining balance</span>
+                        <strong id="summary-remaining">R0.00</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 PAYMENT ACTION
+            ================================== -->
+            <div class="payment-card action-card">
+
+                <div class="payment-heading">
+
+                    <span class="card-label">
+                        SECURE PAYMENT
+                    </span>
+
+                    <h2>
+                        Continue to PayFast
+                    </h2>
+
+                    <p>
+                        You will be securely redirected to PayFast to
+                        complete your payment.
+                    </p>
+
+                </div>
+
+
+                <div class="secure-box">
+
+                    <div class="secure-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>Secure checkout</strong>
+
+                        <p>
+                            Your card or banking details are entered
+                            directly on PayFast.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="payment-total">
+
+                    <span>Pay now</span>
+
+                    <strong id="payment-total">
+                        R0.00
+                    </strong>
+
+                </div>
+
+
+                <!--
+                    PAYFAST FORM
+
+                    IMPORTANT:
+                    The real signature will eventually be generated
+                    server-side.
+
+                    Merchant ID and Merchant Key placeholders are
+                    intentionally kept here until final integration.
+                -->
+
+                <form
+                    id="payfast-form"
+                    method="POST"
+                    action="https://www.payfast.co.za/eng/process"
+                >
+
+                    <input
+                        type="hidden"
+                        name="merchant_id"
+                        id="pf-merchant-id"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="merchant_key"
+                        id="pf-merchant-key"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="return_url"
+                        id="pf-return-url"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="cancel_url"
+                        id="pf-cancel-url"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="notify_url"
+                        id="pf-notify-url"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="name_first"
+                        id="pf-name-first"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="name_last"
+                        id="pf-name-last"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="email_address"
+                        id="pf-email"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="m_payment_id"
+                        id="pf-payment-id"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="amount"
+                        id="pf-amount"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="item_name"
+                        id="pf-item-name"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="item_description"
+                        id="pf-item-description"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="custom_str1"
+                        id="pf-custom-str1"
+                        value=""
+                    >
+
+                    <input
+                        type="hidden"
+                        name="custom_str2"
+                        id="pf-custom-str2"
+                        value=""
+                    >
+
+                    <!--
+                        Signature will be supplied by the secure
+                        payment backend later.
+                    -->
+                    <input
+                        type="hidden"
+                        name="signature"
+                        id="pf-signature"
+                        value=""
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="pay-button"
+                        id="pay-button"
+                    >
+                        <span>Continue to PayFast</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </form>
+
+
+                <div
+                    class="payment-message"
+                    id="payment-message"
+                    aria-live="polite"
+                ></div>
+
+
+                <p class="payment-note">
+                    By continuing, you confirm that the payment details
+                    shown above are correct.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             TRUST
+        ========================================== -->
+        <section class="trust-section">
+
+            <div class="trust-item">
+                <span>01</span>
+                <div>
+                    <strong>Secure Payment</strong>
+                    <p>Payment is processed through PayFast.</p>
+                </div>
+            </div>
+
+            <div class="trust-item">
+                <span>02</span>
+                <div>
+                    <strong>Request Linked</strong>
+                    <p>Your payment is linked to your request ID.</p>
+                </div>
+            </div>
+
+            <div class="trust-item">
+                <span>03</span>
+                <div>
+                    <strong>Confirmation</strong>
+                    <p>You will be returned to MonarchAurex after checkout.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+    <footer class="payment-footer">
+
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+
+            <span>
+                © <span id="current-year"></span> MonarchAurex
+            </span>
+
+            <span>
+                Professional Identity Infrastructure
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
