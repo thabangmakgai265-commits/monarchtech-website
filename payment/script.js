@@ -70,11 +70,11 @@ const PAYFAST_URL = PAYFAST_CONFIG.sandbox
 
 const packagePrices = {
 
-    Graduate: 1199,
+    Graduate: 899,
 
-    Professional: 2999,
+    Professional: 1999,
 
-    Executive: 3999
+    Executive: 2599
 
 };
 
@@ -341,18 +341,18 @@ function preparePaymentData(request) {
 
         Current request page:
         - Full Payment = 100%
-        - Initial Payment = 25%
+        - Initial Payment = 35%
     */
 
     if (!Number.isFinite(amountDue) || amountDue <= 0) {
 
         if (
-            request.paymentOption === "25% Initial Payment" ||
+            request.paymentOption === "35% Initial Payment" ||
             request.paymentOption === "Initial Payment"
         ) {
 
             amountDue =
-                packagePrice * 0.25;
+                packagePrice * 0.35;
 
         } else {
 
