@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "../payment/";
 
     const packagePrices = {
-        Graduate: 1199,
-        Professional: 2999,
-        Executive: 3999
+        Graduate: 899,
+        Professional: 1999,
+        Executive: 2599
     };
 
     const MAX_PHOTO_SIZE =
@@ -126,21 +126,20 @@ document.addEventListener("DOMContentLoaded", () => {
             "summary-package"
         );
 
-    const summaryPrice =
-        document.getElementById(
-            "summary-price"
-        );
+const summaryPrice =
+    document.getElementById(
+        "summary-total"
+    );
 
-    const summaryAmountDue =
-        document.getElementById(
-            "summary-amount-due"
-        );
+const summaryAmountDue =
+    document.getElementById(
+        "summary-due"
+    );
 
-    const summaryRemaining =
-        document.getElementById(
-            "summary-remaining"
-        );
-
+const summaryRemaining =
+    document.getElementById(
+        "summary-balance"
+    );
 
     /* =========================================================
        SAFETY CHECK
