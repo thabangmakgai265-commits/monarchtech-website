@@ -1223,10 +1223,8 @@ document.addEventListener("DOMContentLoaded", () => {
        REQUEST PORTFOLIO — FORMSPREE
        ===================================================== */
 
-    const requestForm =
-        $("#portfolio-request-form");
-
-    if (requestForm) {
+    const requestForm = $("#portfolio-request-form");
+if (requestForm && !window.location.pathname.includes("/request/")) {
 
         const requestSubmit =
             $("#request-submit");
