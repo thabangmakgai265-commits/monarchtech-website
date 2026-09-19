@@ -1117,24 +1117,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     new FormData(form);
 
 
-                /* -----------------------------------------
-                   REMOVE ACTUAL FILE FROM FORMSPREE
-                ----------------------------------------- */
+         /* -----------------------------------------
+   REMOVE ACTUAL FILE FROM FORMSPREE
+----------------------------------------- */
 
-                formData.delete(
-                    "profile-photo"
-                );
+formData.delete(
+    "profile_photo"
+);
 
 
-                /*
-                 * Make absolutely sure the Cloudinary URL
-                 * is included instead.
-                 */
+/*
+ * Make absolutely sure the Cloudinary URL
+ * is included instead.
+ */
 
-                formData.set(
-                    "profile-photo-url",
-                    profilePhotoUrl
-                );
+formData.set(
+    "profile_photo_url",
+    profilePhotoUrl
+);
 
 
                 const formAction =
