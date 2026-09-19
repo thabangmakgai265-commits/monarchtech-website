@@ -8,21 +8,28 @@
    - Cloudinary upload
    - Form validation
    - Formspree submission
-   - Request data storage for payment page
+   - Request data storage
+   - Redirect to payment page
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
+
     /* =========================================================
        CONFIGURATION
-       ========================================================= */
+    ========================================================= */
 
     const CLOUDINARY_CLOUD_NAME = "ebfxr5ms";
-    const CLOUDINARY_UPLOAD_PRESET = "monarch_profile_photos";
+
+    const CLOUDINARY_UPLOAD_PRESET =
+        "monarch_profile_photos";
 
     const CLOUDINARY_UPLOAD_URL =
         `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+    const PAYMENT_PAGE_URL =
+        "../payment/";
 
     const packagePrices = {
         Graduate: 1199,
@@ -30,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Executive: 3999
     };
 
-    const MAX_PHOTO_SIZE = 5 * 1024 * 1024; // 5MB
+    const MAX_PHOTO_SIZE =
+        5 * 1024 * 1024;
 
     const allowedPhotoTypes = [
         "image/jpeg",
@@ -41,62 +49,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        ELEMENTS
-       ========================================================= */
+    ========================================================= */
 
-    const form = document.getElementById("portfolio-request-form");
+    const form =
+        document.getElementById(
+            "portfolio-request-form"
+        );
 
-    const requestIdInput = document.getElementById("request-id");
+    const requestIdInput =
+        document.getElementById(
+            "request-id"
+        );
 
-    const packageSelect = document.getElementById("package");
+    const packageSelect =
+        document.getElementById(
+            "package"
+        );
 
-    const packageTotalInput = document.getElementById("package-total");
+    const packageTotalInput =
+        document.getElementById(
+            "package-total"
+        );
 
-    const paymentOption = document.getElementById("payment-option");
+    const paymentOption =
+        document.getElementById(
+            "payment-option"
+        );
 
-    const amountDueInput = document.getElementById("amount-due");
+    const amountDueInput =
+        document.getElementById(
+            "amount-due"
+        );
 
     const remainingBalanceInput =
-        document.getElementById("remaining-balance");
+        document.getElementById(
+            "remaining-balance"
+        );
 
     const profilePhotoInput =
-        document.getElementById("profile-photo");
+        document.getElementById(
+            "profile-photo"
+        );
 
     const profilePhotoUrlInput =
-        document.getElementById("profile-photo-url");
+        document.getElementById(
+            "profile-photo-url"
+        );
 
     const photoPreview =
-        document.getElementById("photo-preview");
+        document.getElementById(
+            "photo-preview"
+        );
 
     const photoPreviewImage =
-        document.getElementById("photo-preview-image");
+        document.getElementById(
+            "photo-preview-image"
+        );
 
     const photoStatus =
-        document.getElementById("photo-status");
+        document.getElementById(
+            "photo-status"
+        );
 
     const submitButton =
-        form?.querySelector(".request-submit");
+        form?.querySelector(
+            ".request-submit"
+        );
 
     const feedback =
-        document.getElementById("form-feedback");
+        document.getElementById(
+            "form-feedback"
+        );
 
     const summaryPackage =
-        document.getElementById("summary-package");
+        document.getElementById(
+            "summary-package"
+        );
 
     const summaryPrice =
-        document.getElementById("summary-price");
+        document.getElementById(
+            "summary-price"
+        );
 
     const summaryAmountDue =
-        document.getElementById("summary-amount-due");
+        document.getElementById(
+            "summary-amount-due"
+        );
 
     const summaryRemaining =
-        document.getElementById("summary-remaining");
+        document.getElementById(
+            "summary-remaining"
+        );
 
 
     /* =========================================================
        SAFETY CHECK
-       ========================================================= */
+    ========================================================= */
 
     if (!form) {
+
         console.warn(
             "MonarchAurex Request Script: Request form not found."
         );
@@ -106,15 +157,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================================
-       HELPER — CURRENCY
-       ========================================================= */
+       CURRENCY
+    ========================================================= */
 
     function formatCurrency(amount) {
-        if (amount === null || amount === undefined || amount === "") {
+
+        if (
+            amount === null ||
+            amount === undefined ||
+            amount === ""
+        ) {
             return "—";
         }
 
-        const number = Number(amount);
+        const number =
+            Number(amount);
 
         if (Number.isNaN(number)) {
             return "—";
@@ -129,28 +186,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        REQUEST ID
-       
-       Example:
-       MAX-2026-483921
-
-       IMPORTANT:
-       This creates a unique client-side ID.
-
-       True sequential IDs such as:
-       MAX-2026-00001
-       MAX-2026-00002
-
-       require a backend/database.
-       ========================================================= */
+    ========================================================= */
 
     function generateRequestId() {
-        const year = new Date().getFullYear();
+
+        const year =
+            new Date().getFullYear();
 
         const timestampPart =
             String(Date.now()).slice(-6);
 
         const randomPart =
-            Math.floor(100 + Math.random() * 900);
+            Math.floor(
+                100 +
+                Math.random() * 900
+            );
 
         return `MAX-${year}-${timestampPart}${randomPart}`;
     }
@@ -158,18 +208,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        CREATE REQUEST ID
-       ========================================================= */
+    ========================================================= */
 
-    if (requestIdInput && !requestIdInput.value) {
-        requestIdInput.value = generateRequestId();
+    if (
+        requestIdInput &&
+        !requestIdInput.value
+    ) {
+
+        requestIdInput.value =
+            generateRequestId();
     }
 
 
     /* =========================================================
        PACKAGE PRICE
-       ========================================================= */
+    ========================================================= */
 
     function getPackagePrice() {
+
         if (!packageSelect) {
             return null;
         }
@@ -181,13 +237,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return null;
         }
 
-        return packagePrices[selectedPackage] ?? null;
+        return (
+            packagePrices[selectedPackage] ??
+            null
+        );
     }
 
 
     /* =========================================================
        PAYMENT CALCULATION
-       ========================================================= */
+    ========================================================= */
 
     function updatePaymentSummary() {
 
@@ -197,9 +256,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const price =
             getPackagePrice();
 
+
         /* -----------------------------------------
            No package selected
-           ----------------------------------------- */
+        ----------------------------------------- */
 
         if (!selectedPackage) {
 
@@ -237,42 +297,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /* -----------------------------------------
            Private Offer
-           ----------------------------------------- */
+        ----------------------------------------- */
 
-        if (selectedPackage === "Private Offer") {
+        if (
+            selectedPackage ===
+            "Private Offer"
+        ) {
 
             if (packageTotalInput) {
-                packageTotalInput.value = "Custom Quote";
+                packageTotalInput.value =
+                    "Custom Quote";
             }
 
             if (amountDueInput) {
-                amountDueInput.value = "Custom Quote";
+                amountDueInput.value =
+                    "Custom Quote";
             }
 
             if (remainingBalanceInput) {
-                remainingBalanceInput.value = "Custom Quote";
+                remainingBalanceInput.value =
+                    "Custom Quote";
             }
 
             if (summaryPackage) {
-                summaryPackage.textContent = "Private Offer";
+                summaryPackage.textContent =
+                    "Private Offer";
             }
 
             if (summaryPrice) {
-                summaryPrice.textContent = "Custom Quote";
+                summaryPrice.textContent =
+                    "Custom Quote";
             }
 
             if (summaryAmountDue) {
-                summaryAmountDue.textContent = "Custom Quote";
+                summaryAmountDue.textContent =
+                    "Custom Quote";
             }
 
             if (summaryRemaining) {
-                summaryRemaining.textContent = "To be confirmed";
+                summaryRemaining.textContent =
+                    "To be confirmed";
             }
 
             if (paymentOption) {
+
                 paymentOption.value = "";
 
                 paymentOption.disabled = true;
+
                 paymentOption.required = false;
             }
 
@@ -282,10 +354,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /* -----------------------------------------
            Standard Packages
-           ----------------------------------------- */
+        ----------------------------------------- */
 
         if (paymentOption) {
+
             paymentOption.disabled = false;
+
             paymentOption.required = true;
         }
 
@@ -295,102 +369,125 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        let amountDue = price;
-        let remainingBalance = 0;
+        let amountDue =
+            price;
+
+        let remainingBalance =
+            0;
 
 
         /* -----------------------------------------
-           Payment option
-           ----------------------------------------- */
+           35% Initial Payment
+        ----------------------------------------- */
 
         if (
             paymentOption &&
-            paymentOption.value === "25% Initial Payment"
+            paymentOption.value ===
+                "35% Initial Payment"
         ) {
 
             amountDue =
                 Math.round(
-                    price * 0.25 * 100
+                    price *
+                    0.35 *
+                    100
                 ) / 100;
 
             remainingBalance =
                 Math.round(
-                    (price - amountDue) * 100
+                    (price - amountDue) *
+                    100
                 ) / 100;
         }
 
 
+        /* -----------------------------------------
+           Full Payment
+        ----------------------------------------- */
+
         if (
             paymentOption &&
-            paymentOption.value === "Full Payment"
+            paymentOption.value ===
+                "Full Payment"
         ) {
 
-            amountDue = price;
-            remainingBalance = 0;
+            amountDue =
+                price;
+
+            remainingBalance =
+                0;
         }
 
 
         /* -----------------------------------------
-           Hidden Formspree values
-           ----------------------------------------- */
+           Hidden Values
+        ----------------------------------------- */
 
         if (packageTotalInput) {
+
             packageTotalInput.value =
                 formatCurrency(price);
         }
 
         if (amountDueInput) {
+
             amountDueInput.value =
                 formatCurrency(amountDue);
         }
 
         if (remainingBalanceInput) {
+
             remainingBalanceInput.value =
-                formatCurrency(remainingBalance);
+                formatCurrency(
+                    remainingBalance
+                );
         }
 
 
         /* -----------------------------------------
-           Visible summary
-           ----------------------------------------- */
+           Visible Summary
+        ----------------------------------------- */
 
         if (summaryPackage) {
+
             summaryPackage.textContent =
                 selectedPackage;
         }
 
         if (summaryPrice) {
+
             summaryPrice.textContent =
                 formatCurrency(price);
         }
 
         if (summaryAmountDue) {
+
             summaryAmountDue.textContent =
                 formatCurrency(amountDue);
         }
 
         if (summaryRemaining) {
+
             summaryRemaining.textContent =
-                formatCurrency(remainingBalance);
+                formatCurrency(
+                    remainingBalance
+                );
         }
     }
 
 
     /* =========================================================
        PACKAGE CHANGE
-       ========================================================= */
+    ========================================================= */
 
     if (packageSelect) {
+
         packageSelect.addEventListener(
             "change",
             () => {
 
                 updatePaymentSummary();
 
-                /*
-                 * If Private Offer is selected,
-                 * payment selection is not required.
-                 */
                 if (
                     packageSelect.value ===
                     "Private Offer"
@@ -399,7 +496,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (paymentOption) {
                         paymentOption.value = "";
                     }
-
                 }
             }
         );
@@ -408,7 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        PAYMENT OPTION CHANGE
-       ========================================================= */
+    ========================================================= */
 
     if (paymentOption) {
 
@@ -421,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        PHOTO PREVIEW
-       ========================================================= */
+    ========================================================= */
 
     if (profilePhotoInput) {
 
@@ -431,6 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const file =
                     profilePhotoInput.files?.[0];
+
 
                 if (!file) {
 
@@ -455,8 +552,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   File type validation
-                   ----------------------------------------- */
+                   File Type
+                ----------------------------------------- */
 
                 if (
                     !allowedPhotoTypes.includes(
@@ -471,6 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     if (photoStatus) {
+
                         photoStatus.textContent =
                             "Please upload a JPG, PNG or WebP image.";
 
@@ -483,10 +581,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   File size validation
-                   ----------------------------------------- */
+                   File Size
+                ----------------------------------------- */
 
-                if (file.size > MAX_PHOTO_SIZE) {
+                if (
+                    file.size >
+                    MAX_PHOTO_SIZE
+                ) {
 
                     profilePhotoInput.value = "";
 
@@ -495,6 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     if (photoStatus) {
+
                         photoStatus.textContent =
                             "Your profile photo must be 5MB or smaller.";
 
@@ -508,22 +610,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 /* -----------------------------------------
                    Preview
-                   ----------------------------------------- */
+                ----------------------------------------- */
 
                 const reader =
                     new FileReader();
 
-                reader.onload = function (event) {
+                reader.onload =
+                    function (event) {
 
-                    if (photoPreviewImage) {
-                        photoPreviewImage.src =
-                            event.target.result;
-                    }
+                        if (photoPreviewImage) {
 
-                    if (photoPreview) {
-                        photoPreview.hidden = false;
-                    }
-                };
+                            photoPreviewImage.src =
+                                event.target.result;
+                        }
+
+                        if (photoPreview) {
+
+                            photoPreview.hidden =
+                                false;
+                        }
+                    };
 
                 reader.readAsDataURL(file);
 
@@ -539,12 +645,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /*
-                 * Clear previous Cloudinary URL
-                 * because a new image was selected.
+                 * Clear previous Cloudinary URL.
                  */
 
                 if (profilePhotoUrlInput) {
-                    profilePhotoUrlInput.value = "";
+
+                    profilePhotoUrlInput.value =
+                        "";
                 }
             }
         );
@@ -553,11 +660,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        CLOUDINARY UPLOAD
-       ========================================================= */
+    ========================================================= */
 
     async function uploadProfilePhoto(file) {
 
         if (!file) {
+
             throw new Error(
                 "Please select a profile photo."
             );
@@ -565,8 +673,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* -----------------------------------------
-           Validate file type
-           ----------------------------------------- */
+           Validate Type
+        ----------------------------------------- */
 
         if (
             !allowedPhotoTypes.includes(
@@ -581,10 +689,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* -----------------------------------------
-           Validate file size
-           ----------------------------------------- */
+           Validate Size
+        ----------------------------------------- */
 
-        if (file.size > MAX_PHOTO_SIZE) {
+        if (
+            file.size >
+            MAX_PHOTO_SIZE
+        ) {
 
             throw new Error(
                 "Profile photo must be 5MB or smaller."
@@ -605,10 +716,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const cloudinaryData =
             new FormData();
 
+
         cloudinaryData.append(
             "file",
             file
         );
+
 
         cloudinaryData.append(
             "upload_preset",
@@ -630,9 +743,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let data = {};
 
+
             try {
-                data = await response.json();
+
+                data =
+                    await response.json();
+
             } catch (jsonError) {
+
                 data = {};
             }
 
@@ -655,8 +773,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* -----------------------------------------
-               Save secure Cloudinary URL
-               ----------------------------------------- */
+               Save Cloudinary URL
+            ----------------------------------------- */
 
             if (profilePhotoUrlInput) {
 
@@ -677,6 +795,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             return data.secure_url;
 
+
         } catch (error) {
 
             console.error(
@@ -695,14 +814,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     "photo-status error";
             }
 
+
             throw error;
         }
     }
 
 
     /* =========================================================
-       FEEDBACK MESSAGE
-       ========================================================= */
+       FEEDBACK
+    ========================================================= */
 
     function showFeedback(
         message,
@@ -713,18 +833,20 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        feedback.textContent = message;
+        feedback.textContent =
+            message;
 
         feedback.className =
             `form-feedback ${type}`;
 
-        feedback.hidden = false;
+        feedback.hidden =
+            false;
     }
 
 
     /* =========================================================
        CLEAR FEEDBACK
-       ========================================================= */
+    ========================================================= */
 
     function clearFeedback() {
 
@@ -732,25 +854,20 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        feedback.textContent = "";
+        feedback.textContent =
+            "";
 
         feedback.className =
             "form-feedback";
 
-        feedback.hidden = true;
+        feedback.hidden =
+            true;
     }
 
 
     /* =========================================================
        STORE REQUEST DATA
-       
-       This allows the future payment page to read
-       the request information.
-
-       The payment backend must NOT trust these values
-       as authoritative. Peach payment amounts must
-       eventually be verified server-side.
-       ========================================================= */
+    ========================================================= */
 
     function storeRequestData() {
 
@@ -760,16 +877,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const price =
             getPackagePrice();
 
+
         const storedData = {
 
             requestId:
                 requestIdInput?.value || "",
 
             name:
-                document.getElementById("name")?.value || "",
+                document.getElementById(
+                    "name"
+                )?.value || "",
 
             email:
-                document.getElementById("email")?.value || "",
+                document.getElementById(
+                    "email"
+                )?.value || "",
 
             package:
                 selectedPackage,
@@ -799,14 +921,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sessionStorage.setItem(
             "monarchaurex_request",
-            JSON.stringify(storedData)
+            JSON.stringify(
+                storedData
+            )
         );
+
+
+        return storedData;
     }
 
 
     /* =========================================================
        FORM SUBMISSION
-       ========================================================= */
+    ========================================================= */
 
     form.addEventListener(
         "submit",
@@ -818,10 +945,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* -----------------------------------------
-               Native browser validation
-               ----------------------------------------- */
+               Browser Validation
+            ----------------------------------------- */
 
-            if (!form.checkValidity()) {
+            if (
+                !form.checkValidity()
+            ) {
 
                 form.reportValidity();
 
@@ -830,12 +959,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* -----------------------------------------
-               Prevent duplicate submissions
-               ----------------------------------------- */
+               Prevent Duplicate Submission
+            ----------------------------------------- */
 
             if (submitButton) {
 
-                submitButton.disabled = true;
+                submitButton.disabled =
+                    true;
 
                 submitButton.dataset.originalText =
                     submitButton.textContent;
@@ -848,11 +978,12 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
 
                 /* -----------------------------------------
-                   Check package
-                   ----------------------------------------- */
+                   Package
+                ----------------------------------------- */
 
                 const selectedPackage =
                     packageSelect?.value || "";
+
 
                 if (!selectedPackage) {
 
@@ -863,8 +994,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   Check payment option
-                   ----------------------------------------- */
+                   Payment Option
+                ----------------------------------------- */
 
                 if (
                     selectedPackage !==
@@ -884,11 +1015,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   Check profile photo
-                   ----------------------------------------- */
+                   Profile Photo
+                ----------------------------------------- */
 
                 const photoFile =
-                    profilePhotoInput?.files?.[0];
+                    profilePhotoInput
+                        ?.files?.[0];
 
 
                 if (!photoFile) {
@@ -900,8 +1032,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   Upload photo
-                   ----------------------------------------- */
+                   Upload to Cloudinary
+                ----------------------------------------- */
 
                 if (submitButton) {
 
@@ -910,21 +1042,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                await uploadProfilePhoto(
-                    photoFile
-                );
+                const profilePhotoUrl =
+                    await uploadProfilePhoto(
+                        photoFile
+                    );
+
+
+                if (!profilePhotoUrl) {
+
+                    throw new Error(
+                        "Profile photo upload did not return a valid URL."
+                    );
+                }
 
 
                 /* -----------------------------------------
-                   Recalculate payment
-                   ----------------------------------------- */
+                   Recalculate Payment
+                ----------------------------------------- */
 
                 updatePaymentSummary();
 
 
                 /* -----------------------------------------
-                   Make sure request ID exists
-                   ----------------------------------------- */
+                   Request ID
+                ----------------------------------------- */
 
                 if (
                     requestIdInput &&
@@ -937,15 +1078,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   Store request data
-                   ----------------------------------------- */
+                   Store Request
+                ----------------------------------------- */
 
                 storeRequestData();
 
 
                 /* -----------------------------------------
-                   Submit to Formspree
-                   ----------------------------------------- */
+                   Prepare Formspree Submission
+                ----------------------------------------- */
 
                 if (submitButton) {
 
@@ -954,12 +1095,52 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
+                /*
+                 * IMPORTANT:
+                 *
+                 * Do NOT use:
+                 *
+                 * new FormData(form)
+                 *
+                 * because that includes the actual
+                 * profile photo file.
+                 *
+                 * Formspree is not receiving the image.
+                 *
+                 * Cloudinary already has the image.
+                 *
+                 * We manually remove "profile-photo"
+                 * before sending the FormData.
+                 */
+
                 const formData =
                     new FormData(form);
 
 
+                /* -----------------------------------------
+                   REMOVE ACTUAL FILE FROM FORMSPREE
+                ----------------------------------------- */
+
+                formData.delete(
+                    "profile-photo"
+                );
+
+
+                /*
+                 * Make absolutely sure the Cloudinary URL
+                 * is included instead.
+                 */
+
+                formData.set(
+                    "profile-photo-url",
+                    profilePhotoUrl
+                );
+
+
                 const formAction =
-                    form.getAttribute("action");
+                    form.getAttribute(
+                        "action"
+                    );
 
 
                 if (!formAction) {
@@ -969,6 +1150,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
                 }
 
+
+                /* -----------------------------------------
+                   Send to Formspree
+                ----------------------------------------- */
 
                 const response =
                     await fetch(
@@ -988,12 +1173,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 let result = {};
 
+
                 try {
-                    result = await response.json();
+
+                    result =
+                        await response.json();
+
                 } catch (jsonError) {
+
                     result = {};
                 }
 
+
+                /* -----------------------------------------
+                   Formspree Error
+                ----------------------------------------- */
 
                 if (!response.ok) {
 
@@ -1010,8 +1204,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   Successful submission
-                   ----------------------------------------- */
+                   Save Again
+
+                   This ensures the final Cloudinary URL
+                   is definitely stored.
+                ----------------------------------------- */
+
+                storeRequestData();
+
+
+                /* -----------------------------------------
+                   Success
+                ----------------------------------------- */
 
                 if (submitButton) {
 
@@ -1019,31 +1223,37 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Request Received";
                 }
 
-
                 showFeedback(
-                    `Your request has been received successfully. Request ID: ${requestIdInput.value}`,
+                    `Request received successfully. Request ID: ${requestIdInput.value}`,
                     "success"
                 );
 
 
-                /*
-                 * IMPORTANT:
-                 *
-                 * We are NOT redirecting to the payment
-                 * page yet because Peach Payments has not
-                 * been connected.
-                 *
-                 * Once the payment page/backend is ready,
-                 * this is where the redirect will happen.
-                 */
+                /* -----------------------------------------
+                   Redirect to Payment
+                ----------------------------------------- */
+
+                if (submitButton) {
+
+                    submitButton.textContent =
+                        "Redirecting to Payment...";
+                }
 
 
                 /*
-                 * Keep the form data in sessionStorage
-                 * for the next step.
+                 * Small delay so the user can see that
+                 * the request was successfully received.
                  */
 
-                storeRequestData();
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            PAYMENT_PAGE_URL;
+
+                    },
+                    700
+                );
 
 
             } catch (error) {
@@ -1063,7 +1273,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (submitButton) {
 
-                    submitButton.disabled = false;
+                    submitButton.disabled =
+                        false;
 
                     submitButton.textContent =
                         submitButton.dataset.originalText ||
@@ -1076,7 +1287,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
        INITIALISE
-       ========================================================= */
+    ========================================================= */
 
     updatePaymentSummary();
 
