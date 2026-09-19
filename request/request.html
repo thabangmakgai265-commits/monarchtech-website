@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Request Your Portfolio | MonarchAurex</title>
-    <meta name="description" content="Start your professional portfolio journey with MonarchAurex. Request a premium portfolio designed around your professional identity.">
+
+    <meta
+        name="description"
+        content="Start your professional portfolio journey with MonarchAurex. Request a premium portfolio designed around your professional identity."
+    >
 
     <!-- Standalone Request Page Styles -->
     <link rel="stylesheet" href="style.css">
@@ -16,14 +20,23 @@
     <!-- =========================
          NAVIGATION
     ========================== -->
+
     <header class="navbar">
+
         <div class="nav-container">
 
-            <a href="../index.html" class="logo" aria-label="MonarchAurex Home">
+            <a
+                href="../index.html"
+                class="logo"
+                aria-label="MonarchAurex Home"
+            >
                 <span class="logo-main">MONARCH</span><span class="logo-tech">AUREX</span>
             </a>
 
-            <nav class="nav-links" aria-label="Main navigation">
+            <nav
+                class="nav-links"
+                aria-label="Main navigation"
+            >
                 <a href="../index.html">Home</a>
                 <a href="../index.html#collection">Collection</a>
                 <a href="../index.html#pricing">Pricing</a>
@@ -31,18 +44,32 @@
                 <a href="../index.html#about">About</a>
             </nav>
 
-            <a href="#request" class="btn-primary">Request Now</a>
+            <a
+                href="#request"
+                class="btn-primary"
+            >
+                Request Now
+            </a>
 
         </div>
+
     </header>
 
 
     <!-- =========================
-         REQUEST SECTION
+         MAIN
     ========================== -->
+
     <main>
 
-        <section class="request" id="request">
+        <section
+            class="request"
+            id="request"
+        >
+
+            <!-- =========================
+                 SECTION INTRO
+            ========================== -->
 
             <div class="section-title">
 
@@ -65,15 +92,18 @@
             <div class="request-container">
 
                 <!-- =========================
-                     INTRODUCTION
+                     LEFT SIDE
                 ========================== -->
+
                 <div class="request-intro">
 
                     <span class="request-label">
                         YOUR PROFESSIONAL IDENTITY
                     </span>
 
-                    <h3>Ready to stand out?</h3>
+                    <h3>
+                        Ready to stand out?
+                    </h3>
 
                     <p>
                         Your portfolio should represent more than your qualifications.
@@ -84,12 +114,15 @@
 
                     <div class="request-points">
 
+                        <!-- POINT 01 -->
+
                         <div class="request-point">
 
                             <span>01</span>
 
                             <p>
                                 <strong>Tell Your Story</strong><br>
+
                                 Give us the information that represents your
                                 professional journey.
                             </p>
@@ -97,12 +130,15 @@
                         </div>
 
 
+                        <!-- POINT 02 -->
+
                         <div class="request-point">
 
                             <span>02</span>
 
                             <p>
                                 <strong>Choose Your Direction</strong><br>
+
                                 Select a visual style that matches the identity
                                 you want to present.
                             </p>
@@ -110,12 +146,15 @@
                         </div>
 
 
+                        <!-- POINT 03 -->
+
                         <div class="request-point">
 
                             <span>03</span>
 
                             <p>
                                 <strong>Build Your Presence</strong><br>
+
                                 We'll turn your information into a polished
                                 professional portfolio.
                             </p>
@@ -130,9 +169,12 @@
                 <!-- =========================
                      REQUEST FORM
                 ========================== -->
+
                 <div class="request-form-card">
 
-                    <h2>Portfolio Request</h2>
+                    <h2>
+                        Portfolio Request
+                    </h2>
 
                     <p>
                         Complete the form below. The more information you provide,
@@ -146,6 +188,28 @@
                         method="POST"
                         novalidate
                     >
+
+                        <!-- =========================
+                             REQUEST ID
+                        ========================== -->
+
+                        <input
+                            type="hidden"
+                            id="request-id"
+                            name="request_id"
+                        >
+
+
+                        <!-- =========================
+                             REQUEST STATUS
+                        ========================== -->
+
+                        <input
+                            type="hidden"
+                            name="request_status"
+                            value="Pending Payment"
+                        >
+
 
                         <!-- =========================
                              BASIC INFORMATION
@@ -204,45 +268,61 @@
                         </div>
 
 
-                      <!-- =========================
-     PACKAGE
-========================== -->
+                        <!-- =========================
+                             PACKAGE
+                        ========================== -->
 
-<div class="form-group">
+                        <div class="form-group">
 
-    <label for="package">
-        Portfolio Package *
-    </label>
+                            <label for="package">
+                                Portfolio Package *
+                            </label>
 
-    <select
-        id="package"
-        name="package"
-        required
-    >
+                            <select
+                                id="package"
+                                name="package"
+                                required
+                            >
 
-        <option value="" selected disabled>
-            Select a package
-        </option>
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
+                                    Select a package
+                                </option>
 
-        <option value="Graduate">
-            Graduate
-        </option>
+                                <option value="Graduate">
+                                    Graduate — R1,199
+                                </option>
 
-        <option value="Professional">
-            Professional
-        </option>
+                                <option value="Professional">
+                                    Professional — R2,999
+                                </option>
 
-        <option value="Executive">
-            Executive
-        </option>
+                                <option value="Executive">
+                                    Executive — R3,999
+                                </option>
 
-        <option value="Private Offer">
-            Private Offer
-        </option>
+                                <option value="Private Offer">
+                                    Private Offer
+                                </option>
 
-    </select>
+                            </select>
 
-</div>
+                        </div>
+
+
+                        <!-- =========================
+                             PACKAGE TOTAL
+                        ========================== -->
+
+                        <input
+                            type="hidden"
+                            id="package-total"
+                            name="package_total"
+                        >
+
 
                         <!-- =========================
                              ACHIEVEMENTS
@@ -300,7 +380,11 @@
                                 required
                             >
 
-                                <option value="" selected disabled>
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
                                     Select a style
                                 </option>
 
@@ -330,29 +414,64 @@
 
 
                         <!-- =========================
-                             SUPPORTING MATERIALS
+                             PROFILE PHOTO
                         ========================== -->
 
                         <div class="form-group">
 
-                            <label>
-                                Profile & Supporting Photos
+                            <label for="profile-photo">
+                                Profile Photo *
                             </label>
 
-                            <div class="upload-note">
+                            <div class="photo-upload-box">
 
-                                <strong>
-                                    Photos can be provided after submission.
-                                </strong>
+                                <input
+                                    type="file"
+                                    id="profile-photo"
+                                    name="profile_photo"
+                                    accept="image/jpeg,image/png,image/webp"
+                                    required
+                                >
 
-                                <p>
-                                    Once your portfolio request has been received,
-                                    MonarchAurex will provide instructions for
-                                    securely submitting your profile photo, project
-                                    images, certificates and other supporting files.
+                                <p class="upload-help">
+                                    Upload a professional profile photo.
                                 </p>
 
+                                <p class="upload-requirements">
+                                    JPG, PNG or WebP • Maximum 5MB
+                                </p>
+
+                                <div
+                                    id="photo-preview"
+                                    class="photo-preview"
+                                    hidden
+                                >
+
+                                    <img
+                                        id="photo-preview-image"
+                                        src=""
+                                        alt="Profile photo preview"
+                                    >
+
+                                </div>
+
+                                <div
+                                    id="photo-status"
+                                    class="photo-status"
+                                    role="status"
+                                    aria-live="polite"
+                                ></div>
+
                             </div>
+
+
+                            <!-- Cloudinary returned URL -->
+
+                            <input
+                                type="hidden"
+                                id="profile-photo-url"
+                                name="profile_photo_url"
+                            >
 
                         </div>
 
@@ -378,6 +497,187 @@
 
 
                         <!-- =========================
+                             PAYMENT
+                        ========================== -->
+
+                        <div class="form-section-divider">
+
+                            <span>
+                                PAYMENT
+                            </span>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="payment-option">
+                                Payment Option *
+                            </label>
+
+                            <select
+                                id="payment-option"
+                                name="payment_option"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    selected
+                                    disabled
+                                >
+                                    Select a payment option
+                                </option>
+
+                                <option value="Full Payment">
+                                    Pay in Full
+                                </option>
+
+                                <option value="25% Initial Payment">
+                                    25% Initial Payment
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- =========================
+                             PAYMENT SUMMARY
+                        ========================== -->
+
+                        <div
+                            class="payment-summary"
+                            id="payment-summary"
+                            hidden
+                        >
+
+                            <div class="payment-summary-row">
+
+                                <span>
+                                    Package
+                                </span>
+
+                                <strong id="summary-package">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-summary-row">
+
+                                <span>
+                                    Package Price
+                                </span>
+
+                                <strong id="summary-total">
+                                    R0.00
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-summary-row">
+
+                                <span>
+                                    Amount Due Now
+                                </span>
+
+                                <strong id="summary-due">
+                                    R0.00
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-summary-row">
+
+                                <span>
+                                    Remaining Balance
+                                </span>
+
+                                <strong id="summary-balance">
+                                    R0.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             PAYMENT HIDDEN VALUES
+                        ========================== -->
+
+                        <input
+                            type="hidden"
+                            id="amount-due"
+                            name="amount_due"
+                        >
+
+                        <input
+                            type="hidden"
+                            id="remaining-balance"
+                            name="remaining_balance"
+                        >
+
+
+                        <!-- =========================
+                             TERMS
+                        ========================== -->
+
+                        <div class="form-section-divider">
+
+                            <span>
+                                CONFIRMATION
+                            </span>
+
+                        </div>
+
+
+                        <div class="terms-box">
+
+                            <label class="checkbox-row">
+
+                                <input
+                                    type="checkbox"
+                                    id="terms-accepted"
+                                    name="terms_accepted"
+                                    value="Yes"
+                                    required
+                                >
+
+                                <span>
+                                    I confirm that the information I have provided
+                                    is accurate and I agree to the MonarchAurex
+                                    Terms & Conditions.
+                                </span>
+
+                            </label>
+
+
+                            <label class="checkbox-row">
+
+                                <input
+                                    type="checkbox"
+                                    id="refund-accepted"
+                                    name="refund_policy_accepted"
+                                    value="Yes"
+                                    required
+                                >
+
+                                <span>
+                                    I acknowledge that I have reviewed and accept
+                                    the MonarchAurex refund and cancellation policy.
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- =========================
                              SUBMIT
                         ========================== -->
 
@@ -388,14 +688,14 @@
                         >
 
                             <span class="submit-text">
-                                Submit Portfolio Request
+                                Continue to Payment
                             </span>
 
                             <span
                                 class="submit-loading"
                                 aria-hidden="true"
                             >
-                                Sending...
+                                Preparing Request...
                             </span>
 
                         </button>
@@ -415,11 +715,15 @@
                     </form>
 
 
+                    <!-- =========================
+                         FORM NOTE
+                    ========================== -->
+
                     <p class="form-note">
 
-                        By submitting this form, you confirm that the information
-                        provided is accurate and that MonarchAurex may use it to
-                        communicate with you regarding your portfolio request.
+                        Your request information will be used by MonarchAurex
+                        to process your portfolio request and communicate with
+                        you regarding your selected package and payment.
 
                     </p>
 
@@ -442,7 +746,10 @@
 
             <div class="footer-brand">
 
-                <a href="../index.html" class="footer-logo">
+                <a
+                    href="../index.html"
+                    class="footer-logo"
+                >
 
                     <span class="logo-main">MONARCH</span><span class="logo-tech">AUREX</span>
 
@@ -468,11 +775,11 @@
     </footer>
 
 
-    <!--
-        JavaScript intentionally not added here.
-        The request page remains independent from the master script.js
-        until all website functionality is finalized.
-    -->
+    <!-- =========================
+         REQUEST PAGE JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
 
 </body>
-</html>
+</html> 
