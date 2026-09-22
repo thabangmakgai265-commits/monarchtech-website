@@ -1,1 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Policies | MonarchAurex</title>
+
+    <meta
+        name="description"
+        content="MonarchAurex policies covering website services, privacy, payments, refunds, cancellations and client responsibilities."
+    >
+
+    <style>
+        /* =========================================================
+           MONARCHAUREX POLICIES
+           Standalone page
+           ========================================================= */
+
+        :root {
+            --black: #080B12;
+            --black-soft: #0D1119;
+            --panel: #10151E;
+            --panel-light: #151B25;
+
+            --white: #F5F5F5;
+            --silver: #B8C0CC;
+            --muted: #8B95A5;
+
+            --gold: #B99A5A;
+            --gold-light: #D0B477;
+            --gold-dark: #806B3F;
+
+            --border: rgba(185, 154, 90, 0.22);
+            --border-soft: rgba(255, 255, 255, 0.08);
+
+            --max-width: 1100px;
+
+            --shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 30px;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(185, 154, 90, 0.08),
+                    transparent 32%
+                ),
+                var(--black);
+
+            color: var(--white);
+            line-height: 1.75;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           PAGE
+           ========================================================= */
+
+        .policy-page {
+            width: min(100% - 40px, var(--max-width));
+            margin: 0 auto;
+            padding: 70px 0 50px;
+        }
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        .policy-header {
+            text-align: center;
+            padding: 20px 0 70px;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 58px;
+            height: 58px;
+
+            border: 1px solid var(--gold);
+            border-radius: 14px;
+
+            color: var(--gold-light);
+
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 0 30px rgba(185, 154, 90, 0.08),
+                inset 0 0 20px rgba(185, 154, 90, 0.04);
+        }
+
+        .eyebrow {
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .policy-header h1 {
+            font-size: clamp(38px, 7vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .policy-header h1 span {
+            color: var(--gold-light);
+        }
+
+        .policy-intro {
+            max-width: 700px;
+            margin: 0 auto;
+
+            color: var(--silver);
+            font-size: 16px;
+        }
+
+        .last-updated {
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           POLICY CONTENT
+           ========================================================= */
+
+        .policy-content {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.025),
+                    rgba(255,255,255,0.008)
+                );
+
+            border: 1px solid var(--border-soft);
+            border-radius: 24px;
+
+            padding: clamp(28px, 5vw, 60px);
+
+            box-shadow: var(--shadow);
+        }
+
+        .policy-section {
+            padding: 55px 0;
+
+            border-bottom: 1px solid var(--border-soft);
+            scroll-margin-top: 30px;
+        }
+
+        .policy-section:first-child {
+            padding-top: 10px;
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
+            padding-bottom: 20px;
+        }
+
+        .section-number {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .policy-section h2 {
+            color: var(--white);
+
+            font-size: clamp(27px, 4vw, 38px);
+            line-height: 1.2;
+
+            margin-bottom: 25px;
+
+            letter-spacing: -0.7px;
+        }
+
+        .policy-section h3 {
+            color: var(--gold-light);
+
+            font-size: 18px;
+            line-height: 1.4;
+
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        .policy-section p {
+            color: var(--silver);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .policy-section strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .policy-section ul,
+        .policy-section ol {
+            margin: 15px 0 20px 22px;
+            color: var(--silver);
+        }
+
+        .policy-section li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        .policy-section li::marker {
+            color: var(--gold);
+        }
+
+        /* =========================================================
+           IMPORTANT BOX
+           ========================================================= */
+
+        .policy-note {
+            margin: 25px 0;
+
+            padding: 22px 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(185,154,90,0.08),
+                    rgba(185,154,90,0.025)
+                );
+
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
+
+            border-radius: 12px;
+        }
+
+        .policy-note p {
+            margin: 0;
+        }
+
+        /* =========================================================
+           CONTACT CARD
+           ========================================================= */
+
+        .contact-card {
+            margin-top: 25px;
+
+            padding: 28px;
+
+            background: var(--panel);
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+        }
+
+        .contact-card p {
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: var(--gold-light);
+            transition: color 0.2s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--white);
+        }
+
+        /* =========================================================
+           BOTTOM POLICY NAVIGATION
+           ========================================================= */
+
+        .policy-navigation {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .policy-navigation a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 18px;
+
+            border: 1px solid var(--border-soft);
+            border-radius: 999px;
+
+            color: var(--silver);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .policy-navigation a:hover {
+            color: var(--white);
+            border-color: var(--gold);
+            background: rgba(185,154,90,0.07);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        .policy-footer {
+            text-align: center;
+            padding: 45px 0 10px;
+        }
+
+        .policy-footer .brand-name {
+            color: var(--white);
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .policy-footer p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .policy-page {
+                width: min(100% - 24px, var(--max-width));
+                padding-top: 35px;
+            }
+
+            .policy-header {
+                padding-bottom: 40px;
+            }
+
+            .policy-content {
+                border-radius: 18px;
+                padding: 24px 20px;
+            }
+
+            .policy-section {
+                padding: 40px 0;
+            }
+
+            .policy-section h2 {
+                font-size: 28px;
+            }
+
+            .policy-section p,
+            .policy-section li {
+                font-size: 14px;
+            }
+
+            .policy-navigation {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .policy-navigation a {
+                width: 100%;
+            }
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+           ========================================================= */
+
+        a:focus-visible {
+            outline: 2px solid var(--gold-light);
+            outline-offset: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="policy-page">
+
+        <!-- =====================================================
+             HEADER
+             ===================================================== -->
+
+        <header class="policy-header">
+
+            <div class="brand-mark">
+                M
+            </div>
+
+            <div class="eyebrow">
+                MonarchAurex
+            </div>
+
+            <h1>
+                Policies & <span>Terms</span>
+            </h1>
+
+            <p class="policy-intro">
+                These policies explain how MonarchAurex provides website
+                services, handles payments and personal information,
+                manages cancellations and protects both the client and
+                the business throughout a project.
+            </p>
+
+            <p class="last-updated">
+                Last updated: September 2026
+            </p>
+
+        </header>
+
+
+        <!-- =====================================================
+             POLICY CONTENT
+             ===================================================== -->
+
+        <div class="policy-content">
+
+
+            <!-- =================================================
+                 TERMS & CONDITIONS
+                 ================================================= -->
+
+            <section
+                class="policy-section"
+                id="terms"
+            >
+
+                <div class="section-number">
+                    Policy 01
+                </div>
+
+                <h2>
+                    Terms & Conditions
+                </h2>
+
+                <p>
+                    These Terms & Conditions govern the provision of
+                    website design, development, digital identity and
+                    related services by MonarchAurex.
+                </p>
+
+
+                <h3>
+                    1. Website Services
+                </h3>
+
+                <p>
+                    MonarchAurex provides website design and development
+                    services for individuals, graduates, professionals,
+                    businesses and other clients.
+                </p>
+
+                <p>
+                    Services may include website design, development,
+                    responsive layouts, professional profile websites,
+                    business websites, landing pages, personal brand
+                    websites, portfolio websites, deployment assistance
+                    and related digital services.
+                </p>
+
+
+                <h3>
+                    2. Private Offers and Custom Projects
+                </h3>
+
+                <p>
+                    Some projects may be provided through a private or
+                    custom offer rather than a standard package.
+                </p>
+
+                <p>
+                    The price, scope, features, payment schedule and
+                    deliverables for a private offer will be agreed with
+                    the client before work begins.
+                </p>
+
+                <p>
+                    A private offer does not automatically have the same
+                    price or scope as MonarchAurex's publicly displayed
+                    packages.
+                </p>
+
+
+                <h3>
+                    3. Project Scope
+                </h3>
+
+                <p>
+                    Work will be based on the package or custom project
+                    selected by the client and the information supplied
+                    during the request process.
+                </p>
+
+                <p>
+                    Features or work outside the agreed scope may require
+                    an additional quotation or revised agreement.
+                </p>
+
+
+                <h3>
+                    4. Revisions and Client Approval
+                </h3>
+
+                <p>
+                    Clients are responsible for reviewing website content,
+                    information, images and design elements supplied for
+                    approval.
+                </p>
+
+                <p>
+                    Reasonable revisions may be included depending on the
+                    selected package or agreed project scope.
+                </p>
+
+                <p>
+                    Significant changes after approval, additional pages,
+                    new functionality or changes to the original project
+                    direction may be treated as additional work.
+                </p>
+
+
+                <h3>
+                    5. Client Responsibilities
+                </h3>
+
+                <p>
+                    The client is responsible for providing accurate and
+                    lawful information required to complete the project.
+                </p>
+
+                <ul>
+                    <li>Providing accurate personal or business information.</li>
+                    <li>Providing content, images and documents where required.</li>
+                    <li>Reviewing submitted work within a reasonable period.</li>
+                    <li>Providing feedback necessary to continue the project.</li>
+                    <li>Ensuring that supplied content does not violate another person's rights.</li>
+                </ul>
+
+
+                <h3>
+                    6. Intellectual Property
+                </h3>
+
+                <p>
+                    Ownership of final website work will depend on the
+                    agreed project terms and whether all required payments
+                    have been completed.
+                </p>
+
+                <p>
+                    MonarchAurex may retain ownership of reusable
+                    frameworks, development methods, templates, code
+                    components and internal systems used to create
+                    websites unless otherwise agreed in writing.
+                </p>
+
+
+                <h3>
+                    7. Domain, Hosting and Deployment
+                </h3>
+
+                <p>
+                    Domain registration, hosting, third-party services and
+                    external subscriptions may involve additional costs
+                    unless specifically included in the selected package.
+                </p>
+
+                <p>
+                    Clients remain responsible for renewal fees associated
+                    with domains, hosting or third-party services that are
+                    registered or maintained on their behalf.
+                </p>
+
+
+                <h3>
+                    8. Website Support and Maintenance
+                </h3>
+
+                <p>
+                    Support included in a package is limited to the scope
+                    stated for that package or project.
+                </p>
+
+                <p>
+                    Ongoing maintenance, content updates, new features,
+                    redesigns or technical changes may require a separate
+                    agreement.
+                </p>
+
+
+                <h3>
+                    9. Website Availability
+                </h3>
+
+                <p>
+                    MonarchAurex will make reasonable efforts to deliver
+                    websites correctly. However, website availability can
+                    depend on hosting providers, domain providers,
+                    internet connectivity, third-party platforms and
+                    other external systems.
+                </p>
+
+                <p>
+                    MonarchAurex cannot guarantee uninterrupted operation
+                    of services controlled by third parties.
+                </p>
+
+
+                <h3>
+                    10. Limitation of Responsibility
+                </h3>
+
+                <p>
+                    MonarchAurex will take reasonable care when providing
+                    its services. However, MonarchAurex is not responsible
+                    for losses caused by third-party platforms, hosting
+                    providers, domain providers, payment providers,
+                    internet outages, client-supplied information or
+                    circumstances outside its reasonable control.
+                </p>
+
+
+                <h3>
+                    11. Governing Law
+                </h3>
+
+                <p>
+                    These policies are intended to operate in accordance
+                    with applicable laws of the Republic of South Africa,
+                    subject to any mandatory rights or protections that
+                    may apply to the client.
+                </p>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 PRIVACY POLICY
+                 ================================================= -->
+
+            <section
+                class="policy-section"
+                id="privacy"
+            >
+
+                <div class="section-number">
+                    Policy 02
+                </div>
+
+                <h2>
+                    Privacy Policy
+                </h2>
+
+                <p>
+                    MonarchAurex respects the privacy of clients and
+                    takes reasonable steps to protect personal information
+                    collected through its website and services.
+                </p>
+
+
+                <h3>
+                    1. Information We May Collect
+                </h3>
+
+                <p>
+                    Depending on the service requested, MonarchAurex may
+                    collect information such as:
+                </p>
+
+                <ul>
+                    <li>Name and surname.</li>
+                    <li>Email address.</li>
+                    <li>Contact information.</li>
+                    <li>Professional information.</li>
+                    <li>Website content.</li>
+                    <li>Profile photographs or other uploaded files.</li>
+                    <li>Payment and transaction-related information.</li>
+                    <li>Information necessary to provide the requested service.</li>
+                </ul>
+
+
+                <h3>
+                    2. How Information Is Used
+                </h3>
+
+                <p>
+                    Personal information may be used to process requests,
+                    communicate with clients, build websites, process
+                    payments, provide support, maintain records and
+                    improve services.
+                </p>
+
+
+                <h3>
+                    3. Third-Party Service Providers
+                </h3>
+
+                <p>
+                    MonarchAurex may use third-party platforms to provide
+                    certain services.
+                </p>
+
+                <p>
+                    These may include services used for forms, image
+                    storage, website hosting, domain services and payment
+                    processing.
+                </p>
+
+
+                <h3>
+                    4. Profile Images and Cloud Storage
+                </h3>
+
+                <p>
+                    Where a client uploads a profile photograph or other
+                    image for website development, the image may be
+                    processed through a third-party cloud image service.
+                </p>
+
+                <p>
+                    The image is used for the agreed website project and
+                    should not be treated as public unless the client
+                    chooses to publish it through their website or
+                    otherwise gives permission.
+                </p>
+
+
+                <h3>
+                    5. Forms and Communication
+                </h3>
+
+                <p>
+                    Information submitted through MonarchAurex forms may
+                    be processed through third-party form-processing
+                    infrastructure for the purpose of receiving and
+                    managing client requests.
+                </p>
+
+
+                <h3>
+                    6. Payment Information
+                </h3>
+
+                <p>
+                    Payments may be processed through PayFast or another
+                    designated third-party payment provider.
+                </p>
+
+                <p>
+                    MonarchAurex does not require clients to send card
+                    numbers, CVV codes or banking passwords directly to
+                    MonarchAurex through ordinary website forms.
+                </p>
+
+
+                <h3>
+                    7. Information Security
+                </h3>
+
+                <p>
+                    MonarchAurex takes reasonable technical and
+                    organisational measures to protect personal
+                    information against unauthorised access, loss,
+                    misuse or disclosure.
+                </p>
+
+                <p>
+                    No internet-based system can guarantee absolute
+                    security, and clients acknowledge the inherent risks
+                    associated with transmitting information online.
+                </p>
+
+
+                <h3>
+                    8. Retention of Information
+                </h3>
+
+                <p>
+                    Personal information may be retained for as long as
+                    reasonably necessary for legitimate business,
+                    contractual, administrative, legal or accounting
+                    purposes.
+                </p>
+
+
+                <h3>
+                    9. Privacy Requests
+                </h3>
+
+                <p>
+                    Clients may contact MonarchAurex regarding questions
+                    about their personal information, subject to
+                    applicable legal requirements and verification of
+                    identity where necessary.
+                </p>
+
+
+                <div class="policy-note">
+
+                    <p>
+                        <strong>Important:</strong>
+                        This privacy policy describes MonarchAurex's
+                        intended handling of personal information. It
+                        should not be interpreted as a statement that
+                        every aspect of the business is automatically
+                        compliant with every requirement of applicable
+                        privacy legislation.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REFUND & CANCELLATION
+                 ================================================= -->
+
+            <section
+                class="policy-section"
+                id="refund"
+            >
+
+                <div class="section-number">
+                    Policy 03
+                </div>
+
+                <h2>
+                    Refund & Cancellation Policy
+                </h2>
+
+                <p>
+                    This section explains how cancellations and refunds
+                    may be handled when a client purchases website
+                    services from MonarchAurex.
+                </p>
+
+
+                <h3>
+                    1. Cancellation Before Work Begins
+                </h3>
+
+                <p>
+                    A client who wishes to cancel a project should contact
+                    MonarchAurex as soon as possible.
+                </p>
+
+                <p>
+                    Where work has not yet started, MonarchAurex may
+                    consider the cancellation and any applicable refund
+                    in accordance with the agreed project terms and
+                    applicable law.
+                </p>
+
+
+                <h3>
+                    2. Cancellation After Work Begins
+                </h3>
+
+                <p>
+                    If development or other project work has already
+                    started, the amount refundable may be affected by
+                    work already completed, resources committed and
+                    non-refundable third-party costs.
+                </p>
+
+
+                <h3>
+                    3. Third-Party Costs
+                </h3>
+
+                <p>
+                    Costs already paid to third-party providers may not
+                    be recoverable by MonarchAurex.
+                </p>
+
+                <p>
+                    Examples may include domain registration, hosting,
+                    software subscriptions, payment processing fees or
+                    other third-party services.
+                </p>
+
+
+                <h3>
+                    4. Client Delays
+                </h3>
+
+                <p>
+                    A project may be delayed when required information,
+                    content, approvals or feedback are not supplied by
+                    the client.
+                </p>
+
+                <p>
+                    Extended delays may affect the project timeline and
+                    may require the project to be rescheduled.
+                </p>
+
+
+                <h3>
+                    5. Refund Requests
+                </h3>
+
+                <p>
+                    Refund requests should be submitted through the
+                    official MonarchAurex communication channel and
+                    should include sufficient information for the request
+                    to be reviewed.
+                </p>
+
+
+                <div class="policy-note">
+
+                    <p>
+                        <strong>Legal rights:</strong>
+                        Nothing in this policy is intended to remove or
+                        limit consumer rights that cannot lawfully be
+                        excluded or limited under applicable South
+                        African law.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PAYMENT POLICY
+                 ================================================= -->
+
+            <section
+                class="policy-section"
+                id="payment"
+            >
+
+                <div class="section-number">
+                    Policy 04
+                </div>
+
+                <h2>
+                    Payment Policy
+                </h2>
+
+                <p>
+                    This policy explains how payments are handled for
+                    MonarchAurex website projects.
+                </p>
+
+
+                <h3>
+                    1. Standard Package Payments
+                </h3>
+
+                <p>
+                    Standard website packages may require an initial
+                    payment before development begins.
+                </p>
+
+                <p>
+                    Where the 35% Initial Payment option is selected,
+                    35% of the agreed package price is payable initially,
+                    with the remaining balance becoming payable according
+                    to the agreed project terms.
+                </p>
+
+
+                <h3>
+                    2. Remaining Balance
+                </h3>
+
+                <p>
+                    The remaining balance must be paid in accordance with
+                    the payment arrangement communicated to the client.
+                </p>
+
+                <p>
+                    Final delivery, deployment, transfer of relevant
+                    project materials or other completion steps may be
+                    dependent on settlement of the required outstanding
+                    balance where this forms part of the agreed terms.
+                </p>
+
+
+                <h3>
+                    3. Private Offers
+                </h3>
+
+                <p>
+                    Private offers may have a different price and payment
+                    arrangement from the publicly displayed packages.
+                </p>
+
+                <p>
+                    The client will be informed of the agreed amount and
+                    payment terms before accepting the private offer.
+                </p>
+
+
+                <h3>
+                    4. PayFast
+                </h3>
+
+                <p>
+                    MonarchAurex may use PayFast as its third-party online
+                    payment service provider to securely process payments.
+                </p>
+
+                <p>
+                    Payment information may therefore be processed by
+                    PayFast in accordance with PayFast's own terms,
+                    security procedures and privacy practices.
+                </p>
+
+
+                <h3>
+                    5. Payment Confirmation
+                </h3>
+
+                <p>
+                    A payment is not considered fully confirmed merely
+                    because a client has been redirected back to the
+                    MonarchAurex website after attempting payment.
+                </p>
+
+                <p>
+                    Payment confirmation may depend on successful
+                    verification through the relevant payment provider
+                    and MonarchAurex's payment system.
+                </p>
+
+
+                <h3>
+                    6. Failed Payments
+                </h3>
+
+                <p>
+                    If a payment fails, is cancelled, reversed or is not
+                    successfully confirmed, the related amount remains
+                    outstanding until a successful payment arrangement
+                    has been made.
+                </p>
+
+
+                <h3>
+                    7. Outstanding Balances
+                </h3>
+
+                <p>
+                    MonarchAurex may pause development, delivery,
+                    deployment or other project activity where an agreed
+                    payment becomes overdue, subject to the applicable
+                    agreement and law.
+                </p>
+
+
+                <h3>
+                    8. Payment Records
+                </h3>
+
+                <p>
+                    MonarchAurex may retain transaction and payment
+                    records for accounting, administrative, contractual
+                    and legal purposes.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 GENERAL ACCEPTANCE
+                 ================================================= -->
+
+            <section class="policy-section">
+
+                <div class="section-number">
+                    Policy 05
+                </div>
+
+                <h2>
+                    Acceptance
+                </h2>
+
+                <p>
+                    By requesting, purchasing or proceeding with a
+                    MonarchAurex service, the client acknowledges that
+                    they have had an opportunity to review the applicable
+                    policies and agree to the terms that apply to their
+                    project, subject to any rights that cannot lawfully
+                    be excluded.
+                </p>
+
+                <p>
+                    Where a separate written agreement, quotation or
+                    private offer applies to a project, that agreement may
+                    contain additional project-specific terms.
+                </p>
+
+
+                <div class="contact-card">
+
+                    <h3>
+                        Contact MonarchAurex
+                    </h3>
+
+                    <p>
+                        For questions regarding these policies or an
+                        existing project, please contact MonarchAurex
+                        through the official communication channel
+                        provided during your project.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- =====================================================
+             POLICY NAVIGATION — BOTTOM ONLY
+             ===================================================== -->
+
+        <nav
+            class="policy-navigation"
+            aria-label="Policy navigation"
+        >
+
+            <a href="#terms">
+                Terms & Conditions
+            </a>
+
+            <a href="#privacy">
+                Privacy Policy
+            </a>
+
+            <a href="#refund">
+                Refund & Cancellation
+            </a>
+
+            <a href="#payment">
+                Payment Policy
+            </a>
+
+        </nav>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="policy-footer">
+
+            <div class="brand-name">
+                MONARCHAUREX
+            </div>
+
+            <p>
+                Not Just a Website. A Professional Identity.
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
