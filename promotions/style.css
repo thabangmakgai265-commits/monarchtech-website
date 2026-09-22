@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+
 /* =========================================================
    MONARCHAUREX — PROMOTIONS
    3D ARCHITECTURAL BACKGROUND SYSTEM
@@ -50,6 +53,7 @@ html{
 
 body{
     min-height:100vh;
+
     background:
         radial-gradient(
             circle at 80% 10%,
@@ -64,15 +68,22 @@ body{
         var(--bg);
 
     color:var(--text);
+
     font-family:
-        Inter,
+        "DM Sans",
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
 
+    font-weight:400;
+
     line-height:1.6;
+
     overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
 img{
@@ -101,15 +112,14 @@ main{
     overflow:hidden;
 }
 
-/*
-   Large architectural atmosphere behind the whole page.
-*/
-
 main::before{
     content:"";
+
     position:absolute;
     inset:0;
+
     z-index:-10;
+
     pointer-events:none;
 
     background:
@@ -129,13 +139,9 @@ main::before{
     opacity:.8;
 }
 
-
-/*
-   Large distant architectural plane.
-*/
-
 main::after{
     content:"";
+
     position:absolute;
 
     width:900px;
@@ -145,6 +151,7 @@ main::after{
     top:500px;
 
     z-index:-9;
+
     pointer-events:none;
 
     border:1px solid rgba(201,205,210,.055);
@@ -191,6 +198,7 @@ header{
 
 .navbar{
     width:min(var(--max-width), calc(100% - 48px));
+
     min-height:82px;
 
     margin:auto;
@@ -203,8 +211,13 @@ header{
 }
 
 .brand{
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:14px;
     font-weight:700;
+
     letter-spacing:.22em;
     text-transform:uppercase;
 }
@@ -212,6 +225,7 @@ header{
 .nav-links{
     display:flex;
     align-items:center;
+
     gap:34px;
 }
 
@@ -219,6 +233,10 @@ header{
     position:relative;
 
     color:var(--text-soft);
+
+    font-family:
+        "Manrope",
+        sans-serif;
 
     font-size:13px;
     font-weight:500;
@@ -231,6 +249,7 @@ header{
     content:"";
 
     position:absolute;
+
     left:0;
     bottom:-7px;
 
@@ -239,7 +258,8 @@ header{
 
     background:var(--gold-soft);
 
-    transition:width .3s var(--ease);
+    transition:
+        width .3s var(--ease);
 }
 
 .nav-links a:hover{
@@ -257,6 +277,10 @@ header{
 
     color:var(--text);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:12px;
     font-weight:600;
 
@@ -270,7 +294,9 @@ header{
 
 .nav-cta:hover{
     background:rgba(199,164,91,.08);
+
     border-color:rgba(199,164,91,.5);
+
     transform:translateY(-2px);
 }
 
@@ -281,6 +307,7 @@ header{
 
 .btn{
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
 
@@ -290,10 +317,15 @@ header{
 
     border:1px solid transparent;
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:12px;
     font-weight:600;
 
     letter-spacing:.08em;
+
     text-transform:uppercase;
 
     transition:
@@ -328,12 +360,15 @@ header{
 
 .btn-secondary{
     border-color:rgba(255,255,255,.14);
+
     color:var(--text-soft);
+
     background:rgba(255,255,255,.02);
 }
 
 .btn-secondary:hover{
     border-color:rgba(199,164,91,.35);
+
     color:var(--text);
 }
 
@@ -344,6 +379,7 @@ header{
 
 .section-title{
     max-width:760px;
+
     margin-bottom:55px;
 }
 
@@ -352,18 +388,34 @@ header{
 }
 
 .section-title h2{
-    font-size:clamp(32px,4vw,56px);
-    line-height:1.04;
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:clamp(34px,4vw,58px);
+
+    line-height:1.02;
+
     letter-spacing:-.035em;
+
+    font-weight:500;
+
+    text-wrap:balance;
 }
 
 .eyebrow{
     color:var(--gold-soft);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:11px;
     font-weight:700;
 
     letter-spacing:.22em;
+
     text-transform:uppercase;
 }
 
@@ -374,18 +426,23 @@ header{
 
 .promo-hero{
     position:relative;
+
     isolation:isolate;
 
     min-height:calc(100vh - 82px);
 
     display:grid;
-    grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);
+
+    grid-template-columns:
+        minmax(0,1.15fr)
+        minmax(330px,.85fr);
 
     align-items:center;
 
     gap:90px;
 
     width:min(var(--max-width), calc(100% - 48px));
+
     margin:auto;
 
     padding-top:100px;
@@ -395,9 +452,9 @@ header{
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    3D HERO SPACE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .promo-hero::before{
     content:"";
@@ -435,11 +492,6 @@ header{
 
     pointer-events:none;
 }
-
-
-/*
-   Main floating architectural slab.
-*/
 
 .promo-hero::after{
     content:"";
@@ -489,21 +541,29 @@ header{
 
 .promo-hero-content{
     position:relative;
+
     z-index:5;
 }
 
 .promo-hero h1{
-    max-width:780px;
+    max-width:820px;
 
     margin-top:18px;
 
-    font-size:clamp(54px,7vw,102px);
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    line-height:.94;
+    font-size:clamp(56px,7vw,108px);
+
+    line-height:.91;
 
     letter-spacing:-.055em;
 
-    font-weight:650;
+    font-weight:500;
+
+    text-wrap:balance;
 }
 
 .hero-description{
@@ -513,12 +573,18 @@ header{
 
     color:var(--text-soft);
 
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:17px;
+
     line-height:1.8;
 }
 
 .hero-actions{
     display:flex;
+
     flex-wrap:wrap;
 
     gap:14px;
@@ -528,6 +594,7 @@ header{
 
 .hero-meta{
     display:flex;
+
     flex-wrap:wrap;
 
     gap:25px;
@@ -536,8 +603,16 @@ header{
 
     color:var(--text-muted);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:11px;
+
+    font-weight:600;
+
     letter-spacing:.08em;
+
     text-transform:uppercase;
 }
 
@@ -548,12 +623,15 @@ header{
 
 .hero-signature{
     position:relative;
+
     z-index:4;
 
     min-height:400px;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:space-between;
 
     padding:40px;
@@ -573,6 +651,7 @@ header{
         inset 0 0 60px rgba(255,255,255,.015);
 
     backdrop-filter:blur(14px);
+
     -webkit-backdrop-filter:blur(14px);
 
     transform:
@@ -583,12 +662,10 @@ header{
     transform-style:preserve-3d;
 
     overflow:hidden;
+
+    animation:
+        signatureFloat 9s ease-in-out infinite;
 }
-
-
-/*
-   Metallic edge.
-*/
 
 .hero-signature::before{
     content:"";
@@ -611,11 +688,6 @@ header{
     box-shadow:
         0 0 20px rgba(199,164,91,.16);
 }
-
-
-/*
-   Floating 3D orb.
-*/
 
 .hero-signature::after{
     content:"";
@@ -655,30 +727,47 @@ header{
 .signature-label{
     color:var(--gold-soft);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:10px;
     font-weight:700;
 
     letter-spacing:.2em;
+
     text-transform:uppercase;
 }
 
 .signature-statement{
-    max-width:360px;
+    max-width:390px;
 
     margin-top:auto;
     margin-bottom:auto;
 
-    font-size:clamp(26px,3vw,42px);
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    line-height:1.08;
+    font-size:clamp(28px,3vw,44px);
+
+    line-height:1.05;
 
     letter-spacing:-.025em;
+
+    font-weight:500;
 }
 
 .signature-number{
     color:var(--gold-highlight);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:70px;
+
     line-height:1;
 
     font-weight:600;
@@ -703,20 +792,17 @@ header{
 .signature-footer{
     color:var(--text-muted);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:11px;
 
+    font-weight:500;
+
     letter-spacing:.08em;
+
     text-transform:uppercase;
-}
-
-
-/* =========================================================
-   HERO FLOATING PLANES
-   ========================================================= */
-
-.hero-signature{
-    animation:
-        signatureFloat 9s ease-in-out infinite;
 }
 
 
@@ -726,12 +812,15 @@ header{
 
 .offer-introduction{
     width:min(var(--max-width), calc(100% - 48px));
+
     margin:auto;
 
     padding-top:var(--section-space);
+
     padding-bottom:50px;
 
     position:relative;
+
     z-index:2;
 }
 
@@ -740,7 +829,12 @@ header{
 
     color:var(--text-soft);
 
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:17px;
+
     line-height:1.8;
 }
 
@@ -753,6 +847,7 @@ header{
     position:relative;
 
     width:min(var(--max-width), calc(100% - 48px));
+
     margin:auto;
 
     padding-bottom:var(--section-space);
@@ -764,7 +859,7 @@ header{
     display:grid;
 
     grid-template-columns:
-        repeat(3, minmax(0,1fr));
+        repeat(3,minmax(0,1fr));
 
     gap:24px;
 }
@@ -780,6 +875,7 @@ header{
     min-height:690px;
 
     display:flex;
+
     flex-direction:column;
 
     padding:38px;
@@ -807,15 +903,11 @@ header{
         box-shadow .4s var(--ease);
 }
 
-
-/*
-   3D surface.
-*/
-
 .offer-card::before{
     content:"";
 
     position:absolute;
+
     inset:12px;
 
     border:1px solid rgba(255,255,255,.025);
@@ -825,11 +917,6 @@ header{
 
     pointer-events:none;
 }
-
-
-/*
-   Metallic light reflection.
-*/
 
 .offer-card::after{
     content:"";
@@ -903,10 +990,13 @@ header{
 
 .offer-card-top{
     position:relative;
+
     z-index:3;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
 
     gap:20px;
@@ -915,32 +1005,52 @@ header{
 .offer-label{
     color:var(--gold-soft);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:10px;
+
     font-weight:700;
 
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .offer-card h3{
     position:relative;
+
     z-index:3;
 
     margin-top:25px;
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:32px;
+
     line-height:1.05;
 
     letter-spacing:-.03em;
+
+    font-weight:600;
 }
 
 .offer-price{
     position:relative;
+
     z-index:3;
 
     margin-top:20px;
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:42px;
+
     line-height:1;
 
     font-weight:600;
@@ -952,6 +1062,7 @@ header{
     color:var(--text-muted);
 
     font-size:12px;
+
     font-weight:400;
 
     letter-spacing:.05em;
@@ -959,21 +1070,29 @@ header{
 
 .offer-description{
     position:relative;
+
     z-index:3;
 
     margin-top:25px;
 
     color:var(--text-soft);
 
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:14px;
+
     line-height:1.8;
 }
 
 .offer-features{
     position:relative;
+
     z-index:3;
 
     display:flex;
+
     flex-direction:column;
 
     gap:13px;
@@ -989,6 +1108,10 @@ header{
     padding-left:18px;
 
     color:var(--text-soft);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
 
     font-size:13px;
 }
@@ -1011,9 +1134,11 @@ header{
 
 .offer-card-footer{
     position:relative;
+
     z-index:3;
 
     margin-top:auto;
+
     padding-top:35px;
 }
 
@@ -1028,6 +1153,7 @@ header{
 
 .flash-experience{
     position:relative;
+
     isolation:isolate;
 
     width:min(var(--max-width), calc(100% - 48px));
@@ -1058,11 +1184,6 @@ header{
     perspective:1800px;
 }
 
-
-/*
-   Large 3D architectural ring.
-*/
-
 .flash-experience::before{
     content:"";
 
@@ -1091,11 +1212,6 @@ header{
 
     pointer-events:none;
 }
-
-
-/*
-   Secondary floating slab.
-*/
 
 .flash-experience::after{
     content:"";
@@ -1132,17 +1248,27 @@ header{
 
 .flash-inner{
     position:relative;
+
     z-index:5;
 }
 
 .flash-heading{
-    max-width:720px;
+    max-width:760px;
 
-    font-size:clamp(38px,5vw,72px);
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    line-height:1;
+    font-size:clamp(42px,5vw,76px);
+
+    line-height:.98;
 
     letter-spacing:-.045em;
+
+    font-weight:500;
+
+    text-wrap:balance;
 }
 
 .flash-content{
@@ -1164,7 +1290,12 @@ header{
 
     color:var(--text-soft);
 
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:16px;
+
     line-height:1.8;
 }
 
@@ -1173,9 +1304,16 @@ header{
 
     color:var(--text-muted);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:11px;
 
+    font-weight:600;
+
     letter-spacing:.07em;
+
     text-transform:uppercase;
 }
 
@@ -1186,6 +1324,7 @@ header{
     height:230px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -1231,10 +1370,18 @@ header{
 
 .flash-offer-mark strong{
     position:relative;
+
     z-index:3;
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:50px;
+
     line-height:1;
+
+    font-weight:600;
 
     letter-spacing:-.06em;
 
@@ -1302,7 +1449,12 @@ header{
 .process-number{
     color:var(--gold-soft);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:12px;
+
     font-weight:700;
 
     letter-spacing:.15em;
@@ -1311,8 +1463,15 @@ header{
 .process-step h3{
     margin-top:30px;
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:20px;
+
     line-height:1.1;
+
+    font-weight:600;
 }
 
 .process-step p{
@@ -1320,7 +1479,12 @@ header{
 
     color:var(--text-muted);
 
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:13px;
+
     line-height:1.7;
 }
 
@@ -1339,6 +1503,7 @@ header{
 
 .clarity-list{
     display:flex;
+
     flex-direction:column;
 
     border-top:1px solid rgba(255,255,255,.08);
@@ -1359,9 +1524,16 @@ header{
 .clarity-item strong{
     color:var(--gold-soft);
 
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:12px;
 
+    font-weight:700;
+
     letter-spacing:.08em;
+
     text-transform:uppercase;
 }
 
@@ -1369,6 +1541,10 @@ header{
     max-width:760px;
 
     color:var(--text-soft);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
 
     font-size:14px;
 }
@@ -1380,6 +1556,7 @@ header{
 
 .final-cta{
     position:relative;
+
     isolation:isolate;
 
     width:min(var(--max-width), calc(100% - 48px));
@@ -1411,11 +1588,6 @@ header{
 
     perspective:1800px;
 }
-
-
-/*
-   3D diamond plane.
-*/
 
 .final-cta::before{
     content:"";
@@ -1453,11 +1625,6 @@ header{
     pointer-events:none;
 }
 
-
-/*
-   3D inner ring.
-*/
-
 .final-cta::after{
     content:"";
 
@@ -1486,19 +1653,29 @@ header{
 
 .final-cta-content{
     position:relative;
+
     z-index:5;
 }
 
 .final-cta h2{
-    max-width:760px;
+    max-width:780px;
 
     margin:0 auto;
 
-    font-size:clamp(40px,5vw,70px);
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    line-height:1;
+    font-size:clamp(42px,5vw,74px);
+
+    line-height:.98;
 
     letter-spacing:-.045em;
+
+    font-weight:500;
+
+    text-wrap:balance;
 }
 
 .final-cta p{
@@ -1507,6 +1684,10 @@ header{
     margin:25px auto 35px;
 
     color:var(--text-soft);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
 
     font-size:15px;
 }
@@ -1547,7 +1728,14 @@ header{
 }
 
 .footer-brand h3{
+    font-family:
+        "Manrope",
+        sans-serif;
+
     font-size:18px;
+
+    font-weight:700;
+
     letter-spacing:.05em;
 }
 
@@ -1558,12 +1746,17 @@ header{
 
     color:var(--text-muted);
 
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:13px;
 }
 
 .footer-navigation,
 .footer-contact{
     display:flex;
+
     flex-direction:column;
 
     gap:12px;
@@ -1572,6 +1765,10 @@ header{
 .footer-navigation a,
 .footer-contact a{
     color:var(--text-muted);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
 
     font-size:13px;
 
@@ -1594,10 +1791,16 @@ header{
     border-top:1px solid rgba(255,255,255,.06);
 
     display:flex;
+
     justify-content:space-between;
+
     gap:20px;
 
     color:var(--text-muted);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
 
     font-size:11px;
 }
@@ -1608,6 +1811,7 @@ header{
    ========================================================= */
 
 @keyframes heroLight{
+
     0%{
         transform:
             translate3d(-10px,0,-100px)
@@ -1624,6 +1828,7 @@ header{
 }
 
 @keyframes signatureFloat{
+
     0%{
         transform:
             perspective(1400px)
@@ -1746,6 +1951,7 @@ header{
         padding:30px;
 
         transform:none;
+
         animation:none;
     }
 
@@ -1821,11 +2027,6 @@ header{
 
         flex-direction:column;
     }
-
-    /*
-       Reduce the size of the architectural background
-       on smaller screens.
-    */
 
     .promo-hero::after{
         width:420px;
@@ -1956,7 +2157,9 @@ header{
     *::before,
     *::after{
         animation-duration:.01ms !important;
+
         animation-iteration-count:1 !important;
+
         transition-duration:.01ms !important;
     }
 }
