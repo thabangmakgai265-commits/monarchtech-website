@@ -3691,3 +3691,22 @@ main > section::after {
         padding-right: 18px;
     }
 }
+@media (max-width: 600px) {
+
+    .hero-meta {
+        flex-wrap: nowrap;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .hero-meta span {
+        font-size: .55rem;
+        letter-spacing: .12em;
+        white-space: nowrap;
+    }
+
+    .hero-meta span:not(:last-child)::after {
+        margin-left: 8px;
+    }
+
+}
