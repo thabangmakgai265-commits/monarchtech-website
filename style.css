@@ -611,13 +611,19 @@ main > section::after {
 
     display: grid;
 
+    /*
+       The hero remains visually full-width,
+       but the content follows the same
+       1240px system used by the rest
+       of the website.
+    */
     grid-template-columns:
-        minmax(0, 1.28fr)
-        minmax(320px, .72fr);
+        minmax(0, 1fr)
+        minmax(300px, 350px);
 
     align-items: center;
 
-    gap: 72px;
+    gap: clamp(48px, 6vw, 82px);
 
     position: relative;
 
@@ -625,6 +631,18 @@ main > section::after {
 
     padding-top: 90px;
     padding-bottom: 90px;
+
+    padding-left:
+        max(
+            24px,
+            calc((100% - var(--max-width)) / 2)
+        );
+
+    padding-right:
+        max(
+            24px,
+            calc((100% - var(--max-width)) / 2)
+        );
 
     background:
         radial-gradient(
@@ -747,7 +765,6 @@ main > section::after {
     font-family: "Manrope", sans-serif;
 
     font-size: .68rem;
-
     font-weight: 800;
 
     letter-spacing: .22em;
@@ -979,7 +996,8 @@ main > section::after {
 
 .hero-signature {
     width: 100%;
-    max-width: 420px;
+
+    max-width: 350px;
 
     margin: 0;
 
@@ -1021,18 +1039,18 @@ main > section::after {
 
     position: absolute;
 
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
 
-    right: -130px;
-    top: 25px;
+    right: -70px;
+    top: 35px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(193,160,92,.055),
+            rgba(193,160,92,.045),
             transparent 70%
         );
 
@@ -1049,7 +1067,6 @@ main > section::after {
     font-family: "Manrope", sans-serif;
 
     font-size: .61rem;
-
     font-weight: 800;
 
     letter-spacing: .18em;
@@ -1108,7 +1125,6 @@ main > section::after {
     font-family: "Manrope", sans-serif;
 
     font-size: .61rem;
-
     font-weight: 800;
 
     letter-spacing: .1em;
@@ -1120,7 +1136,6 @@ main > section::after {
     font-family: "Manrope", sans-serif;
 
     font-size: .78rem;
-
     font-weight: 700;
 
     letter-spacing: .08em;
@@ -3774,10 +3789,11 @@ span:last-child {
 
     .hero {
         grid-template-columns:
-            minmax(0,1.15fr)
-            minmax(290px,.85fr);
+            minmax(0, 1fr)
+            minmax(280px, 320px);
 
-        gap: 45px;
+        gap:
+            clamp(42px, 5vw, 65px);
     }
 
     .hero h1 {
@@ -3790,7 +3806,7 @@ span:last-child {
     }
 
     .hero-signature {
-        max-width: 370px;
+        max-width: 320px;
     }
 
     .standard-grid,
@@ -4074,7 +4090,9 @@ span:last-child {
     }
 
 
-    /* HERO MOBILE */
+    /* =====================================================
+       HERO MOBILE
+    ===================================================== */
 
     .hero {
         min-height: auto;
@@ -4088,6 +4106,12 @@ span:last-child {
 
         padding-bottom:
             76px;
+
+        padding-left:
+            24px;
+
+        padding-right:
+            24px;
     }
 
     .hero::before {
@@ -4166,6 +4190,12 @@ span:last-child {
 
         padding-bottom:
             70px;
+
+        padding-left:
+            18px;
+
+        padding-right:
+            18px;
     }
 
     .hero h1 {
@@ -4444,6 +4474,12 @@ span:last-child {
     .hero {
         padding-top:
             68px;
+
+        padding-left:
+            18px;
+
+        padding-right:
+            18px;
     }
 
     .hero h1 {
