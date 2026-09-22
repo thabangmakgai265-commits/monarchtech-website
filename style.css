@@ -3529,6 +3529,12 @@ main > section::after {
 
     .navbar {
         position: relative;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
         min-height: 72px;
         padding: 0 24px;
     }
@@ -3536,9 +3542,8 @@ main > section::after {
     .brand {
         position: relative;
         z-index: 1002;
+        margin: 0;
     }
-
-    /* Hamburger button */
 
     .mobile-menu-button {
         width: 44px;
@@ -3549,6 +3554,8 @@ main > section::after {
         justify-content: center;
         align-items: center;
         gap: 5px;
+
+        flex-shrink: 0;
 
         border: 1px solid rgba(193,160,92,.25);
         background: rgba(11,15,21,.85);
@@ -3564,10 +3571,8 @@ main > section::after {
 
     .mobile-menu-button span {
         display: block;
-
         width: 18px;
         height: 1px;
-
         background: var(--gold-soft);
 
         transition:
@@ -3579,9 +3584,6 @@ main > section::after {
         border-color: rgba(193,160,92,.55);
         background: rgba(18,24,33,.95);
     }
-
-
-    /* Mobile menu */
 
     .nav-links {
         position: absolute;
@@ -3622,10 +3624,8 @@ main > section::after {
         z-index: 1001;
     }
 
-
     .nav-links a {
         width: 100%;
-
         padding: 17px 4px;
 
         border-bottom: 1px solid rgba(255,255,255,.06);
@@ -3638,12 +3638,8 @@ main > section::after {
         border-bottom: none;
     }
 
-
-    /* Request button */
-
     .nav-links .nav-cta {
         margin-top: 14px;
-
         padding: 15px 18px;
 
         text-align: center;
@@ -3652,19 +3648,12 @@ main > section::after {
         background: rgba(193,160,92,.07);
     }
 
-
-    /* OPEN MENU */
-
     .mobile-menu-toggle:checked ~ .nav-links {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-
         transform: translateY(0);
     }
-
-
-    /* Hamburger becomes X */
 
     .mobile-menu-toggle:checked + .mobile-menu-button span:nth-child(1) {
         transform: translateY(6px) rotate(45deg);
@@ -3677,13 +3666,8 @@ main > section::after {
     .mobile-menu-toggle:checked + .mobile-menu-button span:nth-child(3) {
         transform: translateY(-6px) rotate(-45deg);
     }
-
 }
 
-
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
 
 @media (max-width: 480px) {
 
@@ -3706,5 +3690,4 @@ main > section::after {
         padding-left: 18px;
         padding-right: 18px;
     }
-
 }
