@@ -1507,67 +1507,65 @@ if (requestForm && !window.location.pathname.includes("/request/")) {
     if (reviewStatus) {
         reviewStatus.textContent = "";
     }
-    /* =====================================================
-       WHATSAPP FLOATING CHAT
-       ===================================================== */
+/* =====================================================
+   WHATSAPP FLOATING CHAT
+   ===================================================== */
 
-    const whatsappChat =
-        document.querySelector(".whatsapp-chat");
+const whatsappChat =
+    document.querySelector(".whatsapp-chat");
 
-    if (whatsappChat) {
+if (whatsappChat) {
 
-        let whatsappTimer = null;
-        let scrollTimer = null;
+    let whatsappTimer = null;
+    let scrollTimer = null;
 
-        const showWhatsAppChat = () => {
+    const showWhatsAppChat = () => {
 
-            whatsappChat.classList.add("whatsapp-visible");
-
-            clearTimeout(whatsappTimer);
-
-            whatsappTimer = setTimeout(() => {
-
-                whatsappChat.classList.remove(
-                    "whatsapp-visible"
-                );
-
-            }, 10000);
-
-        };
-
-
-        /* -----------------------------------------
-           INITIAL APPEARANCE
-           ----------------------------------------- */
-
-        setTimeout(() => {
-
-            showWhatsAppChat();
-
-        }, 500);
-
-
-        /* -----------------------------------------
-           APPEAR AGAIN WHEN USER SCROLLS
-           ----------------------------------------- */
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                clearTimeout(scrollTimer);
-
-                scrollTimer = setTimeout(() => {
-
-                    showWhatsAppChat();
-
-                }, 150);
-
-            },
-            { passive: true }
+        whatsappChat.classList.add(
+            "whatsapp-visible"
         );
 
-    }
+        clearTimeout(whatsappTimer);
+
+        whatsappTimer = setTimeout(() => {
+
+            whatsappChat.classList.remove(
+                "whatsapp-visible"
+            );
+
+        }, 10000);
+
+    };
+
+
+    /* INITIAL APPEARANCE */
+
+    setTimeout(() => {
+
+        showWhatsAppChat();
+
+    }, 500);
+
+
+    /* SHOW AGAIN WHEN USER SCROLLS */
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            clearTimeout(scrollTimer);
+
+            scrollTimer = setTimeout(() => {
+
+                showWhatsAppChat();
+
+            }, 150);
+
+        },
+        { passive: true }
+    );
+
+}
 
     console.log(
         "MONARCHAUREX — site functionality initialized."
