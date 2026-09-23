@@ -4765,8 +4765,7 @@ span:last-child {
     }
 }
 /* =========================================================
-   FLOATING WHATSAPP CHAT
-   MONARCHAUREX — FINAL
+   FLOATING WHATSAPP CHAT — FINAL
 ========================================================= */
 
 .whatsapp-chat {
@@ -4783,14 +4782,13 @@ span:last-child {
 
     text-decoration: none;
 
-    opacity: 0;
-    visibility: hidden;
+    /* Visible when page loads */
+    opacity: 1;
+    visibility: visible;
 
-    transform:
-        translateY(12px)
-        scale(.96);
+    transform: translateY(0);
 
-    pointer-events: none;
+    pointer-events: auto;
 
     transition:
         opacity .5s ease,
@@ -4799,24 +4797,20 @@ span:last-child {
 }
 
 
-/* =========================================================
-   ACTIVE STATE
-========================================================= */
+/* HIDDEN STATE */
 
-.whatsapp-chat.whatsapp-visible {
-    opacity: 1;
-    visibility: visible;
+.whatsapp-chat.whatsapp-hidden {
+    opacity: 0;
+    visibility: hidden;
 
-    transform:
-        translateY(0)
-        scale(1);
+    transform: translateY(12px);
 
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 
 /* =========================================================
-   WHATSAPP ICON — NO CIRCLE / NO BUTTON
+   ICON ONLY
 ========================================================= */
 
 .whatsapp-icon {
@@ -4824,13 +4818,8 @@ span:last-child {
     height: 52px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    position: relative;
-
-    flex-shrink: 0;
 
     background: none;
 
@@ -4840,22 +4829,13 @@ span:last-child {
 
     box-shadow: none;
 
-    transition:
-        transform .3s ease;
+    position: relative;
 }
-
-
-/* Remove decorative rings */
 
 .whatsapp-icon::before,
 .whatsapp-icon::after {
     display: none;
 }
-
-
-/* =========================================================
-   WHATSAPP SVG
-========================================================= */
 
 .whatsapp-icon svg {
     width: 34px;
@@ -4886,8 +4866,7 @@ span:last-child {
 
     .whatsapp-chat:hover .whatsapp-icon svg {
 
-        transform:
-            scale(1.10);
+        transform: scale(1.1);
 
         fill: #F1D98F;
 
@@ -4902,7 +4881,7 @@ span:last-child {
 
 
 /* =========================================================
-   CHAT WITH US LABEL
+   LABEL
 ========================================================= */
 
 .whatsapp-label {
@@ -4928,8 +4907,7 @@ span:last-child {
 
     text-transform: uppercase;
 
-    transform:
-        translateX(5px);
+    transform: translateX(5px);
 
     transition:
         max-width .35s ease,
@@ -4938,9 +4916,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   DESKTOP — HOVER SHOWS LABEL
-========================================================= */
+/* Desktop hover */
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -4950,8 +4926,7 @@ span:last-child {
 
         opacity: 1;
 
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
 }
@@ -4981,21 +4956,13 @@ span:last-child {
         height: 30px;
     }
 
-
-    /*
-       MOBILE:
-       JS makes the WhatsApp element visible
-       for 10 seconds after scrolling.
-    */
-
-    .whatsapp-chat.whatsapp-visible .whatsapp-label {
+    .whatsapp-chat:not(.whatsapp-hidden) .whatsapp-label {
 
         max-width: 110px;
 
         opacity: 1;
 
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
 }
