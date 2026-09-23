@@ -4765,21 +4765,18 @@ span:last-child {
     }
 }
 /* =========================================================
-   27. FLOATING WHATSAPP CHAT
-   ========================================================= */
+   FLOATING WHATSAPP CHAT
+========================================================= */
 
 .whatsapp-chat {
     position: fixed;
-
     right: 26px;
     bottom: 26px;
 
-    z-index: 9999;
+    z-index: 99999;
 
     display: inline-flex;
-
     align-items: center;
-
     gap: 10px;
 
     text-decoration: none;
@@ -4787,46 +4784,33 @@ span:last-child {
     opacity: 0;
     visibility: hidden;
 
-    transform:
-        translateY(12px)
-        scale(.96);
+    transform: translateY(12px) scale(.96);
 
     pointer-events: none;
 
     transition:
-        opacity .55s var(--ease),
-        transform .55s var(--ease),
-        visibility .55s ease;
+        opacity .5s ease,
+        transform .5s ease,
+        visibility .5s ease;
 }
-
-
-/* ---------------------------------------------------------
-   VISIBLE STATE
---------------------------------------------------------- */
 
 .whatsapp-chat.whatsapp-visible {
     opacity: 1;
-
     visibility: visible;
 
-    transform:
-        translateY(0)
-        scale(1);
+    transform: translateY(0) scale(1);
 
     pointer-events: auto;
 }
 
 
-/* ---------------------------------------------------------
-   WHATSAPP ICON
---------------------------------------------------------- */
+/* ICON */
 
 .whatsapp-icon {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -4839,115 +4823,39 @@ span:last-child {
     background:
         radial-gradient(
             circle at 32% 25%,
-            rgba(255,231,163,.18),
-            transparent 42%
+            rgba(255,231,163,.20),
+            transparent 45%
         );
 
-    box-shadow:
-        0 12px 35px
-        rgba(0,0,0,.42),
+    border: 1px solid rgba(193,160,92,.45);
 
-        0 0 28px
-        rgba(193,160,92,.10);
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.45),
+        0 0 30px rgba(193,160,92,.12);
 
     transition:
-        transform .35s var(--ease),
-        box-shadow .35s ease;
-}
-
-
-.whatsapp-icon::before {
-    content: "";
-
-    position: absolute;
-
-    inset: -1px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(193,160,92,.42);
-
-    pointer-events: none;
-}
-
-
-.whatsapp-icon::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 4px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    pointer-events: none;
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 
 .whatsapp-icon svg {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
 
     display: block;
 
-    position: relative;
-
-    z-index: 2;
-
-    fill:
-        var(--gold-light);
+    fill: #DCC58E;
 
     filter:
         drop-shadow(
             0 0 7px
-            rgba(193,160,92,.18)
-        );
-
-    transition:
-        fill .3s ease,
-        filter .3s ease;
-}
-
-
-/* ---------------------------------------------------------
-   HOVER
---------------------------------------------------------- */
-
-.whatsapp-chat:hover .whatsapp-icon {
-    transform:
-        translateY(-3px)
-        scale(1.04);
-
-    box-shadow:
-        0 18px 42px
-        rgba(0,0,0,.50),
-
-        0 0 35px
-        rgba(193,160,92,.16);
-}
-
-
-.whatsapp-chat:hover .whatsapp-icon svg {
-    fill:
-        #E8D29A;
-
-    filter:
-        drop-shadow(
-            0 0 10px
-            rgba(220,197,142,.28)
+            rgba(220,197,142,.25)
         );
 }
 
 
-/* ---------------------------------------------------------
-   CHAT LABEL
---------------------------------------------------------- */
+/* LABEL */
 
 .whatsapp-label {
     max-width: 0;
@@ -4958,10 +4866,7 @@ span:last-child {
 
     opacity: 0;
 
-    padding: 0;
-
-    color:
-        var(--gold-light);
+    color: #DCC58E;
 
     font-family:
         "Manrope",
@@ -4975,19 +4880,16 @@ span:last-child {
 
     text-transform: uppercase;
 
-    transform:
-        translateX(5px);
+    transform: translateX(5px);
 
     transition:
-        max-width .4s var(--ease),
+        max-width .35s ease,
         opacity .3s ease,
-        transform .4s var(--ease);
+        transform .35s ease;
 }
 
 
-/* ---------------------------------------------------------
-   DESKTOP HOVER LABEL
---------------------------------------------------------- */
+/* DESKTOP HOVER */
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -4996,22 +4898,26 @@ span:last-child {
 
         opacity: 1;
 
-        transform:
-            translateX(0);
+        transform: translateX(0);
+    }
+
+    .whatsapp-chat:hover .whatsapp-icon {
+        transform: translateY(-3px) scale(1.05);
+
+        box-shadow:
+            0 18px 42px rgba(0,0,0,.50),
+            0 0 35px rgba(193,160,92,.18);
     }
 
 }
 
 
-/* =========================================================
-   MOBILE WHATSAPP
-   ========================================================= */
+/* MOBILE */
 
 @media (max-width: 760px) {
 
     .whatsapp-chat {
         right: 18px;
-
         bottom: 18px;
     }
 
@@ -5025,24 +4931,28 @@ span:last-child {
         height: 25px;
     }
 
-    .whatsapp-label {
-        font-size: .58rem;
+    /*
+       Show "Chat With Us" while the
+       WhatsApp element is active.
+    */
 
-        letter-spacing: .10em;
+    .whatsapp-chat.whatsapp-visible .whatsapp-label {
+        max-width: 110px;
+
+        opacity: 1;
+
+        transform: translateX(0);
     }
 
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
+/* SMALL MOBILE */
 
 @media (max-width: 480px) {
 
     .whatsapp-chat {
         right: 15px;
-
         bottom: 15px;
     }
 
@@ -5059,16 +4969,13 @@ span:last-child {
 }
 
 
-/* =========================================================
-   WHATSAPP + REDUCED MOTION
-   ========================================================= */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
 
     .whatsapp-chat,
     .whatsapp-icon,
-    .whatsapp-label,
-    .whatsapp-icon svg {
+    .whatsapp-label {
         transition: none !important;
     }
 
