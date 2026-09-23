@@ -4980,3 +4980,50 @@ span:last-child {
     }
 
 }
+/* WHATSAPP VISIBILITY TEST */
+
+.whatsapp-chat {
+    position: fixed !important;
+    right: 30px !important;
+    bottom: 30px !important;
+    z-index: 999999 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+
+    transform: none !important;
+
+    width: 55px !important;
+    height: 55px !important;
+
+    border-radius: 50% !important;
+
+    background: #111 !important;
+    border: 2px solid #DCC58E !important;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.6) !important;
+}
+
+.whatsapp-icon {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.whatsapp-icon svg {
+    width: 30px !important;
+    height: 30px !important;
+
+    fill: #DCC58E !important;
+}
+
+.whatsapp-label {
+    display: none !important;
+}
