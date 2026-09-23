@@ -798,7 +798,9 @@ img {
 
 .form-group textarea {
     min-height: 145px;
+
     resize: vertical;
+
     line-height: 1.65;
 }
 
@@ -814,8 +816,16 @@ img {
     padding-right: 45px;
 
     background-image:
-        linear-gradient(45deg, transparent 50%, var(--gold-soft) 50%),
-        linear-gradient(135deg, var(--gold-soft) 50%, transparent 50%),
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            var(--gold-soft) 50%
+        ),
+        linear-gradient(
+            135deg,
+            var(--gold-soft) 50%,
+            transparent 50%
+        ),
         linear-gradient(
             145deg,
             rgba(255,255,255,0.035),
@@ -855,6 +865,186 @@ img {
     box-shadow:
         0 0 0 3px rgba(193,160,92,0.055),
         0 12px 35px rgba(0,0,0,0.18);
+}
+
+
+/* =========================================================
+   PRIVATE OFFER SYSTEM
+   ========================================================= */
+
+.private-offer-section {
+    position: relative;
+
+    padding: 22px;
+
+    border: 1px solid rgba(193,160,92,0.24);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(193,160,92,0.055),
+            rgba(255,255,255,0.012)
+        );
+
+    overflow: hidden;
+
+    animation: privateOfferReveal .4s ease;
+}
+
+.private-offer-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 75px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-light),
+            transparent
+        );
+}
+
+.private-offer-section > .form-group {
+    position: relative;
+    z-index: 2;
+}
+
+.private-offer-heading {
+    margin-bottom: 10px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--gold-light);
+}
+
+.private-offer-description {
+    margin-bottom: 20px;
+
+    font-size: 0.73rem;
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+#private-offer {
+    border-color: rgba(193,160,92,0.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(193,160,92,0.055),
+            rgba(255,255,255,0.018)
+        );
+}
+
+.private-offer-status {
+    min-height: 18px;
+
+    margin-top: 8px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 0.64rem;
+
+    color: var(--gold-soft);
+}
+
+
+/* =========================================================
+   REFERRAL CODES
+   ========================================================= */
+
+.referral-section {
+    position: relative;
+
+    display: grid;
+    gap: 18px;
+
+    margin-top: 4px;
+
+    padding: 20px;
+
+    border-left: 1px solid rgba(193,160,92,0.28);
+
+    background:
+        rgba(255,255,255,0.012);
+
+    animation: privateOfferReveal .35s ease;
+}
+
+.referral-section::before {
+    content: "REFERRAL";
+
+    display: block;
+
+    margin-bottom: -5px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+
+    color: var(--gold-soft);
+}
+
+.referral-help {
+    margin-top: -6px;
+
+    font-size: 0.68rem;
+    line-height: 1.65;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   PAYMENT SECTION
+   ========================================================= */
+
+#payment-option-section {
+    transition:
+        opacity .3s ease,
+        max-height .3s ease,
+        margin .3s ease;
+}
+
+#payment-option-section.is-disabled {
+    opacity: 0.42;
+}
+
+#payment-option-section.is-disabled select {
+    cursor: not-allowed;
+
+    border-color: rgba(255,255,255,0.055);
+
+    background:
+        rgba(255,255,255,0.012);
+}
+
+#payment-option-section.is-disabled label {
+    color: var(--muted-dark);
+}
+
+#payment-section-divider {
+    transition:
+        opacity .3s ease,
+        max-height .3s ease,
+        margin .3s ease;
+}
+
+#payment-section-divider.is-disabled {
+    opacity: 0.35;
 }
 
 
@@ -1024,6 +1214,11 @@ img {
     gap: 15px;
 
     margin: 17px 0 4px;
+
+    transition:
+        opacity .3s ease,
+        max-height .3s ease,
+        margin .3s ease;
 }
 
 .form-section-divider::after {
@@ -1052,6 +1247,10 @@ img {
     color: var(--gold-soft);
 
     white-space: nowrap;
+}
+
+.form-section-divider.is-disabled {
+    opacity: 0.35;
 }
 
 
@@ -1102,6 +1301,7 @@ img {
 
 .payment-summary-row:last-child {
     border-bottom: 0;
+
     padding-bottom: 0;
 }
 
@@ -1210,6 +1410,7 @@ img {
 
 .request-submit:disabled {
     opacity: 0.55;
+
     cursor: not-allowed;
 
     transform: none !important;
@@ -1330,6 +1531,24 @@ textarea:focus-visible {
 
 
 /* =========================================================
+   PRIVATE OFFER ANIMATION
+   ========================================================= */
+
+@keyframes privateOfferReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
    TABLET
    ========================================================= */
 
@@ -1355,6 +1574,7 @@ textarea:focus-visible {
 
     .request-intro {
         position: relative;
+
         top: auto;
 
         max-width: 800px;
@@ -1444,6 +1664,14 @@ textarea:focus-visible {
     .request-form-card > h2 {
         font-size: 2rem;
     }
+
+    .private-offer-section {
+        padding: 20px;
+    }
+
+    .referral-section {
+        padding: 18px;
+    }
 }
 
 
@@ -1455,6 +1683,7 @@ textarea:focus-visible {
 
     body::before {
         background-size: 65px 65px;
+
         opacity: 0.22;
     }
 
@@ -1477,6 +1706,7 @@ textarea:focus-visible {
 
     .section-title > span {
         font-size: 0.56rem;
+
         letter-spacing: 0.13em;
     }
 
@@ -1521,12 +1751,21 @@ textarea:focus-visible {
         max-width: 100%;
     }
 
+    .private-offer-section {
+        padding: 17px;
+    }
+
+    .referral-section {
+        padding: 16px;
+    }
+
     .payment-summary {
         padding: 17px;
     }
 
     .payment-summary-row {
         align-items: flex-start;
+
         flex-direction: column;
 
         gap: 4px;
@@ -1561,7 +1800,9 @@ textarea:focus-visible {
     *::before,
     *::after {
         transition-duration: 0.01ms !important;
+
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
     }
 }
