@@ -1,18 +1,23 @@
 /* =========================================================
    MONARCHAUREX — REQUEST PAGE SCRIPT
+
    Handles:
    - Request ID generation
    - Package pricing
    - Payment calculations
+   - Private Offer selection
+   - Referral customer codes
    - Profile photo preview
    - Cloudinary upload
    - Form validation
    - Formspree submission
    - Request data storage
-   - Redirect to payment page
+   - Normal package → Payment page
+   - Private Offer → Pending Review
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
     "use strict";
 
 
@@ -20,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
        CONFIGURATION
     ========================================================= */
 
-    const CLOUDINARY_CLOUD_NAME = "ebfxr5ms";
+    const CLOUDINARY_CLOUD_NAME =
+        "ebfxr5ms";
 
     const CLOUDINARY_UPLOAD_PRESET =
         "monarch_profile_photos";
@@ -32,18 +38,26 @@ document.addEventListener("DOMContentLoaded", () => {
         "../payment/";
 
     const packagePrices = {
+
         Graduate: 899,
+
         Professional: 1999,
+
         Executive: 2599
+
     };
 
     const MAX_PHOTO_SIZE =
         5 * 1024 * 1024;
 
     const allowedPhotoTypes = [
+
         "image/jpeg",
+
         "image/png",
+
         "image/webp"
+
     ];
 
 
@@ -56,90 +70,180 @@ document.addEventListener("DOMContentLoaded", () => {
             "portfolio-request-form"
         );
 
+
     const requestIdInput =
         document.getElementById(
             "request-id"
         );
+
+
+    const requestStatusInput =
+        document.getElementById(
+            "request-status"
+        );
+
 
     const packageSelect =
         document.getElementById(
             "package"
         );
 
+
     const packageTotalInput =
         document.getElementById(
             "package-total"
         );
+
+
+    const privateOfferSection =
+        document.getElementById(
+            "private-offer-section"
+        );
+
+
+    const privateOfferSelect =
+        document.getElementById(
+            "private-offer"
+        );
+
+
+    const privateOfferStatus =
+        document.getElementById(
+            "private-offer-status"
+        );
+
+
+    const referralSection =
+        document.getElementById(
+            "referral-section"
+        );
+
+
+    const referralCode1 =
+        document.getElementById(
+            "referral-code-1"
+        );
+
+
+    const referralCode2 =
+        document.getElementById(
+            "referral-code-2"
+        );
+
+
+    const paymentOptionSection =
+        document.getElementById(
+            "payment-option-section"
+        );
+
+
+    const paymentSectionDivider =
+        document.getElementById(
+            "payment-section-divider"
+        );
+
 
     const paymentOption =
         document.getElementById(
             "payment-option"
         );
 
+
     const amountDueInput =
         document.getElementById(
             "amount-due"
         );
+
 
     const remainingBalanceInput =
         document.getElementById(
             "remaining-balance"
         );
 
+
     const profilePhotoInput =
         document.getElementById(
             "profile-photo"
         );
+
 
     const profilePhotoUrlInput =
         document.getElementById(
             "profile-photo-url"
         );
 
+
     const photoPreview =
         document.getElementById(
             "photo-preview"
         );
+
 
     const photoPreviewImage =
         document.getElementById(
             "photo-preview-image"
         );
 
+
     const photoStatus =
         document.getElementById(
             "photo-status"
         );
 
+
     const submitButton =
-        form?.querySelector(
-            ".request-submit"
+        document.getElementById(
+            "request-submit"
         );
+
+
+    const submitText =
+        submitButton?.querySelector(
+            ".submit-text"
+        );
+
 
     const feedback =
         document.getElementById(
             "form-feedback"
         );
 
+
     const summaryPackage =
         document.getElementById(
             "summary-package"
         );
 
-const summaryPrice =
-    document.getElementById(
-        "summary-total"
-    );
 
-const summaryAmountDue =
-    document.getElementById(
-        "summary-due"
-    );
+    const summaryPrice =
+        document.getElementById(
+            "summary-total"
+        );
 
-const summaryRemaining =
-    document.getElementById(
-        "summary-balance"
-    );
+
+    const summaryAmountDue =
+        document.getElementById(
+            "summary-due"
+        );
+
+
+    const summaryRemaining =
+        document.getElementById(
+            "summary-balance"
+        );
+
+
+    const paymentSummary =
+        document.getElementById(
+            "payment-summary"
+        );
+
+
+    const remainingSummaryRow =
+        document.getElementById(
+            "remaining-summary-row"
+        );
+
 
     /* =========================================================
        SAFETY CHECK
@@ -166,19 +270,27 @@ const summaryRemaining =
             amount === undefined ||
             amount === ""
         ) {
+
             return "—";
         }
+
 
         const number =
             Number(amount);
 
+
         if (Number.isNaN(number)) {
+
             return "—";
         }
 
+
         return `R${number.toLocaleString("en-ZA", {
+
             minimumFractionDigits: 2,
+
             maximumFractionDigits: 2
+
         })}`;
     }
 
@@ -192,14 +304,17 @@ const summaryRemaining =
         const year =
             new Date().getFullYear();
 
+
         const timestampPart =
             String(Date.now()).slice(-6);
+
 
         const randomPart =
             Math.floor(
                 100 +
                 Math.random() * 900
             );
+
 
         return `MAX-${year}-${timestampPart}${randomPart}`;
     }
@@ -226,20 +341,215 @@ const summaryRemaining =
     function getPackagePrice() {
 
         if (!packageSelect) {
+
             return null;
         }
+
 
         const selectedPackage =
             packageSelect.value;
 
+
         if (!selectedPackage) {
+
             return null;
         }
+
 
         return (
             packagePrices[selectedPackage] ??
             null
         );
+    }
+
+
+    /* =========================================================
+       PRIVATE OFFER UI
+    ========================================================= */
+
+    function resetPrivateOfferFields() {
+
+        if (privateOfferSelect) {
+
+            privateOfferSelect.value = "";
+        }
+
+
+        if (privateOfferStatus) {
+
+            privateOfferStatus.value = "";
+        }
+
+
+        if (referralCode1) {
+
+            referralCode1.value = "";
+
+            referralCode1.required = false;
+        }
+
+
+        if (referralCode2) {
+
+            referralCode2.value = "";
+
+            referralCode2.required = false;
+        }
+
+
+        if (privateOfferSection) {
+
+            privateOfferSection.hidden = true;
+        }
+
+
+        if (referralSection) {
+
+            referralSection.hidden = true;
+        }
+    }
+
+
+    function showPrivateOfferSection() {
+
+        if (privateOfferSection) {
+
+            privateOfferSection.hidden = false;
+        }
+    }
+
+
+    function showReferralSection() {
+
+        if (referralSection) {
+
+            referralSection.hidden = false;
+        }
+
+
+        if (referralCode1) {
+
+            referralCode1.required = true;
+        }
+
+
+        if (referralCode2) {
+
+            referralCode2.required = true;
+        }
+    }
+
+
+    function hideReferralSection() {
+
+        if (referralSection) {
+
+            referralSection.hidden = true;
+        }
+
+
+        if (referralCode1) {
+
+            referralCode1.required = false;
+
+            referralCode1.value = "";
+        }
+
+
+        if (referralCode2) {
+
+            referralCode2.required = false;
+
+            referralCode2.value = "";
+        }
+    }
+
+
+    /* =========================================================
+       PAYMENT UI
+    ========================================================= */
+
+    function showNormalPaymentOptions() {
+
+        if (paymentSectionDivider) {
+
+            paymentSectionDivider.hidden = false;
+        }
+
+
+        if (paymentOptionSection) {
+
+            paymentOptionSection.hidden = false;
+        }
+
+
+        if (paymentOption) {
+
+            paymentOption.disabled = false;
+
+            paymentOption.required = true;
+        }
+    }
+
+
+    function hideNormalPaymentOptions() {
+
+        if (paymentSectionDivider) {
+
+            paymentSectionDivider.hidden = true;
+        }
+
+
+        if (paymentOptionSection) {
+
+            paymentOptionSection.hidden = true;
+        }
+
+
+        if (paymentOption) {
+
+            paymentOption.value = "";
+
+            paymentOption.disabled = true;
+
+            paymentOption.required = false;
+        }
+    }
+
+
+    /* =========================================================
+       SUBMIT BUTTON
+    ========================================================= */
+
+    function setSubmitButtonForNormalPackage() {
+
+        if (submitText) {
+
+            submitText.textContent =
+                "Continue to Payment";
+        }
+
+        else if (submitButton) {
+
+            submitButton.textContent =
+                "Continue to Payment";
+        }
+    }
+
+
+    function setSubmitButtonForPrivateOffer() {
+
+        if (submitText) {
+
+            submitText.textContent =
+                "Request Private Offer";
+        }
+
+        else if (submitButton) {
+
+            submitButton.textContent =
+                "Request Private Offer";
+        }
     }
 
 
@@ -252,6 +562,7 @@ const summaryRemaining =
         const selectedPackage =
             packageSelect?.value || "";
 
+
         const price =
             getPackagePrice();
 
@@ -263,113 +574,189 @@ const summaryRemaining =
         if (!selectedPackage) {
 
             if (packageTotalInput) {
+
                 packageTotalInput.value = "";
             }
 
+
             if (amountDueInput) {
+
                 amountDueInput.value = "";
             }
 
+
             if (remainingBalanceInput) {
+
                 remainingBalanceInput.value = "";
             }
 
+
             if (summaryPackage) {
+
                 summaryPackage.textContent = "—";
             }
 
+
             if (summaryPrice) {
+
                 summaryPrice.textContent = "—";
             }
 
+
             if (summaryAmountDue) {
+
                 summaryAmountDue.textContent = "—";
             }
 
+
             if (summaryRemaining) {
+
                 summaryRemaining.textContent = "—";
             }
+
+
+            if (paymentSummary) {
+
+                paymentSummary.hidden = true;
+            }
+
+
+            showNormalPaymentOptions();
+
+            resetPrivateOfferFields();
+
+            setSubmitButtonForNormalPackage();
 
             return;
         }
 
 
-        /* -----------------------------------------
-           Private Offer
-        ----------------------------------------- */
+        /* =================================================
+           PRIVATE OFFER
+        ================================================= */
 
         if (
             selectedPackage ===
             "Private Offer"
         ) {
 
+            showPrivateOfferSection();
+
+            hideNormalPaymentOptions();
+
+            setSubmitButtonForPrivateOffer();
+
+
             if (packageTotalInput) {
+
                 packageTotalInput.value =
-                    "Custom Quote";
-            }
-
-            if (amountDueInput) {
-                amountDueInput.value =
-                    "Custom Quote";
-            }
-
-            if (remainingBalanceInput) {
-                remainingBalanceInput.value =
-                    "Custom Quote";
-            }
-
-            if (summaryPackage) {
-                summaryPackage.textContent =
                     "Private Offer";
             }
 
-            if (summaryPrice) {
-                summaryPrice.textContent =
-                    "Custom Quote";
+
+            if (amountDueInput) {
+
+                amountDueInput.value = "";
             }
+
+
+            if (remainingBalanceInput) {
+
+                remainingBalanceInput.value = "";
+            }
+
+
+            if (summaryPackage) {
+
+                summaryPackage.textContent =
+                    privateOfferSelect?.value ||
+                    "Private Offer";
+            }
+
+
+            if (summaryPrice) {
+
+                summaryPrice.textContent =
+                    "To be confirmed";
+            }
+
 
             if (summaryAmountDue) {
+
                 summaryAmountDue.textContent =
-                    "Custom Quote";
+                    "To be confirmed";
             }
 
+
             if (summaryRemaining) {
+
                 summaryRemaining.textContent =
                     "To be confirmed";
             }
 
-            if (paymentOption) {
 
-                paymentOption.value = "";
+            if (paymentSummary) {
 
-                paymentOption.disabled = true;
-
-                paymentOption.required = false;
+                paymentSummary.hidden = false;
             }
+
+
+            if (remainingSummaryRow) {
+
+                remainingSummaryRow.hidden = false;
+            }
+
+
+            if (privateOfferStatus) {
+
+                privateOfferStatus.value =
+                    "Pending Review";
+            }
+
 
             return;
         }
 
 
-        /* -----------------------------------------
-           Standard Packages
-        ----------------------------------------- */
+        /* =================================================
+           STANDARD PACKAGE
+        ================================================= */
 
-        if (paymentOption) {
+        showNormalPaymentOptions();
 
-            paymentOption.disabled = false;
+        setSubmitButtonForNormalPackage();
 
-            paymentOption.required = true;
+
+        if (privateOfferSection) {
+
+            privateOfferSection.hidden = true;
+        }
+
+
+        hideReferralSection();
+
+
+        if (privateOfferSelect) {
+
+            privateOfferSelect.value = "";
+        }
+
+
+        if (privateOfferStatus) {
+
+            privateOfferStatus.value = "";
         }
 
 
         if (price === null) {
+
             return;
         }
 
 
         let amountDue =
             price;
+
 
         let remainingBalance =
             0;
@@ -392,9 +779,13 @@ const summaryRemaining =
                     100
                 ) / 100;
 
+
             remainingBalance =
                 Math.round(
-                    (price - amountDue) *
+                    (
+                        price -
+                        amountDue
+                    ) *
                     100
                 ) / 100;
         }
@@ -413,6 +804,7 @@ const summaryRemaining =
             amountDue =
                 price;
 
+
             remainingBalance =
                 0;
         }
@@ -428,11 +820,13 @@ const summaryRemaining =
                 formatCurrency(price);
         }
 
+
         if (amountDueInput) {
 
             amountDueInput.value =
                 formatCurrency(amountDue);
         }
+
 
         if (remainingBalanceInput) {
 
@@ -453,17 +847,20 @@ const summaryRemaining =
                 selectedPackage;
         }
 
+
         if (summaryPrice) {
 
             summaryPrice.textContent =
                 formatCurrency(price);
         }
 
+
         if (summaryAmountDue) {
 
             summaryAmountDue.textContent =
                 formatCurrency(amountDue);
         }
+
 
         if (summaryRemaining) {
 
@@ -472,6 +869,69 @@ const summaryRemaining =
                     remainingBalance
                 );
         }
+
+
+        if (paymentSummary) {
+
+            paymentSummary.hidden = false;
+        }
+
+
+        if (remainingSummaryRow) {
+
+            remainingSummaryRow.hidden =
+                remainingBalance <= 0;
+        }
+    }
+
+
+    /* =========================================================
+       PRIVATE OFFER CHANGE
+    ========================================================= */
+
+    if (privateOfferSelect) {
+
+        privateOfferSelect.addEventListener(
+            "change",
+            () => {
+
+                const selectedOffer =
+                    privateOfferSelect.value;
+
+
+                if (privateOfferStatus) {
+
+                    privateOfferStatus.value =
+                        "Pending Review";
+                }
+
+
+                /* -----------------------------------------
+                   Referral Privilege
+                ----------------------------------------- */
+
+                if (
+                    selectedOffer ===
+                    "Referral Privilege"
+                ) {
+
+                    showReferralSection();
+                }
+
+
+                /* -----------------------------------------
+                   Other Private Offers
+                ----------------------------------------- */
+
+                else {
+
+                    hideReferralSection();
+                }
+
+
+                updatePaymentSummary();
+            }
+        );
     }
 
 
@@ -485,17 +945,42 @@ const summaryRemaining =
             "change",
             () => {
 
-                updatePaymentSummary();
+                const selectedPackage =
+                    packageSelect.value;
+
+
+                /* -----------------------------------------
+                   Private Offer
+                ----------------------------------------- */
 
                 if (
-                    packageSelect.value ===
+                    selectedPackage ===
                     "Private Offer"
                 ) {
 
-                    if (paymentOption) {
-                        paymentOption.value = "";
-                    }
+                    showPrivateOfferSection();
+
+                    hideNormalPaymentOptions();
+
+                    setSubmitButtonForPrivateOffer();
+
+                    updatePaymentSummary();
+
+                    return;
                 }
+
+
+                /* -----------------------------------------
+                   Normal Package
+                ----------------------------------------- */
+
+                resetPrivateOfferFields();
+
+                showNormalPaymentOptions();
+
+                setSubmitButtonForNormalPackage();
+
+                updatePaymentSummary();
             }
         );
     }
@@ -531,20 +1016,32 @@ const summaryRemaining =
                 if (!file) {
 
                     if (photoPreview) {
-                        photoPreview.hidden = true;
+
+                        photoPreview.hidden =
+                            true;
                     }
+
 
                     if (photoPreviewImage) {
-                        photoPreviewImage.src = "";
+
+                        photoPreviewImage.src =
+                            "";
                     }
+
 
                     if (photoStatus) {
-                        photoStatus.textContent = "";
+
+                        photoStatus.textContent =
+                            "";
                     }
 
+
                     if (profilePhotoUrlInput) {
-                        profilePhotoUrlInput.value = "";
+
+                        profilePhotoUrlInput.value =
+                            "";
                     }
+
 
                     return;
                 }
@@ -560,11 +1057,16 @@ const summaryRemaining =
                     )
                 ) {
 
-                    profilePhotoInput.value = "";
+                    profilePhotoInput.value =
+                        "";
+
 
                     if (photoPreview) {
-                        photoPreview.hidden = true;
+
+                        photoPreview.hidden =
+                            true;
                     }
+
 
                     if (photoStatus) {
 
@@ -574,6 +1076,7 @@ const summaryRemaining =
                         photoStatus.className =
                             "photo-status error";
                     }
+
 
                     return;
                 }
@@ -588,11 +1091,16 @@ const summaryRemaining =
                     MAX_PHOTO_SIZE
                 ) {
 
-                    profilePhotoInput.value = "";
+                    profilePhotoInput.value =
+                        "";
+
 
                     if (photoPreview) {
-                        photoPreview.hidden = true;
+
+                        photoPreview.hidden =
+                            true;
                     }
+
 
                     if (photoStatus) {
 
@@ -602,6 +1110,7 @@ const summaryRemaining =
                         photoStatus.className =
                             "photo-status error";
                     }
+
 
                     return;
                 }
@@ -614,6 +1123,7 @@ const summaryRemaining =
                 const reader =
                     new FileReader();
 
+
                 reader.onload =
                     function (event) {
 
@@ -623,12 +1133,14 @@ const summaryRemaining =
                                 event.target.result;
                         }
 
+
                         if (photoPreview) {
 
                             photoPreview.hidden =
                                 false;
                         }
                     };
+
 
                 reader.readAsDataURL(file);
 
@@ -642,10 +1154,6 @@ const summaryRemaining =
                         "photo-status";
                 }
 
-
-                /*
-                 * Clear previous Cloudinary URL.
-                 */
 
                 if (profilePhotoUrlInput) {
 
@@ -735,7 +1243,9 @@ const summaryRemaining =
                     CLOUDINARY_UPLOAD_URL,
                     {
                         method: "POST",
-                        body: cloudinaryData
+
+                        body:
+                            cloudinaryData
                     }
                 );
 
@@ -763,6 +1273,7 @@ const summaryRemaining =
                     "Cloudinary response:",
                     data
                 );
+
 
                 throw new Error(
                     data?.error?.message ||
@@ -829,14 +1340,18 @@ const summaryRemaining =
     ) {
 
         if (!feedback) {
+
             return;
         }
+
 
         feedback.textContent =
             message;
 
+
         feedback.className =
             `form-feedback ${type}`;
+
 
         feedback.hidden =
             false;
@@ -850,14 +1365,18 @@ const summaryRemaining =
     function clearFeedback() {
 
         if (!feedback) {
+
             return;
         }
+
 
         feedback.textContent =
             "";
 
+
         feedback.className =
             "form-feedback";
+
 
         feedback.hidden =
             true;
@@ -873,8 +1392,18 @@ const summaryRemaining =
         const selectedPackage =
             packageSelect?.value || "";
 
+
+        const selectedPrivateOffer =
+            privateOfferSelect?.value || "";
+
+
         const price =
             getPackagePrice();
+
+
+        const isPrivateOffer =
+            selectedPackage ===
+            "Private Offer";
 
 
         const storedData = {
@@ -882,41 +1411,107 @@ const summaryRemaining =
             requestId:
                 requestIdInput?.value || "",
 
+
             name:
                 document.getElementById(
                     "name"
-                )?.value || "",
+                )?.value.trim() || "",
+
 
             email:
                 document.getElementById(
                     "email"
-                )?.value || "",
+                )?.value.trim() || "",
+
+
+            field:
+                document.getElementById(
+                    "field"
+                )?.value.trim() || "",
+
 
             package:
                 selectedPackage,
 
+
             packageTotal:
                 packageTotalInput?.value || "",
 
+
             paymentOption:
-                paymentOption?.value || "",
+                isPrivateOffer
+                    ? ""
+                    : (
+                        paymentOption?.value ||
+                        ""
+                    ),
+
 
             amountDue:
-                amountDueInput?.value || "",
+                isPrivateOffer
+                    ? ""
+                    : (
+                        amountDueInput?.value ||
+                        ""
+                    ),
+
 
             remainingBalance:
-                remainingBalanceInput?.value || "",
+                isPrivateOffer
+                    ? ""
+                    : (
+                        remainingBalanceInput?.value ||
+                        ""
+                    ),
+
 
             profilePhotoUrl:
-                profilePhotoUrlInput?.value || "",
+                profilePhotoUrlInput?.value ||
+                "",
+
+
+            privateOffer:
+                selectedPrivateOffer,
+
+
+            referralCode1:
+                referralCode1?.value.trim() ||
+                "",
+
+
+            referralCode2:
+                referralCode2?.value.trim() ||
+                "",
+
+
+            privateOfferStatus:
+                isPrivateOffer
+                    ? "Pending Review"
+                    : "",
+
+
+            status:
+                isPrivateOffer
+                    ? "Pending Review"
+                    : "Pending Payment",
+
 
             packagePrice:
                 price,
+
 
             createdAt:
                 new Date().toISOString()
         };
 
+
+        /*
+         * Keep the existing sessionStorage
+         * structure for the normal payment flow.
+         *
+         * Private Offers are NOT relying on this
+         * as their long-term source of truth.
+         */
 
         sessionStorage.setItem(
             "monarchaurex_request",
@@ -967,10 +1562,20 @@ const summaryRemaining =
                     true;
 
                 submitButton.dataset.originalText =
-                    submitButton.textContent;
+                    submitText?.textContent ||
+                    "Continue to Payment";
 
-                submitButton.textContent =
-                    "Preparing Your Request...";
+                if (submitText) {
+
+                    submitText.textContent =
+                        "Preparing Your Request...";
+                }
+
+                else {
+
+                    submitButton.textContent =
+                        "Preparing Your Request...";
+                }
             }
 
 
@@ -992,14 +1597,57 @@ const summaryRemaining =
                 }
 
 
+                const isPrivateOffer =
+                    selectedPackage ===
+                    "Private Offer";
+
+
                 /* -----------------------------------------
-                   Payment Option
+                   Private Offer Validation
                 ----------------------------------------- */
 
-                if (
-                    selectedPackage !==
-                    "Private Offer"
-                ) {
+                if (isPrivateOffer) {
+
+                    const selectedOffer =
+                        privateOfferSelect?.value ||
+                        "";
+
+
+                    if (!selectedOffer) {
+
+                        throw new Error(
+                            "Please select a Private Offer."
+                        );
+                    }
+
+
+                    /* -----------------------------------------
+                       Referral Privilege
+                    ----------------------------------------- */
+
+                    if (
+                        selectedOffer ===
+                        "Referral Privilege"
+                    ) {
+
+                        if (
+                            !referralCode1?.value.trim() ||
+                            !referralCode2?.value.trim()
+                        ) {
+
+                            throw new Error(
+                                "Please enter both referral customer codes."
+                            );
+                        }
+                    }
+                }
+
+
+                /* -----------------------------------------
+                   Normal Package Payment Option
+                ----------------------------------------- */
+
+                if (!isPrivateOffer) {
 
                     if (
                         !paymentOption ||
@@ -1034,9 +1682,9 @@ const summaryRemaining =
                    Upload to Cloudinary
                 ----------------------------------------- */
 
-                if (submitButton) {
+                if (submitText) {
 
-                    submitButton.textContent =
+                    submitText.textContent =
                         "Uploading Profile Photo...";
                 }
 
@@ -1077,19 +1725,42 @@ const summaryRemaining =
 
 
                 /* -----------------------------------------
+                   Set Request Status
+                ----------------------------------------- */
+
+                if (requestStatusInput) {
+
+                    requestStatusInput.value =
+                        isPrivateOffer
+                            ? "Pending Review"
+                            : "Pending Payment";
+                }
+
+
+                if (privateOfferStatus) {
+
+                    privateOfferStatus.value =
+                        isPrivateOffer
+                            ? "Pending Review"
+                            : "";
+                }
+
+
+                /* -----------------------------------------
                    Store Request
                 ----------------------------------------- */
 
-                storeRequestData();
+                const storedRequest =
+                    storeRequestData();
 
 
                 /* -----------------------------------------
                    Prepare Formspree Submission
                 ----------------------------------------- */
 
-                if (submitButton) {
+                if (submitText) {
 
-                    submitButton.textContent =
+                    submitText.textContent =
                         "Submitting Request...";
                 }
 
@@ -1097,43 +1768,62 @@ const summaryRemaining =
                 /*
                  * IMPORTANT:
                  *
-                 * Do NOT use:
+                 * Do NOT send the actual profile
+                 * photo file to Formspree.
                  *
-                 * new FormData(form)
-                 *
-                 * because that includes the actual
-                 * profile photo file.
-                 *
-                 * Formspree is not receiving the image.
-                 *
-                 * Cloudinary already has the image.
-                 *
-                 * We manually remove "profile-photo"
-                 * before sending the FormData.
+                 * Cloudinary already stores the image.
                  */
 
                 const formData =
                     new FormData(form);
 
 
-         /* -----------------------------------------
-   REMOVE ACTUAL FILE FROM FORMSPREE
------------------------------------------ */
-
-formData.delete(
-    "profile_photo"
-);
+                formData.delete(
+                    "profile_photo"
+                );
 
 
-/*
- * Make absolutely sure the Cloudinary URL
- * is included instead.
- */
+                formData.set(
+                    "profile_photo_url",
+                    profilePhotoUrl
+                );
 
-formData.set(
-    "profile_photo_url",
-    profilePhotoUrl
-);
+
+                /* -----------------------------------------
+                   Ensure Private Offer Data
+                ----------------------------------------- */
+
+                if (isPrivateOffer) {
+
+                    formData.set(
+                        "request_status",
+                        "Pending Review"
+                    );
+
+
+                    formData.set(
+                        "private_offer_status",
+                        "Pending Review"
+                    );
+
+
+                    formData.set(
+                        "payment_option",
+                        "Not Applicable"
+                    );
+
+
+                    formData.set(
+                        "amount_due",
+                        "To be confirmed"
+                    );
+
+
+                    formData.set(
+                        "remaining_balance",
+                        "To be confirmed"
+                    );
+                }
 
 
                 const formAction =
@@ -1163,6 +1853,7 @@ formData.set(
                             body: formData,
 
                             headers: {
+
                                 Accept:
                                     "application/json"
                             }
@@ -1195,6 +1886,7 @@ formData.set(
                         result
                     );
 
+
                     throw new Error(
                         result?.errors?.[0]?.message ||
                         "Your request could not be submitted."
@@ -1204,23 +1896,51 @@ formData.set(
 
                 /* -----------------------------------------
                    Save Again
-
-                   This ensures the final Cloudinary URL
-                   is definitely stored.
                 ----------------------------------------- */
 
                 storeRequestData();
 
 
-                /* -----------------------------------------
-                   Success
-                ----------------------------------------- */
+                /* =================================================
+                   PRIVATE OFFER SUCCESS
+                ================================================= */
 
-                if (submitButton) {
+                if (isPrivateOffer) {
 
-                    submitButton.textContent =
+                    if (submitText) {
+
+                        submitText.textContent =
+                            "Private Offer Requested";
+                    }
+
+
+                    showFeedback(
+                        `Your Private Offer request has been received. Request ID: ${storedRequest.requestId}. We will review your request and contact you with the next steps.`,
+                        "success"
+                    );
+
+
+                    /*
+                     * IMPORTANT:
+                     *
+                     * Private Offers DO NOT go to
+                     * the normal payment page.
+                     */
+
+                    return;
+                }
+
+
+                /* =================================================
+                   NORMAL PACKAGE SUCCESS
+                ================================================= */
+
+                if (submitText) {
+
+                    submitText.textContent =
                         "Request Received";
                 }
+
 
                 showFeedback(
                     `Request received successfully. Request ID: ${requestIdInput.value}`,
@@ -1232,17 +1952,12 @@ formData.set(
                    Redirect to Payment
                 ----------------------------------------- */
 
-                if (submitButton) {
+                if (submitText) {
 
-                    submitButton.textContent =
+                    submitText.textContent =
                         "Redirecting to Payment...";
                 }
 
-
-                /*
-                 * Small delay so the user can see that
-                 * the request was successfully received.
-                 */
 
                 setTimeout(
                     () => {
@@ -1275,11 +1990,23 @@ formData.set(
                     submitButton.disabled =
                         false;
 
-                    submitButton.textContent =
-                        submitButton.dataset.originalText ||
-                        "Continue to Payment";
+
+                    if (submitText) {
+
+                        submitText.textContent =
+                            submitButton.dataset.originalText ||
+                            "Continue to Payment";
+                    }
+
+                    else {
+
+                        submitButton.textContent =
+                            submitButton.dataset.originalText ||
+                            "Continue to Payment";
+                    }
                 }
             }
+
         }
     );
 
