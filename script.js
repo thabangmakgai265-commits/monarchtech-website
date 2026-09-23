@@ -1519,35 +1519,43 @@ if (whatsappChat) {
     let whatsappTimer = null;
     let scrollTimer = null;
 
-    const showWhatsAppChat = () => {
+
+    const hideWhatsAppChat = () => {
 
         whatsappChat.classList.add(
-            "whatsapp-visible"
+            "whatsapp-hidden"
+        );
+
+    };
+
+
+    const showWhatsAppChat = () => {
+
+        whatsappChat.classList.remove(
+            "whatsapp-hidden"
         );
 
         clearTimeout(whatsappTimer);
 
         whatsappTimer = setTimeout(() => {
 
-            whatsappChat.classList.remove(
-                "whatsapp-visible"
-            );
+            hideWhatsAppChat();
 
         }, 10000);
 
     };
 
 
-    /* INITIAL APPEARANCE */
+    /* -----------------------------------------
+       INITIAL APPEARANCE
+    ----------------------------------------- */
 
-    setTimeout(() => {
-
-        showWhatsAppChat();
-
-    }, 500);
+    showWhatsAppChat();
 
 
-    /* SHOW AGAIN WHEN USER SCROLLS */
+    /* -----------------------------------------
+       SHOW AGAIN WHEN USER SCROLLS
+    ----------------------------------------- */
 
     window.addEventListener(
         "scroll",
@@ -1566,7 +1574,6 @@ if (whatsappChat) {
     );
 
 }
-
     console.log(
         "MONARCHAUREX — site functionality initialized."
     );
