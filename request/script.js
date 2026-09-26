@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
        CONFIGURATION
     ========================================================= */
 
-    const CLOUDINARY_CLOUD_NAME =
-        "ebfxr5ms";
+   const CLOUDINARY_CLOUD_NAME =
+    "ebfxr5ms";
 
-    const CLOUDINARY_UPLOAD_PRESET =
-        "monarch_profile_photos";
+const CLOUDINARY_UPLOAD_PRESET =
+    "arch_profile_photos";
 
     const CLOUDINARY_UPLOAD_URL =
         `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
