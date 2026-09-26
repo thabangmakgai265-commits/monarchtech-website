@@ -6,62 +6,11 @@
 
 
 /* =========================================================
-   PAYFAST CONFIGURATION
+   SECURE PAYFAST BACKEND
 ========================================================= */
 
-/*
-    IMPORTANT:
-
-    Do NOT put your PayFast passphrase here.
-
-    The passphrase/signature should eventually be handled
-    by a secure backend/serverless function.
-
-    Merchant ID and Merchant Key are left as placeholders
-    until the final PayFast integration is connected.
-*/
-
-const PAYFAST_CONFIG = {
-
-    // Change this to true when testing with PayFast Sandbox.
-    sandbox: true,
-
-    // Your PayFast Merchant ID will go here later.
-    merchantId: "",
-
-    // Your PayFast Merchant Key will go here later.
-    merchantKey: "",
-
-    /*
-        These URLs will eventually point to the secure backend
-        / payment confirmation system.
-    */
-
-    returnUrl:
-        "https://thabangmakgai265-commits.github.io/monarchtech-website/confirmation/",
-
-    cancelUrl:
-        "https://thabangmakgai265-commits.github.io/monarchtech-website/request/",
-
-    /*
-        DO NOT use a GitHub Pages URL as the final ITN endpoint.
-
-        PayFast must POST the payment notification to a backend
-        endpoint that can validate the ITN.
-
-        This is intentionally blank until we create that backend.
-    */
-    notifyUrl: ""
-};
-
-
-/* =========================================================
-   PAYFAST ENDPOINT
-========================================================= */
-
-const PAYFAST_URL = PAYFAST_CONFIG.sandbox
-    ? "https://sandbox.payfast.co.za/eng/process"
-    : "https://www.payfast.co.za/eng/process";
+const PAYFAST_BACKEND_URL =
+    "https://monarchaurex-payfast-backend.monarchaurexpayfast.workers.dev";
 
 
 /* =========================================================
@@ -208,7 +157,10 @@ function formatCurrency(amount) {
 
 function escapeDisplay(value) {
 
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
         return "";
     }
 
@@ -218,7 +170,8 @@ function escapeDisplay(value) {
 
 function getFirstName(fullName) {
 
-    const cleanName = escapeDisplay(fullName);
+    const cleanName =
+        escapeDisplay(fullName);
 
     if (!cleanName) {
         return "";
@@ -230,13 +183,15 @@ function getFirstName(fullName) {
 
 function getLastName(fullName) {
 
-    const cleanName = escapeDisplay(fullName);
+    const cleanName =
+        escapeDisplay(fullName);
 
     if (!cleanName) {
         return "";
     }
 
-    const parts = cleanName.split(/\s+/);
+    const parts =
+        cleanName.split(/\s+/);
 
     if (parts.length <= 1) {
         return "";
@@ -248,13 +203,21 @@ function getLastName(fullName) {
 
 function showMessage(message, type = "") {
 
-    elements.paymentMessage.textContent = message;
+    if (!elements.paymentMessage) {
+        return;
+    }
+
+    elements.paymentMessage.textContent =
+        message;
 
     elements.paymentMessage.className =
         "payment-message";
 
     if (type) {
-        elements.paymentMessage.classList.add(type);
+
+        elements.paymentMessage.classList.add(
+            type
+        );
     }
 }
 
@@ -266,7 +229,10 @@ function showMessage(message, type = "") {
 function loadRequest() {
 
     const savedRequest =
-        sessionStorage.getItem("monarchaurex_request");
+        sessionStorage.getItem(
+            "monarchaurex_request"
+        );
+
 
     if (!savedRequest) {
 
@@ -276,7 +242,9 @@ function loadRequest() {
         );
 
         if (elements.payButton) {
-            elements.payButton.disabled = true;
+
+            elements.payButton.disabled =
+                true;
         }
 
         return null;
@@ -285,9 +253,11 @@ function loadRequest() {
 
     let request;
 
+
     try {
 
-        request = JSON.parse(savedRequest);
+        request =
+            JSON.parse(savedRequest);
 
     } catch (error) {
 
@@ -302,7 +272,9 @@ function loadRequest() {
         );
 
         if (elements.payButton) {
-            elements.payButton.disabled = true;
+
+            elements.payButton.disabled =
+                true;
         }
 
         return null;
@@ -314,13 +286,14 @@ function loadRequest() {
 
 
 /* =========================================================
-   NORMALISE PAYMENT DATA
+   PREPARE PAYMENT DATA
 ========================================================= */
 
 function preparePaymentData(request) {
 
     const packageName =
         escapeDisplay(request.package);
+
 
     const packagePrice =
         Number(
@@ -329,26 +302,39 @@ function preparePaymentData(request) {
             0
         );
 
+
     let amountDue =
         Number(request.amountDue);
 
-    let remaining =
-        Number(request.remaining);
 
     /*
-        If amountDue wasn't saved correctly, calculate it from
-        the selected payment option.
+        Request page stores remainingBalance.
 
-        Current request page:
-        - Full Payment = 100%
-        - Initial Payment = 35%
+        Older versions used "remaining", so both are supported.
     */
 
-    if (!Number.isFinite(amountDue) || amountDue <= 0) {
+    let remaining =
+        Number(
+            request.remainingBalance ??
+            request.remaining
+        );
+
+
+    /*
+        Calculate amount if it was not saved correctly.
+    */
+
+    if (
+        !Number.isFinite(amountDue) ||
+        amountDue <= 0
+    ) {
 
         if (
-            request.paymentOption === "35% Initial Payment" ||
-            request.paymentOption === "Initial Payment"
+            request.paymentOption ===
+                "35% Initial Payment" ||
+
+            request.paymentOption ===
+                "Initial Payment"
         ) {
 
             amountDue =
@@ -362,7 +348,14 @@ function preparePaymentData(request) {
     }
 
 
-    if (!Number.isFinite(remaining) || remaining < 0) {
+    /*
+        Calculate remaining balance if necessary.
+    */
+
+    if (
+        !Number.isFinite(remaining) ||
+        remaining < 0
+    ) {
 
         remaining =
             Math.max(
@@ -375,31 +368,47 @@ function preparePaymentData(request) {
     return {
 
         requestId:
-            escapeDisplay(request.requestId),
+            escapeDisplay(
+                request.requestId
+            ),
 
         name:
-            escapeDisplay(request.name),
+            escapeDisplay(
+                request.name
+            ),
 
         email:
-            escapeDisplay(request.email),
+            escapeDisplay(
+                request.email
+            ),
 
         package:
             packageName,
 
         packagePrice:
-            packagePrice,
+            Number(
+                packagePrice.toFixed(2)
+            ),
 
         paymentOption:
-            escapeDisplay(request.paymentOption),
+            escapeDisplay(
+                request.paymentOption
+            ),
 
         amountDue:
-            Number(amountDue.toFixed(2)),
+            Number(
+                amountDue.toFixed(2)
+            ),
 
         remaining:
-            Number(remaining.toFixed(2)),
+            Number(
+                remaining.toFixed(2)
+            ),
 
         profilePhotoUrl:
-            escapeDisplay(request.profilePhotoUrl)
+            escapeDisplay(
+                request.profilePhotoUrl
+            )
 
     };
 }
@@ -411,46 +420,99 @@ function preparePaymentData(request) {
 
 function displayRequest(data) {
 
-    elements.requestId.textContent =
-        data.requestId || "Pending";
+    if (elements.requestId) {
 
-    elements.customerName.textContent =
-        data.name || "Customer";
-
-    elements.customerEmail.textContent =
-        data.email || "Not provided";
-
-    elements.packageName.textContent =
-        data.package || "Selected Package";
-
-    elements.packagePrice.textContent =
-        formatCurrency(data.packagePrice);
-
-    elements.summaryTotal.textContent =
-        formatCurrency(data.packagePrice);
-
-    elements.summaryPaymentOption.textContent =
-        data.paymentOption || "Full Payment";
-
-    elements.summaryAmountDue.textContent =
-        formatCurrency(data.amountDue);
-
-    elements.summaryRemaining.textContent =
-        formatCurrency(data.remaining);
-
-    elements.paymentTotal.textContent =
-        formatCurrency(data.amountDue);
+        elements.requestId.textContent =
+            data.requestId || "Pending";
+    }
 
 
-    if (data.remaining <= 0) {
+    if (elements.customerName) {
 
-        elements.remainingRow.style.display =
-            "none";
+        elements.customerName.textContent =
+            data.name || "Customer";
+    }
 
-    } else {
 
-        elements.remainingRow.style.display =
-            "flex";
+    if (elements.customerEmail) {
+
+        elements.customerEmail.textContent =
+            data.email || "Not provided";
+    }
+
+
+    if (elements.packageName) {
+
+        elements.packageName.textContent =
+            data.package || "Selected Package";
+    }
+
+
+    if (elements.packagePrice) {
+
+        elements.packagePrice.textContent =
+            formatCurrency(
+                data.packagePrice
+            );
+    }
+
+
+    if (elements.summaryTotal) {
+
+        elements.summaryTotal.textContent =
+            formatCurrency(
+                data.packagePrice
+            );
+    }
+
+
+    if (elements.summaryPaymentOption) {
+
+        elements.summaryPaymentOption.textContent =
+            data.paymentOption ||
+            "Full Payment";
+    }
+
+
+    if (elements.summaryAmountDue) {
+
+        elements.summaryAmountDue.textContent =
+            formatCurrency(
+                data.amountDue
+            );
+    }
+
+
+    if (elements.summaryRemaining) {
+
+        elements.summaryRemaining.textContent =
+            formatCurrency(
+                data.remaining
+            );
+    }
+
+
+    if (elements.paymentTotal) {
+
+        elements.paymentTotal.textContent =
+            formatCurrency(
+                data.amountDue
+            );
+    }
+
+
+    if (elements.remainingRow) {
+
+        if (data.remaining <= 0) {
+
+            elements.remainingRow.style.display =
+                "none";
+
+        } else {
+
+            elements.remainingRow.style.display =
+                "flex";
+        }
     }
 
 
@@ -471,160 +533,263 @@ function displayRequest(data) {
     };
 
 
-    elements.paymentDescription.textContent =
-        descriptions[data.package] ||
-        "Professional digital identity website.";
+    if (elements.paymentDescription) {
+
+        elements.paymentDescription.textContent =
+            descriptions[data.package] ||
+            "Professional digital identity website.";
+    }
 }
 
 
 /* =========================================================
-   BUILD PAYMENT ID
+   PREPARE BASIC PAYFAST FORM DATA
 ========================================================= */
 
-function createPaymentId(requestId) {
+function prepareBasicFormData(data) {
 
-    const base =
-        requestId ||
-        `MAX-${Date.now()}`;
+    if (payfastFields.nameFirst) {
 
-    return `${base}-PAY`;
+        payfastFields.nameFirst.value =
+            getFirstName(data.name);
+    }
+
+
+    if (payfastFields.nameLast) {
+
+        payfastFields.nameLast.value =
+            getLastName(data.name);
+    }
+
+
+    if (payfastFields.email) {
+
+        payfastFields.email.value =
+            data.email;
+    }
+
+
+    if (payfastFields.paymentId) {
+
+        payfastFields.paymentId.value =
+            data.requestId;
+    }
+
+
+    if (payfastFields.amount) {
+
+        payfastFields.amount.value =
+            data.amountDue.toFixed(2);
+    }
+
+
+    if (payfastFields.itemName) {
+
+        payfastFields.itemName.value =
+            `MonarchAurex ${data.package} Package`;
+    }
+
+
+    if (payfastFields.itemDescription) {
+
+        payfastFields.itemDescription.value =
+            `${data.paymentOption} - ${data.package} package`;
+    }
+
+
+    if (payfastFields.customStr1) {
+
+        payfastFields.customStr1.value =
+            data.requestId;
+    }
+
+
+    if (payfastFields.customStr2) {
+
+        payfastFields.customStr2.value =
+            data.paymentOption;
+    }
 }
 
 
 /* =========================================================
-   PREPARE PAYFAST FORM
+   CREATE PAYMENT THROUGH CLOUDFLARE WORKER
 ========================================================= */
 
-function preparePayFastForm(data) {
+async function createPayFastPayment(data) {
 
-    /*
-        These values are intentionally prepared here.
+    const response =
+        await fetch(
+            `${PAYFAST_BACKEND_URL}/create-payment`,
+            {
+                method: "POST",
 
-        The final secure implementation will generate the
-        PayFast signature server-side.
-    */
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
 
-    payfastFields.merchantId.value =
-        PAYFAST_CONFIG.merchantId;
+                body: JSON.stringify({
 
-    payfastFields.merchantKey.value =
-        PAYFAST_CONFIG.merchantKey;
+                    requestId:
+                        data.requestId,
 
-    payfastFields.returnUrl.value =
-        PAYFAST_CONFIG.returnUrl;
+                    name:
+                        data.name,
 
-    payfastFields.cancelUrl.value =
-        PAYFAST_CONFIG.cancelUrl;
+                    email:
+                        data.email,
 
-    payfastFields.notifyUrl.value =
-        PAYFAST_CONFIG.notifyUrl;
+                    packageName:
+                        data.package,
 
-    payfastFields.nameFirst.value =
-        getFirstName(data.name);
+                    packagePrice:
+                        data.packagePrice,
 
-    payfastFields.nameLast.value =
-        getLastName(data.name);
+                    paymentOption:
+                        data.paymentOption
 
-    payfastFields.email.value =
-        data.email;
-
-    payfastFields.paymentId.value =
-        createPaymentId(data.requestId);
-
-    payfastFields.amount.value =
-        data.amountDue.toFixed(2);
-
-    payfastFields.itemName.value =
-        `MonarchAurex ${data.package}`;
-
-    payfastFields.itemDescription.value =
-        `${data.package} professional identity website`;
-
-    payfastFields.customStr1.value =
-        data.requestId;
-
-    payfastFields.customStr2.value =
-        data.paymentOption;
-
-    /*
-        Signature intentionally remains blank.
-
-        We will populate this through the secure backend
-        once the backend is created.
-    */
-
-    payfastFields.signature.value =
-        "";
-}
-
-
-/* =========================================================
-   CHECK PAYMENT CONFIGURATION
-========================================================= */
-
-function isPaymentConfigured() {
-
-    const merchantReady =
-        Boolean(
-            PAYFAST_CONFIG.merchantId &&
-            PAYFAST_CONFIG.merchantKey
+                })
+            }
         );
 
-    const notifyReady =
-        Boolean(
-            PAYFAST_CONFIG.notifyUrl
+
+    let result;
+
+
+    try {
+
+        result =
+            await response.json();
+
+    } catch (error) {
+
+        throw new Error(
+            "The payment server returned an invalid response."
         );
+    }
 
-    const signatureReady =
-        Boolean(
-            payfastFields.signature.value
+
+    if (
+        !response.ok ||
+        !result.success
+    ) {
+
+        throw new Error(
+            result.error ||
+            "Unable to create the PayFast payment."
         );
+    }
 
 
-    return {
+    if (
+        !result.checkoutUrl ||
+        !result.paymentData
+    ) {
 
-        merchantReady,
+        throw new Error(
+            "The payment server did not return complete PayFast checkout details."
+        );
+    }
 
-        notifyReady,
 
-        signatureReady,
-
-        ready:
-            merchantReady &&
-            notifyReady &&
-            signatureReady
-
-    };
+    return result;
 }
 
 
 /* =========================================================
-   PREVENT LIVE SUBMISSION UNTIL BACKEND IS READY
+   POPULATE SECURE PAYFAST FORM
 ========================================================= */
 
-function handlePaymentSubmit(event) {
+function populatePayFastForm(paymentData) {
 
-    const configuration =
-        isPaymentConfigured();
+    /*
+        The Worker creates the complete signed paymentData.
+
+        We simply copy those values into the existing form.
+
+        The passphrase is NEVER sent to this page.
+    */
+
+    Object.keys(paymentData).forEach(
+        (key) => {
+
+            let field =
+                elements.payfastForm.querySelector(
+                    `[name="${key}"]`
+                );
+
+
+            if (!field) {
+
+                field =
+                    document.createElement(
+                        "input"
+                    );
+
+                field.type =
+                    "hidden";
+
+                field.name =
+                    key;
+
+                elements.payfastForm.appendChild(
+                    field
+                );
+            }
+
+
+            field.value =
+                paymentData[key] ?? "";
+        }
+    );
+}
+
+
+/* =========================================================
+   HANDLE PAYMENT SUBMISSION
+========================================================= */
+
+async function handlePaymentSubmit(event) {
+
+    event.preventDefault();
+
+
+    if (
+        !elements.payButton ||
+        !elements.payfastForm
+    ) {
+
+        return;
+    }
+
+
+    const request =
+        loadRequest();
+
+
+    if (!request) {
+
+        return;
+    }
+
+
+    const data =
+        preparePaymentData(request);
 
 
     /*
-        For now, prevent the browser from submitting a form
-        that doesn't have the secure signature and ITN endpoint.
+        Prevent accidental private-offer payments.
     */
 
-    if (!configuration.ready) {
-
-        event.preventDefault();
+    if (
+        data.package ===
+        "Private Offer"
+    ) {
 
         showMessage(
-            "PayFast checkout is being connected securely. The payment page is ready, but final payment verification still needs to be connected.",
+            "Private Offers do not use this payment page. Your offer must be approved first.",
             "error"
-        );
-
-        console.info(
-            "PayFast configuration status:",
-            configuration
         );
 
         return;
@@ -632,14 +797,115 @@ function handlePaymentSubmit(event) {
 
 
     /*
-        When the backend is ready, this form will submit
-        directly to the PayFast hosted payment page.
+        Disable the button while the Worker creates
+        the secure PayFast checkout.
     */
 
-    elements.payButton.disabled = true;
+    elements.payButton.disabled =
+        true;
 
-    elements.payButton.querySelector("span:first-child")
-        .textContent = "Redirecting...";
+
+    const buttonText =
+        elements.payButton.querySelector(
+            "span:first-child"
+        );
+
+
+    if (buttonText) {
+
+        buttonText.textContent =
+            "Connecting...";
+    }
+
+
+    showMessage(
+        "Connecting securely to PayFast..."
+    );
+
+
+    try {
+
+        /*
+            Ask the Cloudflare Worker to create
+            the signed PayFast payment.
+        */
+
+        const result =
+            await createPayFastPayment(
+                data
+            );
+
+
+        /*
+            Populate the existing PayFast form
+            using the server-generated payment data.
+        */
+
+        populatePayFastForm(
+            result.paymentData
+        );
+
+
+        /*
+            The Worker decides whether this is
+            sandbox or live PayFast.
+        */
+
+        elements.payfastForm.action =
+            result.checkoutUrl;
+
+
+        if (buttonText) {
+
+            buttonText.textContent =
+                "Redirecting...";
+        }
+
+
+        showMessage(
+            "Redirecting you to PayFast..."
+        );
+
+
+        /*
+            Give the browser a moment to update
+            the button/message before submission.
+        */
+
+        setTimeout(
+            () => {
+
+                elements.payfastForm.submit();
+
+            },
+            150
+        );
+
+    } catch (error) {
+
+        console.error(
+            "PayFast checkout error:",
+            error
+        );
+
+
+        showMessage(
+            error.message ||
+            "We could not connect to PayFast. Please try again.",
+            "error"
+        );
+
+
+        elements.payButton.disabled =
+            false;
+
+
+        if (buttonText) {
+
+            buttonText.textContent =
+                "Continue to PayFast";
+        }
+    }
 }
 
 
@@ -649,7 +915,9 @@ function handlePaymentSubmit(event) {
 
 function initialisePaymentPage() {
 
-    document.body.classList.add("loading");
+    document.body.classList.add(
+        "loading"
+    );
 
 
     if (elements.currentYear) {
@@ -665,39 +933,48 @@ function initialisePaymentPage() {
 
     if (!request) {
 
-        document.body.classList.remove("loading");
+        document.body.classList.remove(
+            "loading"
+        );
 
         return;
     }
 
 
     const data =
-        preparePaymentData(request);
+        preparePaymentData(
+            request
+        );
 
 
     displayRequest(data);
 
-    preparePayFastForm(data);
 
-
-    /*
-        Keep the page ready for the eventual backend.
-
-        We deliberately do not expose the passphrase or create
-        a fake client-side signature.
-    */
-
-    elements.payfastForm.action =
-        PAYFAST_URL;
-
-
-    elements.payfastForm.addEventListener(
-        "submit",
-        handlePaymentSubmit
+    prepareBasicFormData(
+        data
     );
 
 
-    document.body.classList.remove("loading");
+    /*
+        The form is NOT pointed directly at PayFast yet.
+
+        The submit handler first contacts the secure
+        Cloudflare Worker, receives the signed payment
+        data, then submits the form to PayFast.
+    */
+
+    if (elements.payfastForm) {
+
+        elements.payfastForm.addEventListener(
+            "submit",
+            handlePaymentSubmit
+        );
+    }
+
+
+    document.body.classList.remove(
+        "loading"
+    );
 }
 
 
