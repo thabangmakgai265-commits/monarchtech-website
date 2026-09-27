@@ -3,38 +3,38 @@
 /* =========================================================
    MACHAELA MSIZO
    MONARCHAUREX — PURPLE SIGNATURE
-   REFINED EDITORIAL EDITION
-   Black foundation + controlled royal purple
-========================================================= */
+   Black foundation + layered royal purple
+   ========================================================= */
 
 :root {
-    --bg: #080B12;
-    --bg-soft: #0D1119;
-    --bg-deep: #05070A;
+    --bg: #07060B;
+    --bg-soft: #0E0A13;
+    --bg-deep: #040307;
+    --card: #110C17;
+    --card-hover: #171020;
 
-    --purple: #7043A6;
-    --purple-light: #B28BD8;
-    --purple-soft: #8C62B8;
-    --purple-dark: #2B173F;
+    --purple-deep: #241032;
+    --purple-dark: #3A1B52;
+    --purple: #70409D;
+    --purple-rich: #8A52B8;
+    --purple-light: #BD91DC;
+    --purple-soft: #D3B8E8;
 
-    --text: #F5F5F5;
-    --text-soft: #A6ADBB;
-    --text-muted: #687180;
+    --text: #F4F0F7;
+    --text-soft: #B8AEBE;
+    --text-muted: #756B7D;
 
-    --border: rgba(255,255,255,.085);
-    --border-soft: rgba(255,255,255,.045);
-    --border-purple: rgba(112,67,166,.42);
+    --line: rgba(244, 240, 247, 0.09);
+    --line-soft: rgba(244, 240, 247, 0.045);
+    --line-purple: rgba(138, 82, 184, 0.34);
+    --line-purple-strong: rgba(189, 145, 220, 0.48);
 
     --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --sans: 'Inter', Arial, sans-serif;
 
-    --shadow: 0 30px 80px rgba(0,0,0,.48);
+    --shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    --ease: cubic-bezier(.22, .61, .36, 1);
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     margin: 0;
@@ -54,20 +54,20 @@ body {
 
     background:
         radial-gradient(
-            circle at 88% 5%,
-            rgba(112,67,166,.105),
+            circle at 86% 8%,
+            rgba(112, 64, 157, 0.15),
             transparent 25%
         ),
         radial-gradient(
-            circle at 5% 48%,
-            rgba(112,67,166,.035),
-            transparent 28%
+            circle at 8% 42%,
+            rgba(58, 27, 82, 0.12),
+            transparent 27%
         ),
         linear-gradient(
             180deg,
-            #080B12 0%,
-            #080B12 58%,
-            #05070A 100%
+            #07060B 0%,
+            #08060C 48%,
+            #050408 100%
         );
 
     color: var(--text);
@@ -83,8 +83,8 @@ body.menu-open {
 }
 
 ::selection {
-    background: var(--purple);
-    color: #fff;
+    background: var(--purple-rich);
+    color: #ffffff;
 }
 
 a {
@@ -120,34 +120,42 @@ section {
     outline-offset: 5px;
 }
 
-
 /* =========================================================
    ARCHITECTURAL BACKGROUND
-========================================================= */
+   ========================================================= */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
 
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.015) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
     pointer-events: none;
     z-index: -1;
 
-    background:
+    mask-image:
         linear-gradient(
-            90deg,
-            transparent 0,
-            rgba(255,255,255,.012) 50%,
-            transparent 100%
+            to bottom,
+            rgba(0,0,0,.55),
+            transparent 78%
         );
-
-    opacity: .35;
 }
-
 
 /* =========================================================
    NAVIGATION
-========================================================= */
+   ========================================================= */
 
 .site-header {
     position: relative;
@@ -167,9 +175,8 @@ body::before {
     justify-content: space-between;
     gap: 30px;
 
-    background: rgba(8,11,18,.91);
-
-    border: 1px solid var(--border);
+    background: rgba(7, 6, 11, 0.90);
+    border: 1px solid var(--line);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -177,7 +184,8 @@ body::before {
     position: sticky;
     top: 18px;
 
-    box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.28);
 }
 
 .navbar::before {
@@ -185,29 +193,25 @@ body::before {
 
     position: absolute;
     top: -1px;
-    left: 12%;
-    right: 12%;
+    left: 9%;
+    right: 9%;
 
     height: 1px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(112,67,166,.72),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(138,82,184,.75),
+            rgba(189,145,220,.4),
+            transparent
+        );
 }
-
-
-/* =========================================================
-   LOGO
-========================================================= */
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-
     flex-shrink: 0;
 }
 
@@ -218,7 +222,14 @@ body::before {
     display: grid;
     place-items: center;
 
-    border: 1px solid var(--border-purple);
+    border: 1px solid var(--line-purple-strong);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(138,82,184,.16),
+            rgba(36,16,50,.10)
+        );
 
     color: var(--purple-light);
 
@@ -229,38 +240,21 @@ body::before {
     position: relative;
 }
 
-.logo-mark::before {
-    content: "";
-
-    position: absolute;
-    inset: 6px;
-
-    border: 1px solid rgba(112,67,166,.22);
-
-    transform: rotate(45deg);
-}
-
 .logo-mark::after {
     content: "";
 
     position: absolute;
-    inset: 3px;
+    inset: 4px;
 
-    border: 1px solid rgba(255,255,255,.035);
+    border: 1px solid rgba(189,145,220,.15);
 }
 
 .logo-name {
     font-size: 12px;
     font-weight: 600;
-
     letter-spacing: .08em;
     text-transform: uppercase;
 }
-
-
-/* =========================================================
-   NAV LINKS
-========================================================= */
 
 .nav-links {
     display: flex;
@@ -276,7 +270,6 @@ body::before {
 
     font-size: 10px;
     font-weight: 600;
-
     letter-spacing: .13em;
     text-transform: uppercase;
 
@@ -290,28 +283,22 @@ body::before {
     transform: translateY(-1px);
 }
 
-
-/* =========================================================
-   NAV BUTTON
-========================================================= */
-
 .nav-button {
     padding: 12px 18px;
 
     border: 1px solid var(--purple);
 
-    color: #fff;
-
     background:
         linear-gradient(
             135deg,
-            rgba(112,67,166,.20),
-            rgba(112,67,166,.07)
+            rgba(138,82,184,.22),
+            rgba(58,27,82,.14)
         );
+
+    color: #fff;
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .12em;
     text-transform: uppercase;
 
@@ -324,14 +311,8 @@ body::before {
 .nav-button:hover {
     background: var(--purple);
     border-color: var(--purple-light);
-
     transform: translateY(-2px);
 }
-
-
-/* =========================================================
-   MOBILE TOGGLE
-========================================================= */
 
 .nav-toggle {
     display: none;
@@ -342,7 +323,7 @@ body::before {
     padding: 10px;
 
     background: transparent;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
 
     cursor: pointer;
 
@@ -359,9 +340,7 @@ body::before {
 
     background: var(--text);
 
-    transition:
-        transform .3s ease,
-        opacity .3s ease;
+    transition: transform .3s ease;
 }
 
 .nav-toggle[aria-expanded="true"] span:nth-child(1) {
@@ -376,37 +355,15 @@ body::before {
     transform: translateY(-6px) rotate(-45deg);
 }
 
-
 /* =========================================================
    GENERAL SECTIONS
-========================================================= */
+   ========================================================= */
 
 .section {
     width: 92%;
     max-width: 1450px;
 
     margin: 185px auto;
-
-    position: relative;
-}
-
-.section::after {
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-    top: 0;
-
-    width: 1px;
-    height: 90px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(112,67,166,.55),
-            transparent
-        );
 }
 
 .section-heading {
@@ -422,7 +379,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .2em;
 }
 
@@ -435,7 +391,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .2em;
     text-transform: uppercase;
 }
@@ -446,17 +401,15 @@ body::before {
     color: var(--text);
 
     font-family: var(--serif);
-    font-size: clamp(52px,5vw,76px);
+    font-size: clamp(52px, 5vw, 76px);
     font-weight: 500;
-
     line-height: .95;
     letter-spacing: -.025em;
 }
 
-
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .hero {
     width: 92%;
@@ -467,65 +420,14 @@ body::before {
 
     display: grid;
     grid-template-columns: 1.08fr .92fr;
+
     align-items: center;
 
     gap: 90px;
-
-    position: relative;
 }
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    right: -160px;
-    top: 30px;
-
-    border: 1px solid rgba(112,67,166,.10);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 1px;
-
-    right: 70px;
-    top: 155px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(112,67,166,.38),
-            transparent
-        );
-
-    transform: rotate(-32deg);
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
 
 .hero-content {
     max-width: 850px;
-
-    position: relative;
-    z-index: 2;
 }
 
 .hero-label {
@@ -539,7 +441,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .2em;
     text-transform: uppercase;
 }
@@ -550,7 +451,12 @@ body::before {
     width: 34px;
     height: 1px;
 
-    background: var(--purple);
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple-dark),
+            var(--purple-rich)
+        );
 }
 
 .hero h1 {
@@ -559,9 +465,8 @@ body::before {
     color: var(--text);
 
     font-family: var(--serif);
-    font-size: clamp(70px,7vw,104px);
+    font-size: clamp(70px, 7vw, 104px);
     font-weight: 500;
-
     line-height: .86;
     letter-spacing: -.035em;
 
@@ -570,6 +475,9 @@ body::before {
 
 .hero h1 span {
     color: var(--purple-light);
+
+    text-shadow:
+        0 0 35px rgba(138,82,184,.12);
 }
 
 .hero-description {
@@ -583,22 +491,11 @@ body::before {
     line-height: 1.9;
 }
 
-
-/* =========================================================
-   HERO ACTIONS
-========================================================= */
-
 .hero-actions {
     display: flex;
     align-items: center;
-
     gap: 12px;
 }
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 .btn-primary,
 .btn-secondary {
@@ -612,7 +509,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .14em;
     text-transform: uppercase;
 
@@ -620,72 +516,78 @@ body::before {
         transform .3s ease,
         background .3s ease,
         border-color .3s ease,
-        color .3s ease;
+        box-shadow .3s ease;
 }
 
 .btn-primary {
-    background: var(--purple);
+    background:
+        linear-gradient(
+            135deg,
+            #8B55B8 0%,
+            #6A3B96 48%,
+            #45205F 100%
+        );
 
-    border: 1px solid var(--purple-light);
+    border: 1px solid #8A52B8;
 
     color: #fff;
 
     box-shadow:
-        0 12px 30px rgba(112,67,166,.18);
+        0 12px 30px rgba(74,36,105,.22);
 }
 
 .btn-primary:hover {
-    background: var(--purple-light);
-    border-color: var(--purple-light);
+    background:
+        linear-gradient(
+            135deg,
+            #A26AC9 0%,
+            #7945A8 50%,
+            #51286D 100%
+        );
 
-    color: #140D1B;
+    border-color: var(--purple-light);
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 15px 35px rgba(112,67,166,.24);
+        0 16px 35px rgba(91,45,128,.30);
 }
 
 .btn-secondary {
-    background: rgba(255,255,255,.015);
+    background: transparent;
 
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
 
     color: var(--text);
 }
 
 .btn-secondary:hover {
     border-color: var(--purple);
-
-    color: var(--purple-light);
+    background: rgba(112,64,157,.06);
 
     transform: translateY(-2px);
 }
 
-
 /* =========================================================
    HERO PROFILE
-========================================================= */
+   ========================================================= */
 
 .hero-visual {
     display: flex;
     justify-content: center;
-
-    position: relative;
-    z-index: 2;
 }
 
 .profile-card {
-    width: min(100%,410px);
+    width: min(100%, 410px);
 
     background:
         linear-gradient(
-            180deg,
-            rgba(16,20,29,.98),
-            rgba(9,12,18,.98)
+            160deg,
+            rgba(36,16,50,.55),
+            rgba(14,10,19,.96) 48%
         );
 
-    border: 1px solid var(--border-purple);
+    border: 1px solid var(--line);
 
     box-shadow: var(--shadow);
 
@@ -700,29 +602,15 @@ body::before {
     top: 14px;
     right: 14px;
 
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
 
     border-radius: 50%;
 
-    background: var(--purple-light);
+    background: var(--purple-rich);
 
     box-shadow:
-        0 0 0 4px rgba(112,67,166,.10);
-}
-
-.profile-card::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 70px;
-    height: 1px;
-
-    background: var(--purple);
+        0 0 14px rgba(138,82,184,.55);
 }
 
 .profile-image {
@@ -733,17 +621,18 @@ body::before {
 
     background:
         radial-gradient(
-            circle at 50% 45%,
-            rgba(112,67,166,.16),
-            transparent 34%
+            circle at 70% 25%,
+            rgba(138,82,184,.15),
+            transparent 30%
         ),
         linear-gradient(
-            145deg,
-            #0E1119,
-            #080A10
-        );
+            135deg,
+            rgba(112,64,157,.10),
+            transparent 48%
+        ),
+        #0A080E;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 
     position: relative;
     overflow: hidden;
@@ -753,8 +642,7 @@ body::before {
     content: "";
 
     position: absolute;
-
-    inset: 26px;
+    inset: 28px;
 
     border: 1px solid rgba(255,255,255,.055);
 }
@@ -764,12 +652,15 @@ body::before {
 
     position: absolute;
 
-    width: 190px;
-    height: 190px;
+    width: 170px;
+    height: 170px;
 
-    border: 1px solid rgba(112,67,166,.38);
+    border: 1px solid rgba(138,82,184,.34);
 
     transform: rotate(45deg);
+
+    box-shadow:
+        0 0 60px rgba(112,64,157,.08);
 }
 
 .profile-image span {
@@ -780,7 +671,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .2em;
     text-transform: uppercase;
 }
@@ -798,7 +688,6 @@ body::before {
 
     font-size: 8px;
     font-weight: 700;
-
     letter-spacing: .17em;
 }
 
@@ -808,32 +697,29 @@ body::before {
     font-family: var(--serif);
     font-size: 30px;
     font-weight: 500;
-
     line-height: 1;
 }
 
 .profile-info p {
     color: var(--text-muted);
-
     font-size: 10px;
 }
 
-
 /* =========================================================
    ABOUT
-========================================================= */
+   ========================================================= */
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr .9fr;
-
     gap: 90px;
 }
 
 .about-content {
     padding-left: 28px;
 
-    border-left: 1px solid var(--purple-dark);
+    border-left:
+        1px solid var(--purple-dark);
 }
 
 .content-label {
@@ -845,7 +731,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .2em;
     text-transform: uppercase;
 }
@@ -861,40 +746,17 @@ body::before {
     line-height: 1.95;
 }
 
-
-/* =========================================================
-   HIGHLIGHTS
-========================================================= */
-
 .about-highlights {
     display: grid;
     grid-template-columns: 1fr;
 
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
 }
 
 .highlight-card {
     padding: 25px 0;
 
-    border-bottom: 1px solid var(--border);
-
-    position: relative;
-}
-
-.highlight-card::before {
-    content: "";
-
-    position: absolute;
-
-    left: -18px;
-    top: 31px;
-
-    width: 5px;
-    height: 5px;
-
-    background: var(--purple);
-
-    transform: rotate(45deg);
+    border-bottom: 1px solid var(--line);
 }
 
 .highlight-card span {
@@ -906,7 +768,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .15em;
 }
 
@@ -916,7 +777,6 @@ body::before {
     font-family: var(--serif);
     font-size: 30px;
     font-weight: 500;
-
     line-height: 1;
 }
 
@@ -929,17 +789,16 @@ body::before {
     line-height: 1.75;
 }
 
-
 /* =========================================================
    SKILLS
-========================================================= */
+   ========================================================= */
 
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
 
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .skill-card {
@@ -947,27 +806,22 @@ body::before {
 
     padding: 32px 30px;
 
-    border-right: 1px solid var(--border);
+    border-right: 1px solid var(--line);
 
     position: relative;
+
+    transition:
+        background .35s ease,
+        border-color .35s ease;
+}
+
+.skill-card:hover {
+    background: rgba(112,64,157,.035);
+    border-color: var(--line-purple);
 }
 
 .skill-card:last-child {
     border-right: none;
-}
-
-.skill-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 42px;
-    height: 1px;
-
-    background: var(--purple);
 }
 
 .skill-number {
@@ -979,7 +833,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .16em;
 }
 
@@ -989,7 +842,6 @@ body::before {
     font-family: var(--serif);
     font-size: 38px;
     font-weight: 500;
-
     line-height: .95;
 }
 
@@ -1000,40 +852,34 @@ body::before {
 
     font-size: 11px;
 
-    border-bottom: 1px solid var(--border-soft);
-
-    transition:
-        color .25s ease,
-        padding-left .25s ease;
-}
-
-.skill-card li:hover {
-    color: var(--purple-light);
-    padding-left: 5px;
+    border-bottom: 1px solid var(--line-soft);
 }
 
 .skill-card li:last-child {
     border-bottom: none;
 }
 
-
 /* =========================================================
    PROJECTS
-========================================================= */
+   ========================================================= */
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-
-    gap: 22px;
+    gap: 24px;
 }
 
 .project-card {
     min-width: 0;
 
-    background: var(--bg-soft);
+    background:
+        linear-gradient(
+            160deg,
+            rgba(36,16,50,.22),
+            rgba(14,10,19,.95)
+        );
 
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
 
     transition:
         border-color .35s ease,
@@ -1042,18 +888,13 @@ body::before {
 }
 
 .project-card:hover {
-    border-color: var(--border-purple);
+    border-color: var(--line-purple-strong);
 
     transform: translateY(-5px);
 
     box-shadow:
-        0 20px 55px rgba(0,0,0,.30);
+        0 20px 50px rgba(0,0,0,.28);
 }
-
-
-/* =========================================================
-   PROJECT PREVIEWS
-========================================================= */
 
 .project-preview {
     height: 270px;
@@ -1064,17 +905,17 @@ body::before {
     padding: 22px;
 
     background:
-        linear-gradient(
-            145deg,
-            #0C1017,
-            #080B11
-        );
+        radial-gradient(
+            circle at 78% 22%,
+            rgba(138,82,184,.13),
+            transparent 27%
+        ),
+        #09070D;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 
     position: relative;
     overflow: hidden;
-
     isolation: isolate;
 }
 
@@ -1082,16 +923,19 @@ body::before {
     content: "";
 
     position: absolute;
+    inset: 0;
 
-    width: 210px;
-    height: 210px;
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0 44%,
+            rgba(112,64,157,.20) 44.5%,
+            transparent 45%
+        );
 
-    right: -95px;
-    top: -95px;
+    opacity: .9;
 
-    border: 1px solid rgba(112,67,166,.28);
-
-    transform: rotate(45deg);
+    z-index: -1;
 }
 
 .project-preview::after {
@@ -1099,20 +943,15 @@ body::before {
 
     position: absolute;
 
-    left: 22px;
-    right: 22px;
-    bottom: 22px;
+    width: 130px;
+    height: 130px;
 
-    height: 1px;
+    right: -45px;
+    top: -45px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--purple),
-            transparent 55%
-        );
+    border: 1px solid rgba(189,145,220,.25);
 
-    opacity: .7;
+    transform: rotate(45deg);
 }
 
 .project-preview span {
@@ -1124,14 +963,11 @@ body::before {
     font-family: var(--serif);
     font-size: 58px;
     font-weight: 500;
-
     line-height: .8;
+
+    text-shadow:
+        0 0 30px rgba(138,82,184,.14);
 }
-
-
-/* =========================================================
-   PROJECT CONTENT
-========================================================= */
 
 .project-content {
     padding: 27px 27px 30px;
@@ -1146,7 +982,6 @@ body::before {
 
     font-size: 8px;
     font-weight: 700;
-
     letter-spacing: .17em;
 }
 
@@ -1156,7 +991,6 @@ body::before {
     font-family: var(--serif);
     font-size: 31px;
     font-weight: 500;
-
     line-height: 1;
 }
 
@@ -1171,14 +1005,10 @@ body::before {
     line-height: 1.8;
 }
 
-
-/* =========================================================
-   PROJECT TAGS
-========================================================= */
-
 .project-tags {
     display: flex;
     flex-wrap: wrap;
+
     gap: 7px;
 
     margin-bottom: 25px;
@@ -1187,21 +1017,15 @@ body::before {
 .project-tags span {
     padding: 6px 8px;
 
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
 
     color: var(--text-muted);
 
     font-size: 7px;
     font-weight: 600;
-
     letter-spacing: .08em;
     text-transform: uppercase;
 }
-
-
-/* =========================================================
-   PROJECT LINK
-========================================================= */
 
 .project-link {
     display: inline-flex;
@@ -1211,28 +1035,24 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .13em;
     text-transform: uppercase;
 
-    transition:
-        color .3s ease,
-        gap .3s ease;
+    transition: color .3s ease;
 }
 
 .project-link:hover {
     color: var(--purple-light);
 }
 
-
 /* =========================================================
-   EXPERIENCE
-========================================================= */
+   EXPERIENCE TIMELINE
+   ========================================================= */
 
 .timeline {
     position: relative;
 
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
 }
 
 .timeline::before {
@@ -1242,12 +1062,17 @@ body::before {
 
     top: 0;
     bottom: 0;
-
     left: 175px;
 
     width: 1px;
 
-    background: var(--border);
+    background:
+        linear-gradient(
+            to bottom,
+            var(--purple-dark),
+            var(--line),
+            transparent
+        );
 }
 
 .timeline-item {
@@ -1260,7 +1085,7 @@ body::before {
 
     padding: 42px 0;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 
     position: relative;
 }
@@ -1273,16 +1098,19 @@ body::before {
     left: 170px;
     top: 49px;
 
-    width: 9px;
-    height: 9px;
+    width: 11px;
+    height: 11px;
 
     background: var(--bg);
 
-    border: 1px solid var(--purple);
+    border: 1px solid var(--purple-rich);
 
     transform: rotate(45deg);
 
     z-index: 2;
+
+    box-shadow:
+        0 0 18px rgba(138,82,184,.15);
 }
 
 .timeline-date {
@@ -1290,20 +1118,11 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .14em;
 }
 
-.timeline-content h3 {
-    max-width: 700px;
-
-    margin-bottom: 8px;
-
-    font-family: var(--serif);
-    font-size: 38px;
-    font-weight: 500;
-
-    line-height: .95;
+.timeline-content {
+    padding-left: 0;
 }
 
 .timeline-type {
@@ -1315,8 +1134,18 @@ body::before {
 
     font-size: 8px;
     font-weight: 700;
-
     letter-spacing: .17em;
+}
+
+.timeline-content h3 {
+    max-width: 700px;
+
+    margin-bottom: 8px;
+
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 500;
+    line-height: .95;
 }
 
 .timeline-content h4 {
@@ -1326,7 +1155,6 @@ body::before {
 
     font-size: 8px;
     font-weight: 700;
-
     letter-spacing: .16em;
 }
 
@@ -1339,17 +1167,16 @@ body::before {
     line-height: 1.8;
 }
 
-
 /* =========================================================
    ACHIEVEMENTS
-========================================================= */
+   ========================================================= */
 
 .achievement-grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
 
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .achievement-card {
@@ -1357,27 +1184,17 @@ body::before {
 
     padding: 30px;
 
-    border-right: 1px solid var(--border);
+    border-right: 1px solid var(--line);
 
-    position: relative;
+    transition: background .35s ease;
+}
+
+.achievement-card:hover {
+    background: rgba(112,64,157,.035);
 }
 
 .achievement-card:last-child {
     border-right: none;
-}
-
-.achievement-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 30px;
-
-    width: 36px;
-    height: 1px;
-
-    background: var(--purple);
 }
 
 .achievement-number {
@@ -1389,7 +1206,6 @@ body::before {
 
     font-size: 9px;
     font-weight: 700;
-
     letter-spacing: .16em;
 }
 
@@ -1401,7 +1217,6 @@ body::before {
     font-family: var(--serif);
     font-size: 34px;
     font-weight: 500;
-
     line-height: .95;
 }
 
@@ -1414,10 +1229,9 @@ body::before {
     line-height: 1.8;
 }
 
-
 /* =========================================================
    CONTACT
-========================================================= */
+   ========================================================= */
 
 .contact-container {
     display: grid;
@@ -1427,33 +1241,16 @@ body::before {
 
     padding: 70px 0;
 
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-
-    position: relative;
-}
-
-.contact-container::before {
-    content: "";
-
-    position: absolute;
-
-    top: -1px;
-    left: 0;
-
-    width: 90px;
-    height: 1px;
-
-    background: var(--purple);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .contact-content h2 {
     margin-bottom: 25px;
 
     font-family: var(--serif);
-    font-size: clamp(55px,5vw,76px);
+    font-size: clamp(55px, 5vw, 76px);
     font-weight: 500;
-
     line-height: .9;
 
     text-wrap: balance;
@@ -1469,11 +1266,6 @@ body::before {
     font-size: 12px;
     line-height: 1.85;
 }
-
-
-/* =========================================================
-   CONTACT DETAILS
-========================================================= */
 
 .contact-details {
     display: flex;
@@ -1499,26 +1291,18 @@ body::before {
 
 .contact-details span {
     color: var(--text-muted);
-
     font-size: 10px;
 }
-
-
-/* =========================================================
-   FORM
-========================================================= */
 
 .contact-form {
     display: flex;
     flex-direction: column;
-
     gap: 25px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-
     gap: 9px;
 }
 
@@ -1527,7 +1311,6 @@ body::before {
 
     font-size: 8px;
     font-weight: 700;
-
     letter-spacing: .15em;
     text-transform: uppercase;
 }
@@ -1541,7 +1324,7 @@ body::before {
     background: transparent;
 
     border: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 
     outline: none;
 
@@ -1565,7 +1348,7 @@ body::before {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--purple);
+    border-color: var(--purple-rich);
 }
 
 .contact-form .btn-primary {
@@ -1576,10 +1359,9 @@ body::before {
     cursor: pointer;
 }
 
-
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
 .footer {
     width: 92%;
@@ -1596,7 +1378,7 @@ body::before {
 
     padding-bottom: 55px;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 }
 
 .footer-brand {
@@ -1615,27 +1397,23 @@ body::before {
 .footer-logo > span:last-child {
     font-size: 11px;
     font-weight: 600;
-
     letter-spacing: .1em;
     text-transform: uppercase;
 }
 
 .footer-brand p {
     color: var(--text-muted);
-
     font-size: 10px;
 }
 
 .footer-links {
     display: flex;
-
     gap: 100px;
 }
 
 .footer-column {
     display: flex;
     flex-direction: column;
-
     gap: 10px;
 }
 
@@ -1646,7 +1424,6 @@ body::before {
 
     font-size: 8px;
     font-weight: 700;
-
     letter-spacing: .17em;
 }
 
@@ -1682,12 +1459,11 @@ body::before {
     color: var(--purple-light);
 }
 
-
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width:1100px) {
 
     .navbar {
         gap: 18px;
@@ -1711,19 +1487,8 @@ body::before {
         text-align: center;
     }
 
-    .hero::before {
-        right: 50%;
-        transform: translateX(50%);
-        opacity: .55;
-    }
-
-    .hero::after {
-        display: none;
-    }
-
     .hero-content {
         max-width: 900px;
-
         margin: 0 auto;
     }
 
@@ -1746,7 +1511,6 @@ body::before {
 
     .about-grid {
         grid-template-columns: 1fr;
-
         gap: 65px;
     }
 
@@ -1763,15 +1527,14 @@ body::before {
 
     .skill-card:nth-child(3),
     .achievement-card:nth-child(3) {
-        grid-column: 1 / -1;
+        grid-column: 1/-1;
 
-        border-top: 1px solid var(--border);
+        border-top: 1px solid var(--line);
         border-right: none;
     }
 
     .contact-container {
         grid-template-columns: 1fr;
-
         gap: 70px;
     }
 
@@ -1781,7 +1544,6 @@ body::before {
 
     .timeline-item {
         grid-template-columns: 120px 1fr;
-
         gap: 55px;
     }
 
@@ -1798,12 +1560,11 @@ body::before {
     }
 }
 
-
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width:700px) {
 
     html {
         scroll-padding-top: 95px;
@@ -1813,7 +1574,7 @@ body::before {
         background:
             radial-gradient(
                 circle at 90% 5%,
-                rgba(112,67,166,.08),
+                rgba(112,64,157,.12),
                 transparent 30%
             ),
             var(--bg);
@@ -1822,13 +1583,6 @@ body::before {
     section {
         scroll-margin-top: 95px;
     }
-
-    .section::after {
-        display: none;
-    }
-
-
-    /* NAV */
 
     .navbar {
         width: 92%;
@@ -1855,7 +1609,6 @@ body::before {
 
     .nav-toggle {
         display: flex;
-
         margin-left: auto;
     }
 
@@ -1871,12 +1624,11 @@ body::before {
         align-items: stretch;
 
         gap: 0;
-
         padding: 8px;
 
-        background: rgba(8,11,18,.98);
+        background: rgba(7,6,11,.98);
 
-        border: 1px solid var(--border);
+        border: 1px solid var(--line);
 
         opacity: 0;
         visibility: hidden;
@@ -1892,12 +1644,11 @@ body::before {
     .nav-links.nav-open {
         opacity: 1;
         visibility: visible;
-
         transform: translateY(0);
     }
 
     .nav-links li {
-        border-bottom: 1px solid var(--border-soft);
+        border-bottom: 1px solid var(--line-soft);
     }
 
     .nav-links li:last-child {
@@ -1916,34 +1667,19 @@ body::before {
         display: none;
     }
 
-
-    /* HERO */
-
     .hero {
         width: 90%;
-
         padding-top: 85px;
-    }
-
-    .hero::before {
-        width: 350px;
-        height: 350px;
-
-        right: 50%;
-        top: 50px;
     }
 
     .hero h1 {
         font-size: 58px;
-
         line-height: .9;
-
         letter-spacing: -.025em;
     }
 
     .hero-description {
         font-size: 12px;
-
         line-height: 1.8;
     }
 
@@ -1970,12 +1706,8 @@ body::before {
         height: 390px;
     }
 
-
-    /* SECTIONS */
-
     .section {
         width: 90%;
-
         margin: 125px auto;
     }
 
@@ -1985,12 +1717,8 @@ body::before {
 
     .section-heading h2 {
         font-size: 48px;
-
         line-height: .95;
     }
-
-
-    /* ABOUT */
 
     .about-content {
         padding-left: 18px;
@@ -1999,9 +1727,6 @@ body::before {
     .about-content p {
         font-size: 12px;
     }
-
-
-    /* SKILLS */
 
     .skills-grid {
         grid-template-columns: 1fr;
@@ -2013,7 +1738,7 @@ body::before {
         padding: 27px 22px;
 
         border-right: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--line);
     }
 
     .skill-card:last-child {
@@ -2022,7 +1747,6 @@ body::before {
 
     .skill-card:nth-child(3) {
         grid-column: auto;
-
         border-top: none;
     }
 
@@ -2037,9 +1761,6 @@ body::before {
     .skill-card li {
         font-size: 10px;
     }
-
-
-    /* PROJECTS */
 
     .projects-grid {
         grid-template-columns: 1fr;
@@ -2064,16 +1785,12 @@ body::before {
         line-height: 1.8;
     }
 
-
-    /* EXPERIENCE */
-
     .timeline::before {
         display: none;
     }
 
     .timeline-item {
         display: block;
-
         padding: 35px 0;
     }
 
@@ -2083,7 +1800,6 @@ body::before {
 
     .timeline-date {
         margin-bottom: 18px;
-
         font-size: 8px;
     }
 
@@ -2094,9 +1810,6 @@ body::before {
     .timeline-content h4 {
         font-size: 8px;
     }
-
-
-    /* ACHIEVEMENTS */
 
     .achievement-grid {
         grid-template-columns: 1fr;
@@ -2110,7 +1823,7 @@ body::before {
 
         border-right: none;
         border-top: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--line);
     }
 
     .achievement-card:last-child {
@@ -2125,12 +1838,8 @@ body::before {
         font-size: 30px;
     }
 
-
-    /* CONTACT */
-
     .contact-container {
         padding: 50px 0;
-
         gap: 55px;
     }
 
@@ -2142,12 +1851,8 @@ body::before {
         font-size: 11px;
     }
 
-
-    /* FOOTER */
-
     .footer {
         width: 90%;
-
         margin-top: 80px;
     }
 
@@ -2162,17 +1867,15 @@ body::before {
     .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
-
         gap: 10px;
     }
 }
 
-
 /* =========================================================
-   SMALL MOBILE
-========================================================= */
+   SMALL PHONES
+   ========================================================= */
 
-@media (max-width: 420px) {
+@media (max-width:420px) {
 
     .hero h1 {
         font-size: 49px;
@@ -2211,10 +1914,9 @@ body::before {
     }
 }
 
-
 /* =========================================================
    REDUCED MOTION
-========================================================= */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
