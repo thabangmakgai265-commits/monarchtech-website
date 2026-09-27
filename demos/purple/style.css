@@ -1,61 +1,72 @@
-/* =========================================================
+/* ============================================================
    MONARCHAUREX — PURPLE SIGNATURE
-   Machaela Msizo | Computer Science Graduate
-   Premium Editorial Portfolio
-   ========================================================= */
+   MACHAELA MSIZO | COMPUTER SCIENCE GRADUATE
+
+   Exact CSS structure:
+   01 Navigation
+   02 Hero
+   03 About
+   04 Skills
+   05 Projects
+   06 Experience
+   07 Achievements
+   08 Contact
+   09 Footer
+   10 Responsive
+   ============================================================ */
 
 
-/* =========================================================
+/* ============================================================
    00 — FOUNDATION
-   ========================================================= */
+   ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Core */
+    /* CORE */
     --black: #070509;
     --deep-black: #0D0910;
-    --near-black: #110B14;
+    --dark: #120B15;
 
-    /* Purple family */
+    /* PURPLE SYSTEM */
     --plum: #211027;
-    --plum-light: #291331;
+    --plum-light: #2A1433;
     --purple-deep: #321344;
     --purple: #54216D;
     --purple-rich: #6B2F88;
     --violet: #81509B;
     --violet-light: #A77AB9;
 
-    /* Typography */
-    --ivory: #F1ECF3;
+    /* TEXT */
     --white: #FAF8FB;
+    --ivory: #F1ECF3;
     --grey: #A59BAA;
-    --grey-dark: #7B7180;
+    --grey-dark: #7A707F;
     --muted: #625967;
 
-    /* Lines */
-    --line: rgba(241, 236, 243, 0.105);
+    /* BORDERS */
+    --line: rgba(241, 236, 243, 0.095);
     --line-soft: rgba(241, 236, 243, 0.055);
-    --line-purple: rgba(129, 80, 155, 0.30);
-    --line-purple-strong: rgba(167, 122, 185, 0.48);
+    --purple-line: rgba(129, 80, 155, 0.28);
+    --purple-line-strong: rgba(167, 122, 185, 0.46);
 
-    /* Layout */
+    /* LAYOUT */
     --container: 1280px;
-    --section-space: clamp(95px, 9vw, 155px);
     --nav-height: 82px;
+    --section-space: clamp(100px, 9vw, 155px);
 
-    /* Type */
+    /* TYPE */
     --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
     --sans: "Inter", Arial, sans-serif;
 
-    /* Motion */
+    /* MOTION */
     --ease: cubic-bezier(.22, .61, .36, 1);
     --ease-soft: cubic-bezier(.16, 1, .3, 1);
 
-    /* Shadows */
+    /* SHADOWS */
     --shadow-small: 0 12px 35px rgba(0, 0, 0, .20);
     --shadow-medium: 0 25px 65px rgba(0, 0, 0, .30);
-    --shadow-large: 0 35px 100px rgba(0, 0, 0, .45);
+    --shadow-large: 0 35px 100px rgba(0, 0, 0, .46);
 }
 
 * {
@@ -125,9 +136,9 @@ img {
 }
 
 
-/* =========================================================
+/* ============================================================
    01 — NAVIGATION
-   ========================================================= */
+   ============================================================ */
 
 .site-header {
     position: fixed;
@@ -139,7 +150,7 @@ img {
 
     z-index: 1000;
 
-    background: rgba(7, 5, 9, .86);
+    background: rgba(7, 5, 9, .88);
 
     border-bottom: 1px solid var(--line-soft);
 
@@ -151,20 +162,21 @@ img {
     content: "";
 
     position: absolute;
-    bottom: -1px;
     left: 50%;
+    bottom: -1px;
 
-    width: min(100% - 80px, 1100px);
+    width: min(1100px, calc(100% - 80px));
     height: 1px;
 
     transform: translateX(-50%);
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(129, 80, 155, .28),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(129, 80, 155, .30),
+            transparent
+        );
 }
 
 .navbar {
@@ -183,6 +195,7 @@ img {
 .logo {
     display: inline-flex;
     align-items: center;
+
     gap: 12px;
 
     flex-shrink: 0;
@@ -204,7 +217,7 @@ img {
             var(--purple-deep)
         );
 
-    border: 1px solid rgba(167, 122, 185, .50);
+    border: 1px solid rgba(167, 122, 185, .52);
 
     color: var(--white);
 
@@ -214,7 +227,7 @@ img {
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.10),
-        0 8px 25px rgba(50, 19, 68, .25);
+        0 8px 28px rgba(50, 19, 68, .28);
 
     transition:
         transform .35s var(--ease),
@@ -232,6 +245,7 @@ img {
 
 .logo:hover .logo-mark {
     transform: rotate(4deg);
+
     border-color: var(--violet-light);
 }
 
@@ -240,6 +254,7 @@ img {
 
     font-size: 12px;
     font-weight: 500;
+
     letter-spacing: .09em;
 }
 
@@ -259,17 +274,18 @@ img {
 
     font-size: 10px;
     font-weight: 500;
+
     letter-spacing: .14em;
     text-transform: uppercase;
 
-    transition:
-        color .3s var(--ease);
+    transition: color .3s var(--ease);
 }
 
-.nav-links a::before {
+.nav-links a::after {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: -8px;
 
@@ -285,7 +301,7 @@ img {
     color: var(--white);
 }
 
-.nav-links a:hover::before {
+.nav-links a:hover::after {
     width: 100%;
 }
 
@@ -294,12 +310,13 @@ img {
 
     padding: 11px 18px;
 
-    border: 1px solid rgba(129, 80, 155, .48);
+    border: 1px solid rgba(129, 80, 155, .50);
 
     color: var(--white);
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .15em;
     text-transform: uppercase;
 
@@ -362,9 +379,9 @@ img {
 }
 
 
-/* =========================================================
+/* ============================================================
    02 — HERO
-   ========================================================= */
+   ============================================================ */
 
 .hero {
     position: relative;
@@ -372,12 +389,13 @@ img {
     min-height: 100vh;
 
     padding:
-        calc(var(--nav-height) + clamp(80px, 9vw, 135px))
+        calc(var(--nav-height) + clamp(75px, 9vw, 130px))
         max(28px, calc((100vw - var(--container)) / 2))
         clamp(90px, 10vw, 150px);
 
     display: grid;
-    grid-template-columns: 1.02fr .98fr;
+    grid-template-columns: 1.04fr .96fr;
+
     align-items: center;
 
     gap: clamp(60px, 8vw, 130px);
@@ -386,20 +404,20 @@ img {
 
     background:
         radial-gradient(
-            circle at 79% 42%,
-            rgba(107, 47, 136, .20),
+            circle at 78% 42%,
+            rgba(107, 47, 136, .21),
             transparent 29%
         ),
         radial-gradient(
-            circle at 20% 75%,
-            rgba(50, 19, 68, .13),
-            transparent 26%
+            circle at 17% 78%,
+            rgba(50, 19, 68, .14),
+            transparent 28%
         ),
         linear-gradient(
             120deg,
-            var(--black) 0%,
+            var(--black),
             var(--deep-black) 58%,
-            #160B1B 100%
+            #160B1B
         );
 }
 
@@ -408,7 +426,7 @@ img {
 
     position: absolute;
 
-    right: -35px;
+    right: -40px;
     bottom: -115px;
 
     color: rgba(129, 80, 155, .045);
@@ -416,7 +434,8 @@ img {
     font-family: var(--serif);
     font-size: clamp(300px, 38vw, 620px);
     font-weight: 600;
-    line-height: .65;
+
+    line-height: .62;
 
     pointer-events: none;
     user-select: none;
@@ -437,8 +456,8 @@ img {
         linear-gradient(
             to bottom,
             transparent,
-            rgba(129, 80, 155, .16) 25%,
-            rgba(129, 80, 155, .08) 75%,
+            rgba(129, 80, 155, .17) 25%,
+            rgba(129, 80, 155, .06) 80%,
             transparent
         );
 
@@ -447,13 +466,10 @@ img {
 
 .hero-content {
     position: relative;
-
     z-index: 2;
 }
 
 .hero-label {
-    position: relative;
-
     display: inline-flex;
     align-items: center;
 
@@ -465,6 +481,7 @@ img {
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .27em;
     text-transform: uppercase;
 }
@@ -484,8 +501,10 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: clamp(65px, 8vw, 120px);
     font-weight: 500;
+
     line-height: .80;
 
     letter-spacing: -.045em;
@@ -513,6 +532,7 @@ img {
 
     font-size: 13px;
     font-weight: 300;
+
     line-height: 2;
 }
 
@@ -540,6 +560,7 @@ img {
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .15em;
     text-transform: uppercase;
 
@@ -547,7 +568,8 @@ img {
 
     transition:
         transform .35s var(--ease),
-        border-color .35s var(--ease);
+        border-color .35s var(--ease),
+        background .35s var(--ease);
 }
 
 .btn-primary {
@@ -593,15 +615,15 @@ img {
 }
 
 .btn-secondary:hover {
-    border-color: var(--violet);
     background: rgba(107, 47, 136, .08);
+
+    border-color: var(--violet);
 
     transform: translateY(-3px);
 }
 
 .hero-visual {
     position: relative;
-
     z-index: 2;
 
     display: flex;
@@ -619,7 +641,7 @@ img {
         linear-gradient(
             145deg,
             rgba(107, 47, 136, .18),
-            rgba(20, 11, 24, .78)
+            rgba(20, 11, 24, .80)
         );
 
     border: 1px solid rgba(167, 122, 185, .30);
@@ -632,8 +654,8 @@ img {
 
     position: absolute;
 
-    top: -20px;
-    right: 19px;
+    top: -21px;
+    right: 20px;
 
     color: var(--violet-light);
 
@@ -671,8 +693,8 @@ img {
     background:
         radial-gradient(
             circle at 50% 35%,
-            rgba(129, 80, 155, .15),
-            transparent 30%
+            rgba(129, 80, 155, .17),
+            transparent 29%
         ),
         linear-gradient(
             145deg,
@@ -682,7 +704,7 @@ img {
 
     border: 1px solid rgba(241, 236, 243, .075);
 
-    color: var(--dark-grey);
+    color: var(--grey-dark);
 
     font-family: var(--serif);
     font-size: 18px;
@@ -693,10 +715,9 @@ img {
     content: "";
 
     position: absolute;
+    inset: 27px;
 
-    inset: 28px;
-
-    border: 1px solid rgba(167, 122, 185, .12);
+    border: 1px solid rgba(167, 122, 185, .13);
 }
 
 .profile-image::after {
@@ -704,14 +725,14 @@ img {
 
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 190px;
+    height: 190px;
 
     border-radius: 50%;
 
     background: rgba(107, 47, 136, .13);
 
-    filter: blur(35px);
+    filter: blur(38px);
 }
 
 .profile-info {
@@ -723,6 +744,7 @@ img {
 
     font-size: 8px;
     font-weight: 500;
+
     letter-spacing: .20em;
 }
 
@@ -732,6 +754,7 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: 29px;
     font-weight: 500;
 }
@@ -742,50 +765,21 @@ img {
     color: var(--grey);
 
     font-size: 10px;
+
     letter-spacing: .06em;
 }
 
 
-/* =========================================================
-   03 — ABOUT
-   ========================================================= */
+/* ============================================================
+   03 — SHARED SECTION SYSTEM
+   ============================================================ */
 
 .section {
     position: relative;
 
     padding:
         var(--section-space)
-        max(28px, calc((100vw - var(--container)) / 2);
-}
-
-.about-section {
-    background:
-        linear-gradient(
-            180deg,
-            var(--deep-black) 0%,
-            var(--plum) 100%
-        );
-}
-
-.about-section::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    right: 10%;
-
-    width: 1px;
-    height: 100%;
-
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(129, 80, 155, .08),
-        transparent
-    );
-
-    pointer-events: none;
+        max(28px, calc((100vw - var(--container)) / 2));
 }
 
 .section-heading {
@@ -802,6 +796,7 @@ img {
     color: var(--violet);
 
     font-family: var(--serif);
+
     font-size: 19px;
     font-style: italic;
 }
@@ -816,6 +811,7 @@ img {
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .25em;
     text-transform: uppercase;
 }
@@ -837,16 +833,76 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: clamp(51px, 6vw, 86px);
     font-weight: 500;
+
     line-height: .88;
 
     letter-spacing: -.04em;
 }
 
+
+/* ============================================================
+   04 — ABOUT
+   ============================================================ */
+
+.about-section {
+    background:
+        linear-gradient(
+            180deg,
+            var(--deep-black) 0%,
+            var(--plum) 100%
+        );
+
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: "01";
+
+    position: absolute;
+
+    right: 4%;
+    top: 95px;
+
+    color: rgba(129, 80, 155, .035);
+
+    font-family: var(--serif);
+    font-size: clamp(180px, 23vw, 340px);
+    font-weight: 600;
+
+    line-height: .7;
+
+    pointer-events: none;
+}
+
+.about-section::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 12%;
+
+    width: 1px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(129, 80, 155, .10),
+            transparent
+        );
+}
+
 .about-grid {
+    position: relative;
+    z-index: 2;
+
     display: grid;
-    grid-template-columns: .85fr 1.15fr;
+    grid-template-columns: .82fr 1.18fr;
 
     gap: clamp(60px, 9vw, 135px);
 
@@ -854,7 +910,7 @@ img {
 }
 
 .about-content {
-    max-width: 540px;
+    max-width: 550px;
 }
 
 .content-label {
@@ -870,6 +926,7 @@ img {
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .22em;
     text-transform: uppercase;
 }
@@ -895,6 +952,7 @@ img {
 
     font-size: 13px;
     font-weight: 300;
+
     line-height: 2;
 }
 
@@ -914,7 +972,7 @@ img {
 
     column-gap: 20px;
 
-    padding: 28px 0;
+    padding: 30px 0;
 
     border-bottom: 1px solid var(--line);
 
@@ -928,10 +986,11 @@ img {
 
     position: absolute;
 
-    left: -20px;
-    right: -20px;
     top: 0;
     bottom: 0;
+
+    left: -20px;
+    right: -20px;
 
     background: rgba(107, 47, 136, .035);
 
@@ -954,6 +1013,7 @@ img {
     color: var(--violet);
 
     font-family: var(--serif);
+
     font-size: 19px;
     font-style: italic;
 }
@@ -962,8 +1022,10 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
-    font-size: 29px;
+
+    font-size: 30px;
     font-weight: 500;
+
     line-height: 1;
 }
 
@@ -975,29 +1037,51 @@ img {
     color: var(--grey);
 
     font-size: 11px;
+
     line-height: 1.8;
 }
 
 
-/* =========================================================
-   04 — SKILLS
-   ========================================================= */
+/* ============================================================
+   05 — SKILLS
+   ============================================================ */
 
 .skills-section {
     background:
         radial-gradient(
-            circle at 12% 82%,
-            rgba(107, 47, 136, .12),
+            circle at 8% 78%,
+            rgba(107, 47, 136, .13),
             transparent 27%
         ),
         var(--black);
+
+    overflow: hidden;
 }
 
-.skills-section .section-heading {
-    max-width: 900px;
+.skills-section::after {
+    content: "02";
+
+    position: absolute;
+
+    right: -10px;
+    bottom: -60px;
+
+    color: rgba(129, 80, 155, .035);
+
+    font-family: var(--serif);
+
+    font-size: clamp(200px, 25vw, 380px);
+    font-weight: 600;
+
+    line-height: .65;
+
+    pointer-events: none;
 }
 
 .skills-grid {
+    position: relative;
+    z-index: 2;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
@@ -1008,9 +1092,9 @@ img {
 .skill-card {
     position: relative;
 
-    min-height: 325px;
+    min-height: 330px;
 
-    padding: 31px;
+    padding: 32px;
 
     overflow: hidden;
 
@@ -1020,13 +1104,14 @@ img {
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.015),
+            rgba(255,255,255,.014),
             rgba(107,47,136,.025)
         );
 
     transition:
         background .4s var(--ease),
-        transform .4s var(--ease);
+        transform .4s var(--ease),
+        border-color .4s var(--ease);
 }
 
 .skill-card::before {
@@ -1034,21 +1119,37 @@ img {
 
     position: absolute;
 
-    width: 160px;
-    height: 160px;
+    right: -75px;
+    bottom: -75px;
 
-    right: -70px;
-    bottom: -70px;
+    width: 190px;
+    height: 190px;
 
     border-radius: 50%;
 
-    background: rgba(107, 47, 136, .11);
+    background: rgba(107, 47, 136, .13);
 
-    filter: blur(30px);
+    filter: blur(35px);
 
     opacity: 0;
 
     transition: opacity .4s var(--ease);
+}
+
+.skill-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--violet);
+
+    transition: width .45s var(--ease);
 }
 
 .skill-card:hover {
@@ -1059,6 +1160,8 @@ img {
             rgba(255,255,255,.015)
         );
 
+    border-color: var(--purple-line);
+
     transform: translateY(-5px);
 }
 
@@ -1066,41 +1169,51 @@ img {
     opacity: 1;
 }
 
+.skill-card:hover::after {
+    width: 100%;
+}
+
 .skill-number {
     position: relative;
+    z-index: 2;
 
     color: var(--violet);
 
     font-family: var(--serif);
+
     font-size: 19px;
     font-style: italic;
 }
 
 .skill-card h3 {
     position: relative;
+    z-index: 2;
 
     margin-top: 55px;
 
     color: var(--white);
 
     font-family: var(--serif);
-    font-size: 35px;
+
+    font-size: 36px;
     font-weight: 500;
+
     line-height: 1;
 }
 
 .skill-card ul {
     position: relative;
+    z-index: 2;
 
     list-style: none;
 
-    margin-top: 27px;
+    margin-top: 28px;
 }
 
 .skill-card li {
     position: relative;
 
-    padding: 9px 0 9px 16px;
+    padding: 9px 0 9px 17px;
 
     border-bottom: 1px solid var(--line-soft);
 
@@ -1124,11 +1237,14 @@ img {
     width: 4px;
     height: 1px;
 
+    transform: translateY(-50%);
+
     background: var(--purple-rich);
 }
 
 .skill-card li:hover {
-    padding-left: 21px;
+    padding-left: 22px;
+
     color: var(--white);
 }
 
@@ -1137,9 +1253,9 @@ img {
 }
 
 
-/* =========================================================
-   05 — PROJECTS
-   ========================================================= */
+/* ============================================================
+   06 — PROJECTS
+   ============================================================ */
 
 .projects-section {
     background:
@@ -1148,6 +1264,8 @@ img {
             var(--plum) 0%,
             var(--deep-black) 100%
         );
+
+    overflow: hidden;
 }
 
 .projects-section::before {
@@ -1155,14 +1273,17 @@ img {
 
     position: absolute;
 
-    right: -30px;
-    top: 80px;
+    right: -45px;
+    top: 90px;
 
     color: rgba(129, 80, 155, .025);
 
     font-family: var(--serif);
+
     font-size: clamp(150px, 20vw, 300px);
     font-weight: 600;
+
+    line-height: .7;
 
     pointer-events: none;
 }
@@ -1184,7 +1305,7 @@ img {
 
     border: 1px solid var(--line);
 
-    background: rgba(7, 5, 9, .48);
+    background: rgba(7, 5, 9, .52);
 
     transition:
         transform .45s var(--ease),
@@ -1195,7 +1316,7 @@ img {
 .project-card:hover {
     transform: translateY(-7px);
 
-    border-color: var(--line-purple-strong);
+    border-color: var(--purple-line-strong);
 
     box-shadow: var(--shadow-medium);
 }
@@ -1203,7 +1324,7 @@ img {
 .project-preview {
     position: relative;
 
-    min-height: 245px;
+    min-height: 250px;
 
     display: flex;
     align-items: flex-end;
@@ -1231,7 +1352,8 @@ img {
 
 .project-card:hover .project-preview::before {
     inset: 12px;
-    border-color: rgba(167, 122, 185, .17);
+
+    border-color: rgba(167, 122, 185, .18);
 }
 
 .project-preview::after {
@@ -1249,7 +1371,7 @@ img {
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.07),
+            rgba(255,255,255,.075),
             transparent
         );
 
@@ -1266,8 +1388,8 @@ img {
     background:
         radial-gradient(
             circle at 75% 25%,
-            rgba(167, 122, 185, .24),
-            transparent 25%
+            rgba(167, 122, 185, .25),
+            transparent 26%
         ),
         linear-gradient(
             135deg,
@@ -1279,8 +1401,8 @@ img {
 .project-preview-two {
     background:
         radial-gradient(
-            circle at 30% 30%,
-            rgba(129, 80, 155, .25),
+            circle at 25% 30%,
+            rgba(129, 80, 155, .28),
             transparent 27%
         ),
         linear-gradient(
@@ -1294,7 +1416,7 @@ img {
     background:
         radial-gradient(
             circle at 70% 70%,
-            rgba(167, 122, 185, .17),
+            rgba(167, 122, 185, .18),
             transparent 27%
         ),
         linear-gradient(
@@ -1306,19 +1428,20 @@ img {
 
 .project-preview span {
     position: relative;
-
     z-index: 2;
 
-    color: rgba(250, 248, 251, .70);
+    color: rgba(250, 248, 251, .72);
 
     font-family: var(--serif);
-    font-size: 49px;
+
+    font-size: 50px;
     font-style: italic;
+
     line-height: 1;
 }
 
 .project-content {
-    padding: 28px 25px 31px;
+    padding: 29px 25px 32px;
 }
 
 .project-category {
@@ -1326,6 +1449,7 @@ img {
 
     font-size: 8px;
     font-weight: 500;
+
     letter-spacing: .20em;
 }
 
@@ -1335,8 +1459,10 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: 30px;
     font-weight: 500;
+
     line-height: 1;
 }
 
@@ -1346,6 +1472,7 @@ img {
     color: var(--grey);
 
     font-size: 11px;
+
     line-height: 1.85;
 }
 
@@ -1366,6 +1493,7 @@ img {
     color: var(--grey);
 
     font-size: 8px;
+
     letter-spacing: .04em;
 }
 
@@ -1379,6 +1507,7 @@ img {
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .14em;
     text-transform: uppercase;
 
@@ -1390,20 +1519,43 @@ img {
 .project-link:hover {
     color: var(--violet-light);
 
-    transform: translateX(4px);
+    transform: translateX(5px);
 }
 
 
-/* =========================================================
-   06 — EXPERIENCE
-   ========================================================= */
+/* ============================================================
+   07 — EXPERIENCE
+   ============================================================ */
 
 .experience-section {
     background: var(--black);
+
+    overflow: hidden;
+}
+
+.experience-section::after {
+    content: "04";
+
+    position: absolute;
+
+    right: -10px;
+    top: 100px;
+
+    color: rgba(129, 80, 155, .025);
+
+    font-family: var(--serif);
+
+    font-size: clamp(200px, 26vw, 390px);
+    font-weight: 600;
+
+    line-height: .65;
+
+    pointer-events: none;
 }
 
 .timeline {
     position: relative;
+    z-index: 2;
 
     border-top: 1px solid var(--line);
 }
@@ -1423,7 +1575,7 @@ img {
         linear-gradient(
             to bottom,
             var(--line),
-            rgba(129,80,155,.18),
+            rgba(129,80,155,.22),
             var(--line)
         );
 }
@@ -1436,7 +1588,7 @@ img {
 
     gap: 55px;
 
-    padding: 38px 0;
+    padding: 40px 0;
 
     border-bottom: 1px solid var(--line);
 }
@@ -1446,11 +1598,11 @@ img {
 
     position: absolute;
 
-    top: 46px;
+    top: 47px;
     left: 233px;
 
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
 
     background: var(--black);
 
@@ -1474,6 +1626,7 @@ img {
 
     font-size: 9px;
     font-weight: 500;
+
     letter-spacing: .13em;
 }
 
@@ -1488,6 +1641,7 @@ img {
 
     font-size: 8px;
     font-weight: 500;
+
     letter-spacing: .19em;
 }
 
@@ -1497,8 +1651,10 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: clamp(31px, 3.1vw, 46px);
     font-weight: 500;
+
     line-height: .95;
 
     transition: color .3s var(--ease);
@@ -1515,6 +1671,7 @@ img {
 
     font-size: 8px;
     font-weight: 500;
+
     letter-spacing: .17em;
 }
 
@@ -1526,19 +1683,20 @@ img {
     color: var(--grey);
 
     font-size: 11px;
+
     line-height: 1.9;
 }
 
 
-/* =========================================================
-   07 — ACHIEVEMENTS
-   ========================================================= */
+/* ============================================================
+   08 — ACHIEVEMENTS
+   ============================================================ */
 
 .achievements-section {
     background:
         radial-gradient(
             circle at 80% 20%,
-            rgba(107, 47, 136, .14),
+            rgba(107, 47, 136, .15),
             transparent 30%
         ),
         linear-gradient(
@@ -1546,9 +1704,34 @@ img {
             var(--plum),
             #120A16
         );
+
+    overflow: hidden;
+}
+
+.achievements-section::after {
+    content: "05";
+
+    position: absolute;
+
+    right: -15px;
+    bottom: -75px;
+
+    color: rgba(129, 80, 155, .035);
+
+    font-family: var(--serif);
+
+    font-size: clamp(220px, 28vw, 420px);
+    font-weight: 600;
+
+    line-height: .6;
+
+    pointer-events: none;
 }
 
 .achievement-grid {
+    position: relative;
+    z-index: 2;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
@@ -1559,9 +1742,9 @@ img {
 .achievement-card {
     position: relative;
 
-    min-height: 300px;
+    min-height: 305px;
 
-    padding: 31px;
+    padding: 32px;
 
     overflow: hidden;
 
@@ -1572,35 +1755,52 @@ img {
         background .35s var(--ease);
 }
 
+.achievement-card::before {
+    content: "";
+
+    position: absolute;
+
+    right: -55px;
+    bottom: -55px;
+
+    width: 170px;
+    height: 170px;
+
+    border: 1px solid rgba(129, 80, 155, .16);
+
+    border-radius: 50%;
+
+    transition:
+        transform .5s var(--ease),
+        border-color .5s var(--ease);
+}
+
 .achievement-card::after {
     content: "";
 
     position: absolute;
 
-    right: -45px;
-    bottom: -45px;
+    right: 17px;
+    bottom: 17px;
 
-    width: 150px;
-    height: 150px;
+    width: 7px;
+    height: 7px;
 
-    border: 1px solid rgba(129,80,155,.15);
+    background: var(--purple-rich);
 
-    border-radius: 50%;
+    transform: rotate(45deg);
 
-    opacity: .5;
-
-    transition:
-        transform .5s var(--ease),
-        opacity .5s var(--ease);
+    opacity: .7;
 }
 
 .achievement-card:hover {
     background: rgba(107, 47, 136, .08);
 }
 
-.achievement-card:hover::after {
+.achievement-card:hover::before {
     transform: scale(1.25);
-    opacity: 1;
+
+    border-color: rgba(167, 122, 185, .30);
 }
 
 .achievement-number {
@@ -1610,6 +1810,7 @@ img {
     color: var(--violet);
 
     font-family: var(--serif);
+
     font-size: 19px;
     font-style: italic;
 }
@@ -1618,15 +1819,17 @@ img {
     position: relative;
     z-index: 2;
 
-    max-width: 270px;
+    max-width: 280px;
 
     margin-top: 57px;
 
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: 31px;
     font-weight: 500;
+
     line-height: 1.02;
 }
 
@@ -1641,27 +1844,30 @@ img {
     color: var(--grey);
 
     font-size: 11px;
+
     line-height: 1.85;
 }
 
 
-/* =========================================================
-   08 — CONTACT
-   ========================================================= */
+/* ============================================================
+   09 — CONTACT
+   ============================================================ */
 
 .contact-section {
     background:
         radial-gradient(
             circle at 82% 45%,
-            rgba(107, 47, 136, .18),
+            rgba(107, 47, 136, .19),
             transparent 31%
         ),
         radial-gradient(
             circle at 20% 90%,
-            rgba(50, 19, 68, .10),
+            rgba(50, 19, 68, .12),
             transparent 25%
         ),
         var(--deep-black);
+
+    overflow: hidden;
 }
 
 .contact-section::before {
@@ -1669,14 +1875,17 @@ img {
 
     position: absolute;
 
-    right: -60px;
-    bottom: -65px;
+    right: -65px;
+    bottom: -70px;
 
     color: rgba(129, 80, 155, .025);
 
     font-family: var(--serif);
+
     font-size: clamp(130px, 17vw, 250px);
     font-weight: 600;
+
+    line-height: .65;
 
     pointer-events: none;
 }
@@ -1693,14 +1902,20 @@ img {
     align-items: start;
 }
 
+.contact-content {
+    max-width: 700px;
+}
+
 .contact-content h2 {
     margin-top: 21px;
 
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: clamp(54px, 6vw, 88px);
     font-weight: 500;
+
     line-height: .86;
 
     letter-spacing: -.045em;
@@ -1715,6 +1930,7 @@ img {
 
     font-size: 12px;
     font-weight: 300;
+
     line-height: 1.95;
 }
 
@@ -1735,6 +1951,7 @@ img {
     color: var(--violet-light);
 
     font-family: var(--serif);
+
     font-size: 22px;
 
     transition:
@@ -1757,7 +1974,22 @@ img {
 .contact-form {
     position: relative;
 
-    padding: 4px 0 0;
+    padding-top: 4px;
+}
+
+.contact-form::before {
+    content: "";
+
+    position: absolute;
+
+    top: -22px;
+    right: 0;
+
+    width: 55px;
+    height: 55px;
+
+    border-top: 1px solid var(--purple-line);
+    border-right: 1px solid var(--purple-line);
 }
 
 .form-group {
@@ -1773,6 +2005,7 @@ img {
 
     font-size: 8px;
     font-weight: 500;
+
     letter-spacing: .17em;
     text-transform: uppercase;
 }
@@ -1826,9 +2059,9 @@ img {
 }
 
 
-/* =========================================================
-   09 — FOOTER
-   ========================================================= */
+/* ============================================================
+   10 — FOOTER
+   ============================================================ */
 
 .footer {
     position: relative;
@@ -1851,12 +2084,13 @@ img {
     width: 80%;
     height: 1px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(129,80,155,.25),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(129, 80, 155, .28),
+            transparent
+        );
 }
 
 .footer-main {
@@ -1885,6 +2119,7 @@ img {
     color: var(--white);
 
     font-family: var(--serif);
+
     font-size: 24px;
 }
 
@@ -1901,6 +2136,7 @@ img {
     color: var(--muted);
 
     font-size: 9px;
+
     letter-spacing: .11em;
     text-transform: uppercase;
 }
@@ -1925,6 +2161,7 @@ img {
 
     font-size: 8px;
     font-weight: 500;
+
     letter-spacing: .19em;
 }
 
@@ -1961,6 +2198,7 @@ img {
     color: var(--muted);
 
     font-size: 8px;
+
     letter-spacing: .05em;
 }
 
@@ -1975,15 +2213,11 @@ img {
 }
 
 
-/* =========================================================
-   10 — RESPONSIVE / TABLET
-   ========================================================= */
+/* ============================================================
+   11 — TABLET
+   ============================================================ */
 
 @media (max-width: 1050px) {
-
-    :root {
-        --nav-height: 76px;
-    }
 
     .nav-links {
         gap: 20px;
@@ -1994,7 +2228,7 @@ img {
     }
 
     .hero h1 {
-        font-size: clamp(60px, 8vw, 95px);
+        font-size: clamp(58px, 8vw, 96px);
     }
 
     .about-grid {
@@ -2011,6 +2245,7 @@ img {
 
     .timeline-item {
         grid-template-columns: 190px 1fr;
+
         gap: 45px;
     }
 
@@ -2020,11 +2255,15 @@ img {
 }
 
 
-/* =========================================================
-   11 — MOBILE NAVIGATION
-   ========================================================= */
+/* ============================================================
+   12 — MOBILE NAVIGATION
+   ============================================================ */
 
 @media (max-width: 900px) {
+
+    :root {
+        --nav-height: 74px;
+    }
 
     .navbar {
         width: min(calc(100% - 40px), var(--container));
@@ -2084,10 +2323,6 @@ img {
         border-bottom: 1px solid var(--line-soft);
     }
 
-    .nav-links a::before {
-        bottom: 7px;
-    }
-
     .nav-button {
         display: none;
     }
@@ -2133,7 +2368,7 @@ img {
     }
 
     .about-content {
-        max-width: 650px;
+        max-width: 680px;
     }
 
     .skills-grid {
@@ -2141,7 +2376,7 @@ img {
     }
 
     .skill-card {
-        min-height: 280px;
+        min-height: 285px;
     }
 
     .projects-grid {
@@ -2166,8 +2401,7 @@ img {
 
     .timeline-item::before {
         left: 2px;
-
-        top: 39px;
+        top: 40px;
     }
 
     .timeline-content {
@@ -2179,7 +2413,7 @@ img {
     }
 
     .achievement-card {
-        min-height: 270px;
+        min-height: 275px;
 
         border-right: 0;
     }
@@ -2200,9 +2434,9 @@ img {
 }
 
 
-/* =========================================================
-   12 — SMALL MOBILE
-   ========================================================= */
+/* ============================================================
+   13 — SMALL MOBILE
+   ============================================================ */
 
 @media (max-width: 560px) {
 
@@ -2232,11 +2466,11 @@ img {
     }
 
     .hero {
-        padding-top: 120px;
+        padding-top: 118px;
     }
 
     .hero::before {
-        right: -80px;
+        right: -90px;
         bottom: -40px;
 
         font-size: 260px;
@@ -2245,11 +2479,11 @@ img {
     .hero-label {
         font-size: 8px;
 
-        letter-spacing: .20em;
+        letter-spacing: .19em;
     }
 
     .hero h1 {
-        font-size: clamp(53px, 16vw, 76px);
+        font-size: clamp(52px, 16vw, 76px);
 
         line-height: .82;
     }
@@ -2257,7 +2491,7 @@ img {
     .hero h1 span {
         margin-top: 11px;
 
-        transform: translateX(12px);
+        transform: translateX(10px);
     }
 
     .hero-description {
@@ -2300,7 +2534,7 @@ img {
     }
 
     .section-heading h2 {
-        font-size: 49px;
+        font-size: 48px;
 
         line-height: .90;
     }
@@ -2326,7 +2560,7 @@ img {
     .skill-card {
         min-height: 275px;
 
-        padding: 25px;
+        padding: 26px;
     }
 
     .skill-card h3 {
@@ -2358,7 +2592,7 @@ img {
     .achievement-card {
         min-height: 250px;
 
-        padding: 25px;
+        padding: 26px;
     }
 
     .achievement-card h3 {
@@ -2397,9 +2631,9 @@ img {
 }
 
 
-/* =========================================================
-   13 — REDUCED MOTION
-   ========================================================= */
+/* ============================================================
+   14 — REDUCED MOTION
+   ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2410,8 +2644,8 @@ img {
     *,
     *::before,
     *::after {
-        transition-duration: .01ms !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
     }
 }
