@@ -9,14 +9,14 @@
 
     <meta
         name="description"
-        content="Professional academic portfolio of Prof. Dr. Naledi Mokoena, Professor of Mechatronics Engineering and researcher in Robotics and Intelligent Systems."
+        content="MonarchAurex academic portfolio demo showcasing a professional profile for a professor and researcher in Mechatronics Engineering, Robotics and Intelligent Systems."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -27,7 +27,7 @@
 
     <!-- ==================== NAVIGATION ==================== -->
 
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="nav-container">
 
             <a href="#home" class="logo">
@@ -35,9 +35,17 @@
                 <span class="logo-name">Naledi Mokoena</span>
             </a>
 
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="primaryNav"
+            >
+                ☰
+            </button>
 
-            <div class="nav-links">
+            <div class="nav-links" id="primaryNav">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#research">Research</a>
@@ -85,6 +93,7 @@
                     </p>
 
                     <div class="hero-actions">
+
                         <a href="#research" class="button button-primary">
                             Explore Research
                         </a>
@@ -92,6 +101,7 @@
                         <a href="#contact" class="button button-secondary">
                             Professional Contact
                         </a>
+
                     </div>
 
                 </div>
@@ -101,7 +111,7 @@
 
                     <div class="profile-card">
 
-                        <div class="profile-image">
+                        <div class="profile-image" aria-label="Profile placeholder">
                             <span>NM</span>
                         </div>
 
@@ -137,11 +147,14 @@
             <div class="section-container">
 
                 <div class="section-heading">
+
                     <p class="section-label">01 · ABOUT</p>
+
                     <h2>
                         Engineering Intelligence.<br>
                         Advancing Human Potential.
                     </h2>
+
                 </div>
 
                 <div class="about-grid">
@@ -149,21 +162,20 @@
                     <div class="about-content">
 
                         <p class="lead-text">
-                            I am an Mechatronics Engineering
-                            academic and researcher focused on the development of
-                            intelligent systems that connect advanced engineering
-                            with real-world human needs.
+                            I am a Mechatronics Engineering academic and researcher
+                            focused on the development of intelligent systems that
+                            connect advanced engineering with real-world human needs.
                         </p>
 
                         <p>
-                            Her work brings together robotics, automation,
+                            My work brings together robotics, automation,
                             artificial intelligence and engineering systems to
                             explore how intelligent technologies can improve
                             industrial processes and human-machine collaboration.
                         </p>
 
                         <p>
-                            Alongside my research, i am committed to postgraduate
+                            Alongside my research, I am committed to postgraduate
                             supervision, engineering education and developing the
                             next generation of engineers and researchers.
                         </p>
@@ -175,7 +187,9 @@
 
                         <div class="highlight-card">
                             <span class="highlight-number">01</span>
+
                             <h3>Research</h3>
+
                             <p>
                                 Robotics, intelligent systems and advanced
                                 engineering applications.
@@ -184,7 +198,9 @@
 
                         <div class="highlight-card">
                             <span class="highlight-number">02</span>
+
                             <h3>Education</h3>
+
                             <p>
                                 Engineering education, postgraduate development
                                 and research supervision.
@@ -193,7 +209,9 @@
 
                         <div class="highlight-card">
                             <span class="highlight-number">03</span>
+
                             <h3>Innovation</h3>
+
                             <p>
                                 Translating engineering research into practical
                                 intelligent technologies.
@@ -218,12 +236,14 @@
                 <div class="section-heading section-heading-row">
 
                     <div>
+
                         <p class="section-label">02 · RESEARCH</p>
 
                         <h2>
                             Areas of<br>
                             Expertise
                         </h2>
+
                     </div>
 
                     <p class="section-intro">
@@ -312,12 +332,14 @@
                 <div class="section-heading section-heading-row">
 
                     <div>
+
                         <p class="section-label">03 · FEATURED RESEARCH</p>
 
                         <h2>
                             Selected<br>
                             Projects
                         </h2>
+
                     </div>
 
                     <p class="section-intro">
@@ -458,12 +480,14 @@
             <div class="section-container">
 
                 <div class="section-heading">
+
                     <p class="section-label">04 · EXPERIENCE</p>
 
                     <h2>
                         Academic &<br>
                         Professional Journey
                     </h2>
+
                 </div>
 
 
@@ -588,12 +612,14 @@
             <div class="section-container">
 
                 <div class="section-heading">
+
                     <p class="section-label">05 · EDUCATION</p>
 
                     <h2>
                         Academic<br>
                         Foundation
                     </h2>
+
                 </div>
 
 
@@ -665,12 +691,14 @@
                 <div class="section-heading section-heading-row">
 
                     <div>
+
                         <p class="section-label">06 · PUBLICATIONS</p>
 
                         <h2>
                             Selected<br>
                             Research
                         </h2>
+
                     </div>
 
                     <p class="section-intro">
@@ -765,33 +793,61 @@
             <div class="section-container">
 
                 <div class="section-heading">
+
                     <p class="section-label">07 · AFFILIATIONS</p>
 
                     <h2>
                         Professional<br>
                         Networks
                     </h2>
+
                 </div>
 
 
                 <div class="affiliations-grid">
 
                     <div class="affiliation-card">
+
                         <span>01</span>
-                        <h3>Engineering Research Council</h3>
-                        <p>Research & Engineering</p>
+
+                        <h3>
+                            Engineering Research Council
+                        </h3>
+
+                        <p>
+                            Research & Engineering
+                        </p>
+
                     </div>
 
+
                     <div class="affiliation-card">
+
                         <span>02</span>
-                        <h3>Robotics & Automation Society</h3>
-                        <p>Robotics & Automation</p>
+
+                        <h3>
+                            Robotics & Automation Society
+                        </h3>
+
+                        <p>
+                            Robotics & Automation
+                        </p>
+
                     </div>
 
+
                     <div class="affiliation-card">
+
                         <span>03</span>
-                        <h3>Engineering Education Forum</h3>
-                        <p>Engineering Education</p>
+
+                        <h3>
+                            Engineering Education Forum
+                        </h3>
+
+                        <p>
+                            Engineering Education
+                        </p>
+
                     </div>
 
                 </div>
@@ -808,12 +864,14 @@
             <div class="section-container">
 
                 <div class="section-heading">
+
                     <p class="section-label">08 · ACHIEVEMENTS</p>
 
                     <h2>
                         Recognition &<br>
                         Academic Leadership
                     </h2>
+
                 </div>
 
 
@@ -893,16 +951,17 @@
                         </h2>
 
                         <p>
-                            My academic work is grounded in the
-                            belief that intelligent engineering should not only
-                            advance technology, but also improve the way people
+                            My academic work is grounded in the belief that
+                            intelligent engineering should not only advance
+                            technology, but also improve the way people
                             interact with complex systems.
                         </p>
 
                         <p>
                             My interest continues to centre on robotics,
-                            intelligent automation, engineering education and
-                            the responsible development of emerging technology.
+                            intelligent automation, engineering education
+                            and the responsible development of emerging
+                            technology.
                         </p>
 
                     </div>
@@ -911,18 +970,35 @@
                     <div class="identity-highlights">
 
                         <div class="identity-card">
+
                             <strong>Research</strong>
-                            <span>Robotics & Intelligent Systems</span>
+
+                            <span>
+                                Robotics & Intelligent Systems
+                            </span>
+
                         </div>
 
+
                         <div class="identity-card">
+
                             <strong>Teaching</strong>
-                            <span>Engineering Education & Supervision</span>
+
+                            <span>
+                                Engineering Education & Supervision
+                            </span>
+
                         </div>
 
+
                         <div class="identity-card">
+
                             <strong>Impact</strong>
-                            <span>Human-Centred Engineering Innovation</span>
+
+                            <span>
+                                Human-Centred Engineering Innovation
+                            </span>
+
                         </div>
 
                     </div>
@@ -963,15 +1039,24 @@
                         <div class="contact-details">
 
                             <div class="contact-detail">
+
                                 <span>Email</span>
+
                                 <a href="mailto:naledi.mokoena@example.com">
                                     naledi.mokoena@example.com
                                 </a>
+
                             </div>
 
+
                             <div class="contact-detail">
+
                                 <span>Location</span>
-                                <p>Johannesburg, South Africa</p>
+
+                                <p>
+                                    Johannesburg, South Africa
+                                </p>
+
                             </div>
 
                         </div>
@@ -982,31 +1067,47 @@
                     <form class="contact-form">
 
                         <div class="form-group">
-                            <label for="name">Name</label>
+
+                            <label for="name">
+                                Name
+                            </label>
+
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
                                 placeholder="Your name"
+                                autocomplete="name"
                                 required
                             >
+
                         </div>
 
 
                         <div class="form-group">
-                            <label for="email">Email</label>
+
+                            <label for="email">
+                                Email
+                            </label>
+
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 placeholder="your@email.com"
+                                autocomplete="email"
                                 required
                             >
+
                         </div>
 
 
                         <div class="form-group">
-                            <label for="message">Message</label>
+
+                            <label for="message">
+                                Message
+                            </label>
+
                             <textarea
                                 id="message"
                                 name="message"
@@ -1014,10 +1115,14 @@
                                 placeholder="Your message"
                                 required
                             ></textarea>
+
                         </div>
 
 
-                        <button type="submit" class="button button-primary">
+                        <button
+                            type="submit"
+                            class="button button-primary"
+                        >
                             Send Enquiry
                         </button>
 
@@ -1047,11 +1152,15 @@
                     </a>
 
                     <div>
-                        <h3>Prof. Dr. Naledi Mokoena</h3>
+
+                        <h3>
+                            Prof. Dr. Naledi Mokoena
+                        </h3>
 
                         <p>
                             Professor of Mechatronics Engineering
                         </p>
+
                     </div>
 
                 </div>
@@ -1077,6 +1186,7 @@
 
                         <a href="#education">Education</a>
                         <a href="#publications">Publications</a>
+                        <a href="#affiliations">Affiliations</a>
                         <a href="#achievements">Achievements</a>
 
                     </div>
@@ -1086,7 +1196,13 @@
 
                         <span>Connect</span>
 
-                        <a href="#contact">Contact</a>
+                        <a href="#contact">
+                            Contact
+                        </a>
+
+                        <a href="#identity">
+                            Professional Identity
+                        </a>
 
                         <a href="../../request/request.html">
                             MonarchAurex
@@ -1106,7 +1222,7 @@
                 </p>
 
                 <p>
-                    Designed with MonarchAurex.
+                    Designed by MonarchAurex.
                 </p>
 
             </div>
@@ -1115,15 +1231,47 @@
 
     </footer>
 
+
+    <!-- ==================== NAVIGATION SCRIPT ==================== -->
+
     <script>
-      const navToggle = document.getElementById('navToggle');
-      const navLinks = document.querySelector('.nav-links');
-      navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-        navToggle.textContent = isOpen ? '✕' : '☰';
-      });
+
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('primaryNav');
+
+        navToggle.addEventListener('click', () => {
+
+            const isOpen = navLinks.classList.toggle('is-open');
+
+            navToggle.setAttribute(
+                'aria-expanded',
+                String(isOpen)
+            );
+
+            navToggle.textContent = isOpen ? '✕' : '☰';
+
+        });
+
+
+        navLinks.querySelectorAll('a').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                navLinks.classList.remove('is-open');
+
+                navToggle.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+                navToggle.textContent = '☰';
+
+            });
+
+        });
+
     </script>
 
 </body>
+
 </html>
