@@ -443,7 +443,7 @@ em {
   color: var(--ivory);
 
   text-align: left;
-  font-style: italic;
+  font-style: normal;
 }
 
 .hero h1 span {
@@ -453,8 +453,9 @@ em {
   padding: 0;
 
   color: var(--champagne);
-  font-style: italic;
+  font-style: normal;
 }
+
 .hero-description {
   max-width: 570px;
   margin-top: 23px;
