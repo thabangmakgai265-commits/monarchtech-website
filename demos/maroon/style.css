@@ -688,29 +688,18 @@ em {
 
 .hero-number {
   position: absolute;
-
   z-index: 8;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  pointer-events: none;
 
   color: var(--ivory);
 
-  background: rgba(8, 6, 7, 0.48);
-
-  border: 1px solid rgba(200, 173, 156, 0.25);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.25);
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease;
-}
-
-.hero-number:hover {
-  background: rgba(100, 27, 44, 0.32);
-  transform: translateY(-4px);
+  text-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.65);
 }
 
 
@@ -719,17 +708,18 @@ em {
 ========================================================= */
 
 .hero-number-one {
-  left: 0;
-  bottom: 92px;
-
-  min-width: 150px;
-
-  padding: 16px 20px;
-
-  border-left: 2px solid var(--champagne);
+  left: 18px;
+  bottom: 85px;
 
   display: flex;
   flex-direction: column;
+
+  font-family: var(--serif);
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 0.85;
+
+  color: var(--ivory);
 }
 
 .hero-number-one::before {
@@ -743,26 +733,22 @@ em {
   font-size: 7px;
   font-weight: 500;
 
-  letter-spacing: 0.16em;
-}
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 
-.hero-number-one {
-  font-family: var(--serif);
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 0.9;
+  opacity: 0.85;
 }
 
 .hero-number-one span {
-  margin-top: 9px;
+  margin-top: 10px;
 
-  color: var(--muted);
+  color: rgba(243, 238, 233, 0.68);
 
   font-family: var(--sans);
   font-size: 8px;
   line-height: 1.4;
 
-  letter-spacing: 0.11em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -772,49 +758,51 @@ em {
 ========================================================= */
 
 .hero-number-two {
-  right: -2px;
-  top: 88px;
-
-  min-width: 150px;
-
-  padding: 16px 20px;
-
-  border-right: 2px solid var(--maroon-light);
+  right: 18px;
+  top: 82px;
 
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 
   font-family: var(--serif);
-  font-size: 44px;
+  font-size: 54px;
   font-weight: 500;
-  line-height: 0.9;
+  line-height: 0.85;
+
+  color: var(--champagne);
 }
 
 .hero-number-two::before {
   content: "ACADEMIC DEGREE";
 
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 
-  color: var(--champagne);
+  color: var(--ivory);
 
   font-family: var(--sans);
   font-size: 7px;
   font-weight: 500;
 
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  opacity: 0.75;
 }
 
 .hero-number-two span {
-  margin-top: 9px;
+  margin-top: 10px;
 
-  color: var(--muted);
+  color: rgba(243, 238, 233, 0.62);
 
   font-family: var(--sans);
   font-size: 8px;
   line-height: 1.4;
 
-  letter-spacing: 0.10em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+
+  text-align: right;
 }
 
 /* =========================================================
@@ -3140,13 +3128,17 @@ em {
     font-size: 17px;
   }
 
-  .hero-number {
-    font-size: 25px;
-  }
+ .hero-number-one {
+  font-size: 42px;
+}
 
-  .hero-number span {
-    font-size: 7px;
-  }
+.hero-number-two {
+  font-size: 40px;
+}
+
+.hero-number span {
+  font-size: 7px;
+}
 
   .section-heading h2,
   .section-top h2,
