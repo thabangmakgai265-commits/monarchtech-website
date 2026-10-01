@@ -755,6 +755,7 @@ em {
   text-transform: uppercase;
 }
 
+
 /* =========================================================
    PHD
 ========================================================= */
@@ -805,6 +806,90 @@ em {
   text-transform: uppercase;
 
   text-align: right;
+}
+
+
+/* =========================================================
+   MOBILE — 600px
+   Desktop remains completely unchanged
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero-visual {
+    min-height: 560px;
+
+    padding: 40px 18px 50px;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-frame {
+    width: min(100%, 390px);
+
+    margin: 0;
+  }
+
+  .hero-number-one {
+    left: 0;
+    right: auto;
+    bottom: 55px;
+
+    font-size: 28px;
+  }
+
+  .hero-number-two {
+    top: 30px;
+    right: 0;
+
+    font-size: 42px;
+  }
+
+  .portrait-label {
+    left: 17px;
+    right: 17px;
+  }
+
+  .portrait-label strong {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 420px
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .hero-visual {
+    min-height: 520px;
+
+    padding: 35px 12px 45px;
+  }
+
+  .portrait-frame {
+    width: min(100%, 360px);
+  }
+
+  .hero-number-one {
+    left: 0;
+    bottom: 50px;
+
+    font-size: 26px;
+  }
+
+  .hero-number-two {
+    top: 28px;
+    right: 0;
+
+    font-size: 38px;
+  }
+
+  .hero-number span {
+    font-size: 7px;
+  }
 }
 
 /* =========================================================
