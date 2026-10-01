@@ -433,9 +433,10 @@ img {
 }
 
 .hero h1 span {
-    display: inline-block;
+    display: block;
 
-    margin-top: 17px;
+    margin-top: 0;
+    margin-left: 0;
 
     color: var(--silver-soft);
 
