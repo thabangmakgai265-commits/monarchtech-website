@@ -2,9 +2,9 @@
 
 
 /* =========================================================
-   MACH AELA MSIZO
+   MACHAELA MSIZO
    MONARCHAUREX — OBSIDIAN / VIOLET SIGNATURE
-   BLACK FIRST — PURPLE AS AN ACCENT
+   BLACK FIRST — PURPLE AS A SIGNATURE ACCENT
 ========================================================= */
 
 :root {
@@ -515,9 +515,6 @@ img {
         box-shadow var(--transition);
 }
 
-
-/* Purple is now restrained */
-
 .btn-primary {
     border: 1px solid rgba(128, 101, 143, 0.42);
 
@@ -632,35 +629,28 @@ img {
 
     position: relative;
 
-    display: grid;
-    place-items: center;
-
     overflow: hidden;
 
-    background:
-        linear-gradient(
-            145deg,
-            #121214,
-            #080809 62%,
-            #0e0d10
-        );
+    background: #080809;
 
     border: 1px solid rgba(255, 255, 255, 0.055);
 }
 
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    position: relative;
+    z-index: 1;
+}
+
 .profile-image::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 42%,
-            rgba(74, 43, 99, 0.045),
-            transparent 64%
-        );
+    content: none;
 }
 
 .profile-image::after {
@@ -677,6 +667,10 @@ img {
     border: 1px solid rgba(128, 101, 143, 0.17);
 
     transform: rotate(45deg);
+
+    z-index: 2;
+
+    pointer-events: none;
 }
 
 .profile-image span {
