@@ -595,6 +595,7 @@ button{
 
 .profile-card:hover{
     transform:translateY(-7px);
+
     border-color:var(--gold-line);
 
     box-shadow:
@@ -604,64 +605,97 @@ button{
 .profile-image{
     aspect-ratio:4 / 5;
 
-    display:grid;
-    place-items:center;
+    position:relative;
 
-    background:
-        radial-gradient(
-            circle at 50% 30%,
-            rgba(200,168,91,.15),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #151411,
-            #080807
-        );
+    overflow:hidden;
+
+    background:#080808;
 
     border:1px solid var(--line-soft);
-
-    color:var(--gold-dark);
-
-    font-family:var(--serif);
-    font-size:18px;
-    font-style:italic;
 
     box-shadow:
         inset 0 0 50px rgba(0,0,0,.25);
 }
 
-.profile-info{
-    padding:25px 18px 15px;
-}
+.profile-image::before{
+    content:"VISION   •   STRATEGY   •   IMPACT";
 
-.profile-status{
-    color:var(--gold);
+    position:absolute;
 
-    font-size:8px;
+    top:12%;
+    left:-18%;
+
+    width:136%;
+
+    color:rgba(241,238,230,.13);
+
+    font-family:var(--sans);
+    font-size:10px;
     font-weight:600;
 
-    letter-spacing:.18em;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+
+    white-space:nowrap;
+
+    transform:rotate(-90deg);
+
+    z-index:2;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
 }
 
-.profile-info h3{
-    margin-top:13px;
+.profile-image::after{
+    content:"FOCUS   •   PURPOSE   •   EXCELLENCE";
 
-    color:var(--ivory);
+    position:absolute;
+
+    bottom:16%;
+    right:-30%;
+
+    width:150%;
+
+    color:rgba(241,238,230,.10);
 
     font-family:var(--serif);
-    font-size:29px;
-    font-weight:500;
+    font-size:13px;
+    font-style:italic;
+
+    letter-spacing:.18em;
+
+    white-space:nowrap;
+
+    transform:rotate(90deg);
+
+    z-index:2;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
 }
 
-.profile-info p{
-    margin-top:3px;
+.profile-image img{
+    width:100%;
+    height:100%;
 
-    color:var(--muted);
+    display:block;
 
-    font-size:10px;
+    object-fit:cover;
+    object-position:center center;
+
+    filter:
+        saturate(.92)
+        contrast(1.04)
+        brightness(.94);
+
+    transition:var(--transition);
 }
 
+.profile-card:hover .profile-image img{
+    transform:scale(1.025);
+}
 /* =========================================================
    SECTION HEADINGS
 ========================================================= */
