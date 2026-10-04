@@ -3343,10 +3343,114 @@ span:last-child {
 
     text-align: center;
 }
+/* =========================================================
+   20. FOUNDER
+   ========================================================= */
 
+.founder-section {
+    position: relative;
+
+    padding:
+        140px 24px;
+
+    background:
+        #080B10;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.05);
+}
+
+.founder-content {
+    width: min(
+        var(--max-width),
+        100%
+    );
+
+    margin:
+        0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+.founder-heading {
+    position: sticky;
+
+    top: 120px;
+}
+
+.founder-heading .eyebrow {
+    display: block;
+
+    margin-bottom: 24px;
+
+    color: var(--gold-soft);
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: .62rem;
+
+    font-weight: 800;
+
+    letter-spacing: .20em;
+}
+
+.founder-heading h2 {
+    margin: 0;
+
+    color: var(--white);
+
+    font-size:
+        clamp(
+            2.5rem,
+            5vw,
+            5rem
+        );
+
+    line-height: 1;
+}
+
+.founder-statement {
+    max-width: 650px;
+}
+
+.founder-statement p {
+    margin:
+        0 0 28px;
+
+    color: var(--soft);
+
+    font-size:
+        clamp(
+            1rem,
+            1.4vw,
+            1.15rem
+        );
+
+    line-height: 1.9;
+}
+
+.founder-statement p:last-child {
+    margin-bottom: 0;
+
+    color: var(--white);
+}
 
 /* =========================================================
-   20. FINAL CTA
+   21. FINAL CTA
    ========================================================= */
 
 .final-cta {
@@ -3524,9 +3628,8 @@ span:last-child {
     color: var(--gold-light);
 }
 
-
 /* =========================================================
-   21. FOOTER
+   22. FOOTER
    ========================================================= */
 
 .site-footer {
@@ -3762,7 +3865,7 @@ span:last-child {
 
 
 /* =========================================================
-   22. TABLET
+   23. TABLET
    ========================================================= */
 
 @media (max-width: 1050px) {
@@ -3861,10 +3964,28 @@ span:last-child {
         justify-self: start;
     }
 }
+    .founder-content {
+        grid-template-columns: 1fr;
 
+        gap: 50px;
+    }
+
+    .founder-heading {
+        position: static;
+    }
+
+    .founder-heading h2 {
+        font-size: 3rem;
+    }
+
+    .founder-statement p {
+        font-size: .95rem;
+
+        line-height: 1.8;
+    }
 
 /* =========================================================
-   23. MOBILE NAVIGATION
+   24. MOBILE NAVIGATION
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -4161,7 +4282,7 @@ span:last-child {
 
 
 /* =========================================================
-   24. MOBILE
+   25. MOBILE
    ========================================================= */
 
 @media (max-width: 760px) {
@@ -4427,7 +4548,7 @@ span:last-child {
 
 
 /* =========================================================
-   25. SMALL MOBILE
+   26. SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 480px) {
@@ -4738,7 +4859,7 @@ span:last-child {
 
 
 /* =========================================================
-   26. REDUCED MOTION
+   27. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
