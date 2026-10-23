@@ -1,0 +1,10 @@
+.dev.vars
+.wrangler/
+node_modules/
+.git/
+.dev.vars
+.wrangler/
+node_modules/
+payfast-backend/.dev.vars
+payfast-backend/.wrangler/
+payfast-backend/node_modules/

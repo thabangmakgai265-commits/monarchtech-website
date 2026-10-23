@@ -1,0 +1,62 @@
+:root {
+    --ma-bg: #07090D;
+    --ma-surface: #0D1117;
+    --ma-surface-translucent: rgba(13, 17, 23, .88);
+
+    --ma-text: #F4F2ED;
+    --ma-text-muted: #858991;
+    --ma-silver: #C9CDD2;
+    --ma-champagne: #C1A05C;
+
+    --ma-border: rgba(255, 255, 255, .09);
+    --ma-border-subtle: rgba(255, 255, 255, .07);
+    --ma-border-champagne: rgba(193, 160, 92, .28);
+    --ma-focus: rgba(193, 160, 92, .65);
+
+    --ma-content-width: 1240px;
+    --ma-page-gutter: 24px;
+    --ma-section-space: 110px;
+    --ma-ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+.ma-wordmark {
+    color: var(--ma-text);
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    font-size: .86rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+a.ma-wordmark {
+    display: inline-block;
+    color: var(--ma-text);
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    font-size: .86rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+a.ma-wordmark::after {
+    display: none !important;
+}
+
+.monarch-bloom-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+    pointer-events: none;
+}
+
+@media (max-width: 760px) {
+    .monarch-bloom-canvas {
+        opacity: .13;
+    }
+}
