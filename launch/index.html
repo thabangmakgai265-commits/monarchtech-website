@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07090D">
+    <meta
+        name="description"
+        content="MonarchAurex launch is approaching. Join the countdown to 1 January 2027."
+    >
+    <title>MonarchAurex — The Launch Is Approaching</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../assets/monarch-brand.css">
+    <link rel="stylesheet" href="launch.css">
+</head>
+<body>
+    <main class="launch-shell">
+        <a class="brand ma-wordmark" href="../" aria-label="MonarchAurex homepage">
+            MonarchAurex
+        </a>
+
+        <section class="launch-content" aria-labelledby="launch-title">
+            <p class="eyebrow">A new chapter begins</p>
+            <h1 id="launch-title">Something <span>remarkable</span> is on the horizon.</h1>
+            <p class="intro">
+                MonarchAurex launch is approaching. The countdown ends at
+                midnight, South African time.
+            </p>
+
+            <div class="countdown" id="countdown" role="timer" aria-live="off">
+                <div class="time-unit">
+                    <span class="time-value" id="days">000</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <span class="time-divider" aria-hidden="true">:</span>
+                <div class="time-unit">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <span class="time-divider" aria-hidden="true">:</span>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <span class="time-divider" aria-hidden="true">:</span>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+
+            <p class="launch-date">
+                <time datetime="2027-01-01T00:00:00+02:00">
+                    01 January 2027 <span aria-hidden="true">·</span> 00:00 SAST
+                </time>
+            </p>
+
+            <p class="launch-message" id="launch-message" role="status" hidden>
+                WE ARE OFFICIALLY LIVE
+            </p>
+
+            <a class="home-link" href="../">
+                <span aria-hidden="true">←</span>
+                Return to the homepage
+            </a>
+        </section>
+
+        <section class="launch-comments-section" id="launch-comments" aria-labelledby="launch-comments-title">
+            <div class="launch-comments-heading">
+                <p class="eyebrow">MONARCHAUREX · LAUNCH</p>
+                <h2 id="launch-comments-title">Join the conversation.</h2>
+                <p>Share a thought about the MonarchAurex launch or read what others have to say.</p>
+            </div>
+
+            <div class="launch-comments-layout">
+                <div class="launch-comments-feed">
+                    <h3>Launch comments</h3>
+                    <p class="launch-comments-empty" id="launch-comments-empty" role="status" aria-live="polite">
+                        Public comments are currently unavailable.
+                    </p>
+                    <ol
+                        class="launch-comments-list"
+                        id="launch-comments-list"
+                        aria-label="Launch comments, newest first"
+                        aria-live="polite"
+                        aria-relevant="additions"
+                    ></ol>
+                </div>
+
+                <form class="launch-comments-form" id="launch-comments-form" novalidate>
+                    <h3>Leave a comment</h3>
+                    <div class="launch-comment-field">
+                        <label for="launch-comment-name">Display name</label>
+                        <input
+                            id="launch-comment-name"
+                            name="displayName"
+                            type="text"
+                            autocomplete="name"
+                            minlength="2"
+                            maxlength="60"
+                            disabled
+                            required
+                        >
+                    </div>
+                    <div class="launch-comment-field">
+                        <label for="launch-comment-message">Comment</label>
+                        <textarea
+                            id="launch-comment-message"
+                            name="comment"
+                            rows="5"
+                            minlength="1"
+                            maxlength="500"
+                            disabled
+                            required
+                        ></textarea>
+                        <span>Up to 500 characters.</span>
+                    </div>
+                    <button class="launch-comment-submit" type="submit" disabled>Submit comment</button>
+                    <p class="launch-comment-status" id="launch-comment-status" role="status" aria-live="polite">
+                        Comments cannot be submitted at this time.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <p class="footer-note">Distinctly yours. Unmistakably MonarchAurex.</p>
+    </main>
+
+    <div
+        class="launch-celebration"
+        id="launch-celebration"
+        role="status"
+        aria-live="polite"
+        hidden
+    >
+        <canvas class="launch-fireworks" aria-hidden="true"></canvas>
+        <p>WE ARE OFFICIALLY LIVE</p>
+        <div class="launch-prize-reveal" aria-label="The Golden Privilege grand prize package">
+            <span class="launch-gift-box" aria-hidden="true">
+                <svg class="golden-gift-icon" viewBox="0 0 80 72" focusable="false">
+                    <path class="golden-gift-body" d="M12 30h56v35H12z"/>
+                    <path class="golden-gift-ribbon" d="M36 29h8v36h-8z"/>
+                    <path class="golden-gift-lid" d="M9 22h62v10H9z"/>
+                    <path class="golden-gift-lid golden-gift-lid-ribbon" d="M36 21h8v12h-8z"/>
+                    <path class="golden-gift-bow" d="M40 21c-15 0-19-4-17-10 2-6 11-2 17 10Zm0 0c15 0 19-4 17-10-2-6-11-2-17 10Z"/>
+                </svg>
+            </span>
+            <span class="launch-prize-copy">
+                <strong>THE GOLDEN PRIVILEGE</strong>
+                <span>One extraordinary gift. One grand winner.</span>
+            </span>
+        </div>
+        <p
+            class="launch-confirmed-winner"
+            id="launch-confirmed-winner"
+            role="status"
+            aria-live="polite"
+            hidden
+        ></p>
+        <a class="launch-draw-link" href="../luck-draw/">
+            Explore the Luck Draw
+            <span aria-hidden="true">↗</span>
+        </a>
+    </div>
+
+    <script type="module" src="../bloom-background.js"></script>
+    <script src="launch.js" defer></script>
+    <script src="../launch-effects.js" defer></script>
+</body>
+</html>
