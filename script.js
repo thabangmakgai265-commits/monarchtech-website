@@ -1511,66 +1511,77 @@ if (requestForm && !window.location.pathname.includes("/request/")) {
 
 const whatsappChat =
     document.querySelector(".whatsapp-chat");
+const goldenPrivilege =
+    document.querySelector(".golden-privilege");
+const launchReplay =
+    document.querySelector(".launch-replay");
+const premiumIdentityPrompt =
+    document.querySelector(".premium-identity-prompt");
 
-if (whatsappChat) {
-
-    let whatsappTimer = null;
-    let scrollTimer = null;
-
-
-    const hideWhatsAppChat = () => {
-
-        whatsappChat.classList.add(
-            "whatsapp-hidden"
-        );
-
-    };
-
-
-    const showWhatsAppChat = () => {
-
-        whatsappChat.classList.remove(
-            "whatsapp-hidden"
-        );
-
-        clearTimeout(whatsappTimer);
-
-        whatsappTimer = setTimeout(() => {
-
-            hideWhatsAppChat();
-
-        }, 10000);
-
-    };
-
-
-    /* -----------------------------------------
-       INITIAL APPEARANCE
-    ----------------------------------------- */
-
-    showWhatsAppChat();
-
-
-    /* -----------------------------------------
-       SHOW AGAIN WHEN USER SCROLLS
-    ----------------------------------------- */
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            clearTimeout(scrollTimer);
-
-            scrollTimer = setTimeout(() => {
-
-                showWhatsAppChat();
-
-            }, 150);
-
+if (
+    whatsappChat &&
+    goldenPrivilege &&
+    launchReplay &&
+    premiumIdentityPrompt
+) {
+    const floatingPromos = [
+        {
+            element: whatsappChat,
+            show: () => whatsappChat.classList.remove("whatsapp-hidden"),
+            hide: () => whatsappChat.classList.add("whatsapp-hidden"),
+            duration: 5000
         },
-        { passive: true }
-    );
+        {
+            element: goldenPrivilege,
+            show: () => goldenPrivilege.classList.add("is-visible"),
+            hide: () => goldenPrivilege.classList.remove("is-visible"),
+            duration: 5000
+        },
+        {
+            element: premiumIdentityPrompt,
+            show: () => premiumIdentityPrompt.classList.add("is-visible"),
+            hide: () => premiumIdentityPrompt.classList.remove("is-visible"),
+            duration: 4000
+        },
+        {
+            element: launchReplay,
+            show: () => launchReplay.classList.add("is-visible"),
+            hide: () => launchReplay.classList.remove("is-visible"),
+            duration: 5000
+        }
+    ];
+    let activeFloatingPromo = -1;
+    let floatingPromoTimer = null;
 
+    const showNextFloatingPromo = () => {
+        window.clearTimeout(floatingPromoTimer);
+
+        floatingPromos.forEach(promo => promo.hide());
+
+        for (let attempt = 0; attempt < floatingPromos.length; attempt += 1) {
+            activeFloatingPromo =
+                (activeFloatingPromo + 1) % floatingPromos.length;
+            const promo = floatingPromos[activeFloatingPromo];
+
+            if (promo.element.hidden) {
+                continue;
+            }
+
+            promo.show();
+            floatingPromoTimer = window.setTimeout(
+                showNextFloatingPromo,
+                promo.duration
+            );
+            return;
+        }
+
+        floatingPromoTimer = window.setTimeout(
+            showNextFloatingPromo,
+            1000
+        );
+    };
+
+    showNextFloatingPromo();
 }
     console.log(
         "MONARCHAUREX — site functionality initialized."

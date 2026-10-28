@@ -73,6 +73,10 @@
     rel="stylesheet"
     href="style.css"
 >
+<link
+    rel="stylesheet"
+    href="launch-effects.css"
+>
 
 </head>
 
@@ -98,6 +102,19 @@
     <span class="whatsapp-label">
         Chat With Us
     </span>
+</a>
+
+<a
+    href="luck-draw/"
+    class="golden-privilege"
+    aria-label="Open the Golden Privilege Luck Draw"
+>
+    <span class="golden-privilege-crown" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m3 7 4.5 3.5L12 4l4.5 6.5L21 7l-2 12H5L3 7Zm3.7 10h10.6l.9-5.3-3.1 2.4L12 8.7l-3.1 5.4-3.1-2.4.9 5.3Z"/>
+        </svg>
+    </span>
+    <span>WIN THE GOLDEN PRIVILEGE</span>
 </a>
 
 <!-- =========================================================
@@ -2695,6 +2712,64 @@
 
 </footer>
 
+<section
+    class="launch-celebration"
+    id="launch-celebration"
+    role="dialog"
+    aria-modal="true"
+    aria-label="MonarchAurex New Year celebration"
+    aria-hidden="true"
+    hidden
+>
+    <canvas class="launch-fireworks" aria-hidden="true"></canvas>
+    <div class="launch-celebration-shade" aria-hidden="true"></div>
+    <button class="launch-celebration-skip" id="launch-celebration-skip" type="button">
+        Skip celebration
+    </button>
+    <div class="launch-stage launch-stage-fireworks" id="launch-stage-fireworks" hidden>
+        <h2 id="launch-stage-fireworks-title" tabindex="-1">Happy New Year</h2>
+    </div>
+    <div class="launch-stage launch-stage-announcement" id="launch-stage-announcement" hidden>
+        <p class="launch-stage-kicker">A NEW CHAPTER BEGINS</p>
+        <h2 id="launch-stage-announcement-title" tabindex="-1">WE ARE<br><span>OFFICIALLY LIVE</span></h2>
+        <span class="launch-stage-rule" aria-hidden="true"></span>
+    </div>
+    <div class="launch-stage launch-stage-winner" id="launch-stage-winner" hidden>
+        <span class="launch-gift-mark" aria-hidden="true">
+            <svg viewBox="0 0 80 72" focusable="false">
+                <path d="M12 30h56v35H12z"/>
+                <path d="M36 29h8v36h-8z"/>
+                <path d="M9 22h62v10H9z"/>
+                <path d="M36 21h8v12h-8z"/>
+                <path d="M40 21c-15 0-19-4-17-10 2-6 11-2 17 10Zm0 0c15 0 19-4 17-10-2-6-11-2-17 10Z"/>
+            </svg>
+        </span>
+        <p class="launch-stage-kicker">THE GOLDEN PRIVILEGE</p>
+        <h2 id="launch-stage-winner-title" tabindex="-1">2027 <span>WINNER</span></h2>
+        <p class="launch-winner-pending" id="launch-winner-pending" aria-live="polite">
+            The official result is awaiting confirmation.
+        </p>
+        <p class="launch-confirmed-winner" id="launch-confirmed-winner" aria-live="polite" hidden></p>
+    </div>
+</section>
+<button
+    class="launch-replay"
+    id="launch-replay"
+    type="button"
+    aria-label="Replay the New Year celebration"
+    hidden
+>
+    Replay New Year
+</button>
+<a
+    class="premium-identity-prompt"
+    id="premium-identity-prompt"
+    href="#home"
+    aria-label="Premium digital identity — return to the homepage introduction"
+>
+    PREMIUM DIGITAL IDENTITY
+</a>
+
 
 
 <!-- =========================================================
@@ -2706,6 +2781,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="script.js"></script>
+<script src="launch-effects.js" defer></script>
 
 
 </body>
