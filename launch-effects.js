@@ -18,54 +18,94 @@ const reducedMotionPreference = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
 );
 
+
 if (launchBrand) {
-    let brandTimer = null;
-    let countdownIsDestination = false;
+    const brandHomeState = launchBrand.querySelector(".brand-home-state");
+    const brandCountdownState = launchBrand.querySelector(".brand-countdown-state");
 
-    const setBrandDestination = showCountdown => {
-        countdownIsDestination = showCountdown;
-        launchBrand.href = showCountdown ? "/launch/" : "#home";
-        launchBrand.setAttribute(
-            "aria-label",
-            showCountdown ? "Launch countdown" : "MonarchAurex home"
-        );
-    };
+    if (brandHomeState && brandCountdownState) {
+        let brandTimer = null;
+        let brandTransitionTimer = null;
+        let brandTransitioning = false;
+        let countdownIsDestination = false;
 
-    const scheduleBrandTransition = delay => {
-        window.clearTimeout(brandTimer);
-        brandTimer = window.setTimeout(() => {
-            const showCountdown = !countdownIsDestination;
-            setBrandDestination(showCountdown);
-            scheduleBrandTransition(showCountdown ? 21000 : 2000);
-        }, delay);
-    };
+        const setBrandDestination = (showCountdown, animate = true) => {
+            window.clearTimeout(brandTransitionTimer);
+            brandTransitioning = animate;
+            countdownIsDestination = showCountdown;
 
-    const syncBrandMotion = () => {
-        window.clearTimeout(brandTimer);
-        setBrandDestination(false);
+            launchBrand.classList.toggle("is-countdown", showCountdown);
+            launchBrand.href = showCountdown ? "launch/" : "#home";
+            launchBrand.setAttribute(
+                "aria-label",
+                showCountdown
+                    ? "Open the MonarchAurex launch countdown"
+                    : "MonarchAurex home"
+            );
 
-        if (!reducedMotionPreference.matches) {
-            scheduleBrandTransition(1500);
+            brandHomeState.setAttribute(
+                "aria-hidden",
+                String(showCountdown)
+            );
+            brandCountdownState.setAttribute(
+                "aria-hidden",
+                String(!showCountdown)
+            );
+
+            if (animate) {
+                launchBrand.setAttribute("aria-disabled", "true");
+
+                brandTransitionTimer = window.setTimeout(() => {
+                    brandTransitioning = false;
+                    launchBrand.removeAttribute("aria-disabled");
+                }, 300);
+            } else {
+                launchBrand.removeAttribute("aria-disabled");
+            }
+        };
+
+        const scheduleBrandTransition = showCountdown => {
+            window.clearTimeout(brandTimer);
+
+            brandTimer = window.setTimeout(() => {
+                const nextState = !countdownIsDestination;
+                setBrandDestination(nextState);
+                scheduleBrandTransition(nextState);
+            }, showCountdown ? 21000 : 2000);
+        };
+
+        const syncBrandMotion = () => {
+            window.clearTimeout(brandTimer);
+            window.clearTimeout(brandTransitionTimer);
+            brandTransitioning = false;
+            setBrandDestination(false, false);
+
+            if (!reducedMotionPreference.matches) {
+                scheduleBrandTransition(false);
+            }
+        };
+
+        launchBrand.addEventListener("click", event => {
+            if (brandTransitioning) {
+                event.preventDefault();
+                return;
+            }
+
+            const showCountdown =
+                Number.parseFloat(
+                    getComputedStyle(brandCountdownState).opacity
+                ) >= 0.5;
+
+            setBrandDestination(showCountdown, false);
+        });
+
+        syncBrandMotion();
+
+        if (typeof reducedMotionPreference.addEventListener === "function") {
+            reducedMotionPreference.addEventListener("change", syncBrandMotion);
+        } else {
+            reducedMotionPreference.addListener(syncBrandMotion);
         }
-    };
-
-    launchBrand.addEventListener("click", () => {
-        const countdownLabel = launchBrand.querySelector(
-            ".brand-countdown-state"
-        );
-        const countdownIsVisible =
-            countdownLabel &&
-            Number.parseFloat(getComputedStyle(countdownLabel).opacity) >= 0.5;
-
-        setBrandDestination(Boolean(countdownIsVisible));
-    });
-
-    syncBrandMotion();
-
-    if (typeof reducedMotionPreference.addEventListener === "function") {
-        reducedMotionPreference.addEventListener("change", syncBrandMotion);
-    } else {
-        reducedMotionPreference.addListener(syncBrandMotion);
     }
 }
 
