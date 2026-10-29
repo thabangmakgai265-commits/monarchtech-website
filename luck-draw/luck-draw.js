@@ -81,7 +81,7 @@ const serviceUnavailable = () => ({ available: false });
 
 
 const saveEntryWithSupabase = async formData => {
-    const projectUrl = "https://vvobkcikfueenyzgjgh.k.supabase.co";
+   const projectUrl = "https://vvobkcikfueenyzgjghk.supabase.co";
 
     // Replace this with your existing Supabase publishable/anon key.
     // Use the same key already used by your website's Supabase client.
