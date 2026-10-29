@@ -79,11 +79,40 @@ const availablePrizes = new Set([
 
 const serviceUnavailable = () => ({ available: false });
 
-// Connect these adapters only after service configuration and server-side rules are approved.
+
 const saveEntryWithSupabase = async formData => {
-    void formData;
-    return serviceUnavailable();
+    const projectUrl = "https://vvobkcikfueenyzgjgh.k.supabase.co";
+
+    // Replace this with your existing Supabase publishable/anon key.
+    // Use the same key already used by your website's Supabase client.
+    const supabasePublishableKey = "PASTE_YOUR_PUBLIC_KEY_HERE";
+
+    const payload = Object.fromEntries(formData.entries());
+
+    payload.marketingConsent = marketingConsentInput.checked;
+
+    const response = await fetch(
+        `${projectUrl}/functions/v1/lucky-draw-register`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "apikey": supabasePublishableKey,
+                "Authorization": `Bearer ${supabasePublishableKey}`
+            },
+            body: JSON.stringify(payload)
+        }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new Error(result.error || "Registration failed.");
+    }
+
+    return result;
 };
+
 const requestVerificationWithSupabase = async () => serviceUnavailable();
 const verifyContactWithSupabase = async () => serviceUnavailable();
 const allocatePrizeWithSupabase = async () => serviceUnavailable();
