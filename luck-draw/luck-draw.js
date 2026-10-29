@@ -85,7 +85,7 @@ const saveEntryWithSupabase = async formData => {
 
     // Replace this with your existing Supabase publishable/anon key.
     // Use the same key already used by your website's Supabase client.
-    const supabasePublishableKey = "PASTE_YOUR_PUBLIC_KEY_HERE";
+    const supabasePublishableKey = "sb_publishable_DIOMqnJVpHDotsi9HWIDnQ_tMpBuRQG"";
 
     const payload = Object.fromEntries(formData.entries());
 
