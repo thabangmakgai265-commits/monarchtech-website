@@ -1,3 +1,4 @@
+
 "use strict";
 
 const registrationForm = document.getElementById("registration-form");
@@ -10,33 +11,33 @@ const marketingPreferenceStatus = document.getElementById(
 const registrationSubmitButton =
     registrationForm?.querySelector('button[type="submit"]');
 const phoneInput = document.getElementById("phone");
+
 const requiredTextFields = [
     ["first-name", "Enter your first name."],
     ["last-name", "Enter your last name."],
     ["country", "Enter your country or region."]
 ].map(([id, message]) => {
     const input = document.getElementById(id);
-
-    if (!input) {
-        return null;
-    }
-
-    return { input, message };
+    return input ? { input, message } : null;
 });
+
 const entryConfirmation = document.getElementById("entry-confirmation");
 const entryIdDisplay = document.getElementById("entry-id");
 const verificationForm = document.getElementById("verification-form");
 const verificationStatus = document.getElementById("verification-status");
-const verificationSubmitButton =
-    verificationForm?.querySelector('button[type="submit"]');
 const spinButton = document.getElementById("spin-button");
 const wheelStatus = document.getElementById("wheel-status");
 const resultPlaceholder = document.getElementById("result-placeholder");
 const prizeResult = document.getElementById("prize-result");
+
 const reducedMotionPreference = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
 );
+
 const wheelSpinDuration = 5200;
+const projectUrl = "https://vvobkcikfueenyzgjghk.supabase.co";
+const supabasePublishableKey =
+    "sb_publishable_DIOMqnJVpHDotsi9HWIDnQ_tMpBuRQG";
 
 if (
     !registrationForm ||
@@ -49,20 +50,17 @@ if (
     requiredTextFields.some(field => !field) ||
     !entryConfirmation ||
     !entryIdDisplay ||
-    !verificationForm ||
-    !verificationStatus ||
-    !verificationSubmitButton ||
     !spinButton ||
     !wheelStatus ||
     !resultPlaceholder ||
     !prizeResult
 ) {
-    throw new Error("The Luck Draw page is missing required interface elements.");
+    throw new Error("The Lucky Draw page is missing required interface elements.");
 }
 
 const competitionState = {
     entryId: null,
-    contactVerified: false,
+    spinToken: null,
     spinUsed: false,
     result: null
 };
@@ -77,17 +75,17 @@ const availablePrizes = new Set([
     "Web Care"
 ]);
 
-const serviceUnavailable = () => ({ available: false });
+const setStatus = (element, message, status = "pending") => {
+    if (!element) return;
 
+    element.textContent = message;
+    element.dataset.status = status;
+};
 
 const saveEntryWithSupabase = async formData => {
-   const projectUrl = "https://vvobkcikfueenyzgjghk.supabase.co";
-
-    // Replace this with your existing Supabase publishable/anon key.
-    // Use the same key already used by your website's Supabase client.
-    const supabasePublishableKey = "sb_publishable_DIOMqnJVpHDotsi9HWIDnQ_tMpBuRQG";
-
-    const payload = Object.fromEntries(formData.entries());
+    const payload = formData instanceof FormData
+        ? Object.fromEntries(formData.entries())
+        : { ...formData };
 
     payload.marketingConsent = marketingConsentInput.checked;
 
@@ -113,137 +111,89 @@ const saveEntryWithSupabase = async formData => {
     return result;
 };
 
-const requestVerificationWithSupabase = async () => serviceUnavailable();
-const verifyContactWithSupabase = async () => serviceUnavailable();
-const allocatePrizeWithSupabase = async () => serviceUnavailable();
-const sendRegistrationWithFormspree = async () => serviceUnavailable();
-const subscribeToMarketingWithFormspree = async () => serviceUnavailable();
-const unsubscribeFromMarketingWithSupabase = async () => serviceUnavailable();
-
+/*
+ * The registration Edge Function must return:
+ * {
+ *   available: true,
+ *   recorded: true,
+ *   entryId: "...",
+ *   spinToken: "..."
+ * }
+ *
+ * The server must store only a hash of the spin token and validate it
+ * in lucky-draw-spin. Do not enable real spins before that is implemented.
+ */
 const registerEntry = async formData => {
-    const registrationData = Object.fromEntries(formData.entries());
     const wantsMarketing = marketingConsentInput.checked;
-    const submittedConsentAt = wantsMarketing ? new Date().toISOString() : null;
-    const entryData = {
-        ...registrationData,
-        marketingConsent: wantsMarketing,
-        marketingConsentAt: submittedConsentAt
-    };
-    const savedEntry = await saveEntryWithSupabase(entryData);
+    const savedEntry = await saveEntryWithSupabase(formData);
 
     if (
-        !savedEntry.available ||
+        savedEntry.available !== true ||
         savedEntry.recorded !== true ||
         typeof savedEntry.entryId !== "string" ||
         !savedEntry.entryId ||
-        savedEntry.marketingConsent !== wantsMarketing ||
-        savedEntry.marketingConsentAt !== submittedConsentAt
+        typeof savedEntry.spinToken !== "string" ||
+        !savedEntry.spinToken
     ) {
-        return { status: "unavailable" };
-    }
-
-    let notificationSent = false;
-
-    try {
-        const notification = await sendRegistrationWithFormspree({
-            entryId: savedEntry.entryId,
-            registrationData
-        });
-        notificationSent = notification.sent === true;
-    } catch (error) {
-        console.error("Luck Draw notification service error:", error);
-    }
-
-    let marketingSubscribed = false;
-
-    if (wantsMarketing) {
-        try {
-            const subscription = await subscribeToMarketingWithFormspree({
-                entryId: savedEntry.entryId,
-                consentAt: savedEntry.marketingConsentAt
-            });
-            marketingSubscribed = subscription.subscribed === true;
-        } catch (error) {
-            console.error("Luck Draw marketing subscription error:", error);
-        }
+        throw new Error(
+            "The registration service did not return a valid entry and spin token."
+        );
     }
 
     return {
         status: "registered",
         entryId: savedEntry.entryId,
-        notificationSent,
-        marketingSubscribed
+        spinToken: savedEntry.spinToken,
+        marketingSubscribed: false,
+        wantsMarketing
     };
 };
 
-const unsubscribeFromMarketing = async unsubscribeToken => {
-    if (typeof unsubscribeToken !== "string" || !unsubscribeToken) {
-        return { status: "unavailable" };
+const allocatePrizeWithSupabase = async (entryId, spinToken) => {
+    if (!entryId || !spinToken) {
+        throw new Error("A valid entry and spin token are required.");
     }
 
-    const result = await unsubscribeFromMarketingWithSupabase(unsubscribeToken);
-    return result.unsubscribed === true
-        ? { status: "unsubscribed" }
-        : { status: "unavailable" };
-};
+    const response = await fetch(
+        `${projectUrl}/functions/v1/lucky-draw-spin`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "apikey": supabasePublishableKey,
+                "Authorization": `Bearer ${supabasePublishableKey}`
+            },
+            body: JSON.stringify({ entryId, spinToken })
+        }
+    );
 
-const unsubscribeToken = new URLSearchParams(window.location.search).get(
-    "unsubscribe_token"
-);
+    const result = await response.json();
 
-if (unsubscribeToken) {
-    const cleanUrl = new URL(window.location.href);
-    cleanUrl.searchParams.delete("unsubscribe_token");
-    window.history.replaceState(null, "", cleanUrl);
-    marketingPreferenceStatus.hidden = false;
+    if (!response.ok) {
+        throw new Error(result.error || "The spin could not be completed.");
+    }
 
-    unsubscribeFromMarketing(unsubscribeToken)
-        .then(result => {
-            if (result.status === "unsubscribed") {
-                setStatus(
-                    marketingPreferenceStatus,
-                    "Your marketing subscription has been cancelled.",
-                    "success"
-                );
-                return;
-            }
+    if (
+        result.available !== true ||
+        result.spinUsed !== true ||
+        !availablePrizes.has(result.prize) ||
+        typeof result.claimInstructions !== "string"
+    ) {
+        throw new Error("The server returned an invalid prize result.");
+    }
 
-            setStatus(
-                marketingPreferenceStatus,
-                "We could not confirm your unsubscribe request, so your preferences have not been changed. Please contact MonarchAurex for help."
-            );
-        })
-        .catch(error => {
-            console.error("Luck Draw unsubscribe service error:", error);
-            setStatus(
-                marketingPreferenceStatus,
-                "Your unsubscribe request could not be confirmed. No preference changes were made.",
-                "error"
-            );
-        });
-}
-
-const requestContactVerification = async entryId =>
-    requestVerificationWithSupabase(entryId);
-
-const verifyEntryContact = async (entryId, code) =>
-    verifyContactWithSupabase(entryId, code);
-
-const requestEntryPrize = async entryId =>
-    allocatePrizeWithSupabase(entryId);
-
-const setStatus = (element, message, status = "pending") => {
-    element.textContent = message;
-    element.dataset.status = status;
+    return result;
 };
 
 const validatePhoneNumber = () => {
     const isValid = /^[+0-9() -]{7,24}$/.test(phoneInput.value.trim());
+
     phoneInput.setCustomValidity(
         isValid
             ? ""
             : "Enter a phone number using digits and standard phone symbols."
     );
+
     return isValid;
 };
 
@@ -256,31 +206,35 @@ const validateRequiredTextFields = () => {
 };
 
 phoneInput.addEventListener("input", validatePhoneNumber);
+
 requiredTextFields.forEach(field => {
     field.input.addEventListener("input", validateRequiredTextFields);
 });
 
+/* Contact verification is no longer required before spinning. */
+if (verificationForm) {
+    verificationForm.hidden = true;
+}
+
+spinButton.disabled = true;
+spinButton.textContent = "Register to unlock your spin";
+
 registrationForm.addEventListener("submit", async event => {
     event.preventDefault();
 
-    if (registrationSubmitButton.disabled) {
-        return;
-    }
+    if (registrationSubmitButton.disabled) return;
 
     validateRequiredTextFields();
     validatePhoneNumber();
 
-    if (!registrationForm.reportValidity()) {
-        return;
-    }
+    if (!registrationForm.reportValidity()) return;
 
     registrationSubmitButton.disabled = true;
+
     setStatus(
         registrationStatus,
-        "Registration is not open yet. Your information has not been sent."
+        "Submitting your entry securely..."
     );
-
-    let result;
 
     try {
         const formData = new FormData(registrationForm);
@@ -293,124 +247,51 @@ registrationForm.addEventListener("submit", async event => {
             }
         });
 
-        result = await registerEntry(formData);
-    } catch (error) {
-        console.error("Luck Draw registration service error:", error);
-        registrationSubmitButton.disabled = false;
-        setStatus(
-            registrationStatus,
-            "The registration result could not be confirmed. No entry confirmation is displayed.",
-            "error"
-        );
-        return;
-    }
+        const result = await registerEntry(formData);
 
-    if (result.status !== "registered") {
-        registrationSubmitButton.disabled = false;
-        setStatus(
-            registrationStatus,
-            "We could not confirm your entry. Nothing has been recorded.",
-            "error"
-        );
-        return;
-    }
+        competitionState.entryId = result.entryId;
+        competitionState.spinToken = result.spinToken;
+        competitionState.spinUsed = false;
 
-    if (!marketingConsentInput.checked) {
-        setStatus(
-            marketingStatus,
-            "No marketing updates were requested; you have not been subscribed."
-        );
-    } else if (result.marketingSubscribed) {
-        setStatus(
-            marketingStatus,
-            "Your marketing subscription has been confirmed. You can unsubscribe from any marketing message.",
-            "success"
-        );
-    } else {
-        setStatus(
-            marketingStatus,
-            "Your optional marketing preference could not be confirmed. You have not been subscribed."
-        );
-    }
+        entryIdDisplay.textContent = result.entryId;
+        entryConfirmation.hidden = false;
 
-    registrationSubmitButton.textContent = "Entry received";
-    competitionState.entryId = result.entryId;
-    entryIdDisplay.textContent = result.entryId;
-    entryConfirmation.hidden = false;
-    setStatus(
-        registrationStatus,
-        "Your entry has been recorded. Follow the contact verification step to continue.",
-        "success"
-    );
+        registrationSubmitButton.textContent = "Entry received";
 
-    try {
-        const verificationRequest =
-            await requestContactVerification(competitionState.entryId);
-
-        if (
-            !verificationRequest.available ||
-            verificationRequest.requested !== true
-        ) {
+        if (result.wantsMarketing) {
             setStatus(
-                verificationStatus,
-                "Contact verification is not available yet. Your entry cannot spin."
+                marketingStatus,
+                "Your marketing preference was recorded with your entry. Email subscription is not active until an email service is connected."
             );
-            return;
+        } else {
+            setStatus(
+                marketingStatus,
+                "You have not opted in to marketing updates."
+            );
         }
 
-        verificationSubmitButton.disabled = false;
         setStatus(
-            verificationStatus,
-            "A verification code has been requested for your registered contact.",
+            registrationStatus,
+            "Your entry has been recorded.",
             "success"
         );
-    } catch (error) {
-        console.error("Luck Draw verification service error:", error);
-        setStatus(
-            verificationStatus,
-            "Contact verification could not be requested. Your entry cannot spin yet.",
-            "error"
-        );
-    }
-});
 
-verificationForm.addEventListener("submit", async event => {
-    event.preventDefault();
-
-    if (!verificationForm.reportValidity()) {
-        return;
-    }
-
-    if (!competitionState.entryId) {
-        setStatus(
-            verificationStatus,
-            "A recorded entry is required before contact verification."
-        );
-        return;
-    }
-
-    try {
-        const code = new FormData(verificationForm).get("verificationCode");
-        const result = await verifyEntryContact(competitionState.entryId, code);
-
-        if (!result.available || result.verified !== true) {
-            setStatus(
-                verificationStatus,
-                "Contact verification could not be completed. No verification has been recorded."
-            );
-            return;
-        }
-
-        competitionState.contactVerified = true;
+        /*
+         * Registration alone must not unlock the spin until the backend
+         * returns a secure token and the spin endpoint validates it.
+         */
         spinButton.disabled = false;
         spinButton.textContent = "Spin the prize wheel";
-        setStatus(verificationStatus, "Contact details verified.", "success");
-        wheelStatus.textContent = "Your verified entry is ready for its one authorized spin.";
+        wheelStatus.textContent =
+            "Your entry is recorded. You may use your one spin.";
     } catch (error) {
-        console.error("Luck Draw verification service error:", error);
+        console.error("Lucky Draw registration error:", error);
+
+        registrationSubmitButton.disabled = false;
+
         setStatus(
-            verificationStatus,
-            "Contact verification could not be completed. No verification has been recorded.",
+            registrationStatus,
+            error.message || "We could not confirm your entry. Please try again.",
             "error"
         );
     }
@@ -419,39 +300,40 @@ verificationForm.addEventListener("submit", async event => {
 spinButton.addEventListener("click", async () => {
     if (
         !competitionState.entryId ||
-        !competitionState.contactVerified ||
+        !competitionState.spinToken ||
         competitionState.spinUsed
     ) {
         return;
     }
 
     spinButton.disabled = true;
-    wheelStatus.textContent = "Checking your entry with the secure competition service.";
+
+    setStatus(
+        wheelStatus,
+        "Requesting your prize from the secure competition service..."
+    );
 
     let result;
 
     try {
-        result = await requestEntryPrize(competitionState.entryId);
+        result = await allocatePrizeWithSupabase(
+            competitionState.entryId,
+            competitionState.spinToken
+        );
     } catch (error) {
-        console.error("Luck Draw prize service error:", error);
-        spinButton.disabled = false;
-        wheelStatus.textContent =
-            "Prize allocation could not be completed. No spin or prize confirmation was received.";
-        return;
-    }
+        console.error("Lucky Draw spin error:", error);
 
-    if (
-        !result ||
-        !result.available ||
-        !availablePrizes.has(result.prize) ||
-        result.spinUsed !== true ||
-        typeof result.claimInstructions !== "string" ||
-        !result.claimInstructions ||
-        !Number.isFinite(result.rotation)
-    ) {
-        spinButton.disabled = false;
-        wheelStatus.textContent =
-            "Secure prize allocation is not available yet. No spin or prize has been recorded.";
+        /*
+         * A failed network response can be ambiguous: the server may have
+         * recorded the spin before the connection failed. Do not blindly
+         * submit another spin. Check the saved result with the backend first.
+         */
+        setStatus(
+            wheelStatus,
+            "We could not confirm the result. Please contact MonarchAurex before retrying.",
+            "error"
+        );
+
         return;
     }
 
@@ -464,40 +346,94 @@ spinButton.addEventListener("click", async () => {
     const claimInstructions = document.getElementById("claim-instructions");
 
     if (!wheel || !wheelPanel || !resultName || !claimInstructions) {
-        throw new Error("The Luck Draw result interface is incomplete.");
+        setStatus(
+            wheelStatus,
+            "Your result was saved, but the result display is incomplete.",
+            "error"
+        );
+        return;
     }
 
     if (!reducedMotionPreference.matches) {
         wheelPanel.classList.add("is-spinning");
+
         await new Promise(resolve => {
             let spinTimeout;
+
             const finishSpin = () => {
                 window.clearTimeout(spinTimeout);
                 wheel.removeEventListener("transitionend", handleTransitionEnd);
                 resolve();
             };
+
             const handleTransitionEnd = event => {
-                if (event.target === wheel && event.propertyName === "transform") {
+                if (
+                    event.target === wheel &&
+                    event.propertyName === "transform"
+                ) {
                     finishSpin();
                 }
             };
 
             wheel.addEventListener("transitionend", handleTransitionEnd);
+
             window.requestAnimationFrame(() => {
-                wheel.style.transform = `rotate(${result.rotation}deg)`;
+                const currentRotation =
+                    Number.parseFloat(
+                        wheel.dataset.rotation || "0"
+                    ) || 0;
+
+                const nextRotation = currentRotation + 1800;
+
+                wheel.dataset.rotation = String(nextRotation);
+                wheel.style.transform = `rotate(${nextRotation}deg)`;
             });
-            spinTimeout = window.setTimeout(finishSpin, wheelSpinDuration + 400);
+
+            spinTimeout = window.setTimeout(
+                finishSpin,
+                wheelSpinDuration + 400
+            );
         });
     }
 
     wheelPanel.classList.remove("is-spinning");
     wheelPanel.classList.add("has-result");
+
     resultName.textContent = result.prize;
     claimInstructions.textContent = result.claimInstructions;
+
     if (result.prize === "100% OFF — THE GOLDEN PRIVILEGE") {
         prizeResult.classList.add("is-grand-prize");
     }
+
     resultPlaceholder.hidden = true;
     prizeResult.hidden = false;
-    setStatus(wheelStatus, "Your prize result has been recorded.", "success");
+
+    setStatus(
+        wheelStatus,
+        "Your prize result has been recorded. MonarchAurex will review your eligibility before confirming the prize.",
+        "success"
+    );
+
+    spinButton.textContent = "Spin already used";
 });
+
+/* Marketing unsubscribe remains unavailable until its backend is implemented. */
+const unsubscribeToken = new URLSearchParams(
+    window.location.search
+).get("unsubscribe_token");
+
+if (unsubscribeToken) {
+    const cleanUrl = new URL(window.location.href);
+    cleanUrl.searchParams.delete("unsubscribe_token");
+
+    window.history.replaceState(null, "", cleanUrl);
+
+    marketingPreferenceStatus.hidden = false;
+
+    setStatus(
+        marketingPreferenceStatus,
+        "Self-service unsubscribe is not available yet. Please contact MonarchAurex to change your marketing preferences.",
+        "pending"
+    );
+}
