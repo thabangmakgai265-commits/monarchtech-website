@@ -337,7 +337,52 @@ strong {
 
     white-space: nowrap;
 }
+.brand-launch-link {
+    display: inline-block;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
 
+.brand-home-state {
+    display: inline-block;
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.brand-countdown-state {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--gold-soft);
+    font-size: .56rem;
+    letter-spacing: .07em;
+    opacity: 0;
+    white-space: nowrap;
+    transform: translateY(-50%);
+    transition: opacity .3s ease;
+}
+
+.brand-launch-link.is-countdown .brand-home-state {
+    opacity: 0;
+}
+
+.brand-launch-link.is-countdown .brand-countdown-state {
+    opacity: 1;
+}
+
+.brand-countdown-state svg {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+}
 .brand::after {
     content: "";
 
