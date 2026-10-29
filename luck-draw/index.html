@@ -190,25 +190,52 @@
                                 <input id="country" name="country" type="text" autocomplete="country-name" maxlength="80" required>
                             </div>
                         </div>
-                        <label class="consent-option" for="rules-consent">
-                            <input id="rules-consent" name="rulesConsent" type="checkbox" required>
-                            <span>I agree to the official competition rules and prize terms, published before registration opens.</span>
-                        </label>
-                        <label class="consent-option" for="privacy-consent">
-                            <input id="privacy-consent" name="privacyConsent" type="checkbox" required>
-                            <span>I consent to the use of my information under the competition privacy notice provided before registration opens.</span>
-                        </label>
-                        <label class="consent-option marketing-consent" for="marketing-consent">
-                            <input id="marketing-consent" name="marketingConsent" type="checkbox">
-                            <span>
-                                I would like to receive MonarchAurex news, launch announcements,
-                                new service updates and special offers.
-                                <strong>Optional — not required to enter the competition.</strong>
-                            </span>
-                        </label>
-                        <p class="marketing-status" id="marketing-status">
-                            Marketing consent is separate from competition entry.
-                        </p>
+                       
+<label class="consent-option" for="rules-consent">
+    <input
+        id="rules-consent"
+        name="rulesConsent"
+        type="checkbox"
+        required
+    >
+    <span>
+        I have read and agree to the official competition rules
+        and prize terms.
+    </span>
+</label>
+
+<label class="consent-option" for="privacy-consent">
+    <input
+        id="privacy-consent"
+        name="privacyConsent"
+        type="checkbox"
+        required
+    >
+    <span>
+        I acknowledge the competition privacy notice and consent
+        to the processing of my personal information for
+        competition registration and administration.
+    </span>
+</label>
+
+<label class="consent-option marketing-consent" for="marketing-consent">
+    <input
+        id="marketing-consent"
+        name="marketingConsent"
+        type="checkbox"
+    >
+    <span>
+        I would like to receive MonarchAurex news, launch
+        announcements, service updates and special offers.
+        <strong>Optional — not required to enter.</strong>
+    </span>
+</label>
+
+<p class="marketing-status" id="marketing-status">
+    Your marketing choice is separate from your competition entry.
+    You can leave this box unchecked and still enter.
+</p>
+
                         <button class="primary-button" type="submit" disabled>
                             Registration opens soon
                         </button>
