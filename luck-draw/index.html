@@ -236,60 +236,47 @@
     You can leave this box unchecked and still enter.
 </p>
 
-                        <button class="primary-button" type="submit">
-                            Registrations opened
-                        </button>
-                    </fieldset>
-                    <p class="form-status" id="registration-status" role="status" aria-live="polite">
-                        Entries are open for official competition.
-                    </p>
-                    <p class="marketing-preference-status" id="marketing-preference-status" role="status" aria-live="polite" hidden></p>
-                </form>
+                 
+<button class="primary-button" type="submit">
+    Registrations opened
+</button>
+</fieldset>
 
-                <section class="entry-confirmation state-card" id="entry-confirmation" aria-labelledby="entry-title" hidden>
-                    <p class="eyebrow">ENTRY CONFIRMATION</p>
-                    <h3 id="entry-title">Entry received</h3>
-                    <p>Your unique entry ID:</p>
-                    <strong id="entry-id">Issued after registration</strong>
-                    <p class="state-note">Contact verification is required before an authorized spin.</p>
-                </section>
+<p class="form-status" id="registration-status" role="status" aria-live="polite">
+    Entries are open for official competition.
+</p>
 
-                <section class="verification-step" id="verification" aria-labelledby="verification-title">
-                    <div class="verification-heading">
-                        <p class="eyebrow">AFTER REGISTRATION</p>
-                        <h4 id="verification-title">Verify contact details</h4>
-                        <p class="panel-copy">
-                            A verification code will be requested after an entry is recorded.
-                        </p>
-                    </div>
-                    <form id="verification-form">
-                        <fieldset class="verification-fields" disabled>
-                            <div class="form-field">
-                                <label for="verification-code">Verification code</label>
-                                <input id="verification-code" name="verificationCode" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="12" required>
-                            </div>
-                            <button class="secondary-button" type="submit" disabled>Verify contact</button>
-                        </fieldset>
-                        <p class="form-status" id="verification-status" role="status" aria-live="polite">
-                            Contact verification opens after competition registration.
-                        </p>
-                    </form>
-                </section>
-            </div>
-        </section>
+<p class="marketing-preference-status" id="marketing-preference-status" role="status" aria-live="polite" hidden></p>
+</form>
 
-        <section class="panel result-panel" id="prize-result" aria-labelledby="result-title" hidden>
-            <p class="eyebrow">YOUR PRIZE RESULT</p>
-            <h2 id="result-title">Your confirmed prize</h2>
-            <p class="result-prize" id="result-prize-name">A result will appear after the official draw.</p>
-            <p class="panel-copy">
-                Follow claim instructions sent to your verified contact details.
-                A result is valid only when confirmed by the official competition service.
-            </p>
-            <div class="claim-instructions" id="claim-instructions">
-                Claim instructions will accompany an authorized result.
-            </div>
-        </section>
+<section class="entry-confirmation state-card" id="entry-confirmation" aria-labelledby="entry-title" hidden>
+    <p class="eyebrow">ENTRY CONFIRMATION</p>
+    <h3 id="entry-title">Entry received</h3>
+    <p>Your unique entry ID:</p>
+    <strong id="entry-id">Issued after registration</strong>
+    <p class="state-note">
+        Your entry has been recorded. You can now proceed to your one-time spin.
+    </p>
+</section>
+
+<!-- Contact verification is not currently enabled. -->
+
+</div>
+</section>
+
+<section class="panel result-panel" id="prize-result" aria-labelledby="result-title" hidden>
+    <p class="eyebrow">YOUR PRIZE RESULT</p>
+    <h2 id="result-title">Your confirmed prize</h2>
+    <p class="result-prize" id="result-prize-name">A result will appear after the official draw.</p>
+    <p class="panel-copy">
+        Follow claim instructions sent to your verified contact details.
+        A result is valid only when confirmed by the official competition service.
+    </p>
+    <div class="claim-instructions" id="claim-instructions">
+        Claim instructions will accompany an authorized result.
+    </div>
+</section>
+
 
         <section class="panel result-placeholder" id="result-placeholder" aria-labelledby="result-placeholder-title">
             <p class="eyebrow">AFTER THE DRAW</p>
