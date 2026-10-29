@@ -1,3 +1,4 @@
+
 :root {
     color-scheme: dark;
     --draw-bg: var(--ma-bg, #07090D);
@@ -49,6 +50,14 @@ a {
 button,
 input {
     font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
 }
 
 .skip-link {
@@ -345,12 +354,9 @@ input {
     line-height: 1.8;
 }
 
-.panel {
-    border: 1px solid var(--draw-border);
-    background:
-        linear-gradient(145deg, rgba(15, 19, 25, .96), rgba(10, 13, 18, .98));
-    box-shadow: 0 22px 60px rgba(0, 0, 0, .2);
-}
+/* =========================================================
+   WHEEL PANEL
+   ========================================================= */
 
 .wheel-panel {
     display: grid;
@@ -399,6 +405,18 @@ input {
     line-height: 1.5;
     text-align: center;
     text-transform: uppercase;
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        opacity .25s ease;
+}
+
+.secondary-button:not(:disabled):hover,
+.primary-button:not(:disabled):hover {
+    border-color: rgba(227, 206, 160, .7);
+    background: rgba(193, 160, 92, .17);
+    color: #F5E5BF;
 }
 
 .secondary-button:disabled,
@@ -530,6 +548,10 @@ input {
     transform: translateX(-50%);
 }
 
+/*
+ * The wheel itself is the rotating element.
+ * JavaScript controls its transform and transition duration.
+ */
 .prize-wheel {
     --slice-one: #17191E;
     --slice-two: #202127;
@@ -538,6 +560,7 @@ input {
     --slice-five: #9A7C48;
     --slice-six: #202329;
     --slice-seven: #6B5735;
+
     position: relative;
     z-index: 1;
     width: 100%;
@@ -557,22 +580,24 @@ input {
             var(--slice-five) 205.712deg 257.14deg,
             var(--slice-six) 257.14deg 308.568deg,
             var(--slice-seven) 308.568deg 360deg
-        ),
-        repeating-conic-gradient(
-            from -25.714deg,
-            transparent 0deg 50.6deg,
-            rgba(229, 218, 191, .78) 50.85deg 51.1deg,
-            rgba(10, 12, 14, .92) 51.15deg 51.42deg,
-            transparent 51.43deg 51.428deg
         );
     box-shadow:
         inset 0 2px 5px rgba(255, 255, 255, .18),
         inset 0 -15px 25px rgba(0, 0, 0, .5),
         inset 0 0 0 6px rgba(5, 7, 9, .55),
         0 2px 8px rgba(0, 0, 0, .65);
+
+    /*
+     * Keep rotation centred and let JavaScript set the
+     * transition duration for each spin.
+     */
     transform: rotate(0deg);
-    transition: transform 5.2s cubic-bezier(.08, .72, .08, 1);
+    transform-origin: 50% 50%;
+    transition-property: transform;
+    transition-duration: 5.2s;
+    transition-timing-function: cubic-bezier(.08, .72, .08, 1);
     will-change: transform;
+    backface-visibility: hidden;
 }
 
 .prize-wheel::before,
@@ -740,6 +765,10 @@ input {
     text-align: center;
 }
 
+/* =========================================================
+   ENTRY AND REGISTRATION
+   ========================================================= */
+
 .entry-section {
     display: grid;
     grid-template-columns: minmax(240px, .78fr) minmax(0, 1.22fr);
@@ -781,6 +810,7 @@ input {
 }
 
 .registration-panel {
+    min-width: 0;
     padding: clamp(24px, 4vw, 42px);
 }
 
@@ -796,19 +826,13 @@ input {
     font-size: .78rem;
 }
 
-.registration-panel {
-    min-width: 0;
-}
-
-#registration-form,
-#verification-form {
+#registration-form {
     display: grid;
     gap: 16px;
     margin-top: 25px;
 }
 
-.registration-fields,
-.verification-fields {
+.registration-fields {
     display: grid;
     min-width: 0;
     gap: 15px;
@@ -896,7 +920,6 @@ input {
 }
 
 .form-status,
-.wheel-note,
 .state-note {
     margin: 0;
     color: #B0B2B5;
@@ -906,6 +929,10 @@ input {
 
 .form-status[data-status="success"] {
     color: #C9D8B3;
+}
+
+.form-status[data-status="error"] {
+    color: #E1A5A5;
 }
 
 .marketing-preference-status {
@@ -960,41 +987,6 @@ input {
     overflow-wrap: anywhere;
 }
 
-.verification-fields {
-    gap: 12px;
-}
-
-.verification-fields .secondary-button {
-    width: 100%;
-}
-
-.verification-step {
-    margin-top: 24px;
-    padding-top: 21px;
-    border-top: 1px solid var(--draw-border);
-}
-
-.verification-heading .eyebrow {
-    margin-bottom: 7px;
-}
-
-.verification-heading h4 {
-    margin: 0;
-    color: #E7E4DE;
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
-.verification-heading .panel-copy {
-    margin-top: 5px;
-    font-size: .74rem;
-}
-
-.verification-step #verification-form {
-    margin-top: 16px;
-}
-
 .result-panel h2 {
     margin: 0;
     font-family: "Playfair Display", Georgia, serif;
@@ -1007,6 +999,7 @@ input {
     color: #E8D8B1;
     font-family: "Playfair Display", Georgia, serif;
     font-size: 1.55rem;
+    overflow-wrap: anywhere;
 }
 
 .claim-instructions {
@@ -1016,6 +1009,7 @@ input {
     color: #C5C3BA;
     font-size: .8rem;
     line-height: 1.65;
+    overflow-wrap: anywhere;
 }
 
 .result-placeholder {
@@ -1039,6 +1033,10 @@ input {
 [hidden] {
     display: none !important;
 }
+
+/* =========================================================
+   FOOTER AND ACCESSIBILITY
+   ========================================================= */
 
 .page-footer {
     display: flex;
@@ -1070,6 +1068,10 @@ button:focus-visible,
     outline-offset: 4px;
 }
 
+/* =========================================================
+   RESPONSIVE LAYOUT
+   ========================================================= */
+
 @media (max-width: 900px) {
     .wheel-panel {
         grid-template-columns: minmax(200px, .72fr) minmax(260px, 1.28fr);
@@ -1089,7 +1091,6 @@ button:focus-visible,
     .entry-intro h2 {
         font-size: 2.45rem;
     }
-
 }
 
 @media (max-width: 680px) {
@@ -1169,7 +1170,6 @@ button:focus-visible,
     .entry-intro h2 {
         font-size: clamp(2.35rem, 9vw, 3.4rem);
     }
-
 }
 
 @media (max-width: 440px) {
@@ -1271,10 +1271,7 @@ button:focus-visible,
             translateY(-33cqw);
     }
 
-    .wheel-label small {
-        font-size: clamp(.38rem, 1.65cqw, .42rem);
-    }
-
+    .wheel-label small,
     .wheel-label-grand small {
         font-size: clamp(.38rem, 1.65cqw, .42rem);
     }
@@ -1310,17 +1307,23 @@ button:focus-visible,
     }
 }
 
+/*
+ * Reduced-motion preferences still reduce decorative effects.
+ * The wheel's explicit JavaScript animation transition is not
+ * overridden here, so it can complete its requested spin.
+ */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+    .draw-nav a,
+    .page-footer a,
+    .text-link,
+    .secondary-button,
+    .primary-button,
+    .wheel-frame,
+    .wheel-machined-ring {
+        transition-duration: .01ms;
     }
 }
