@@ -53,35 +53,56 @@ document.addEventListener("DOMContentLoaded", () => {
         $(".navigation-links");
 
     if (menuToggle && navigation) {
-
-        menuToggle.addEventListener("click", () => {
-
-            const isOpen =
-                navigation.classList.toggle("active");
-
+        const checkboxMenu =
+            menuToggle instanceof HTMLInputElement &&
+            menuToggle.type === "checkbox";
+        const menuControl = checkboxMenu
+            ? $(`label[for="${menuToggle.id}"]`)
+            : menuToggle;
+        const setMenuExpanded = isExpanded => {
             menuToggle.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                String(isExpanded)
             );
 
-        });
+            if (menuControl && menuControl !== menuToggle) {
+                menuControl.setAttribute(
+                    "aria-expanded",
+                    String(isExpanded)
+                );
+                menuControl.setAttribute(
+                    "aria-label",
+                    isExpanded ? "Close navigation" : "Open navigation"
+                );
+            }
+        };
 
+        if (checkboxMenu) {
+            setMenuExpanded(menuToggle.checked);
+
+            menuToggle.addEventListener("change", () => {
+                setMenuExpanded(menuToggle.checked);
+            });
+        } else {
+            menuToggle.addEventListener("click", () => {
+                const isOpen =
+                    navigation.classList.toggle("active");
+
+                setMenuExpanded(isOpen);
+            });
+        }
 
         $$(".nav-links a, nav ul a").forEach(link => {
-
             link.addEventListener("click", () => {
+                if (checkboxMenu) {
+                    menuToggle.checked = false;
+                } else {
+                    navigation.classList.remove("active");
+                }
 
-                navigation.classList.remove("active");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
+                setMenuExpanded(false);
             });
-
         });
-
     }
 
 

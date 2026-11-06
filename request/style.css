@@ -1111,6 +1111,13 @@ img {
     object-fit: cover;
 }
 
+.photo-upload-progress {
+    width: min(100%, 280px);
+    height: 8px;
+    margin-top: 16px;
+    accent-color: var(--gold-soft);
+}
+
 .photo-status {
     min-height: 20px;
 
@@ -1118,6 +1125,20 @@ img {
 
     font-size: 0.68rem;
 
+    color: var(--gold-soft);
+}
+
+.photo-status.error,
+.form-feedback.error {
+    color: #E88C83;
+}
+
+.photo-status.success,
+.form-feedback.success {
+    color: #A8D7B3;
+}
+
+.photo-status.uploading {
     color: var(--gold-soft);
 }
 

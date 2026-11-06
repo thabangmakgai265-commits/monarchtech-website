@@ -56,7 +56,7 @@
                 </p>
                 <a class="button-link" href="#application">
                     Explore a partnership
-                    <span aria-hidden="true">↘</span>
+                    <span aria-hidden="true"><svg class="ma-arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 7 10 10M8 17h9V8"></path></svg></span>
                 </a>
             </div>
 
@@ -185,17 +185,22 @@
                     interested in. We’ll review your details and share
                     next steps with approved partners.
                 </p>
-                <div class="form-setup-note" role="status">
+                <div class="form-setup-note" id="partnership-setup-note" role="status">
                     <span class="note-marker" aria-hidden="true">i</span>
                     <p>
-                        Applications are not being submitted yet. A dedicated
-                        partner application service must be connected before
-                        this form can be enabled.
+                        A confirmed Formspree endpoint is required before
+                        applications can be sent. This preview will not submit
+                        or store your information.
                     </p>
                 </div>
             </div>
 
-            <form class="application-form">
+            <form
+                class="application-form"
+                id="partnership-application-form"
+                data-formspree-endpoint=""
+                onsubmit="return false"
+            >
                 <div class="form-field">
                     <label for="partner-name">Full name</label>
                     <input
@@ -204,6 +209,8 @@
                         type="text"
                         autocomplete="name"
                         placeholder="Your full name"
+                        minlength="2"
+                        maxlength="100"
                         required
                     >
                 </div>
@@ -216,6 +223,7 @@
                         type="email"
                         autocomplete="email"
                         placeholder="you@example.com"
+                        maxlength="254"
                         required
                     >
                 </div>
@@ -228,6 +236,8 @@
                         type="tel"
                         autocomplete="tel"
                         placeholder="+27 ..."
+                        pattern="[+0-9() -]{7,24}"
+                        maxlength="24"
                         required
                     >
                 </div>
@@ -249,6 +259,8 @@
                         name="introduction"
                         rows="5"
                         placeholder="Tell us about your network, audience or relevant experience."
+                        minlength="20"
+                        maxlength="2000"
                         required
                     ></textarea>
                 </div>
@@ -267,11 +279,22 @@
                     </span>
                 </label>
 
+                <div class="form-honeypot" aria-hidden="true">
+                    <label for="partner-website">Leave this field empty</label>
+                    <input
+                        id="partner-website"
+                        name="_gotcha"
+                        type="text"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+                </div>
                 <button class="submit-button" type="submit" disabled>
-                    Applications not yet open
+                    Form not yet available
                 </button>
-                <p class="form-footnote">
-                    This form is a preview only; completing it will not send your information.
+                <p class="form-footnote" id="partnership-form-status" role="status" aria-live="polite">
+                    Formspree is not connected. Please provide the correct Partnerships
+                    Formspree form endpoint before activation.
                 </p>
             </form>
         </section>
@@ -319,7 +342,7 @@
             </nav>
             <div class="footer-contact">
                 <span>START A PROJECT</span>
-                <a href="../request/request.html">Request Portfolio <span aria-hidden="true">↗</span></a>
+                <a href="../request/request.html">Request Portfolio <span aria-hidden="true"><svg class="ma-arrow-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"></path></svg></span></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -328,6 +351,7 @@
         </div>
     </footer>
 
+    <script src="partnerships.js" defer></script>
     <script type="module" src="../bloom-background.js"></script>
 </body>
 </html>

@@ -902,26 +902,18 @@ img {
     line-height: 1.75;
 }
 
-.highlight-card::after {
-    content: "↗";
-
+.highlight-card-arrow {
     position: absolute;
-
     right: 0;
     top: 28px;
-
     color: var(--dim);
-
-    font-size: 16px;
-
-    transition:
-        color var(--transition),
-        transform var(--transition);
+    width: 16px;
+    height: 16px;
+    transition: color var(--transition), transform var(--transition);
 }
 
-.highlight-card:hover::after {
+.highlight-card:hover .highlight-card-arrow {
     color: var(--purple-soft);
-
     transform: translate(3px, -3px);
 }
 

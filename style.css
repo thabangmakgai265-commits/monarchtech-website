@@ -4602,6 +4602,16 @@ span:last-child {
         --section-space: 80px;
     }
 
+    .brand-countdown-state {
+        max-width: calc(100vw - 120px);
+        overflow: hidden;
+    }
+
+    .brand-countdown-state > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .navbar {
         width:
             calc(100% - 28px);

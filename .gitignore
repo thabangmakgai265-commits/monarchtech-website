@@ -8,3 +8,11 @@ node_modules/
 payfast-backend/.dev.vars
 payfast-backend/.wrangler/
 payfast-backend/node_modules/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# Local VS Code connection settings
+.vscode/mcp.json

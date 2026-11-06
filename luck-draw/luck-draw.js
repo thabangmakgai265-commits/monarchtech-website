@@ -154,7 +154,6 @@ const saveEntryWithSupabase = async formData => {
             headers: {
                 "Content-Type": "application/json",
                 "apikey": supabasePublishableKey,
-                "Authorization": `Bearer ${supabasePublishableKey}`
             },
             body: JSON.stringify(payload)
         }
@@ -201,13 +200,12 @@ const allocatePrizeWithSupabase = async (entryId, spinToken) => {
     }
 
     const response = await fetch(
-        `${projectUrl}/functions/v1/lucky-draw-spin`,
+        `${projectUrl}/functions/v1/quick-action`,
         {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "apikey": supabasePublishableKey,
-                "Authorization": `Bearer ${supabasePublishableKey}`
             },
             body: JSON.stringify({
                 entryId,

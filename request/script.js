@@ -50,15 +50,27 @@ const CLOUDINARY_UPLOAD_PRESET =
     const MAX_PHOTO_SIZE =
         5 * 1024 * 1024;
 
-    const allowedPhotoTypes = [
-
+    const allowedPhotoTypes = new Set([
         "image/jpeg",
-
+        "image/jpg",
         "image/png",
+        "image/webp",
+        "image/heic",
+        "image/heif",
+        "image/heic-sequence",
+        "image/heif-sequence"
+    ]);
 
-        "image/webp"
+    const allowedPhotoExtensions = new Set([
+        "jpg",
+        "jpeg",
+        "png",
+        "webp",
+        "heic",
+        "heif"
+    ]);
 
-    ];
+    const PHOTO_UPLOAD_TIMEOUT_MS = 120000;
 
 
     /* =========================================================
@@ -190,6 +202,11 @@ const CLOUDINARY_UPLOAD_PRESET =
             "photo-status"
         );
 
+    const photoUploadProgress =
+        document.getElementById(
+            "photo-upload-progress"
+        );
+
 
     const submitButton =
         document.getElementById(
@@ -243,6 +260,11 @@ const CLOUDINARY_UPLOAD_PRESET =
         document.getElementById(
             "remaining-summary-row"
         );
+
+    let previewObjectUrl = "";
+    let uploadedPhotoFile = null;
+    let uploadedPhotoUrl = "";
+    let isSubmitting = false;
 
 
     /* =========================================================
@@ -1003,162 +1025,126 @@ const CLOUDINARY_UPLOAD_PRESET =
        PHOTO PREVIEW
     ========================================================= */
 
-    if (profilePhotoInput) {
+    function validateProfilePhoto(file) {
+        if (!file) {
+            throw new Error("Please upload your profile photo.");
+        }
 
+        const fileType = (file.type || "").toLowerCase();
+        const fileExtension =
+            file.name.split(".").pop()?.toLowerCase() || "";
+        const hasSupportedType =
+            allowedPhotoTypes.has(fileType);
+        const hasSupportedExtension =
+            allowedPhotoExtensions.has(fileExtension);
+        const hasGenericType =
+            !fileType || fileType === "application/octet-stream";
+
+        if (
+            !hasSupportedType &&
+            !(hasGenericType && hasSupportedExtension)
+        ) {
+            throw new Error(
+                "Choose a JPG, PNG, WebP, HEIC or HEIF profile photo."
+            );
+        }
+
+        if (file.size > MAX_PHOTO_SIZE) {
+            throw new Error(
+                "Your profile photo must be 5MB or smaller. Please choose a smaller image."
+            );
+        }
+    }
+
+    function clearPhotoPreview() {
+        if (previewObjectUrl) {
+            URL.revokeObjectURL(previewObjectUrl);
+            previewObjectUrl = "";
+        }
+
+        if (photoPreviewImage) {
+            photoPreviewImage.removeAttribute("src");
+        }
+
+        if (photoPreview) {
+            photoPreview.hidden = true;
+        }
+    }
+
+    if (profilePhotoInput) {
         profilePhotoInput.addEventListener(
             "change",
             () => {
-
                 const file =
                     profilePhotoInput.files?.[0];
 
+                clearPhotoPreview();
+                uploadedPhotoFile = null;
+                uploadedPhotoUrl = "";
 
                 if (!file) {
-
-                    if (photoPreview) {
-
-                        photoPreview.hidden =
-                            true;
-                    }
-
-
-                    if (photoPreviewImage) {
-
-                        photoPreviewImage.src =
-                            "";
-                    }
-
-
                     if (photoStatus) {
-
-                        photoStatus.textContent =
-                            "";
+                        photoStatus.textContent = "";
+                        photoStatus.className = "photo-status";
                     }
-
 
                     if (profilePhotoUrlInput) {
-
-                        profilePhotoUrlInput.value =
-                            "";
+                        profilePhotoUrlInput.value = "";
                     }
 
+                    if (photoUploadProgress) {
+                        photoUploadProgress.hidden = true;
+                        photoUploadProgress.value = 0;
+                    }
 
                     return;
                 }
 
-
-                /* -----------------------------------------
-                   File Type
-                ----------------------------------------- */
-
-                if (
-                    !allowedPhotoTypes.includes(
-                        file.type
-                    )
-                ) {
-
-                    profilePhotoInput.value =
-                        "";
-
-
-                    if (photoPreview) {
-
-                        photoPreview.hidden =
-                            true;
-                    }
-
+                try {
+                    validateProfilePhoto(file);
+                } catch (error) {
+                    profilePhotoInput.value = "";
 
                     if (photoStatus) {
-
-                        photoStatus.textContent =
-                            "Please upload a JPG, PNG or WebP image.";
-
-                        photoStatus.className =
-                            "photo-status error";
+                        photoStatus.textContent = error.message;
+                        photoStatus.className = "photo-status error";
                     }
 
+                    if (profilePhotoUrlInput) {
+                        profilePhotoUrlInput.value = "";
+                    }
 
                     return;
                 }
 
+                const fileExtension =
+                    file.name.split(".").pop()?.toLowerCase() || "";
+                const isHeif =
+                    file.type === "image/heic" ||
+                    file.type === "image/heif" ||
+                    fileExtension === "heic" ||
+                    fileExtension === "heif";
 
-                /* -----------------------------------------
-                   File Size
-                ----------------------------------------- */
-
-                if (
-                    file.size >
-                    MAX_PHOTO_SIZE
-                ) {
-
-                    profilePhotoInput.value =
-                        "";
-
-
-                    if (photoPreview) {
-
-                        photoPreview.hidden =
-                            true;
-                    }
-
-
-                    if (photoStatus) {
-
-                        photoStatus.textContent =
-                            "Your profile photo must be 5MB or smaller.";
-
-                        photoStatus.className =
-                            "photo-status error";
-                    }
-
-
-                    return;
+                if (!isHeif && photoPreviewImage && photoPreview) {
+                    previewObjectUrl = URL.createObjectURL(file);
+                    photoPreviewImage.src = previewObjectUrl;
+                    photoPreview.hidden = false;
                 }
-
-
-                /* -----------------------------------------
-                   Preview
-                ----------------------------------------- */
-
-                const reader =
-                    new FileReader();
-
-
-                reader.onload =
-                    function (event) {
-
-                        if (photoPreviewImage) {
-
-                            photoPreviewImage.src =
-                                event.target.result;
-                        }
-
-
-                        if (photoPreview) {
-
-                            photoPreview.hidden =
-                                false;
-                        }
-                    };
-
-
-                reader.readAsDataURL(file);
-
 
                 if (photoStatus) {
-
-                    photoStatus.textContent =
-                        "Photo selected. It will be uploaded securely when you submit your request.";
-
-                    photoStatus.className =
-                        "photo-status";
+                    photoStatus.textContent = isHeif
+                        ? "Photo selected. Preview is unavailable in this browser; the original photo will be uploaded."
+                        : "Photo selected. It will be uploaded securely when you submit your request.";
+                    photoStatus.className = "photo-status";
                 }
 
-
                 if (profilePhotoUrlInput) {
+                    profilePhotoUrlInput.value = "";
+                }
 
-                    profilePhotoUrlInput.value =
-                        "";
+                if (photoUploadProgress) {
+                    photoUploadProgress.hidden = true;
+                    photoUploadProgress.value = 0;
                 }
             }
         );
@@ -1170,163 +1156,178 @@ const CLOUDINARY_UPLOAD_PRESET =
     ========================================================= */
 
     async function uploadProfilePhoto(file) {
-
-        if (!file) {
-
-            throw new Error(
-                "Please select a profile photo."
-            );
-        }
-
-
-        /* -----------------------------------------
-           Validate Type
-        ----------------------------------------- */
+        validateProfilePhoto(file);
 
         if (
-            !allowedPhotoTypes.includes(
-                file.type
-            )
+            uploadedPhotoFile === file &&
+            uploadedPhotoUrl
         ) {
-
-            throw new Error(
-                "Profile photo must be JPG, PNG or WebP."
-            );
+            return uploadedPhotoUrl;
         }
-
-
-        /* -----------------------------------------
-           Validate Size
-        ----------------------------------------- */
-
-        if (
-            file.size >
-            MAX_PHOTO_SIZE
-        ) {
-
-            throw new Error(
-                "Profile photo must be 5MB or smaller."
-            );
-        }
-
 
         if (photoStatus) {
-
-            photoStatus.textContent =
-                "Uploading profile photo...";
-
-            photoStatus.className =
-                "photo-status uploading";
+            photoStatus.textContent = "Uploading profile photo… 0%";
+            photoStatus.className = "photo-status uploading";
         }
 
+        if (photoUploadProgress) {
+            photoUploadProgress.value = 0;
+            photoUploadProgress.hidden = false;
+        }
 
-        const cloudinaryData =
-            new FormData();
-
-
-        cloudinaryData.append(
-            "file",
-            file
-        );
-
-
+        const cloudinaryData = new FormData();
+        cloudinaryData.append("file", file);
         cloudinaryData.append(
             "upload_preset",
             CLOUDINARY_UPLOAD_PRESET
         );
 
+        const securePhotoUrl = await new Promise(
+            (resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", CLOUDINARY_UPLOAD_URL);
+                xhr.timeout = PHOTO_UPLOAD_TIMEOUT_MS;
 
-        try {
+                xhr.upload.addEventListener(
+                    "progress",
+                    event => {
+                        if (!event.lengthComputable) {
+                            if (photoStatus) {
+                                photoStatus.textContent =
+                                    "Uploading profile photo…";
+                            }
 
-            const response =
-                await fetch(
-                    CLOUDINARY_UPLOAD_URL,
-                    {
-                        method: "POST",
+                            return;
+                        }
 
-                        body:
-                            cloudinaryData
+                        const percent = Math.min(
+                            100,
+                            Math.round(
+                                (event.loaded / event.total) * 100
+                            )
+                        );
+
+                        if (photoUploadProgress) {
+                            photoUploadProgress.value = percent;
+                        }
+
+                        if (photoStatus) {
+                            photoStatus.textContent =
+                                percent < 100
+                                    ? `Uploading profile photo… ${percent}%`
+                                    : "Photo uploaded. Cloudinary is processing it…";
+                        }
                     }
                 );
 
+                xhr.addEventListener("load", () => {
+                    let data;
 
-            let data = {};
+                    try {
+                        data = JSON.parse(xhr.responseText || "{}");
+                    } catch (error) {
+                        reject(
+                            new Error(
+                                "Cloudinary returned an unreadable upload response."
+                            )
+                        );
+                        return;
+                    }
 
+                    if (xhr.status < 200 || xhr.status >= 300) {
+                        reject(
+                            new Error(
+                                data?.error?.message ||
+                                `Cloudinary could not upload the photo (HTTP ${xhr.status}).`
+                            )
+                        );
+                        return;
+                    }
 
-            try {
+                    if (typeof data.secure_url !== "string") {
+                        reject(
+                            new Error(
+                                "Cloudinary did not return a secure photo URL."
+                            )
+                        );
+                        return;
+                    }
 
-                data =
-                    await response.json();
+                    let returnedUrl;
 
-            } catch (jsonError) {
+                    try {
+                        returnedUrl = new URL(data.secure_url);
+                    } catch (error) {
+                        reject(
+                            new Error(
+                                "Cloudinary returned an invalid photo URL."
+                            )
+                        );
+                        return;
+                    }
 
-                data = {};
+                    if (
+                        returnedUrl.protocol !== "https:" ||
+                        !returnedUrl.hostname.endsWith(".cloudinary.com")
+                    ) {
+                        reject(
+                            new Error(
+                                "Cloudinary did not return a trusted HTTPS photo URL."
+                            )
+                        );
+                        return;
+                    }
+
+                    resolve(returnedUrl.href);
+                });
+
+                xhr.addEventListener("error", () => {
+                    reject(
+                        new Error(
+                            "Could not connect to Cloudinary. Check your connection and try uploading the photo again. Your request has not been submitted."
+                        )
+                    );
+                });
+
+                xhr.addEventListener("timeout", () => {
+                    reject(
+                        new Error(
+                            "The photo upload timed out. Check your connection and retry; your request has not been submitted."
+                        )
+                    );
+                });
+
+                xhr.addEventListener("abort", () => {
+                    reject(
+                        new Error(
+                            "The photo upload was cancelled. Your request has not been submitted."
+                        )
+                    );
+                });
+
+                xhr.send(cloudinaryData);
             }
+        );
 
+        uploadedPhotoFile = file;
+        uploadedPhotoUrl = securePhotoUrl;
 
-            if (
-                !response.ok ||
-                !data.secure_url
-            ) {
-
-                console.error(
-                    "Cloudinary response:",
-                    data
-                );
-
-
-                throw new Error(
-                    data?.error?.message ||
-                    "Profile photo upload failed."
-                );
-            }
-
-
-            /* -----------------------------------------
-               Save Cloudinary URL
-            ----------------------------------------- */
-
-            if (profilePhotoUrlInput) {
-
-                profilePhotoUrlInput.value =
-                    data.secure_url;
-            }
-
-
-            if (photoStatus) {
-
-                photoStatus.textContent =
-                    "Profile photo uploaded successfully.";
-
-                photoStatus.className =
-                    "photo-status success";
-            }
-
-
-            return data.secure_url;
-
-
-        } catch (error) {
-
-            console.error(
-                "Cloudinary upload error:",
-                error
-            );
-
-
-            if (photoStatus) {
-
-                photoStatus.textContent =
-                    error.message ||
-                    "Unable to upload profile photo.";
-
-                photoStatus.className =
-                    "photo-status error";
-            }
-
-
-            throw error;
+        if (profilePhotoUrlInput) {
+            profilePhotoUrlInput.value = securePhotoUrl;
         }
+
+        if (photoUploadProgress) {
+            photoUploadProgress.value = 100;
+            photoUploadProgress.hidden = false;
+        }
+
+        if (photoStatus) {
+            photoStatus.textContent =
+                "Profile photo uploaded successfully.";
+            photoStatus.className = "photo-status success";
+        }
+
+        return securePhotoUrl;
     }
 
 
@@ -1505,23 +1506,43 @@ const CLOUDINARY_UPLOAD_PRESET =
         };
 
 
-        /*
-         * Keep the existing sessionStorage
-         * structure for the normal payment flow.
-         *
-         * Private Offers are NOT relying on this
-         * as their long-term source of truth.
-         */
+        if (!isPrivateOffer) {
+            try {
+                sessionStorage.setItem(
+                    "monarchaurex_request",
+                    JSON.stringify(storedData)
+                );
+            } catch (error) {
+                console.error(
+                    "Unable to save the payment handoff:",
+                    error
+                );
 
-        sessionStorage.setItem(
-            "monarchaurex_request",
-            JSON.stringify(
-                storedData
-            )
-        );
-
+                throw new Error(
+                    "Your request could not be prepared for payment because this browser blocked session storage. Enable browser storage and try again. Your request has not been submitted."
+                );
+            }
+        }
 
         return storedData;
+    }
+
+    function verifyPaymentHandoffStorage() {
+        const testKey = "monarchaurex_storage_check";
+
+        try {
+            sessionStorage.setItem(testKey, "available");
+            sessionStorage.removeItem(testKey);
+        } catch (error) {
+            console.error(
+                "Payment handoff storage is unavailable:",
+                error
+            );
+
+            throw new Error(
+                "This browser is blocking the temporary storage needed to continue to payment. Enable browser storage and try again. Your request has not been submitted."
+            );
+        }
     }
 
 
@@ -1534,6 +1555,10 @@ const CLOUDINARY_UPLOAD_PRESET =
         async (event) => {
 
             event.preventDefault();
+
+            if (isSubmitting || submitButton?.disabled) {
+                return;
+            }
 
             clearFeedback();
 
@@ -1551,6 +1576,7 @@ const CLOUDINARY_UPLOAD_PRESET =
                 return;
             }
 
+            isSubmitting = true;
 
             /* -----------------------------------------
                Prevent Duplicate Submission
@@ -1578,6 +1604,8 @@ const CLOUDINARY_UPLOAD_PRESET =
                 }
             }
 
+
+            let submissionStage = "request";
 
             try {
 
@@ -1677,6 +1705,12 @@ const CLOUDINARY_UPLOAD_PRESET =
                     );
                 }
 
+                validateProfilePhoto(photoFile);
+
+                if (!isPrivateOffer) {
+                    verifyPaymentHandoffStorage();
+                }
+
 
                 /* -----------------------------------------
                    Upload to Cloudinary
@@ -1689,10 +1723,9 @@ const CLOUDINARY_UPLOAD_PRESET =
                 }
 
 
+                submissionStage = "photo";
                 const profilePhotoUrl =
-                    await uploadProfilePhoto(
-                        photoFile
-                    );
+                    await uploadProfilePhoto(photoFile);
 
 
                 if (!profilePhotoUrl) {
@@ -1839,6 +1872,7 @@ const CLOUDINARY_UPLOAD_PRESET =
                     );
                 }
 
+                submissionStage = "form";
 
                 /* -----------------------------------------
                    Send to Formspree
@@ -1894,13 +1928,6 @@ const CLOUDINARY_UPLOAD_PRESET =
                 }
 
 
-                /* -----------------------------------------
-                   Save Again
-                ----------------------------------------- */
-
-                storeRequestData();
-
-
                 /* =================================================
                    PRIVATE OFFER SUCCESS
                 ================================================= */
@@ -1919,6 +1946,7 @@ const CLOUDINARY_UPLOAD_PRESET =
                         "success"
                     );
 
+                    isSubmitting = false;
 
                     /*
                      * IMPORTANT:
@@ -1947,6 +1975,7 @@ const CLOUDINARY_UPLOAD_PRESET =
                     "success"
                 );
 
+                isSubmitting = false;
 
                 /* -----------------------------------------
                    Redirect to Payment
@@ -1977,10 +2006,20 @@ const CLOUDINARY_UPLOAD_PRESET =
                     error
                 );
 
+                isSubmitting = false;
+
+                const errorMessage =
+                    error instanceof TypeError &&
+                    submissionStage === "photo"
+                        ? "Could not connect to Cloudinary. Check your connection and retry the photo upload. Your request has not been submitted."
+                        : error instanceof TypeError &&
+                          submissionStage === "form"
+                            ? "We could not confirm whether Formspree received your request. Check your connection and contact MonarchAurex before retrying to avoid a duplicate submission."
+                            : error.message ||
+                              "Something went wrong. Please try again.";
 
                 showFeedback(
-                    error.message ||
-                    "Something went wrong. Please try again.",
+                    errorMessage,
                     "error"
                 );
 
@@ -2015,6 +2054,31 @@ const CLOUDINARY_UPLOAD_PRESET =
        INITIALISE
     ========================================================= */
 
-    updatePaymentSummary();
+    const packageQueryValues = {
+        graduate: "Graduate",
+        professional: "Professional",
+        executive: "Executive"
+    };
+
+    const requestedPackage =
+        new URLSearchParams(window.location.search)
+            .get("package")
+            ?.trim()
+            .toLowerCase();
+
+    if (
+        packageSelect &&
+        requestedPackage &&
+        packageQueryValues[requestedPackage]
+    ) {
+        packageSelect.value =
+            packageQueryValues[requestedPackage];
+
+        packageSelect.dispatchEvent(
+            new Event("change", { bubbles: true })
+        );
+    } else {
+        updatePaymentSummary();
+    }
 
 });

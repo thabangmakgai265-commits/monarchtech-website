@@ -707,7 +707,7 @@
                                     type="file"
                                     id="profile-photo"
                                     name="profile_photo"
-                                    accept="image/jpeg,image/png,image/webp"
+                                    accept="image/jpeg,image/jpg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif"
                                     required
                                 >
 
@@ -718,10 +718,17 @@
 
 
                                 <p class="upload-requirements">
-                                    JPG, PNG or WebP • Maximum 5MB
+                                    JPG, PNG, WebP, HEIC or HEIF • Maximum 5MB
                                 </p>
 
-
+                                <progress
+                                    id="photo-upload-progress"
+                                    class="photo-upload-progress"
+                                    max="100"
+                                    value="0"
+                                    aria-label="Profile photo upload progress"
+                                    hidden
+                                ></progress>
 
                                 <div
                                     id="photo-preview"
@@ -731,7 +738,6 @@
 
                                     <img
                                         id="photo-preview-image"
-                                        src=""
                                         alt="Profile photo preview"
                                     >
 
